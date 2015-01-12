@@ -12,14 +12,13 @@ $html.= '<th>Start Time</th>';
 $html.= '<th>End Time</th>';
 $html.= '<th>Caller</th>';
 $html.= '<th>Detail</th>';
-//foreach ($channels as $uniqueid => $channel) {
 foreach ($calls as $callid => $call) {
 	$html.= '<tr>';
 	$html.= '<td>';
-	$html.= $call['starttime'];
+	$html.= $call['starttime']->format('Y-m-d H:i:s');
 	$html.= '</td>';
 	$html.= '<td>';
-	$html.= $call['endtime'];
+	$html.= $call['endtime']->format('Y-m-d H:i:s');
 	$html.= '</td>';
 	$html.= '<td>';
 	$html.= $call['cid_num'];
@@ -30,16 +29,18 @@ foreach ($calls as $callid => $call) {
 		switch ($action['type']) {
 		case 'dial':
 			$html.= '<tr><td>';
-			$html.= 'Dialed ' . $action['dest'] . ' (' . $action['starttime'] . ' - ' . $action['stoptime'] . ')';
+			//$interval = date_diff($action['starttime'], $action['stoptime']);
+			//$html.= $interval->format('%H:%I:%S');
+			$html.= 'Dialed ' . $action['dest'] . ($action['status'] == 'NOANSWER' ? ' [No Answer]' : '') . ' (' . $action['starttime']->format('Y-m-d H:i:s') . ' - ' . $action['stoptime']->format('Y-m-d H:i:s') . ')';
 			$html.= '</td></tr>';
 			break;
 		case 'bridge':
 			$html.= '<tr><td>';
-			$html.= 'Joined Bridge ' . $action['bridge'] . ' (' . $action['starttime'] . ' - ' . $action['stoptime'] . ')';
+			$html.= 'Joined Bridge ' . $action['bridge'] . ' (' . $action['starttime']->format('Y-m-d H:i:s') . ' - ' . $action['stoptime']->format('Y-m-d H:i:s') . ')';
 			$html.= '</td></tr>';
 			foreach ($action['members'] as $member) {
 				$html.= '<tr><td>';
-				$html.= 'Spoke to ' . $member['dest'] . ' (' . $member['entertime'] . ' - ' . $member['exittime'] . ')';
+				$html.= 'Spoke to ' . $member['dest'] . ' (' . $member['entertime']->format('Y-m-d H:i:s') . ' - ' . $member['exittime']->format('Y-m-d H:i:s') . ')';
 				$html.= '</td></tr>';
 			}
 			break;

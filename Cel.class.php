@@ -58,38 +58,34 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			switch ($row['eventtype']) {
 			case 'CHAN_START':
 				/* New channel! */
-				$channels[$row['uniqueid']]['starttime'] = $row['eventtime'];
+				$channels[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
 				$channels[$row['uniqueid']]['cid_num'] = $row['cid_num'];
 				$channels[$row['uniqueid']]['channel'] = $row['channame'];
 				if ($row['linkedid'] != $row['uniqueid']) {
 					$channels[$row['uniqueid']]['linkedid'] = $row['linkedid'];
 				}
-				// Do we need channel mappings?
-				//$chanmap[$row['channame']] = $row['uniqueid'];
 				break;
 			case 'ANSWER':
-				$channels[$row['uniqueid']]['answertime'] = $row['eventtime'];
+				$channels[$row['uniqueid']]['answertime'] = new \DateTime($row['eventtime']);
 				break;
 			case 'BRIDGE_ENTER':
-				$bridges[$extra['bridge_id']][$row['uniqueid']] = array(
-					'entertime' => $row['eventtime'],
-				);
+				$bridges[$extra['bridge_id']][$row['uniqueid']]['entertime'] = new \DateTime($row['eventtime']);
 				break;
 			case 'BRIDGE_EXIT':
-				$bridges[$extra['bridge_id']][$row['uniqueid']]['exittime'] = $row['eventtime'];
+				$bridges[$extra['bridge_id']][$row['uniqueid']]['exittime'] = new \DateTime($row['eventtime']);
 				break;
 			case 'BLINDTRANSFER':
 			case 'ATTENDEDTRANSFER':
 				break;
 			case 'HANGUP':
-				$channels[$row['uniqueid']]['hanguptime'] = $row['eventtime'];
+				$channels[$row['uniqueid']]['hanguptime'] = new \DateTime($row['eventtime']);
 				$channels[$row['uniqueid']]['hangupcause'] = $extra['hangupcause'];
 				if ($extra['dialstatus']) {
 					$channels[$row['uniqueid']]['dialstatus'] = $extra['dialstatus'];
 				}
 				break;
 			case 'CHAN_END':
-				$channels[$row['uniqueid']]['endtime'] = $row['eventtime'];
+				$channels[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
 				break;
 			case 'LINKEDID_END':
 				/* This event doesn't really have useful information. */
@@ -107,7 +103,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					'type' => 'dial',
 					'starttime' => $channel['starttime'],
 					'stoptime' => $channel['endtime'],
-					'dest' => $channel['cid_num']
+					'dest' => $channel['cid_num'],
+					'status' => $channels[$callid]['dialstatus'],
 				);
 			} else {
 				$callid = $uniqueid;
