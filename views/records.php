@@ -4,32 +4,45 @@ $html.= form_open($_SERVER['REQUEST_URI']);
 echo '<pre>';
 var_dump($channels);
 var_dump($bridges);
+var_dump($calls);
 echo '</pre>';
 
 $html.= '<table class="table-striped">';
 $html.= '<th>Start Time</th>';
 $html.= '<th>End Time</th>';
 $html.= '<th>Caller</th>';
-$html.= '<th>Callees</th>';
-foreach ($channels as $uniqueid => $channel) {
+$html.= '<th>Detail</th>';
+//foreach ($channels as $uniqueid => $channel) {
+foreach ($calls as $callid => $call) {
 	$html.= '<tr>';
 	$html.= '<td>';
-	$html.= $channel['starttime'];
+	$html.= $call['starttime'];
 	$html.= '</td>';
 	$html.= '<td>';
-	$html.= $channel['endtime'];
+	$html.= $call['endtime'];
 	$html.= '</td>';
 	$html.= '<td>';
-	$html.= $channel['cid_num'];
+	$html.= $call['cid_num'];
 	$html.= '</td>';
 	$html.= '<td>';
 	$html.= '<table>';
-	foreach ($bridges as $bridgeid => $bridge) {
-		if (isset($bridge[$uniqueid])) {
-			$html.= '<tr><td>Bridge ' . $bridgeid . '</td></tr>';
-			foreach ($bridge as $linkedid => $link) {
-				$html.= '<tr><td>' . $link['entertime'] . ' - ' . $link['exittime'] . ' (' . $channels[$linkedid]['cid_num'] . ')' . '</td></tr>';
+	foreach ($call['actions'] as $action) {
+		switch ($action['type']) {
+		case 'dial':
+			$html.= '<tr><td>';
+			$html.= 'Dialed ' . $action['dest'] . ' (' . $action['starttime'] . ' - ' . $action['stoptime'] . ')';
+			$html.= '</td></tr>';
+			break;
+		case 'bridge':
+			$html.= '<tr><td>';
+			$html.= 'Joined Bridge ' . $action['bridge'] . ' (' . $action['starttime'] . ' - ' . $action['stoptime'] . ')';
+			$html.= '</td></tr>';
+			foreach ($action['members'] as $member) {
+				$html.= '<tr><td>';
+				$html.= 'Spoke to ' . $member['dest'] . ' (' . $member['entertime'] . ' - ' . $member['exittime'] . ')';
+				$html.= '</td></tr>';
 			}
+			break;
 		}
 	}
 	$html.= '</table>';

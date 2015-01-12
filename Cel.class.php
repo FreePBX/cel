@@ -58,13 +58,14 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			switch ($row['eventtype']) {
 			case 'CHAN_START':
 				/* New channel! */
-				$channels[$row['uniqueid']] = array(
-					'starttime' => $row['eventtime'],
-					'cid_num' => $row['cid_num'],
-					'channel' => $row['channame'],
-				);
-				/* Do we need channel mappings? */
-				$chanmap[$row['channame']] = $row['uniqueid'];
+				$channels[$row['uniqueid']]['starttime'] = $row['eventtime'];
+				$channels[$row['uniqueid']]['cid_num'] = $row['cid_num'];
+				$channels[$row['uniqueid']]['channel'] = $row['channame'];
+				if ($row['linkedid'] != $row['uniqueid']) {
+					$channels[$row['uniqueid']]['linkedid'] = $row['linkedid'];
+				}
+				// Do we need channel mappings?
+				//$chanmap[$row['channame']] = $row['uniqueid'];
 				break;
 			case 'ANSWER':
 				$channels[$row['uniqueid']]['answertime'] = $row['eventtime'];
@@ -82,14 +83,83 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				break;
 			case 'HANGUP':
 				$channels[$row['uniqueid']]['hanguptime'] = $row['eventtime'];
+				$channels[$row['uniqueid']]['hangupcause'] = $extra['hangupcause'];
+				if ($extra['dialstatus']) {
+					$channels[$row['uniqueid']]['dialstatus'] = $extra['dialstatus'];
+				}
 				break;
 			case 'CHAN_END':
 				$channels[$row['uniqueid']]['endtime'] = $row['eventtime'];
 				break;
+			case 'LINKEDID_END':
+				/* This event doesn't really have useful information. */
+				break;
 			}
 		}
 
-		$html .= load_view(dirname(__FILE__).'/views/records.php', array("channels" => $channels, "bridges" => $bridges, "message" => $this->message));
+		foreach ($channels as $uniqueid => $channel) {
+			if ($channel['linkedid']) {
+				/* This channel is part of another call. */
+				$callid = $channel['linkedid'];
+
+				$call = $calls[$callid];
+				$call['actions'][] = array(
+					'type' => 'dial',
+					'starttime' => $channel['starttime'],
+					'stoptime' => $channel['endtime'],
+					'dest' => $channel['cid_num']
+				);
+			} else {
+				$callid = $uniqueid;
+
+				$call = array();
+				$call['starttime'] = $channel['starttime'];
+				$call['endtime'] = $channel['endtime'];
+				$call['cid_num'] = $channel['cid_num'];
+
+				foreach ($bridges as $bridgeid => $bridge) {
+					if (isset($bridge[$uniqueid])) {
+						$action = array(
+							'type' => 'bridge',
+							'starttime' => $bridge[$uniqueid]['entertime'],
+							'stoptime' => $bridge[$uniqueid]['exittime'],
+							'bridge' => $bridgeid,
+						);
+
+						foreach ($bridge as $linkid => $link) {
+							if ($linkid == $uniqueid) {
+								continue;
+							}
+
+							if ($action['stoptime'] > $link['entertime'] && $link['exittime'] > $action['starttime']) {
+								$member = array(
+									'dest' => $channels[$linkid]['cid_num'],
+									'entertime' => ($link['entertime'] < $action['starttime'] ? $action['starttime'] : $link['entertime']),
+									'exittime' => ($link['exittime'] > $action['stoptime'] ? $action['stoptime'] : $link['exittime']),
+								);
+
+								$action['members'][] = $member;
+							}
+
+						}
+
+						$call['actions'][] = $action;
+					}
+				}
+			}
+
+			$calls[$callid] = $call;
+		}
+
+		foreach ($calls as $callid => $call) {
+			usort($call['actions'], function($a, $b) {
+				return $a['starttime'] < $b['starttime'] ? -1 : 1;
+			});
+
+			$calls[$callid] = $call;
+		}
+
+		$html .= load_view(dirname(__FILE__).'/views/records.php', array("channels" => $channels, "bridges" => $bridges, "calls" => $calls, "message" => $this->message));
 
 		return $html;
 	}
