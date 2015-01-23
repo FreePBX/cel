@@ -2,6 +2,7 @@
 $html = '';
 $html.= form_open($_SERVER['REQUEST_URI']);
 echo '<pre>';
+var_dump($bridges);
 var_dump($calls);
 echo '</pre>';
 
@@ -40,7 +41,35 @@ foreach ($calls as $callid => $call) {
 			$html.= '(' . $interval->format('%H:%I:%S') . ')';
 			$html.= '</td>';
 			$html.= '<td>';
-			$html.= 'Called ' . $action['dest'] . ($action['status'] == 'NOANSWER' ? ' [No Answer]' : '');
+			$html.= $action['src'] . ' called ' . $action['dest'] . ($action['status'] == 'NOANSWER' ? ' [No Answer]' : '');
+			$html.= '</td>';
+			$html.= '</tr>';
+			break;
+		case 'answer':
+			$html.= '<tr>';
+			$html.= '<td>';
+			$html.= $action['starttime']->format('Y-m-d H:i:s');
+			$html.= '</td>';
+			$html.= '<td>';
+			$interval = date_diff($action['starttime'], $action['stoptime']);
+			$html.= '(' . $interval->format('%H:%I:%S') . ')';
+			$html.= '</td>';
+			$html.= '<td>';
+			$html.= $action['src'] . ' answered';
+			$html.= '</td>';
+			$html.= '</tr>';
+			break;
+		case 'hangup':
+			$html.= '<tr>';
+			$html.= '<td>';
+			$html.= $action['starttime']->format('Y-m-d H:i:s');
+			$html.= '</td>';
+			$html.= '<td>';
+			$interval = date_diff($action['starttime'], $action['stoptime']);
+			$html.= '(' . $interval->format('%H:%I:%S') . ')';
+			$html.= '</td>';
+			$html.= '<td>';
+			$html.= $action['src'] . ' hung up';
 			$html.= '</td>';
 			$html.= '</tr>';
 			break;
@@ -54,23 +83,12 @@ foreach ($calls as $callid => $call) {
 			$html.= '(' . $interval->format('%H:%I:%S') . ')';
 			$html.= '</td>';
 			$html.= '<td>';
-			$html.= 'Transferred [' . $action['transfertype'] . '] to ' . $action['dest'];
+			$html.= $action['transferer'] . ' transferred [' . $action['transfertype'] . '] ' . $action['transferee'] . ' to ' . $action['dest'];
 			$html.= '</td>';
 			$html.= '</tr>';
 			break;
 		case 'bridge':
-			$html.= '<tr>';
-			$html.= '<td>';
-			$html.= $action['starttime']->format('Y-m-d H:i:s');
-			$html.= '</td>';
-			$html.= '<td>';
-			$interval = date_diff($action['starttime'], $action['stoptime']);
-			$html.= '(' . $interval->format('%H:%I:%S') . ')';
-			$html.= '</td>';
-			$html.= '<td>';
-			$html.= 'Joined Bridge ' . $action['bridge'];
-			$html.= '</td>';
-			$html.= '</tr>';
+/*
 			foreach ($action['members'] as $member) {
 				$html.= '<tr>';
 				$html.= '<td>';
@@ -85,6 +103,7 @@ foreach ($calls as $callid => $call) {
 				$html.= '</td>';
 				$html.= '</tr>';
 			}
+*/
 			break;
 		}
 	}

@@ -73,17 +73,28 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				/* New channel! */
 				$channels[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
 				$channels[$row['uniqueid']]['cid_num'] = $row['cid_num'];
+				$channels[$row['uniqueid']]['cid_name'] = $row['cid_name'];
 				$channels[$row['uniqueid']]['channel'] = $row['channame'];
 				$channels[$row['uniqueid']]['extension'] = $row['exten'];
 				if ($row['linkedid'] != $row['uniqueid']) {
 					$channels[$row['uniqueid']]['linkedid'] = $row['linkedid'];
 				}
 
+				if ($channels[$row['linkedid']]['successor']) {
+					/* Linked ID channel has a successor. */
+					$channels[$row['uniqueid']]['owner'] = $channels[$row['linkedid']]['successor'];
+				}
+
 				if ($row['uniqueid'] == $row['linkedid']) {
 					$calls[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
 					$calls[$row['uniqueid']]['cid_num'] = $row['cid_num'];
+					$calls[$row['uniqueid']]['cid_name'] = $row['cid_name'];
 					$calls[$row['uniqueid']]['extension'] = $row['exten'];
 				}
+				break;
+			case 'APP_START':
+				break;
+			case 'APP_END':
 				break;
 			case 'ANSWER':
 				$channels[$row['uniqueid']]['answertime'] = new \DateTime($row['eventtime']);
@@ -105,20 +116,34 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$bridges[$extra['bridge_id']][$uniqueid]['exittime'] = new \DateTime($row['eventtime']);
 				break;
 			case 'BLINDTRANSFER':
-				$calls[$extra['transferee_channel_uniqueid']]['actions'][] = array(
+				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
+					/* The owner (or successor) of the channel is giving up control to the transferee. */
+					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
+				}
+
+				$calls[$row['linkedid']]['actions'][] = array(
 					'type' => 'transfer',
 					'transfertype' => 'blind',
 					'starttime' => new \DateTime($row['eventtime']),
 					'stoptime' => new \DateTime($row['eventtime']),
+					'transferer' => $channels[$row['uniqueid']]['cid_num'],
+					'transferee' => $channels[$extra['transferee_channel_uniqueid']]['cid_num'],
 					'dest' => $extra['extension'],
 				);
 				break;
 			case 'ATTENDEDTRANSFER':
-				$calls[$extra['transferee_channel_uniqueid']]['actions'][] = array(
+				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
+					/* The owner (or successor) of the channel is giving up control to the transferee. */
+					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
+				}
+
+				$calls[$row['linkedid']]['actions'][] = array(
 					'type' => 'transfer',
 					'transfertype' => 'attended',
 					'starttime' => new \DateTime($row['eventtime']),
 					'stoptime' => new \DateTime($row['eventtime']),
+					'transferer' => $channels[$row['uniqueid']]['cid_num'],
+					'transferee' => $channels[$extra['transferee_channel_uniqueid']]['cid_num'],
 					'dest' => $channels[$extra['transfer_target_channel_uniqueid']]['cid_num'],
 				);
 				break;
@@ -137,7 +162,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				}
 				break;
 			case 'LINKEDID_END':
-				/* This event doesn't really have useful information. */
+				/* Override the endtime of the call. */
+				$calls[$row['linkedid']]['endtime'] = new \DateTime($row['eventtime']);
 				break;
 			}
 		}
@@ -148,11 +174,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					continue;
 				}
 
-				if (!$channel['answertime']) {
-					continue;
-				}
-
-				/* This channel is part of another call. */
 				$callid = $channel['linkedid'];
 
 				$call = $calls[$callid];
@@ -160,14 +181,43 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$call['actions'][] = array(
 					'type' => 'call',
 					'starttime' => $channel['starttime'],
-					'stoptime' => $channel['endtime'],
+					'stoptime' => ($channel['answertime'] ? $channel['answertime'] : $channel['endtime']),
+					'src' => $channels[($channel['owner'] ? $channel['owner'] : $callid)]['cid_num'],
 					'dest' => $channel['cid_num'],
 					'status' => $channels[$callid]['dialstatus'],
 				);
+
+				if ($channel['answertime']) {
+					$call['actions'][] = array(
+						'type' => 'answer',
+						'starttime' => $channel['answertime'],
+						'stoptime' => $channel['hanguptime'],
+						'src' => $channel['cid_num'],
+						'status' => $channels[$callid]['dialstatus'],
+					);
+
+					if ($channel['hanguptime']) {
+						$call['actions'][] = array(
+							'type' => 'hangup',
+							'starttime' => $channel['hanguptime'],
+							'stoptime' => $channel['endtime'],
+							'src' => $channel['cid_num'],
+						);
+					}
+				}
 			} else {
 				$callid = $uniqueid;
 
 				$call = $calls[$callid];
+
+				if ($channel['hanguptime']) {
+					$call['actions'][] = array(
+						'type' => 'hangup',
+						'starttime' => $channel['hanguptime'],
+						'stoptime' => $channel['endtime'],
+						'src' => $channel['cid_num'],
+					);
+				}
 
 				foreach ($bridges as $bridgeid => $bridge) {
 					if (isset($bridge[$callid])) {
@@ -212,6 +262,11 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		foreach ($calls as $callid => $call) {
 			usort($call['actions'], function($a, $b) {
 				if ($a['starttime'] == $b['starttime']) {
+					if ($a['type'] == 'hangup' && $b['type'] == 'transfer') {
+						/* Transfer always comes before hangup. */
+						return 1;
+					}
+
 					return 0;
 				}
 
