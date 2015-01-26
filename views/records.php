@@ -2,7 +2,6 @@
 $html = '';
 $html.= form_open($_SERVER['REQUEST_URI']);
 echo '<pre>';
-var_dump($bridges);
 var_dump($calls);
 echo '</pre>';
 
@@ -22,7 +21,7 @@ foreach ($calls as $callid => $call) {
 	$html.= $interval->format('%H:%I:%S');
 	$html.= '</td>';
 	$html.= '<td>';
-	$html.= $call['cid_num'];
+	$html.= $call['src'];
 	$html.= '</td>';
 	$html.= '<td>';
 	$html.= $call['extension'];
@@ -84,6 +83,20 @@ foreach ($calls as $callid => $call) {
 			$html.= '</td>';
 			$html.= '<td>';
 			$html.= $action['transferer'] . ' transferred [' . $action['transfertype'] . '] ' . $action['transferee'] . ' to ' . $action['dest'];
+			$html.= '</td>';
+			$html.= '</tr>';
+			break;
+		case 'application':
+			$html.= '<tr>';
+			$html.= '<td>';
+			$html.= $action['starttime']->format('Y-m-d H:i:s');
+			$html.= '</td>';
+			$html.= '<td>';
+			$interval = date_diff($action['starttime'], $action['stoptime']);
+			$html.= '(' . $interval->format('%H:%I:%S') . ')';
+			$html.= '</td>';
+			$html.= '<td>';
+			$html.= $action['src'] . ' ' . $action['dest'];
 			$html.= '</td>';
 			$html.= '</tr>';
 			break;
