@@ -14,11 +14,10 @@ $html.= '<th>Detail</th>';
 foreach ($calls as $callid => $call) {
 	$html.= '<tr>';
 	$html.= '<td>';
-	$html.= $call['starttime']->format('Y-m-d H:i:s');
+	$html.= cel_format_date($call['starttime']);
 	$html.= '</td>';
 	$html.= '<td>';
-	$interval = date_diff($call['starttime'], $call['endtime']);
-	$html.= $interval->format('%H:%I:%S');
+	$html.= cel_format_interval($call['starttime'], $call['endtime']);
 	$html.= '</td>';
 	$html.= '<td>';
 	$html.= $call['src'];
@@ -33,11 +32,10 @@ foreach ($calls as $callid => $call) {
 		case 'call':
 			$html.= '<tr>';
 			$html.= '<td>';
-			$html.= $action['starttime']->format('Y-m-d H:i:s');
+			$html.= cel_format_date($action['starttime']);
 			$html.= '</td>';
 			$html.= '<td>';
-			$interval = date_diff($action['starttime'], $action['stoptime']);
-			$html.= '(' . $interval->format('%H:%I:%S') . ')';
+			$html.= cel_format_interval($action['starttime'], $action['stoptime']);
 			$html.= '</td>';
 			$html.= '<td>';
 			$html.= $action['src'] . ' called ' . $action['dest'] . ($action['status'] == 'NOANSWER' ? ' [No Answer]' : '');
@@ -47,11 +45,10 @@ foreach ($calls as $callid => $call) {
 		case 'answer':
 			$html.= '<tr>';
 			$html.= '<td>';
-			$html.= $action['starttime']->format('Y-m-d H:i:s');
+			$html.= cel_format_date($action['starttime']);
 			$html.= '</td>';
 			$html.= '<td>';
-			$interval = date_diff($action['starttime'], $action['stoptime']);
-			$html.= '(' . $interval->format('%H:%I:%S') . ')';
+			$html.= cel_format_interval($action['starttime'], $action['stoptime']);
 			$html.= '</td>';
 			$html.= '<td>';
 			$html.= $action['src'] . ' answered';
@@ -61,11 +58,10 @@ foreach ($calls as $callid => $call) {
 		case 'hangup':
 			$html.= '<tr>';
 			$html.= '<td>';
-			$html.= $action['starttime']->format('Y-m-d H:i:s');
+			$html.= cel_format_date($action['starttime']);
 			$html.= '</td>';
 			$html.= '<td>';
-			$interval = date_diff($action['starttime'], $action['stoptime']);
-			$html.= '(' . $interval->format('%H:%I:%S') . ')';
+			$html.= cel_format_interval($action['starttime'], $action['stoptime']);
 			$html.= '</td>';
 			$html.= '<td>';
 			$html.= $action['src'] . ' hung up';
@@ -75,11 +71,10 @@ foreach ($calls as $callid => $call) {
 		case 'transfer':
 			$html.= '<tr>';
 			$html.= '<td>';
-			$html.= $action['starttime']->format('Y-m-d H:i:s');
+			$html.= cel_format_date($action['starttime']);
 			$html.= '</td>';
 			$html.= '<td>';
-			$interval = date_diff($action['starttime'], $action['stoptime']);
-			$html.= '(' . $interval->format('%H:%I:%S') . ')';
+			$html.= cel_format_interval($action['starttime'], $action['stoptime']);
 			$html.= '</td>';
 			$html.= '<td>';
 			$html.= $action['transferer'] . ' transferred [' . $action['transfertype'] . '] ' . $action['transferee'] . ' to ' . $action['dest'];
@@ -89,11 +84,10 @@ foreach ($calls as $callid => $call) {
 		case 'application':
 			$html.= '<tr>';
 			$html.= '<td>';
-			$html.= $action['starttime']->format('Y-m-d H:i:s');
+			$html.= cel_format_date($action['starttime']);
 			$html.= '</td>';
 			$html.= '<td>';
-			$interval = date_diff($action['starttime'], $action['stoptime']);
-			$html.= '(' . $interval->format('%H:%I:%S') . ')';
+			$html.= cel_format_interval($action['starttime'], $action['stoptime']);
 			$html.= '</td>';
 			$html.= '<td>';
 			$html.= $action['src'] . ' ' . $action['dest'];
@@ -105,11 +99,10 @@ foreach ($calls as $callid => $call) {
 			foreach ($action['members'] as $member) {
 				$html.= '<tr>';
 				$html.= '<td>';
-				$html.= $member['entertime']->format('Y-m-d H:i:s');
+				$html.= cel_format_date($member['entertime']);
 				$html.= '</td>';
 				$html.= '<td>';
-				$interval = date_diff($member['entertime'], $member['exittime']);
-				$html.= '(' . $interval->format('%H:%I:%S') . ')';
+				$html.= cel_format_interval($action['entertime'], $action['exittime']);
 				$html.= '</td>';
 				$html.= '<td>';
 				$html.= 'Bridged to ' . $member['dest'];
@@ -130,5 +123,21 @@ $html.= '<table>';
 $html.= form_close();
 
 echo $html;
+
+function cel_format_date($date) {
+	if ($date) {
+		return $date->format('Y-m-d H:i:s');
+	}
+
+	return '';
+}
+
+function cel_format_interval($start, $stop) {
+	if (($interval = date_diff($start, $stop))) {
+		return $interval->format('%H:%I:%S');
+	}
+
+	return '00:00:00';
+}
 
 ?>
