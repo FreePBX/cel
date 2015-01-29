@@ -32,8 +32,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function myShowPage() {
 		global $cdrdb;
 
-		$extmap = framework_get_extmap();
-
 		$fields = array(
 			'eventtype',
 			'eventtime',
@@ -90,7 +88,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 				if ($row['uniqueid'] == $row['linkedid']) {
 					$calls[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
-					$calls[$row['uniqueid']]['src'] = $extmap[$channels[$row['uniqueid']]['cid_num']];
+					$calls[$row['uniqueid']]['src'] = $this->channelCallerID($channels[$row['uniqueid']]);
 					$calls[$row['uniqueid']]['extension'] = $row['exten'];
 				}
 				break;
@@ -135,8 +133,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					'transfertype' => 'blind',
 					'starttime' => new \DateTime($row['eventtime']),
 					'stoptime' => new \DateTime($row['eventtime']),
-					'transferer' => $extmap[$channels[$row['uniqueid']]['cid_num']],
-					'transferee' => $extmap[$channels[$extra['transferee_channel_uniqueid']]['cid_num']],
+					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
 					'dest' => 'Extension ' . $extra['extension'],
 				);
 				break;
@@ -151,9 +149,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					'transfertype' => 'attended',
 					'starttime' => new \DateTime($row['eventtime']),
 					'stoptime' => new \DateTime($row['eventtime']),
-					'transferer' => $extmap[$channels[$row['uniqueid']]['cid_num']],
-					'transferee' => $extmap[$channels[$extra['transferee_channel_uniqueid']]['cid_num']],
-					'dest' => $extmap[$channels[$extra['transfer_target_channel_uniqueid']]['cid_num']],
+					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
+					'dest' =>  $this->channelCallerID($channels[$extra['transfer_target_channel_uniqueid']]),
 				);
 				break;
 			case 'HANGUP':
@@ -167,7 +165,60 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$channels[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
 
 				if ($row['uniqueid'] == $row['linkedid']) {
+					$callid = $row['uniqueid'];
+
+					$call = $calls[$callid];
+
 					$calls[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
+
+					if ($channels[$row['uniqueid']]['hanguptime']) {
+						$call['actions'][] = array(
+							'type' => 'hangup',
+							'starttime' => $channels[$row['uniqueid']]['hanguptime'],
+							'stoptime' => $channels[$row['uniqueid']]['endtime'],
+							'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+						);
+					}
+
+					$calls[$callid] = $call;
+				} else {
+					$callid = $row['linkedid'];
+
+					$call = $calls[$callid];
+
+					if (($localmap = $localmaps[substr($channels[$row['uniqueid']]['channel'], 0, -2)]) && $localmap['owner'] == $row['linkedid']) {
+						continue;
+					}
+
+					$call['actions'][] = array(
+						'type' => 'call',
+						'starttime' => $channels[$row['uniqueid']]['starttime'],
+						'stoptime' => ($channels[$row['uniqueid']]['answertime'] ? $channels[$row['uniqueid']]['answertime'] : $channels[$row['uniqueid']]['endtime']),
+						'src' =>  $this->channelCallerID($channels[($channels[$row['uniqueid']]['owner'] ? $channels[$row['uniqueid']]['owner'] : $callid)]),
+						'dest' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+						'status' => $channels[$callid]['dialstatus'],
+					);
+
+					if ($channels[$row['uniqueid']]['answertime']) {
+						$call['actions'][] = array(
+							'type' => 'answer',
+							'starttime' => $channels[$row['uniqueid']]['answertime'],
+							'stoptime' => $channels[$row['uniqueid']]['hanguptime'],
+							'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+							'status' => $channels[$callid]['dialstatus'],
+						);
+
+						if ($channels[$row['uniqueid']]['hanguptime']) {
+							$call['actions'][] = array(
+								'type' => 'hangup',
+								'starttime' => $channels[$row['uniqueid']]['hanguptime'],
+								'stoptime' => $channels[$row['uniqueid']]['endtime'],
+								'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+							);
+						}
+					}
+
+					$calls[$callid] = $call;
 				}
 				break;
 			case 'LINKEDID_END':
@@ -179,54 +230,13 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 		foreach ($channels as $uniqueid => $channel) {
 			if ($channel['linkedid']) {
-				if (($localmap = $localmaps[substr($channel['channel'], 0, -2)]) && $localmap['owner'] == $channel['linkedid']) {
-					continue;
-				}
-
 				$callid = $channel['linkedid'];
 
 				$call = $calls[$callid];
-
-				$call['actions'][] = array(
-					'type' => 'call',
-					'starttime' => $channel['starttime'],
-					'stoptime' => ($channel['answertime'] ? $channel['answertime'] : $channel['endtime']),
-					'src' => $extmap[$channels[($channel['owner'] ? $channel['owner'] : $callid)]['cid_num']],
-					'dest' => $extmap[$channel['cid_num']],
-					'status' => $channels[$callid]['dialstatus'],
-				);
-
-				if ($channel['answertime']) {
-					$call['actions'][] = array(
-						'type' => 'answer',
-						'starttime' => $channel['answertime'],
-						'stoptime' => $channel['hanguptime'],
-						'src' => $extmap[$channel['cid_num']],
-						'status' => $channels[$callid]['dialstatus'],
-					);
-
-					if ($channel['hanguptime']) {
-						$call['actions'][] = array(
-							'type' => 'hangup',
-							'starttime' => $channel['hanguptime'],
-							'stoptime' => $channel['endtime'],
-							'src' => $extmap[$channel['cid_num']],
-						);
-					}
-				}
 			} else {
 				$callid = $uniqueid;
 
 				$call = $calls[$callid];
-
-				if ($channel['hanguptime']) {
-					$call['actions'][] = array(
-						'type' => 'hangup',
-						'starttime' => $channel['hanguptime'],
-						'stoptime' => $channel['endtime'],
-						'src' => $extmap[$channel['cid_num']],
-					);
-				}
 
 				foreach ($bridges as $bridgeid => $bridge) {
 					if (isset($bridge[$callid])) {
@@ -271,7 +281,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 						'type' => 'application',
 						'starttime' => $app['starttime'],
 						'stoptime' => $app['stoptime'],
-						'src' => $extmap[$channel['cid_num']],
+						'src' =>  $this->channelCallerID($channel),
 						'dest' => $dest,
 					);
 				}
@@ -300,6 +310,10 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$html .= load_view(dirname(__FILE__).'/views/records.php', array("channels" => $channels, "bridges" => $bridges, "calls" => $calls, "message" => $this->message));
 
 		return $html;
+	}
+
+	private function channelCallerID($channel) {
+		return $channel['cid_name'] . ' <' . $channel['cid_num'] . '>';
 	}
 
 	private function parseApplication($name, $data) {
