@@ -94,6 +94,32 @@ foreach ($calls as $callid => $call) {
 			$html.= '</td>';
 			$html.= '</tr>';
 			break;
+		case 'park':
+			$html.= '<tr>';
+			$html.= '<td>';
+			$html.= cel_format_date($action['starttime']);
+			$html.= '</td>';
+			$html.= '<td>';
+			$html.= cel_format_interval($action['starttime'], $action['stoptime']);
+			$html.= '</td>';
+			$html.= '<td>';
+			$html.= $action['src'] . ' parked in lot ' . $action['dest'];
+			$html.= '</td>';
+			$html.= '</tr>';
+			break;
+		case 'unpark':
+			$html.= '<tr>';
+			$html.= '<td>';
+			$html.= cel_format_date($action['starttime']);
+			$html.= '</td>';
+			$html.= '<td>';
+			$html.= cel_format_interval($action['starttime'], $action['stoptime']);
+			$html.= '</td>';
+			$html.= '<td>';
+			$html.= $action['src'] . ' unparked [' . $action['reason'] . ']';
+			$html.= '</td>';
+			$html.= '</tr>';
+			break;
 		case 'bridge':
 /*
 			foreach ($action['members'] as $member) {

@@ -92,75 +92,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					$calls[$row['uniqueid']]['extension'] = $row['exten'];
 				}
 				break;
-			case 'APP_START':
-				$channels[$row['uniqueid']]['apps'][] = array(
-					'appname' => $row['appname'],
-					'appdata' => $row['appdata'],
-					'starttime' => new \DateTime($row['eventtime']),
-				);
-				break;
-			case 'APP_END':
-				/* Can two applications be executing on a channel at once?  I don't think so. */
-				$channels[$row['uniqueid']]['apps'][count($channels[$row['uniqueid']]['apps']) - 1]['stoptime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'ANSWER':
-				$channels[$row['uniqueid']]['answertime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'BRIDGE_ENTER':
-				if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
-					$uniqueid = $localmap['owner'];
-				} else {
-					$uniqueid = $row['uniqueid'];
-				}
-				$bridges[$extra['bridge_id']][$uniqueid]['entertime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'BRIDGE_EXIT':
-				if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
-					$uniqueid = $localmap['owner'];
-				} else {
-					$uniqueid = $row['uniqueid'];
-				}
-				$bridges[$extra['bridge_id']][$uniqueid]['exittime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'BLINDTRANSFER':
-				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
-					/* The owner (or successor) of the channel is giving up control to the transferee. */
-					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
-				}
-
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'transfer',
-					'transfertype' => 'blind',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
-					'dest' => 'Extension ' . $extra['extension'],
-				);
-				break;
-			case 'ATTENDEDTRANSFER':
-				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
-					/* The owner (or successor) of the channel is giving up control to the transferee. */
-					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
-				}
-
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'transfer',
-					'transfertype' => 'attended',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
-					'dest' =>  $this->channelCallerID($channels[$extra['transfer_target_channel_uniqueid']]),
-				);
-				break;
-			case 'HANGUP':
-				$channels[$row['uniqueid']]['hanguptime'] = new \DateTime($row['eventtime']);
-				$channels[$row['uniqueid']]['hangupcause'] = $extra['hangupcause'];
-				if ($extra['dialstatus']) {
-					$channels[$row['uniqueid']]['dialstatus'] = $extra['dialstatus'];
-				}
-				break;
 			case 'CHAN_END':
 				$channels[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
 
@@ -224,6 +155,95 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			case 'LINKEDID_END':
 				/* Override the endtime of the call. */
 				$calls[$row['linkedid']]['endtime'] = new \DateTime($row['eventtime']);
+				break;
+			case 'ANSWER':
+				$channels[$row['uniqueid']]['answertime'] = new \DateTime($row['eventtime']);
+				break;
+			case 'HANGUP':
+				$channels[$row['uniqueid']]['hanguptime'] = new \DateTime($row['eventtime']);
+				$channels[$row['uniqueid']]['hangupcause'] = $extra['hangupcause'];
+				if ($extra['dialstatus']) {
+					$channels[$row['uniqueid']]['dialstatus'] = $extra['dialstatus'];
+				}
+				break;
+			case 'BRIDGE_ENTER':
+				if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
+					$uniqueid = $localmap['owner'];
+				} else {
+					$uniqueid = $row['uniqueid'];
+				}
+				$bridges[$extra['bridge_id']][$uniqueid]['entertime'] = new \DateTime($row['eventtime']);
+				break;
+			case 'BRIDGE_EXIT':
+				if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
+					$uniqueid = $localmap['owner'];
+				} else {
+					$uniqueid = $row['uniqueid'];
+				}
+				$bridges[$extra['bridge_id']][$uniqueid]['exittime'] = new \DateTime($row['eventtime']);
+				break;
+			case 'ATTENDEDTRANSFER':
+				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
+					/* The owner (or successor) of the channel is giving up control to the transferee. */
+					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
+				}
+
+				$calls[$row['linkedid']]['actions'][] = array(
+					'type' => 'transfer',
+					'transfertype' => 'attended',
+					'starttime' => new \DateTime($row['eventtime']),
+					'stoptime' => new \DateTime($row['eventtime']),
+					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
+					'dest' =>  $this->channelCallerID($channels[$extra['transfer_target_channel_uniqueid']]),
+				);
+				break;
+			case 'BLINDTRANSFER':
+				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
+					/* The owner (or successor) of the channel is giving up control to the transferee. */
+					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
+				}
+
+				$calls[$row['linkedid']]['actions'][] = array(
+					'type' => 'transfer',
+					'transfertype' => 'blind',
+					'starttime' => new \DateTime($row['eventtime']),
+					'stoptime' => new \DateTime($row['eventtime']),
+					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
+					'dest' => 'Extension ' . $extra['extension'],
+				);
+				break;
+			case 'APP_START':
+				$channels[$row['uniqueid']]['apps'][] = array(
+					'appname' => $row['appname'],
+					'appdata' => $row['appdata'],
+					'starttime' => new \DateTime($row['eventtime']),
+				);
+				break;
+			case 'APP_END':
+				/* Can two applications be executing on a channel at once?  I don't think so. */
+				$channels[$row['uniqueid']]['apps'][count($channels[$row['uniqueid']]['apps']) - 1]['stoptime'] = new \DateTime($row['eventtime']);
+				break;
+			case 'PARK_START':
+				$calls[$row['linkedid']]['actions'][] = array(
+					'type' => 'park',
+					'starttime' => new \DateTime($row['eventtime']),
+					'stoptime' => new \DateTime($row['eventtime']),
+					'src' => $this->channelCallerID($channels[$row['uniqueid']]),
+					'dest' => $extra['parking_lot'],
+				);
+				break;
+			case 'PARK_END':
+				$calls[$row['linkedid']]['actions'][] = array(
+					'type' => 'unpark',
+					'starttime' => new \DateTime($row['eventtime']),
+					'stoptime' => new \DateTime($row['eventtime']),
+					'src' => $this->channelCallerID($channels[$row['uniqueid']]),
+					'reason' => $extra['reason'],
+				);
+				break;
+			default:
 				break;
 			}
 		}
@@ -293,8 +313,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		foreach ($calls as $callid => $call) {
 			usort($call['actions'], function($a, $b) {
 				if ($a['starttime'] == $b['starttime']) {
-					if ($a['type'] == 'hangup' && $b['type'] == 'transfer') {
-						/* Transfer should always come before hangup. */
+					if ($b['type'] == 'transfer') {
+						/* Transfer should come before others. */
 						return 1;
 					}
 
@@ -313,7 +333,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	private function channelCallerID($channel) {
-		return $channel['cid_name'] . ' <' . $channel['cid_num'] . '>';
+		return ($channel['cid_name'] ? $channel['cid_name'] : 'Unknown') . ' <' . $channel['cid_num'] . '>';
 	}
 
 	private function parseApplication($name, $data) {
