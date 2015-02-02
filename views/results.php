@@ -10,13 +10,15 @@ echo '</pre>';
 $html.= '<h3>Search returned ' . count($calls) . ' calls</h3>';
 
 $html.= '<table class="table-striped">';
+$html.= '<th></th>';
 $html.= '<th>Time</th>';
 $html.= '<th>Duration</th>';
 $html.= '<th>Caller</th>';
 $html.= '<th>Dialed #</th>';
 $html.= '<th>Detail</th>';
 foreach ($calls as $callid => $call) {
-	$html.= '<tr>';
+	$html.= '<tr class="call">';
+	$html.= '<td>+</td>';
 	$html.= '<td>';
 	$html.= cel_format_date($call['starttime']);
 	$html.= '</td>';
@@ -146,9 +148,58 @@ foreach ($calls as $callid => $call) {
 	$html.= '</table>';
 	$html.= '</td>';
 	$html.= '</tr>';
+	$html.= '<tr style="display:none;" class="cel">';
+	$html.= '<td colspan="6">';
+	$html.= '<table>';
+	$celcols = array(
+		'eventtype' => 'Event Type',
+		'eventtime' => 'Timestamp',
+		'uniqueid' => 'Unique ID',
+		'linkedid' => 'Linked ID',
+		'cid_num' => 'CID Num',
+		'cid_name' => 'CID Name',
+		'exten' => 'Exten',
+		'context' => 'Context',
+		'channame' => 'Channel',
+	);
+	$html.= '<tr>';
+	foreach ($celcols as $coldesc) {
+		$html.= '<th>';
+		$html.= $coldesc;
+		$html.= '</th>';
+	}
+	$html.= '</tr>';
+
+	foreach ($call['records'] as $record) {
+		$html.= '<tr>';
+		foreach ($celcols as $colkey => $coldesc) {
+			$html.= '<td>';
+			$html.= $record[$colkey];
+			$html.= '</td>';
+		}
+		$html.= '</tr>';
+	}
+	$html.= '</table>';
+	$html.= '</td>';
+	$html.= '</tr>';
 }
 
 $html.= '<table>';
+
+$html.= '<script>
+$(function() {
+	$("tr.call").click(function() {
+		$visible = $(this).next("tr.cel").is(":visible");
+		$("tr.cel").hide();
+		$("tr.call").find("td:first").html("+");
+
+		if (!$visible) {
+			$(this).find("td:first").html("-");
+			$(this).next("tr.cel").show();
+		}
+	});
+});
+</script>';
 
 $html.= form_close();
 
