@@ -30,114 +30,165 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function myShowPage() {
-		global $cdrdb;
+		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
-		$fields = array(
-			'eventtype',
-			'eventtime',
-			'uniqueid',
-			'linkedid',
-			'cid_name',
-			'cid_num',
-			'exten',
-			'context',
-			'appname',
-			'appdata',
-			'channame',
-			'peer',
-			'extra',
-		);
-		$badcontexts = array('tc-maint');
+		switch ($action) {
+		case "":
+			$html .= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
 
-		$sql = "SELECT " . implode(", ", $fields) . " FROM cel WHERE context NOT IN ('" . implode("', '", $badcontexts) . "') ORDER BY id";
-		$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+			break;
+		case "search":
+			global $cdrdb;
 
-		$channels = array();
-		foreach ($res as $row) {
-			$extra = json_decode($row['extra'], true);
+			$fields = array(
+				'eventtype',
+				'eventtime',
+				'uniqueid',
+				'linkedid',
+				'cid_name',
+				'cid_num',
+				'exten',
+				'context',
+				'appname',
+				'appdata',
+				'channame',
+				'peer',
+				'extra',
+			);
+			$badcontexts = array('tc-maint');
 
-			switch ($row['eventtype']) {
-			case 'CHAN_START':
-				if (substr($row['channame'], 0, 6) == "Local/") {
-					/* Ugh... */
-					$mapname = substr($row['channame'], 0, -2);
-					if (substr($row['channame'], -2, 2) == ";1") {
-						if ($row['uniqueid'] != $row['linkedid']) {
-							$localmaps[$mapname]['owner'] = $row['linkedid'];
-						}
-						$localmaps[$mapname]['one'] = $row['uniqueid'];
-					} else {
-						$localmaps[$mapname]['two'] = $row['uniqueid'];
-					}
+			switch ($_REQUEST['searchtype']) {
+			case 'date':
+				$datefrom = (!empty($_REQUEST['datefrom']) ? $_REQUEST['datefrom'] : date('Y-m-d')) . ' 00:00:00';
+				$dateto = (!empty($_REQUEST['dateto']) ? $_REQUEST['dateto'] : date('Y-m-d')) . ' 23:59:59';
+				$sql = "SELECT DISTINCT linkedid" .
+					" FROM cel" .
+					" WHERE eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
+				$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+				foreach ($res as $row) {
+					$linkedids[] = $row['linkedid'];
 				}
 
-				/* New channel! */
-				$channels[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
-				$channels[$row['uniqueid']]['cid_num'] = $row['cid_num'];
-				$channels[$row['uniqueid']]['cid_name'] = $row['cid_name'];
-				$channels[$row['uniqueid']]['channel'] = $row['channame'];
-				$channels[$row['uniqueid']]['extension'] = $row['exten'];
-				if ($row['linkedid'] != $row['uniqueid']) {
-					$channels[$row['uniqueid']]['linkedid'] = $row['linkedid'];
-				}
-
-				if ($channels[$row['linkedid']]['successor']) {
-					/* Linked ID channel has a successor. */
-					$channels[$row['uniqueid']]['owner'] = $channels[$row['linkedid']]['successor'];
-				}
-
-				if ($row['uniqueid'] == $row['linkedid']) {
-					$calls[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
-					$calls[$row['uniqueid']]['src'] = $this->channelCallerID($channels[$row['uniqueid']]);
-					$calls[$row['uniqueid']]['extension'] = $row['exten'];
-				}
 				break;
-			case 'CHAN_END':
-				$channels[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
+			case 'callerid':
+				$callerid = $_REQUEST['callerid'];
+				$sql = "SELECT DISTINCT linkedid" .
+					" FROM cel" .
+					" WHERE cid_num = '" . $callerid . "' OR cid_name LIKE '%" . $callerid . "%'";
+				$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
-				if ($row['uniqueid'] == $row['linkedid']) {
-					$callid = $row['uniqueid'];
+				foreach ($res as $row) {
+					$linkedids[] = $row['linkedid'];
+				}
 
-					$call = $calls[$callid];
+				break;
+			case 'extension':
+				$extension = $_REQUEST['exten'];
+				$sql = "SELECT DISTINCT linkedid" .
+					" FROM cel" .
+					" WHERE exten LIKE '%" . $extension . "%'";
+				$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
-					$calls[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
+				foreach ($res as $row) {
+					$linkedids[] = $row['linkedid'];
+				}
 
-					if ($channels[$row['uniqueid']]['hanguptime']) {
-						$call['actions'][] = array(
-							'type' => 'hangup',
-							'starttime' => $channels[$row['uniqueid']]['hanguptime'],
-							'stoptime' => $channels[$row['uniqueid']]['endtime'],
-							'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-						);
-					}
-
-					$calls[$callid] = $call;
+				break;
+			case 'application':
+				$application = $_REQUEST['application'];
+				if ($application == 'conference') {
+					$application = array('confbridge', 'meetme');
 				} else {
-					$callid = $row['linkedid'];
+					$application = array($application);
+				}
+				$sql = "SELECT DISTINCT linkedid" .
+					" FROM cel" .
+					" WHERE (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
+				$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
-					$call = $calls[$callid];
+				foreach ($res as $row) {
+					$linkedids[] = $row['linkedid'];
+				}
 
-					if (($localmap = $localmaps[substr($channels[$row['uniqueid']]['channel'], 0, -2)]) && $localmap['owner'] == $row['linkedid']) {
-						continue;
+				break;
+			}
+
+			/* Grab channels that are associated via an attended transfer */
+			$sql = "SELECT extra" .
+				" FROM cel" .
+				" WHERE eventtype = 'ATTENDEDTRANSFER' AND linkedid IN ('" . implode("', '", $linkedids) . "')";
+			$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+			foreach ($res as $row) {
+				$extra = json_decode($row['extra'], true);
+
+				if (!in_array($extra['transferee_channel_uniqueid'], $linkedids)) {
+					$linkedids[] = $extra['transferee_channel_uniqueid'];
+				}
+				if (!in_array($extra['channel2_uniqueid'], $linkedids)) {
+					$linkedids[] = $extra['channel2_uniqueid'];
+				}
+			}
+
+			$sql = "SELECT " . implode(", ", $fields) . 
+				" FROM cel" .
+				" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" .
+				" AND linkedid IN ('" . implode("', '", $linkedids) . "')" .
+				" ORDER BY id";
+			$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+			$channels = array();
+			foreach ($res as $row) {
+				$extra = json_decode($row['extra'], true);
+
+				$calls[$row['linkedid']]['records'][] = $row;
+
+				switch ($row['eventtype']) {
+				case 'CHAN_START':
+					if (substr($row['channame'], 0, 6) == "Local/") {
+						/* Ugh... */
+						$mapname = substr($row['channame'], 0, -2);
+						if (substr($row['channame'], -2, 2) == ";1") {
+							if ($row['uniqueid'] != $row['linkedid']) {
+								$localmaps[$mapname]['owner'] = $row['linkedid'];
+							}
+							$localmaps[$mapname]['one'] = $row['uniqueid'];
+						} else {
+							$localmaps[$mapname]['two'] = $row['uniqueid'];
+						}
 					}
 
-					$call['actions'][] = array(
-						'type' => 'call',
-						'starttime' => $channels[$row['uniqueid']]['starttime'],
-						'stoptime' => ($channels[$row['uniqueid']]['answertime'] ? $channels[$row['uniqueid']]['answertime'] : $channels[$row['uniqueid']]['endtime']),
-						'src' =>  $this->channelCallerID($channels[($channels[$row['uniqueid']]['owner'] ? $channels[$row['uniqueid']]['owner'] : $callid)]),
-						'dest' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-						'status' => $channels[$callid]['dialstatus'],
-					);
+					/* New channel! */
+					$channels[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
+					$channels[$row['uniqueid']]['cid_num'] = $row['cid_num'];
+					$channels[$row['uniqueid']]['cid_name'] = $row['cid_name'];
+					$channels[$row['uniqueid']]['channel'] = $row['channame'];
+					$channels[$row['uniqueid']]['extension'] = $row['exten'];
+					if ($row['linkedid'] != $row['uniqueid']) {
+						$channels[$row['uniqueid']]['linkedid'] = $row['linkedid'];
+					}
 
-					if ($channels[$row['uniqueid']]['answertime']) {
-						$call['actions'][] = array(
-							'type' => 'answer',
-							'starttime' => $channels[$row['uniqueid']]['answertime'],
-							'stoptime' => $channels[$row['uniqueid']]['hanguptime'],
-							'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-							'status' => $channels[$callid]['dialstatus'],
-						);
+					if ($channels[$row['linkedid']]['successor']) {
+						/* Linked ID channel has a successor. */
+						$channels[$row['uniqueid']]['owner'] = $channels[$row['linkedid']]['successor'];
+					}
+
+					if ($row['uniqueid'] == $row['linkedid']) {
+						$calls[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
+						$calls[$row['uniqueid']]['src'] = $this->channelCallerID($channels[$row['uniqueid']]);
+						$calls[$row['uniqueid']]['extension'] = $row['exten'];
+					}
+					break;
+				case 'CHAN_END':
+					$channels[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
+
+					if ($row['uniqueid'] == $row['linkedid']) {
+						$callid = $row['uniqueid'];
+
+						$call = $calls[$callid];
+
+						$calls[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
 
 						if ($channels[$row['uniqueid']]['hanguptime']) {
 							$call['actions'][] = array(
@@ -147,187 +198,228 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 								'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
 							);
 						}
-					}
 
-					$calls[$callid] = $call;
-				}
-				break;
-			case 'LINKEDID_END':
-				/* Override the endtime of the call. */
-				$calls[$row['linkedid']]['endtime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'ANSWER':
-				$channels[$row['uniqueid']]['answertime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'HANGUP':
-				$channels[$row['uniqueid']]['hanguptime'] = new \DateTime($row['eventtime']);
-				$channels[$row['uniqueid']]['hangupcause'] = $extra['hangupcause'];
-				if ($extra['dialstatus']) {
-					$channels[$row['uniqueid']]['dialstatus'] = $extra['dialstatus'];
-				}
-				break;
-			case 'BRIDGE_ENTER':
-				if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
-					$uniqueid = $localmap['owner'];
-				} else {
-					$uniqueid = $row['uniqueid'];
-				}
-				$bridges[$extra['bridge_id']][$uniqueid]['entertime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'BRIDGE_EXIT':
-				if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
-					$uniqueid = $localmap['owner'];
-				} else {
-					$uniqueid = $row['uniqueid'];
-				}
-				$bridges[$extra['bridge_id']][$uniqueid]['exittime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'ATTENDEDTRANSFER':
-				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
-					/* The owner (or successor) of the channel is giving up control to the transferee. */
-					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
-				}
+						$calls[$callid] = $call;
+					} else {
+						$callid = $row['linkedid'];
 
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'transfer',
-					'transfertype' => 'attended',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
-					'dest' =>  $this->channelCallerID($channels[$extra['transfer_target_channel_uniqueid']]),
-				);
-				break;
-			case 'BLINDTRANSFER':
-				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
-					/* The owner (or successor) of the channel is giving up control to the transferee. */
-					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
-				}
+						$call = $calls[$callid];
 
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'transfer',
-					'transfertype' => 'blind',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
-					'dest' => 'Extension ' . $extra['extension'],
-				);
-				break;
-			case 'APP_START':
-				$channels[$row['uniqueid']]['apps'][] = array(
-					'appname' => $row['appname'],
-					'appdata' => $row['appdata'],
-					'starttime' => new \DateTime($row['eventtime']),
-				);
-				break;
-			case 'APP_END':
-				/* Can two applications be executing on a channel at once?  I don't think so. */
-				$channels[$row['uniqueid']]['apps'][count($channels[$row['uniqueid']]['apps']) - 1]['stoptime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'PARK_START':
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'park',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'src' => $this->channelCallerID($channels[$row['uniqueid']]),
-					'dest' => $extra['parking_lot'],
-				);
-				break;
-			case 'PARK_END':
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'unpark',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'src' => $this->channelCallerID($channels[$row['uniqueid']]),
-					'reason' => $extra['reason'],
-				);
-				break;
-			default:
-				break;
-			}
-		}
+						if (($localmap = $localmaps[substr($channels[$row['uniqueid']]['channel'], 0, -2)]) && $localmap['owner'] == $row['linkedid']) {
+							continue;
+						}
 
-		foreach ($channels as $uniqueid => $channel) {
-			if ($channel['linkedid']) {
-				$callid = $channel['linkedid'];
-
-				$call = $calls[$callid];
-			} else {
-				$callid = $uniqueid;
-
-				$call = $calls[$callid];
-
-				foreach ($bridges as $bridgeid => $bridge) {
-					if (isset($bridge[$callid])) {
-						$action = array(
-							'type' => 'bridge',
-							'starttime' => $bridge[$callid]['entertime'],
-							'stoptime' => $bridge[$callid]['exittime'],
-							'bridge' => $bridgeid,
+						$call['actions'][] = array(
+							'type' => 'call',
+							'starttime' => $channels[$row['uniqueid']]['starttime'],
+							'stoptime' => ($channels[$row['uniqueid']]['answertime'] ? $channels[$row['uniqueid']]['answertime'] : $channels[$row['uniqueid']]['endtime']),
+							'src' =>  $this->channelCallerID($channels[($channels[$row['uniqueid']]['owner'] ? $channels[$row['uniqueid']]['owner'] : $callid)]),
+							'dest' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+							'status' => $channels[$callid]['dialstatus'],
 						);
 
-						foreach ($bridge as $linkid => $link) {
-							if ($linkid == $callid) {
-								continue;
-							}
+						if ($channels[$row['uniqueid']]['answertime']) {
+							$call['actions'][] = array(
+								'type' => 'answer',
+								'starttime' => $channels[$row['uniqueid']]['answertime'],
+								'stoptime' => $channels[$row['uniqueid']]['hanguptime'],
+								'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+								'status' => $channels[$callid]['dialstatus'],
+							);
 
-							if (($localmap = $localmaps[substr($channels[$linkid]['channel'], 0, -2)]) && $localmap['owner'] == $channels[$linkid]['linkedid']) {
-								continue;
-							}
-
-							if ($action['stoptime'] > $link['entertime'] && $link['exittime'] > $action['starttime']) {
-								$member = array(
-									'dest' => $channels[$linkid],
-									'entertime' => ($link['entertime'] < $action['starttime'] ? $action['starttime'] : $link['entertime']),
-									'exittime' => ($link['exittime'] > $action['stoptime'] ? $action['stoptime'] : $link['exittime']),
+							if ($channels[$row['uniqueid']]['hanguptime']) {
+								$call['actions'][] = array(
+									'type' => 'hangup',
+									'starttime' => $channels[$row['uniqueid']]['hanguptime'],
+									'stoptime' => $channels[$row['uniqueid']]['endtime'],
+									'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
 								);
+							}
+						}
 
-								$action['members'][] = $member;
+						$calls[$callid] = $call;
+					}
+					break;
+				case 'LINKEDID_END':
+					/* Override the endtime of the call. */
+					$calls[$row['linkedid']]['endtime'] = new \DateTime($row['eventtime']);
+					break;
+				case 'ANSWER':
+					$channels[$row['uniqueid']]['answertime'] = new \DateTime($row['eventtime']);
+					break;
+				case 'HANGUP':
+					$channels[$row['uniqueid']]['hanguptime'] = new \DateTime($row['eventtime']);
+					$channels[$row['uniqueid']]['hangupcause'] = $extra['hangupcause'];
+					if ($extra['dialstatus']) {
+						$channels[$row['uniqueid']]['dialstatus'] = $extra['dialstatus'];
+					}
+					break;
+				case 'BRIDGE_ENTER':
+					if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
+						$uniqueid = $localmap['owner'];
+					} else {
+						$uniqueid = $row['uniqueid'];
+					}
+					$bridges[$extra['bridge_id']][$uniqueid]['entertime'] = new \DateTime($row['eventtime']);
+					break;
+				case 'BRIDGE_EXIT':
+					if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
+						$uniqueid = $localmap['owner'];
+					} else {
+						$uniqueid = $row['uniqueid'];
+					}
+					$bridges[$extra['bridge_id']][$uniqueid]['exittime'] = new \DateTime($row['eventtime']);
+					break;
+				case 'ATTENDEDTRANSFER':
+					if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
+						/* The owner (or successor) of the channel is giving up control to the transferee. */
+						$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
+					}
+
+					$calls[$row['linkedid']]['actions'][] = array(
+						'type' => 'transfer',
+						'transfertype' => 'attended',
+						'starttime' => new \DateTime($row['eventtime']),
+						'stoptime' => new \DateTime($row['eventtime']),
+						'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+						'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
+						'dest' =>  $this->channelCallerID($channels[$extra['transfer_target_channel_uniqueid']]),
+					);
+					break;
+				case 'BLINDTRANSFER':
+					if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
+						/* The owner (or successor) of the channel is giving up control to the transferee. */
+						$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
+					}
+
+					$calls[$row['linkedid']]['actions'][] = array(
+						'type' => 'transfer',
+						'transfertype' => 'blind',
+						'starttime' => new \DateTime($row['eventtime']),
+						'stoptime' => new \DateTime($row['eventtime']),
+						'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
+						'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
+						'dest' => 'Extension ' . $extra['extension'],
+					);
+					break;
+				case 'APP_START':
+					$channels[$row['uniqueid']]['apps'][] = array(
+						'appname' => $row['appname'],
+						'appdata' => $row['appdata'],
+						'starttime' => new \DateTime($row['eventtime']),
+					);
+					break;
+				case 'APP_END':
+					/* Can two applications be executing on a channel at once?  I don't think so. */
+					$channels[$row['uniqueid']]['apps'][count($channels[$row['uniqueid']]['apps']) - 1]['stoptime'] = new \DateTime($row['eventtime']);
+					break;
+				case 'PARK_START':
+					$calls[$row['linkedid']]['actions'][] = array(
+						'type' => 'park',
+						'starttime' => new \DateTime($row['eventtime']),
+						'stoptime' => new \DateTime($row['eventtime']),
+						'src' => $this->channelCallerID($channels[$row['uniqueid']]),
+						'dest' => $extra['parking_lot'],
+					);
+					break;
+				case 'PARK_END':
+					$calls[$row['linkedid']]['actions'][] = array(
+						'type' => 'unpark',
+						'starttime' => new \DateTime($row['eventtime']),
+						'stoptime' => new \DateTime($row['eventtime']),
+						'src' => $this->channelCallerID($channels[$row['uniqueid']]),
+						'reason' => $extra['reason'],
+					);
+					break;
+				default:
+					break;
+				}
+			}
+
+			foreach ($channels as $uniqueid => $channel) {
+				if ($channel['linkedid']) {
+					$callid = $channel['linkedid'];
+
+					$call = $calls[$callid];
+				} else {
+					$callid = $uniqueid;
+
+					$call = $calls[$callid];
+
+					foreach ($bridges as $bridgeid => $bridge) {
+						if (isset($bridge[$callid])) {
+							$action = array(
+								'type' => 'bridge',
+								'starttime' => $bridge[$callid]['entertime'],
+								'stoptime' => $bridge[$callid]['exittime'],
+								'bridge' => $bridgeid,
+							);
+
+							foreach ($bridge as $linkid => $link) {
+								if ($linkid == $callid) {
+									continue;
+								}
+
+								if (($localmap = $localmaps[substr($channels[$linkid]['channel'], 0, -2)]) && $localmap['owner'] == $channels[$linkid]['linkedid']) {
+									continue;
+								}
+
+								if ($action['stoptime'] > $link['entertime'] && $link['exittime'] > $action['starttime']) {
+									$member = array(
+										'dest' => $channels[$linkid],
+										'entertime' => ($link['entertime'] < $action['starttime'] ? $action['starttime'] : $link['entertime']),
+										'exittime' => ($link['exittime'] > $action['stoptime'] ? $action['stoptime'] : $link['exittime']),
+									);
+
+									$action['members'][] = $member;
+								}
+	
 							}
 
-						}
-
-						if (count($action['members']) > 0) {
-							$call['actions'][] = $action;
+							if (count($action['members']) > 0) {
+								$call['actions'][] = $action;
+							}
 						}
 					}
 				}
-			}
 
-			foreach ($channel['apps'] as $app) {
-				if (($dest = $this->parseApplication($app['appname'], $app['appdata']))) {
-					$call['actions'][] = array(
-						'type' => 'application',
-						'starttime' => $app['starttime'],
-						'stoptime' => $app['stoptime'],
-						'src' =>  $this->channelCallerID($channel),
-						'dest' => $dest,
-					);
+				foreach ($channel['apps'] as $app) {
+					if (($dest = $this->parseApplication($app['appname'], $app['appdata']))) {
+						$call['actions'][] = array(
+							'type' => 'application',
+							'starttime' => $app['starttime'],
+							'stoptime' => $app['stoptime'],
+							'src' =>  $this->channelCallerID($channel),
+							'dest' => $dest,
+						);
+					}
 				}
+
+				$calls[$callid] = $call;
 			}
 
-			$calls[$callid] = $call;
-		}
+			foreach ($calls as $callid => $call) {
+				usort($call['actions'], function($a, $b) {
+					if ($a['starttime'] == $b['starttime']) {
+						if ($b['type'] == 'transfer') {
+							/* Transfer should come before others. */
+							return 1;
+						}
 
-		foreach ($calls as $callid => $call) {
-			usort($call['actions'], function($a, $b) {
-				if ($a['starttime'] == $b['starttime']) {
-					if ($b['type'] == 'transfer') {
-						/* Transfer should come before others. */
-						return 1;
+						return 0;
 					}
 
-					return 0;
-				}
+					return $a['starttime'] < $b['starttime'] ? -1 : 1;
+				});
 
-				return $a['starttime'] < $b['starttime'] ? -1 : 1;
-			});
+				$calls[$callid] = $call;
+			}
 
-			$calls[$callid] = $call;
+			$html .= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
+			$html .= load_view(dirname(__FILE__).'/views/results.php', array("calls" => $calls, "message" => $this->message));
+
+			break;
 		}
-
-		$html .= load_view(dirname(__FILE__).'/views/records.php', array("channels" => $channels, "bridges" => $bridges, "calls" => $calls, "message" => $this->message));
 
 		return $html;
 	}

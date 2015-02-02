@@ -1,15 +1,19 @@
 <?php
 $html = '';
 $html.= form_open($_SERVER['REQUEST_URI']);
+/*
 echo '<pre>';
 var_dump($calls);
 echo '</pre>';
+*/
+
+$html.= '<h3>Search returned ' . count($calls) . ' calls</h3>';
 
 $html.= '<table class="table-striped">';
 $html.= '<th>Time</th>';
 $html.= '<th>Duration</th>';
 $html.= '<th>Caller</th>';
-$html.= '<th>Exten</th>';
+$html.= '<th>Dialed #</th>';
 $html.= '<th>Detail</th>';
 foreach ($calls as $callid => $call) {
 	$html.= '<tr>';
