@@ -21,6 +21,6 @@
 				<engine>asterisk ge 12.0.0</engine>
 		</depends>
 		<supported>
-				<version>12.0</version>
+				<version>13.0</version>
 		</supported>
 </module>
