@@ -25,6 +25,21 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 	}
 
+	public function genConfig() {
+		$conf['cel_general_additional.conf'][] = array(
+			'enable=yes',
+			'apps=confbridge,meetme,queue,voicemail,voicemailmain',
+			'events=all',
+			'dateformat=%F %T',
+		);
+
+		return $conf;
+	}
+
+	public function writeConfig($conf){
+		$this->freepbx->WriteConfig($conf);
+	}
+
 	public function doConfigPageInit($display) {
 		return true;
 	}

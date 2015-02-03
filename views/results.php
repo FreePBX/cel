@@ -150,14 +150,14 @@ foreach ($calls as $callid => $call) {
 	$html.= '</tr>';
 	$html.= '<tr style="display:none;" class="cel">';
 	$html.= '<td colspan="6">';
-	$html.= '<table>';
+	$html.= '<table class="table-striped">';
 	$celcols = array(
-		'eventtype' => 'Event Type',
 		'eventtime' => 'Timestamp',
+		'eventtype' => 'Event Type',
 		'uniqueid' => 'Unique ID',
 		'linkedid' => 'Linked ID',
-		'cid_num' => 'CID Num',
 		'cid_name' => 'CID Name',
+		'cid_num' => 'CID Num',
 		'exten' => 'Exten',
 		'context' => 'Context',
 		'channame' => 'Channel',
