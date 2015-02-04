@@ -8,8 +8,30 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	private $message = '';
 
 	public function __construct($freepbx = null) {
+		$amp_conf = \FreePBX::$conf;
+		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
-		$this->freepbx = $freepbx;
+		$config = $this->FreePBX->Config;
+		$db_name = $config->get('CDRDBNAME');
+		$db_host = $config->get('CDRDBHOST');
+		$db_port = $config->get('CDRDBPORT');
+		$db_user = $config->get('CDRDBUSER');
+		$db_pass = $config->get('CDRDBPASS');
+		$dbt = $config->get('CDRDBTYPE');
+
+		$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
+		$dbt = !empty($dbt) ? $dbt : 'mysql';
+		$db_type = $db_hash[$dbt];
+		$db_name = !empty($db_name) ? $db_name : "asteriskcdrdb";
+		$db_host = !empty($db_host) ? $db_host : "localhost";
+		$db_port = empty($db_port) ? '' :  ':' . $db_port;
+		$db_user = empty($db_user) ? $amp_conf['AMPDBUSER'] : $db_user;
+		$db_pass = empty($db_pass) ? $amp_conf['AMPDBPASS'] : $db_pass;
+		try {
+			$this->cdrdb = new \DB(new \Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass));
+		} catch(\Exception $e) {
+			die('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.','.$db_user.','.$db_pass);
+		}
 	}
 
 	public function install() {
@@ -37,7 +59,24 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function writeConfig($conf){
-		$this->freepbx->WriteConfig($conf);
+		$this->FreePBX->WriteConfig($conf);
+	}
+
+	public function getActionBar($request) {
+		$buttons = array(
+			'reset' => array(
+				'name' => 'reset',
+				'id' => 'reset',
+				'value' => _('Reset')
+			),
+			'submit' => array(
+				'name' => 'submit',
+				'id' => 'submit',
+				'value' => _('Search')
+			)
+		);
+
+		return $buttons;
 	}
 
 	public function doConfigPageInit($display) {
@@ -53,8 +92,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 			break;
 		case "search":
-			global $cdrdb;
-
 			$fields = array(
 				'eventtype',
 				'eventtime',
@@ -79,7 +116,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$sql = "SELECT DISTINCT linkedid" .
 					" FROM cel" .
 					" WHERE eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
-				$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 				foreach ($res as $row) {
 					$linkedids[] = $row['linkedid'];
@@ -91,7 +128,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$sql = "SELECT DISTINCT linkedid" .
 					" FROM cel" .
 					" WHERE cid_num = '" . $callerid . "' OR cid_name LIKE '%" . $callerid . "%'";
-				$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 				foreach ($res as $row) {
 					$linkedids[] = $row['linkedid'];
@@ -103,7 +140,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$sql = "SELECT DISTINCT linkedid" .
 					" FROM cel" .
 					" WHERE exten LIKE '%" . $extension . "%'";
-				$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 				foreach ($res as $row) {
 					$linkedids[] = $row['linkedid'];
@@ -120,7 +157,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$sql = "SELECT DISTINCT linkedid" .
 					" FROM cel" .
 					" WHERE (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
-				$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 				foreach ($res as $row) {
 					$linkedids[] = $row['linkedid'];
@@ -133,7 +170,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			$sql = "SELECT extra" .
 				" FROM cel" .
 				" WHERE eventtype = 'ATTENDEDTRANSFER' AND linkedid IN ('" . implode("', '", $linkedids) . "')";
-			$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 			foreach ($res as $row) {
 				$extra = json_decode($row['extra'], true);
@@ -151,7 +188,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" .
 				" AND linkedid IN ('" . implode("', '", $linkedids) . "')" .
 				" ORDER BY id";
-			$res = $cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 			$channels = array();
 			foreach ($res as $row) {

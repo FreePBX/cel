@@ -1,6 +1,6 @@
 <?php
 $html = '';
-$html.= form_open($_SERVER['REQUEST_URI']);
+$html.= form_open($_SERVER['REQUEST_URI'], 'class="fpbx-submit"');
 $html.= form_hidden('action', 'search');
 
 $html.= '<h2>Search</h2>';
@@ -26,9 +26,6 @@ $applications = array(
 $table->add_row(form_radio('searchtype', 'application', ($_REQUEST['searchtype'] == 'application')), $label, form_dropdown('application', $applications, $_REQUEST['application']));
 
 $html.= $table->generate();
-
-$html.= br();
-$html.= form_submit('submit', _('Search'));
 
 $html.= form_close();
 $html.= br();

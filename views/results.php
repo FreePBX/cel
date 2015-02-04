@@ -1,11 +1,6 @@
 <?php
 $html = '';
 $html.= form_open($_SERVER['REQUEST_URI']);
-/*
-echo '<pre>';
-var_dump($calls);
-echo '</pre>';
-*/
 
 $html.= '<h3>Search returned ' . count($calls) . ' calls</h3>';
 
@@ -184,7 +179,7 @@ foreach ($calls as $callid => $call) {
 	$html.= '</tr>';
 }
 
-$html.= '<table>';
+$html.= '</table>';
 
 $html.= '<script>
 $(function() {
