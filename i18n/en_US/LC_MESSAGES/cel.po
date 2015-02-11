@@ -1,0 +1,87 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for cel
+# Copyright (C) 2008-2015 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-11 18:44-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /usr/src/freepbx/cel/views/search.php:19
+msgid "Application"
+msgstr ""
+
+#: /usr/src/freepbx/cel/views/search.php:19
+msgid "Application executed by a call participant"
+msgstr ""
+
+#: /usr/src/freepbx/cel/views/search.php:13
+msgid "Caller ID"
+msgstr ""
+
+#: /usr/src/freepbx/cel/views/search.php:13
+msgid "Caller ID of a call participant"
+msgstr ""
+
+#: /usr/src/freepbx/cel/views/search.php:10
+msgid "Date Range"
+msgstr ""
+
+#: /usr/src/freepbx/cel/views/search.php:10
+msgid "Date range of call"
+msgstr ""
+
+#: /usr/src/freepbx/cel/views/search.php:16
+msgid "Dialed Number"
+msgstr ""
+
+#: /usr/src/freepbx/cel/install.php:81
+msgid "ERROR failed to update extra field"
+msgstr ""
+
+#: /usr/src/freepbx/cel/install.php:97
+msgid "ERROR failed to update userfield field"
+msgstr ""
+
+#: /usr/src/freepbx/cel/views/search.php:16
+msgid "Extension or DID dialed"
+msgstr ""
+
+#: /usr/src/freepbx/cel/install.php:70 /usr/src/freepbx/cel/install.php:83
+#: /usr/src/freepbx/cel/install.php:99
+msgid "OK"
+msgstr ""
+
+#: /usr/src/freepbx/cel/Cel.class.php:70
+msgid "Reset"
+msgstr ""
+
+#: /usr/src/freepbx/cel/Cel.class.php:75
+msgid "Search"
+msgstr ""
+
+#: /usr/src/freepbx/cel/install.php:102
+msgid "already deleted"
+msgstr ""
+
+#: /usr/src/freepbx/cel/install.php:86
+msgid "already exists"
+msgstr ""
+
+#: /usr/src/freepbx/cel/install.php:73
+msgid "checking for extra field.."
+msgstr ""
+
+#: /usr/src/freepbx/cel/install.php:89
+msgid "checking for userfield field.."
+msgstr ""
