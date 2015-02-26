@@ -70,7 +70,7 @@ msgstr "正常"
 
 #: cel.i18n.php:4 /usr/src/freepbx/cel/cel.i18n.php:10
 msgid "Reports"
-msgstr ""
+msgstr "报表"
 
 #: Cel.class.php:70
 msgid "Reset"
