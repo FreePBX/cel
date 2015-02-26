@@ -86,7 +86,7 @@ msgstr ""
 
 #: install.php:86
 msgid "already exists"
-msgstr ""
+msgstr "已存在"
 
 #: install.php:73
 msgid "checking for extra field.."
