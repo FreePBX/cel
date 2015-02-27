@@ -74,7 +74,7 @@ msgstr "报表"
 
 #: Cel.class.php:70
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #: Cel.class.php:75
 msgid "Search"
