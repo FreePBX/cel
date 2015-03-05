@@ -540,6 +540,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				if ($args[0]) {
 					$vm = split('@', $args[0]);
 					$parsed = 'checked Voicemail (' . $vm[0] . ')';
+				} else {
+					$parsed = 'checked Voicemail';
 				}
 				break;
 		}
