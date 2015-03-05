@@ -262,6 +262,10 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 						$call = $calls[$callid];
 
+						if (substr($channels[$row['uniqueid']]['channel'], 0, 12) == 'DAHDI/pseudo') {
+							continue;
+						}
+
 						if (($localmap = $localmaps[substr($channels[$row['uniqueid']]['channel'], 0, -2)]) && $localmap['owner'] == $row['linkedid']) {
 							continue;
 						}
