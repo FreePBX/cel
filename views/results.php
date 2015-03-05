@@ -206,7 +206,7 @@ foreach ($calls as $callid => $call) {
 	$html.= '</td>';
 	$html.= '</tr>';
 	$html.= '<tr style="display:none;" class="cel">';
-	$html.= '<td colspan="6">';
+	$html.= '<td colspan="8">';
 	$html.= '<table class="table-striped">';
 	$celcols = array(
 		'eventtime' => 'Timestamp',
