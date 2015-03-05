@@ -50,7 +50,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function genConfig() {
 		$conf['cel_general_additional.conf'][] = array(
 			'enable=yes',
-			'apps=confbridge,meetme,queue,voicemail,voicemailmain',
+			'apps=confbridge,meetme,mixmonitor,queue,stopmixmonitor,voicemail,voicemailmain',
 			'events=all',
 			'dateformat=%F %T',
 		);
@@ -84,11 +84,16 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function myShowPage() {
+		global $amp_conf;
+
 		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
 		switch ($action) {
+		case "playrecording":
+			include_once("audio.php");
+			break;
 		case "":
-			$html .= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
+			$html.= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
 
 			break;
 		case "search":
@@ -436,6 +441,15 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				}
 
 				foreach ($channel['apps'] as $app) {
+					if ($app['appname'] == 'MixMonitor') {
+						$args = split(',', $app['appdata']);
+						if ($args[0]) {
+							$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
+							$recordingfile = $mon_dir . '/' . $args[0];
+							$call['recordings'][$recordingfile] = file_exists($recordingfile);
+						}
+					}
+
 					if (($dest = $this->parseApplication($app['appname'], $app['appdata']))) {
 						$call['actions'][] = array(
 							'type' => 'application',
@@ -467,8 +481,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$calls[$callid] = $call;
 			}
 
-			$html .= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
-			$html .= load_view(dirname(__FILE__).'/views/results.php', array("calls" => $calls, "message" => $this->message));
+			include_once("crypt.php");
+			$html.= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
+			$html.= load_view(dirname(__FILE__).'/views/results.php', array("calls" => $calls, "message" => $this->message));
 
 			break;
 		}
@@ -489,6 +504,18 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$args = split(',', $data);
 				if ($args[0]) {
 					$parsed = 'joined Conference (' . $args[0] . ')';
+				}
+				break;
+			case 'mixmonitor':
+				$args = split(',', $data);
+				if ($args[0]) {
+					$parsed = 'started Recording';
+				}
+				break;
+			case 'stopmixmonitor':
+				$args = split(',', $data);
+				if ($args[0]) {
+					$parsed = 'stopped Recording';
 				}
 				break;
 			case 'queue':

@@ -1,4 +1,6 @@
 <?php
+$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
+
 $html = '';
 $html.= form_open($_SERVER['REQUEST_URI']);
 
@@ -8,10 +10,13 @@ $html.= '<table class="table-striped">';
 $html.= '<th></th>';
 $html.= '<th>Time</th>';
 $html.= '<th>Duration</th>';
+$html.= '<th>Recordings</th>';
 $html.= '<th>Caller</th>';
 $html.= '<th>Dialed #</th>';
 $html.= '<th>Detail</th>';
+$row = 0;
 foreach ($calls as $callid => $call) {
+	$row++;
 	$html.= '<tr class="call">';
 	$html.= '<td>+</td>';
 	$html.= '<td>';
@@ -19,6 +24,63 @@ foreach ($calls as $callid => $call) {
 	$html.= '</td>';
 	$html.= '<td>';
 	$html.= cel_format_interval($call['starttime'], $call['endtime']);
+	$html.= '</td>';
+	$html.= '<td>';
+	foreach ($call['recordings'] as $recording => $exists) {
+		if ($exists) {
+			$html.= '<div class="recording">';
+			$crypt = new Crypt();
+			// Encrypt the complete file
+			$audio = urlencode($crypt->encrypt($recording, $REC_CRYPT_PASSWORD));
+			$recurl=$_SERVER['SCRIPT_NAME']."?quietmode=1&display=cel&action=playrecording&filename=$audio";
+			$html.= "<a href=\"#\" onClick=\"javascript:recording_play($row,'$recurl','$callid'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>";
+			$html.= '<div id="playback-'.$row.'" class="playback" style="display:none;">
+				<div id="jquery_jplayer_'.$row.'" class="jp-jplayer"></div>
+				<div id="jp_container_'.$row.'" class="jp-audio">
+					<div class="jp-type-single">
+						<div class="jp-gui jp-interface">
+							<ul class="jp-controls">
+								<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+								<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+								<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+								<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+								<li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+							</ul>
+							<div class="jp-progress">
+								<div class="jp-seek-bar">
+									<div class="jp-play-bar"></div>
+								</div>
+							</div>
+							<div class="jp-volume-bar">
+								<div class="jp-volume-bar-value"></div>
+							</div>
+							<div class="jp-time-holder">
+								<div class="jp-current-time"></div>
+								<div class="jp-duration"></div>
+								<ul class="jp-toggles">
+									<li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+									<li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="jp-details">
+							<ul>
+								<li><span class="jp-title"></span></li>
+							</ul>
+						</div>
+						<div class="jp-no-solution">
+							<span>Update Required</span>
+							To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+						</div>
+					</div>
+				</div>
+			</div>';
+			$html.= '</div>';
+		} else {
+			$html.= "false";
+		}
+	}
 	$html.= '</td>';
 	$html.= '<td>';
 	$html.= $call['src'];
@@ -183,7 +245,11 @@ $html.= '</table>';
 
 $html.= '<script>
 $(function() {
-	$("tr.call").click(function() {
+	$("tr.call").click(function(event) {
+		if ($(event.target).parents(".recording").size() > 0) {
+			return false;
+		}
+
 		$visible = $(this).next("tr.cel").is(":visible");
 		$("tr.cel").hide();
 		$("tr.call").find("td:first").html("+");
