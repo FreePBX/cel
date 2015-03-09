@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:06-0500\n"
+"POT-Creation-Date: 2015-03-09 17:34-0400\n"
 "PO-Revision-Date: 2015-02-20 19:06-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 
 #: views/search.php:19
 msgid "Application"
@@ -26,9 +26,11 @@ msgstr ""
 msgid "Application executed by a call participant"
 msgstr ""
 
-#: cel.i18n.php:3 /usr/src/freepbx/cel/cel.i18n.php:5 cel.i18n.php:6
-#: /usr/src/freepbx/cel/cel.i18n.php:8 cel.i18n.php:12
-#: /usr/src/freepbx/cel/cel.i18n.php:14
+#: cel.i18n.php:16
+msgid "CEL Report Module"
+msgstr ""
+
+#: cel.i18n.php:4 /usr/src/freepbx/cel/cel.i18n.php:8 cel.i18n.php:10
 msgid "Call Event Logging"
 msgstr ""
 
@@ -60,6 +62,10 @@ msgstr ""
 msgid "ERROR failed to update userfield field"
 msgstr ""
 
+#: cel.i18n.php:14
+msgid "Enable CEL Reporting"
+msgstr ""
+
 #: views/search.php:16
 msgid "Extension or DID dialed"
 msgstr ""
@@ -68,7 +74,7 @@ msgstr ""
 msgid "OK"
 msgstr "正常"
 
-#: cel.i18n.php:4 /usr/src/freepbx/cel/cel.i18n.php:10
+#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
 msgstr "报表"
 
@@ -78,6 +84,15 @@ msgstr "重置"
 
 #: Cel.class.php:75
 msgid "Search"
+msgstr ""
+
+#: cel.i18n.php:18
+msgid ""
+"Setting this true will enable the CEL module to create call reports from CEL "
+"data. Although the CEL module will assure there is a CEL table available, "
+"the reporting functionality in Asterisk and associated ODBC database and CEL "
+"configuration must be done outside of FreePBX either by the user or at the "
+"Distro level."
 msgstr ""
 
 #: install.php:102
