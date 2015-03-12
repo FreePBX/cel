@@ -78,7 +78,7 @@ foreach ($calls as $callid => $call) {
 			</div>';
 			$html.= '</div>';
 		} else {
-			$html.= "false";
+			$html.= "<p style='color:red'>Archived</p>";
 		}
 	}
 	$html.= '</td>';
