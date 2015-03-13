@@ -322,6 +322,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				break;
 			case 'ANSWER':
 				$channels[$row['uniqueid']]['answertime'] = new \DateTime($row['eventtime']);
+				/* Update the Caller ID, because it may have changed. */
+				$channels[$row['uniqueid']]['cid_num'] = $row['cid_num'];
+				$channels[$row['uniqueid']]['cid_name'] = $row['cid_name'];
 				break;
 			case 'HANGUP':
 				$channels[$row['uniqueid']]['hanguptime'] = new \DateTime($row['eventtime']);
