@@ -8,13 +8,13 @@ $html.= '<h2>Search</h2>';
 $table = new CI_Table;
 
 $label = fpbx_label(_('Date Range'), _('Date range of call'));
-$table->add_row(form_radio('searchtype', 'date', (!isset($_REQUEST['searchtype']) || $_REQUEST['searchtype'] == 'date')), $label, form_input('datefrom', $_REQUEST['datefrom'] ? $_REQUEST['datefrom'] : date('Y-m-d'), 'class="datepicker"'), form_input('dateto', $_REQUEST['dateto'] ? $_REQUEST['dateto'] : date('Y-m-d'), 'class="datepicker"'));
+$table->add_row(form_checkbox('searchdate', 1, $_REQUEST['searchdate']), $label, form_input('datefrom', $_REQUEST['datefrom'] ? $_REQUEST['datefrom'] : date('Y-m-d'), 'class="datepicker"'), form_input('dateto', $_REQUEST['dateto'] ? $_REQUEST['dateto'] : date('Y-m-d'), 'class="datepicker"'));
 
 $label = fpbx_label(_('Caller ID'), _('Caller ID of a call participant'));
-$table->add_row(form_radio('searchtype', 'callerid', ($_REQUEST['searchtype'] == 'callerid')), $label, form_input('callerid', $_REQUEST['callerid']));
+$table->add_row(form_checkbox('searchcallerid', 1, $_REQUEST['searchcallerid']), $label, form_input('callerid', $_REQUEST['callerid']));
 
 $label = fpbx_label(_('Dialed Number'), _('Extension or DID dialed'));
-$table->add_row(form_radio('searchtype', 'extension', ($_REQUEST['searchtype'] == 'extension')), $label, form_input('exten', $_REQUEST['exten']));
+$table->add_row(form_checkbox('searchexten', 1, $_REQUEST['searchexten']), $label, form_input('exten', $_REQUEST['exten']));
 
 $label = fpbx_label(_('Application'), _('Application executed by a call participant'));
 $applications = array(
@@ -23,7 +23,7 @@ $applications = array(
 	'voicemail' => 'Voicemail',
 	'voicemailmain' => 'Voicemail Main',
 );
-$table->add_row(form_radio('searchtype', 'application', ($_REQUEST['searchtype'] == 'application')), $label, form_dropdown('application', $applications, $_REQUEST['application']));
+$table->add_row(form_checkbox('searchapplication', 1, $_REQUEST['searchapplication']), $label, form_dropdown('application', $applications, $_REQUEST['application']));
 
 $html.= $table->generate();
 

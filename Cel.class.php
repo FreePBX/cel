@@ -97,8 +97,15 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 			break;
 		case "search":
-			switch ($_REQUEST['searchtype']) {
-			case 'date':
+			$sql = "SELECT DISTINCT linkedid" .
+				" FROM cel";
+			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+			foreach ($res as $row) {
+				$linkedids[] = $row['linkedid'];
+			}
+
+			if ($_REQUEST['searchdate']) {
 				$datefrom = (!empty($_REQUEST['datefrom']) ? $_REQUEST['datefrom'] : date('Y-m-d')) . ' 00:00:00';
 				$dateto = (!empty($_REQUEST['dateto']) ? $_REQUEST['dateto'] : date('Y-m-d')) . ' 23:59:59';
 				$sql = "SELECT DISTINCT linkedid" .
@@ -106,36 +113,42 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					" WHERE eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
 				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
+				$filterlinkedids = array();
 				foreach ($res as $row) {
-					$linkedids[] = $row['linkedid'];
+					$filterlinkedids[] = $row['linkedid'];
 				}
+				$linkedids = array_intersect($linkedids, $filterlinkedids);
+			}
 
-				break;
-			case 'callerid':
+			if ($_REQUEST['searchcallerid']) {
 				$callerid = $_REQUEST['callerid'];
 				$sql = "SELECT DISTINCT linkedid" .
 					" FROM cel" .
-					" WHERE cid_num = '" . $callerid . "' OR cid_name LIKE '%" . $callerid . "%'";
+					" WHERE cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%'";
 				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
+				$filterlinkedids = array();
 				foreach ($res as $row) {
-					$linkedids[] = $row['linkedid'];
+					$filterlinkedids[] = $row['linkedid'];
 				}
+				$linkedids = array_intersect($linkedids, $filterlinkedids);
+			}
 
-				break;
-			case 'extension':
+			if ($_REQUEST['searchexten']) {
 				$extension = $_REQUEST['exten'];
 				$sql = "SELECT DISTINCT linkedid" .
 					" FROM cel" .
 					" WHERE exten LIKE '%" . $extension . "%'";
 				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
+				$filterlinkedids = array();
 				foreach ($res as $row) {
-					$linkedids[] = $row['linkedid'];
+					$filterlinkedids[] = $row['linkedid'];
 				}
+				$linkedids = array_intersect($linkedids, $filterlinkedids);
+			}
 
-				break;
-			case 'application':
+			if ($_REQUEST['searchapplication']) {
 				$application = $_REQUEST['application'];
 				if ($application == 'conference') {
 					$application = array('confbridge', 'meetme');
@@ -147,11 +160,11 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					" WHERE (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
 				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
+				$filterlinkedids = array();
 				foreach ($res as $row) {
-					$linkedids[] = $row['linkedid'];
+					$filterlinkedids[] = $row['linkedid'];
 				}
-
-				break;
+				$linkedids = array_intersect($linkedids, $filterlinkedids);
 			}
 
 			$calls = $this->getCalls($linkedids);
