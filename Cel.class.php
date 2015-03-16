@@ -47,6 +47,37 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 	}
 
+	public function processUCPAdminDisplay($user) {
+		if(!empty($_POST['ucp|cel'])) {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cel','assigned',$_POST['ucp|cel']);
+		} else {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cel','assigned',array());
+		}
+	}
+
+	/**
+	* get the Admin display in UCP
+	* @param array $user The user array
+	*/
+	public function getUCPAdminDisplay($user) {
+		$fpbxusers = array();
+		$cul = array();
+		foreach(core_users_list() as $list) {
+			$cul[$list[0]] = array(
+				"name" => $list[1],
+				"vmcontext" => $list[2]
+			);
+		}
+		$celassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Cel','assigned');
+		$celassigned = !empty($celassigned) ? $celassigned : array();
+		foreach($user['assigned'] as $assigned) {
+			$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$celassigned));
+		}
+		$html[0]['description'] = '<a href="#" class="info">'._("Allowed CEL").':<span>'._("These are the assigned and active extensions which will show up for this user to control and edit in UCP").'</span></a>';
+		$html[0]['content'] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
+		return $html;
+	}
+
 	public function genConfig() {
 		$conf['cel_general_additional.conf'][] = array(
 			'enable=yes',
@@ -97,77 +128,24 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 			break;
 		case "search":
-			$sql = "SELECT DISTINCT linkedid" .
-				" FROM cel";
-			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-			foreach ($res as $row) {
-				$linkedids[] = $row['linkedid'];
-			}
-
 			if ($_REQUEST['searchdate']) {
-				$datefrom = (!empty($_REQUEST['datefrom']) ? $_REQUEST['datefrom'] : date('Y-m-d')) . ' 00:00:00';
-				$dateto = (!empty($_REQUEST['dateto']) ? $_REQUEST['dateto'] : date('Y-m-d')) . ' 23:59:59';
-				$sql = "SELECT DISTINCT linkedid" .
-					" FROM cel" .
-					" WHERE eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
-				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-				$filterlinkedids = array();
-				foreach ($res as $row) {
-					$filterlinkedids[] = $row['linkedid'];
-				}
-				$linkedids = array_intersect($linkedids, $filterlinkedids);
+				$filters['datefrom'] = $_REQUEST['datefrom'];
+				$filters['dateto'] = $_REQUEST['dateto'];
 			}
 
 			if ($_REQUEST['searchcallerid']) {
-				$callerid = $_REQUEST['callerid'];
-				$sql = "SELECT DISTINCT linkedid" .
-					" FROM cel" .
-					" WHERE cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%'";
-				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-				$filterlinkedids = array();
-				foreach ($res as $row) {
-					$filterlinkedids[] = $row['linkedid'];
-				}
-				$linkedids = array_intersect($linkedids, $filterlinkedids);
+				$filters['callerid'] = $_REQUEST['callerid'];
 			}
 
 			if ($_REQUEST['searchexten']) {
-				$extension = $_REQUEST['exten'];
-				$sql = "SELECT DISTINCT linkedid" .
-					" FROM cel" .
-					" WHERE exten LIKE '%" . $extension . "%'";
-				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-				$filterlinkedids = array();
-				foreach ($res as $row) {
-					$filterlinkedids[] = $row['linkedid'];
-				}
-				$linkedids = array_intersect($linkedids, $filterlinkedids);
+				$filters['exten'] = $_REQUEST['exten'];
 			}
 
 			if ($_REQUEST['searchapplication']) {
-				$application = $_REQUEST['application'];
-				if ($application == 'conference') {
-					$application = array('confbridge', 'meetme');
-				} else {
-					$application = array($application);
-				}
-				$sql = "SELECT DISTINCT linkedid" .
-					" FROM cel" .
-					" WHERE (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
-				$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-				$filterlinkedids = array();
-				foreach ($res as $row) {
-					$filterlinkedids[] = $row['linkedid'];
-				}
-				$linkedids = array_intersect($linkedids, $filterlinkedids);
+				$filters['application'] = $_REQUEST['application'];
 			}
 
-			$calls = $this->getCalls($linkedids);
+			$calls = $this->getCalls($filters);
 
 			include_once("crypt.php");
 			$html.= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
@@ -179,7 +157,79 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		return $html;
 	}
 
-	public function getCalls($linkedids) {
+	public function getCalls($filters) {
+		$sql = "SELECT DISTINCT linkedid" .
+			" FROM cel";
+		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+		foreach ($res as $row) {
+			$linkedids[] = $row['linkedid'];
+		}
+
+		if ($filters['datefrom'] || $filters['dateto']) {
+			$datefrom = (!empty($filters['datefrom']) ? $filters['datefrom'] : date('Y-m-d')) . ' 00:00:00';
+			$dateto = (!empty($filters['dateto']) ? $filters['dateto'] : date('Y-m-d')) . ' 23:59:59';
+			$sql = "SELECT DISTINCT linkedid" .
+				" FROM cel" .
+				" WHERE eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
+			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+			$filterlinkedids = array();
+			foreach ($res as $row) {
+				$filterlinkedids[] = $row['linkedid'];
+			}
+			$linkedids = array_intersect($linkedids, $filterlinkedids);
+		}
+
+		if ($filters['callerid']) {
+			$callerid = $filters['callerid'];
+			$sql = "SELECT DISTINCT linkedid" .
+				" FROM cel" .
+				" WHERE cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%'";
+			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+			$filterlinkedids = array();
+			foreach ($res as $row) {
+				$filterlinkedids[] = $row['linkedid'];
+			}
+			$linkedids = array_intersect($linkedids, $filterlinkedids);
+		}
+
+		if ($filters['exten']) {
+			$extension = $filters['exten'];
+			$sql = "SELECT DISTINCT linkedid" .
+				" FROM cel" .
+				" WHERE exten LIKE '%" . $extension . "%'";
+			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+			$filterlinkedids = array();
+			foreach ($res as $row) {
+				$filterlinkedids[] = $row['linkedid'];
+			}
+			$linkedids = array_intersect($linkedids, $filterlinkedids);
+		}
+
+		if ($filters['application']) {
+			$application = $filters['application'];
+			if ($application == 'conference') {
+				$application = array('confbridge', 'meetme');
+			} else {
+				$application = array($application);
+			}
+			$sql = "SELECT DISTINCT linkedid" .
+				" FROM cel" .
+				" WHERE (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
+			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
+
+			$filterlinkedids = array();
+			foreach ($res as $row) {
+				$filterlinkedids[] = $row['linkedid'];
+			}
+			$linkedids = array_intersect($linkedids, $filterlinkedids);
+		}
+
+
+
 		$fields = array(
 			'eventtype',
 			'eventtime',

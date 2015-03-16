@@ -6,7 +6,6 @@ $crypt = new Crypt();
 
 $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
 $path = $crypt->decrypt($_REQUEST['filename'],$REC_CRYPT_PASSWORD);
-var_dump($path);
 if(!empty($path)) {
 	$extension = pathinfo($path,PATHINFO_EXTENSION);
 	// This will set the Content-Type to the appropriate setting for the file
