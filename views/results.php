@@ -6,7 +6,7 @@ $html.= form_open($_SERVER['REQUEST_URI']);
 
 $html.= '<h3>Search returned ' . count($calls) . ' calls</h3>';
 
-$html.= '<table class="table-striped">';
+$html.= '<table class="table table-striped">';
 $html.= '<th></th>';
 $html.= '<th>Time</th>';
 $html.= '<th>Duration</th>';
@@ -174,7 +174,7 @@ foreach ($calls as $callid => $call) {
 	$html.= '</tr>';
 	$html.= '<tr style="display:none;" class="cel">';
 	$html.= '<td colspan="8">';
-	$html.= '<table class="table-striped">';
+	$html.= '<table class="table table-striped">';
 	$celcols = array(
 		'eventtime' => 'Timestamp',
 		'eventtype' => 'Event Type',

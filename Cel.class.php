@@ -120,6 +120,33 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
 		switch ($action) {
+		case "getJSON":
+			header('Content-Type: application/json');
+			switch($_REQUEST['jdata']){
+				case 'results':
+					if (!empty($_REQUEST['datefrom']) && !empty($_REQUEST['dateto'])) {
+						$filters['datefrom'] = $_REQUEST['datefrom'];
+						$filters['dateto'] = $_REQUEST['dateto'];
+					}
+					if (!empty($_REQUEST['callerid'])) {
+						$filters['callerid'] = $_REQUEST['callerid'];
+					}
+					if (!empty($_REQUEST['exten'])) {
+						$filters['exten'] = $_REQUEST['exten'];
+					}
+					if (!empty($_REQUEST['application'])) {
+						$filters['application'] = $_REQUEST['application'];
+					}
+					$calls = $this->getCalls($filters);
+					echo json_encode($calls);
+					exit();
+					break;
+				default:
+					echo json_encode(array('error'=> 'invalid request'));
+					exit();
+					break;
+			}
+			break;
 		case "playrecording":
 			include_once("audio.php");
 			break;
