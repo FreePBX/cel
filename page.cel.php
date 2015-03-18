@@ -3,7 +3,6 @@
 //	Copyright 2013 Schmooze Com Inc.
 //
 $cel = FreePBX::Cel();
-print_r($_POST);
 ?>
 
 <div class="container-fluid">
