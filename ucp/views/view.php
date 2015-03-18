@@ -12,34 +12,35 @@
 
 			<div id="celsearch" class="panel-collapse collapse">
 				<div class="form-group">
-					<div><input type="checkbox" name="searchdate" class="search-type" <?php echo ((isset($datefrom) && isset($dateto)) ? "checked" : "")?> value="1"/> <label for="date" class="help"><?php echo _('Date Range')?> <i class="fa fa-question-circle"></i></label></div>
+					<div><label for="date" class="help"><?php echo _('Date Range')?> <i class="fa fa-question-circle"></i></label></div>
 					<div class="input-group">
-					<input name="datefrom" type="date" max="<?php echo date('Y-m-d')?>" class="form-control search-param" id="datefrom" value="<?php echo $datefrom ? $datefrom : date('Y-m-d')?>">
+					<input name="datefrom" type="date" max="<?php echo date('Y-m-d')?>" class="form-control search-param" id="datefrom" value="<?php echo $datefrom?>">
 					<div class="input-group-addon">to</div>
-					<input name="dateto" type="date" max="<?php echo date('Y-m-d')?>" class="form-control search-param" id="dateto" value="<?php echo $dateto ? $dateto : date('Y-m-d')?>">
+					<input name="dateto" type="date" max="<?php echo date('Y-m-d')?>" class="form-control search-param" id="dateto" value="<?php echo $dateto?>">
 					</div>
 					<span class="help-block help-hidden" data-for="date"><?php echo _('Date range of call')?></span>
 				</div>
 				<div class="form-group">
-					<div><input type="checkbox" name="searchcallerid" class="search-type" <?php echo (isset($callerid) ? "checked" : "")?> value="1"/> <label for="callerid" class="help"><?php echo _('Caller ID')?> <i class="fa fa-question-circle"></i></label></div>
+					<div><label for="callerid" class="help"><?php echo _('Caller ID')?> <i class="fa fa-question-circle"></i></label></div>
 					<input name="callerid" class="form-control search-param" id="callerid" value="<?php echo $callerid?>">
 					<span class="help-block help-hidden" data-for="callerid"><?php echo _('Caller ID of a call participant')?></span>
 				</div>
 				<div class="form-group">
-					<div><input type="checkbox" name="searchexten" class="search-type" <?php echo (isset($exten) ? "checked" : "")?> value="1"/> <label for="exten" class="help"><?php echo _('Dialed Number')?> <i class="fa fa-question-circle"></i></label></div>
+					<div><label for="exten" class="help"><?php echo _('Dialed Number')?> <i class="fa fa-question-circle"></i></label></div>
 					<input name="exten" class="form-control search-param" id="exten" value="<?php echo $exten?>">
 					<span class="help-block help-hidden" data-for="exten"><?php echo _('Extension or DID dialed')?></span>
 				</div>
 				<div class="form-group">
 					<?php
 					$apps = array(
-						'conference' => 'Conference',
-						'queue' => 'Queue',
-						'voicemail' => 'Voicemail',
-						'voicemailmain' => 'Voicemail Main',
+						'' => '',
+						'conference' => _('Conference'),
+						'queue' => _('Queue'),
+						'voicemail' => _('Voicemail'),
+						'voicemailmain' => _('Voicemail Main'),
 					);
 					?>
-					<div><input type="checkbox" name="searchapplication" class="search-type" <?php echo (isset($application) ? "checked" : "")?> value="1"/> <label for="application" class="help"><?php echo _('Application')?> <i class="fa fa-question-circle"></i></label></div>
+					<div><label for="application" class="help"><?php echo _('Application')?> <i class="fa fa-question-circle"></i></label></div>
 					<select name="application" id="application" class="form-control search-param">
 						<?php foreach ($apps as $app => $display) {?>
 							<option value="<?php echo $app?>" <?php echo ($app == $application) ? 'selected' : ''?>><?php echo $display?></option>

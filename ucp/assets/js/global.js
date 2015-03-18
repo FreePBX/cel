@@ -109,9 +109,7 @@ var CelC = UCPMC.extend({
 	search: function() {
 		var params = "";
 		$(".search-param").each(function() {
-			if ($(this).parents(".form-group").find(".search-type").prop("checked")) {
-				params += "&" + $(this).attr("name") + "=" + encodeURIComponent($(this).val());
-			}
+			params += "&" + $(this).attr("name") + "=" + encodeURIComponent($(this).val());
 		});
 
 		$.pjax({

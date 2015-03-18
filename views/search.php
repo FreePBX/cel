@@ -1,6 +1,6 @@
 <?php 
 $applications = array(
-	'' => _('Any'),
+	'' => '',
 	'conference' => _('Conference'),
 	'queue' => _('Queue'),
 	'voicemail' => _('Voicemail'),
@@ -15,10 +15,6 @@ foreach ($applications as $key => $value) {
 <h2><?php echo _("Search")?></h2>
 <form class="fpbx-submit" action="" method="post" name='CELSearch' id='CELSearch'>
 <input type="hidden" name="action" id="action" value="search">
-<input type="hidden" name="searchdate" id="searchdate" value="<?php echo ($_REQUEST['searchdate']?$_REQUEST['searchdate']:"0") ?>">
-<input type="hidden" name="searchcallerid" id="searchcallerid" value="<?php echo ($_REQUEST['searchcallerid']?$_REQUEST['searchcallerid']:"0") ?>">
-<input type="hidden" name="searchexten" id="searchexten" value="<?php echo ($_REQUEST['searchexten']?$_REQUEST['searchexten']:"0") ?>">
-<input type="hidden" name="searchdate" id="searchapplication" value="<?php echo ($_REQUEST['searchapplication']?$_REQUEST['searchapplication']:"0") ?>">
 
 <!--Date Range-->
 <div class="element-container">
@@ -33,10 +29,10 @@ foreach ($applications as $key => $value) {
 					<div class="col-md-9">
 						<div class="row">
 							<div class="col-md-6">
-								<input type="text" class="form-control datepicker" id="datefrom" name="datefrom" value="<?php echo $_REQUEST['datefrom'] ? $_REQUEST['datefrom'] : ''?>" placeholder="<?php echo _('From')?>">
+								<input type="date" max="<?php echo date('Y-m-d')?>" class="form-control" id="datefrom" name="datefrom" value="<?php echo $_REQUEST['datefrom'] ? $_REQUEST['datefrom'] : ''?>" placeholder="<?php echo _('From')?>">
 							</div>
 							<div class="col-md-6">
-								<input type="text" class="form-control datepicker" id="dateto" name="dateto" value="<?php echo $_REQUEST['dateto'] ? $_REQUEST['dateto'] : ''?>" placeholder="<?php echo _('To')?>">
+								<input type="date" max="<?php echo date('Y-m-d')?>" class="form-control" id="dateto" name="dateto" value="<?php echo $_REQUEST['dateto'] ? $_REQUEST['dateto'] : ''?>" placeholder="<?php echo _('To')?>">
 							</div>
 						</div>
 					</div>
@@ -126,34 +122,3 @@ foreach ($applications as $key => $value) {
 </div>
 <!--END Application-->
 </form>
-
-<script>
-$(function() {
-	$(".datepicker").datepicker({
-		dateFormat: "yy-mm-dd",
-		maxDate: "0d"
-	});
-	$("form").submit(function(e){
-		if($("#datefrom").val() != '' && $("#datefrom").val() != ''){
-			$("#searchdate").val("1");
-		}else{
-			$("#searchdate").val("");
-		}
-		if($("#callerid").val() != ''){
-			$("#searchcallerid").val("1");
-		}else{
-			$("#searchcallerid").val("");
-		}
-		if($("#exten").val() != ''){
-			$("#searchexten").val("1");
-		}else{
-			$("#searchexten").val("");
-		}
-		if($("#application").val() != ''){
-			$("#searchapplication").val("1");
-		}else{
-			$("#searchapplication").val("");
-		}
-	});
-});
-</script>
