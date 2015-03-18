@@ -128,20 +128,20 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 			break;
 		case "search":
-			if ($_REQUEST['searchdate']) {
+			if (!empty($_REQUEST['datefrom']) && !empty($_REQUEST['dateto'])) {
 				$filters['datefrom'] = $_REQUEST['datefrom'];
 				$filters['dateto'] = $_REQUEST['dateto'];
 			}
 
-			if ($_REQUEST['searchcallerid']) {
+			if (!empty($_REQUEST['callerid'])) {
 				$filters['callerid'] = $_REQUEST['callerid'];
 			}
 
-			if ($_REQUEST['searchexten']) {
+			if (!empty($_REQUEST['exten'])) {
 				$filters['exten'] = $_REQUEST['exten'];
 			}
 
-			if ($_REQUEST['searchapplication']) {
+			if (!empty($_REQUEST['application'])) {
 				$filters['application'] = $_REQUEST['application'];
 			}
 
