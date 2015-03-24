@@ -1,6 +1,4 @@
 <?php
-include_once("crypt.php");
-$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
 
 $html = '';
 
@@ -31,9 +29,7 @@ foreach ($calls as $callid => $call) {
 		if ($exists) {
 			$recrow++;
 			$html.= '<div class="recording">';
-			$crypt = new Crypt();
-			// Encrypt the complete file
-			$audio = urlencode($crypt->encrypt($recording, $REC_CRYPT_PASSWORD));
+			$audio = urlencode($recording);
 			$recurl=$_SERVER['SCRIPT_NAME']."?quietmode=1&display=cel&action=playrecording&filename=$audio";
 			$html.= "<a href=\"#\" onClick=\"javascript:recording_play($recrow,'$recurl','$callid'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>";
 			$html.= '<div id="playback-'.$recrow.'" class="playback" style="display:none;">
