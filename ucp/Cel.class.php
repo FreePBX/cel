@@ -78,9 +78,12 @@ class Cel extends Modules{
 			}
 		}
 
-		$displayvars['calls'] = $this->cel->getCalls($filters);
+		$displayvars['calls'] = $this->cel->getCalls($filters, $ext);
 
 		$html .= $this->load_view(__DIR__.'/views/view.php',$displayvars);
+		if ($displayvars['calls']) {
+			$html .= $this->load_view(__DIR__.'/views/results.php',$displayvars);
+		}
 
 		return $html;
 	}

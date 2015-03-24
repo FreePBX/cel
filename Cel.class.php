@@ -174,7 +174,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 			$calls = $this->getCalls($filters);
 
-			include_once("crypt.php");
 			$html.= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
 			$html.= load_view(dirname(__FILE__).'/views/results.php', array("calls" => $calls, "message" => $this->message));
 
@@ -184,9 +183,15 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		return $html;
 	}
 
-	public function getCalls($filters) {
+	public function getCalls($filters, $extension = NULL) {
+		include_once("crypt.php");
+		$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
+
+		$crypt = new Crypt();
+
 		$sql = "SELECT DISTINCT linkedid" .
-			" FROM cel";
+			" FROM cel" .
+		($extension ? " WHERE cid_num = '" . $extension . "' OR exten = '$extension'" : "");
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 		foreach ($res as $row) {
@@ -557,7 +562,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					$args = split(',', $app['appdata']);
 					if ($args[0]) {
 						$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
-						$recordingfile = $mon_dir . '/' . $args[0];
+						$recording = $mon_dir . '/' . $args[0];
+						$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD)
 						$call['recordings'][$recordingfile] = file_exists($recordingfile);
 					}
 				}
