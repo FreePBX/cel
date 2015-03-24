@@ -110,6 +110,68 @@ class Cel extends Modules{
 		return $html;
 	}
 
+	/**
+	* Determine what commands are allowed
+	*
+	* Used by Ajax Class to determine what commands are allowed by this class
+	*
+	* @param string $command The command something is trying to perform
+	* @param string $settings The Settings being passed through $_POST or $_PUT
+	* @return bool True if pass
+	*/
+	function ajaxRequest($command, $settings) {
+		switch($command) {
+			case 'listen':
+				return true;
+			break;
+			default:
+				return false;
+			break;
+		}
+	}
+
+	/**
+	* The Handler for all ajax events releated to this class
+	*
+	* Used by Ajax Class to process commands
+	*
+	* @return mixed Output if success, otherwise false will generate a 500 error serverside
+	*/
+	function ajaxHandler() {
+		$return = array("status" => false, "message" => "");
+		switch($_REQUEST['command']) {
+			default:
+				return false;
+			break;
+		}
+		return $return;
+	}
+
+	/**
+	* The Handler for quiet events
+	*
+	* Used by Ajax Class to process commands in which custom processing is needed
+	*
+	* @return mixed Output if success, otherwise false will generate a 500 error serverside
+	*/
+	function ajaxCustomHandler() {
+		switch($_REQUEST['command']) {
+			case "listen":
+				$filename = $_REQUEST['filename'];
+				$ext = $_REQUEST['ext'];
+				if(!$this->_checkExtension($ext)) {
+					return false;
+				}
+				$this->cel->playRecording();
+				return true;
+			break;
+			default:
+				return false;
+			break;
+		}
+		return false;
+	}
+
 	private function _checkExtension($extension) {
 		$extensions = $this->UCP->getSetting($this->user['username'],'Cel','assigned');
 		return in_array($extension,$extensions);

@@ -38,9 +38,8 @@ var CelC = UCPMC.extend({
 			$.pjax({ url: "?display=dashboard&mod=cel&sub=" + $.url().param("sub") + uadd, container: "#dashboard-content" });
 		});
 		$(".subplay").click(function() {
-			var id = $(this).data("msg"),
-					date = $("#cel-item-" + id + " .date").html(),
-					clid = $("#cel-item-" + id + " .clid .text").html();
+			var id = $(this).data("id");
+			var file = $(this).data("file");
 			if (Cel.playing === null || Cel.playing != id) {
 				if (Cel.playing !== null) {
 					$("#jquery_jplayer_" + Cel.playing).jPlayer("stop", 0);
@@ -48,13 +47,13 @@ var CelC = UCPMC.extend({
 				$("#jquery_jplayer_" + id).jPlayer({
 					ready: function() {
 					$(this).jPlayer("setMedia", {
-						title: clid,
-						wav: "?quietmode=1&module=cel&command=listen&msgid=" + id + "&format=wav&type=playback&ext=" + extension,
-						oga: "?quietmode=1&module=cel&command=listen&msgid=" + id + "&format=oga&type=playback&ext=" + extension,
+						title: "",
+						wav: "?quietmode=1&module=cel&command=listen&filename=" + file + "&format=wav&type=playback&ext=" + extension,
+						oga: "?quietmode=1&module=cel&command=listen&filename=" + file + "&format=oga&type=playback&ext=" + extension,
 					});
 					},
 					swfPath: "/js",
-					supplied: supportedMediaFormats,
+					supplied: "oga,wav",
 					cssSelectorAncestor: "#jp_container_" + id
 				}).bind($.jPlayer.event.loadstart, function(event) {
 					$("#jp_container_" + id + " .jp-message-window").show();
@@ -62,7 +61,6 @@ var CelC = UCPMC.extend({
 					$("#jp_container_" + id + " .jp-seek-bar").css("background", 'url("modules/Cel/assets/images/jplayer.blue.monday.seeking.gif") 0 0 repeat-x');
 				});
 
-				$("#cel-playback-" + id + " .title-text").html(date + " " + clid);
 				$(".cel-playback").slideUp("fast");
 				$("#cel-playback-" + id).slideDown("fast", function() {
 					$("#jquery_jplayer_" + id).bind($.jPlayer.event.error, function(event) {

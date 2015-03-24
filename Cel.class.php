@@ -115,8 +115,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function myShowPage() {
-		global $amp_conf;
-
 		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
 		switch ($action) {
@@ -148,7 +146,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			}
 			break;
 		case "playrecording":
-			include_once("audio.php");
+			$this->playRecording();
 			break;
 		case "":
 			$html.= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
@@ -184,6 +182,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function getCalls($filters, $extension = NULL) {
+		global $amp_conf;
+
 		include_once("crypt.php");
 		$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
 
@@ -564,7 +564,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 						$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 						$recording = $mon_dir . '/' . $args[0];
 						$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD);
-						$call['recordings'][$recordingfile] = file_exists($recordingfile);
+						$call['recordings'][$recordingfile] = file_exists($recording);
 					}
 				}
 
@@ -654,5 +654,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 
 		return $parsed;
+	}
+
+	function playRecording() {
+		include_once("audio.php");
 	}
 }
