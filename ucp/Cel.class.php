@@ -53,6 +53,7 @@ class Cel extends Modules{
 	}
 
 	function getDisplay() {
+		$page = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
 		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
 		if(!$this->_checkExtension($ext)) {
 			return _('Not Authorized');
@@ -63,6 +64,8 @@ class Cel extends Modules{
 		$displayvars = array(
 			'ext' => $ext,
 		);
+
+		$link = '?display=dashboard&mod=cel&sub='.$ext.'&view=history';
 
 		$searchparams = array(
 			'datefrom',
@@ -75,10 +78,29 @@ class Cel extends Modules{
 			if (isset($_REQUEST[$param])) {
 				$displayvars[$param] = $_REQUEST[$param];
 				$filters[$param] = $_REQUEST[$param];
+				$link.= "&" . $param . "=" . $_REQUEST[$param];
 			}
 		}
 
-		$displayvars['calls'] = $this->cel->getCalls($filters, $ext);
+		$calls = $this->cel->getCalls($filters, $ext);
+		usort($calls, function($a, $b) {
+			return $b['starttime']->format('U') - $a['starttime']->format('U');
+		});
+
+		$count = 0;
+		foreach ($calls as $uniqueid => $call) {
+			$count++;
+
+			if ($count > (($page - 1) * $this->limit) && $count <= ($page * $this->limit)) {
+				$paginatedcalls[$uniqueid] = $call;
+			}
+		}
+
+		$displayvars['calls'] = $paginatedcalls;
+
+		$totalPages = ceil(count($calls) / $this->limit);
+
+		$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages, $page, $link, $this->break);
 
 		$html .= $this->load_view(__DIR__.'/views/view.php',$displayvars);
 		if ($displayvars['calls']) {

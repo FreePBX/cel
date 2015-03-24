@@ -187,7 +187,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		include_once("crypt.php");
 		$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
 
-		$crypt = new Crypt();
+		$crypt = new \Crypt();
 
 		$sql = "SELECT DISTINCT linkedid" .
 			" FROM cel" .
@@ -563,7 +563,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					if ($args[0]) {
 						$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 						$recording = $mon_dir . '/' . $args[0];
-						$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD)
+						$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD);
 						$call['recordings'][$recordingfile] = file_exists($recordingfile);
 					}
 				}
