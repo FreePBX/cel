@@ -23,7 +23,7 @@ msgstr ""
 
 #: views/search.php:19
 msgid "Application"
-msgstr ""
+msgstr "Aplicación"
 
 #: views/search.php:19
 msgid "Application executed by a call participant"
@@ -87,7 +87,7 @@ msgstr "Reinicio"
 
 #: Cel.class.php:75
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: cel.i18n.php:18
 msgid ""
