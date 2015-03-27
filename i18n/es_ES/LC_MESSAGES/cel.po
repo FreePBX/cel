@@ -75,7 +75,7 @@ msgstr ""
 
 #: install.php:70 /usr/src/freepbx/cel/install.php:83 install.php:99
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
