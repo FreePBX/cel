@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-09 17:34-0400\n"
-"PO-Revision-Date: 2015-03-25 08:27+0200\n"
+"PO-Revision-Date: 2015-03-30 23:46+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/cel/es_ES/>\n"
@@ -27,55 +27,55 @@ msgstr "Aplicación"
 
 #: views/search.php:19
 msgid "Application executed by a call participant"
-msgstr ""
+msgstr "Aplicación ejecutada por un participante en la llamada"
 
 #: cel.i18n.php:16
 msgid "CEL Report Module"
-msgstr ""
+msgstr "Modulo Reporte CEL"
 
 #: cel.i18n.php:4 /usr/src/freepbx/cel/cel.i18n.php:8 cel.i18n.php:10
 msgid "Call Event Logging"
-msgstr ""
+msgstr "Call Event Logging (CEL)"
 
 #: views/search.php:13
 msgid "Caller ID"
-msgstr ""
+msgstr "ID de llamada"
 
 #: views/search.php:13
 msgid "Caller ID of a call participant"
-msgstr ""
+msgstr "ID de llamada de un participante en la llamada"
 
 #: views/search.php:10
 msgid "Date Range"
-msgstr ""
+msgstr "Rango de Fecha"
 
 #: views/search.php:10
 msgid "Date range of call"
-msgstr ""
+msgstr "Rango de fecha de una llamada"
 
 #: views/search.php:16
 msgid "Dialed Number"
-msgstr ""
+msgstr "Numero Marcado"
 
 #: install.php:81
 msgid "ERROR failed to update extra field"
-msgstr ""
+msgstr "ERROR falla al actualizar campo extra"
 
 #: install.php:97
 msgid "ERROR failed to update userfield field"
-msgstr ""
+msgstr "ERROR falla al actualizar campo userfield"
 
 #: cel.i18n.php:14
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "Habilitar Reporte CEL"
 
 #: views/search.php:16
 msgid "Extension or DID dialed"
-msgstr ""
+msgstr "Extensión o DID discado"
 
 #: install.php:70 /usr/src/freepbx/cel/install.php:83 install.php:99
 msgid "OK"
-msgstr "OK"
+msgstr "Ok"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
@@ -97,10 +97,15 @@ msgid ""
 "configuration must be done outside of FreePBX either by the user or at the "
 "Distro level."
 msgstr ""
+"Al establecer estp en \"verdadero\" será activar el módulo CEL para crear "
+"informes de llamadas a partir de datos de la CEL. Aunque el módulo CEL "
+"asegurará hay una tabla de CEL disponible, la funcionalidad de informes en "
+"el Asterisk y la configuración de base de datos ODBC y CEL asociado deben "
+"ser hechas fuera de FreePBX ya sea por el usuario o en el nivel Distro."
 
 #: install.php:102
 msgid "already deleted"
-msgstr ""
+msgstr "Ya eliminado"
 
 #: install.php:86
 msgid "already exists"
@@ -108,8 +113,8 @@ msgstr "ya existe"
 
 #: install.php:73
 msgid "checking for extra field.."
-msgstr ""
+msgstr "chequeando por campo extra.."
 
 #: install.php:89
 msgid "checking for userfield field.."
-msgstr ""
+msgstr "chequeando por campo userfield.."
