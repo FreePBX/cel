@@ -527,6 +527,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 							'starttime' => $bridge[$callid]['entertime'],
 							'stoptime' => $bridge[$callid]['exittime'],
 							'bridge' => $bridgeid,
+							'members' => array(),
 						);
 
 						foreach ($bridge as $linkid => $link) {
@@ -534,7 +535,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 								continue;
 							}
 
-							if (($localmap = $localmaps[substr($channels[$linkid]['channel'], 0, -2)]) && $localmap['owner'] == $channels[$linkid]['linkedid']) {
+							$channame = substr($channels[$linkid]['channel'], 0, -2);
+							if (isset($localmaps[$channame]) && ($localmap = $localmaps[$channame]) && $localmap['owner'] == $channels[$linkid]['linkedid']) {
 								continue;
 							}
 
@@ -557,25 +559,27 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				}
 			}
 
-			foreach ($channel['apps'] as $app) {
-				if ($app['appname'] == 'MixMonitor') {
-					$args = split(',', $app['appdata']);
-					if ($args[0]) {
-						$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
-						$recording = $mon_dir . '/' . $args[0];
-						$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD);
-						$call['recordings'][$recordingfile] = file_exists($recording);
+			if (isset($channel['apps'])) {
+				foreach ($channel['apps'] as $app) {
+					if ($app['appname'] == 'MixMonitor') {
+						$args = split(',', $app['appdata']);
+						if ($args[0]) {
+							$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
+							$recording = $mon_dir . '/' . $args[0];
+							$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD);
+							$call['recordings'][$recordingfile] = file_exists($recording);
+						}
 					}
-				}
 
-				if (($dest = $this->parseApplication($app['appname'], $app['appdata']))) {
-					$call['actions'][] = array(
-						'type' => 'application',
-						'starttime' => $app['starttime'],
-						'stoptime' => $app['stoptime'],
-						'src' =>  $this->channelCallerID($channel),
-						'dest' => $dest,
-					);
+					if (($dest = $this->parseApplication($app['appname'], $app['appdata']))) {
+						$call['actions'][] = array(
+							'type' => 'application',
+							'starttime' => $app['starttime'],
+							'stoptime' => $app['stoptime'],
+							'src' =>  $this->channelCallerID($channel),
+							'dest' => $dest,
+						);
+					}
 				}
 			}
 
