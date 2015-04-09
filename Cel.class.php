@@ -48,8 +48,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function processUCPAdminDisplay($user) {
-		if(!empty($_POST['ucp|cel'])) {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cel','assigned',$_POST['ucp|cel']);
+		if(!empty($_POST['ucp_cel'])) {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cel','assigned',$_POST['ucp_cel']);
 		} else {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Cel','assigned',array());
 		}
@@ -70,11 +70,15 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 		$celassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Cel','assigned');
 		$celassigned = !empty($celassigned) ? $celassigned : array();
-		foreach($user['assigned'] as $assigned) {
-			$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$celassigned));
+		$ausers = array();
+		foreach(core_users_list() as $list) {
+			$cul[$list[0]] = array(
+				"name" => $list[1],
+				"vmcontext" => $list[2]
+			);
+			$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 		}
-		$html[0]['description'] = '<a href="#" class="info">'._("Allowed CEL").':<span>'._("These are the assigned and active extensions which will show up for this user to control and edit in UCP").'</span></a>';
-		$html[0]['content'] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
+		$html[0] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("ausers" => $ausers, "celassigned" => $celassigned));
 		return $html;
 	}
 
@@ -298,7 +302,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			}
 		}
 
-		$sql = "SELECT " . implode(", ", $fields) . 
+		$sql = "SELECT " . implode(", ", $fields) .
 			" FROM cel" .
 			" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" .
 			" AND linkedid IN ('" . implode("', '", $linkedids) . "')" .
@@ -549,7 +553,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 								$action['members'][] = $member;
 							}
-	
+
 						}
 
 						if (count($action['members']) > 0) {
