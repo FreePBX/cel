@@ -59,26 +59,24 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	* get the Admin display in UCP
 	* @param array $user The user array
 	*/
-	public function getUCPAdminDisplay($user) {
-		$fpbxusers = array();
-		$cul = array();
-		foreach(core_users_list() as $list) {
-			$cul[$list[0]] = array(
-				"name" => $list[1],
-				"vmcontext" => $list[2]
-			);
-		}
+	public function getUCPAdminDisplay($user, $action) {
 		$celassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Cel','assigned');
 		$celassigned = !empty($celassigned) ? $celassigned : array();
 		$ausers = array();
+		if($action == "showgroup" || $action == "addgroup") {
+			$ausers['self'] = _("User Primary Extension");
+		}
+		if($action == "addgroup") {
+			$celassigned = array('self');
+		}
 		foreach(core_users_list() as $list) {
-			$cul[$list[0]] = array(
-				"name" => $list[1],
-				"vmcontext" => $list[2]
-			);
 			$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 		}
-		$html[0] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("ausers" => $ausers, "celassigned" => $celassigned));
+		$html[0] = array(
+			"title" => _("Call Event Logging"),
+			"rawname" => "cel",
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("ausers" => $ausers, "celassigned" => $celassigned))
+		);
 		return $html;
 	}
 
