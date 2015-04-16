@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-09 17:34-0400\n"
-"PO-Revision-Date: 2015-03-30 23:46+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"PO-Revision-Date: 2015-04-15 20:50+0200\n"
+"Last-Translator: Daver <daverjorge46@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/cel/es_ES/>\n"
 "Language: es_ES\n"
@@ -83,7 +83,7 @@ msgstr "Reportes"
 
 #: Cel.class.php:70
 msgid "Reset"
-msgstr "Reinicio"
+msgstr "Restaura"
 
 #: Cel.class.php:75
 msgid "Search"
