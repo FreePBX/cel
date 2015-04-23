@@ -9,6 +9,17 @@
 		<changelog>
 				*13.0.1alpha1* First beta release.
 		</changelog>
+		<hooks>
+			<ucp class="Ucp">
+				<method namespace="FreePBX\modules" class="Cel" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+				<method namespace="FreePBX\modules" class="Cel" callingMethod="addUser">ucpAddUser</method>
+				<method namespace="FreePBX\modules" class="Cel" callingMethod="updateUser">ucpUpdateUser</method>
+				<method namespace="FreePBX\modules" class="Cel" callingMethod="delUser">ucpDelUser</method>
+				<method namespace="FreePBX\modules" class="Cel" callingMethod="addGroup">ucpAddGroup</method>
+				<method namespace="FreePBX\modules" class="Cel" callingMethod="updateGroup">ucpUpdateGroup</method>
+				<method namespace="FreePBX\modules" class="Cel" callingMethod="delGroup">ucpDelGroup</method>
+			</ucp>
+		</hooks>
 		<category>Reports</category>
 		<description>
 				Call Event Logging

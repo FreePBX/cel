@@ -47,11 +47,62 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 	}
 
-	public function processUCPAdminDisplay($user) {
+	public function ucpDelGroup($id,$display,$data) {
+	}
+
+	public function ucpAddGroup($id, $display, $data) {
+		$this->ucpUpdateGroup($id,$display,$data);
+	}
+
+	public function ucpUpdateGroup($id,$display,$data) {
 		if(!empty($_POST['ucp_cel'])) {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cel','assigned',$_POST['ucp_cel']);
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cel','assigned',$_POST['ucp_cel']);
 		} else {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cel','assigned',array());
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cel','assigned',array('self'));
+		}
+		if(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "yes") {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cel','enable',true);
+		} else {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cel','enable',null);
+		}
+	}
+
+	/**
+	* Hook functionality from userman when a user is deleted
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
+	*/
+	public function ucpDelUser($id, $display, $ucpStatus, $data) {
+
+	}
+
+	/**
+	* Hook functionality from userman when a user is added
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
+	*/
+	public function ucpAddUser($id, $display, $ucpStatus, $data) {
+		$this->ucpUpdateUser($id, $display, $ucpStatus, $data);
+	}
+
+	/**
+	* Hook functionality from userman when a user is updated
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
+	*/
+	public function ucpUpdateUser($id, $display, $ucpStatus, $data) {
+		if(!empty($_POST['ucp_cel'])) {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',$_POST['ucp_cel']);
+		} else {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',array());
+		}
+		if(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "yes") {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',true);
+		} else {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',null);
 		}
 	}
 
@@ -59,9 +110,17 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	* get the Admin display in UCP
 	* @param array $user The user array
 	*/
-	public function getUCPAdminDisplay($user, $action) {
-		$celassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Cel','assigned');
-		$celassigned = !empty($celassigned) ? $celassigned : array();
+	public function ucpConfigPage($mode, $user, $action) {
+		if($mode == 'group') {
+			$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cel','enable');
+			$celassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cel','assigned');
+			$celassigned = !empty($celassigned) ? $celassigned : array('self');
+		} else {
+			$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cel','enable');
+			$celassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cel','assigned');
+			$celassigned = !empty($celassigned) ? $celassigned : array();
+		}
+
 		$ausers = array();
 		if($action == "showgroup" || $action == "addgroup") {
 			$ausers['self'] = _("User Primary Extension");
@@ -75,7 +134,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$html[0] = array(
 			"title" => _("Call Event Logging"),
 			"rawname" => "cel",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("ausers" => $ausers, "celassigned" => $celassigned))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("disable" => !($enable), "ausers" => $ausers, "celassigned" => $celassigned))
 		);
 		return $html;
 	}
