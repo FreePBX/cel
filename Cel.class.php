@@ -177,7 +177,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 	public function myShowPage() {
 		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
-
+		$html = '';
 		switch ($action) {
 		case "getJSON":
 			header('Content-Type: application/json');

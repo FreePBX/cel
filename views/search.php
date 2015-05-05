@@ -1,4 +1,4 @@
-<?php 
+<?php
 $applications = array(
 	'' => '',
 	'conference' => _('Conference'),
@@ -6,7 +6,8 @@ $applications = array(
 	'voicemail' => _('Voicemail'),
 	'voicemailmain' => _('Voicemail Main'),
 );
-$default = $_REQUEST['application']?$_REQUEST['application']:'';
+$default = !empty($_REQUEST['application']) ? $_REQUEST['application'] : '';
+$approws = '';
 foreach ($applications as $key => $value) {
 	$approws .= '<option value="'.$key.'" '.($default == $key?"SELECTED":"").'>'.$value.'</option>';
 }
@@ -29,10 +30,10 @@ foreach ($applications as $key => $value) {
 					<div class="col-md-9">
 						<div class="row">
 							<div class="col-md-6">
-								<input type="date" max="<?php echo date('Y-m-d')?>" class="form-control" id="datefrom" name="datefrom" value="<?php echo $_REQUEST['datefrom'] ? $_REQUEST['datefrom'] : ''?>" placeholder="<?php echo _('From')?>">
+								<input type="date" max="<?php echo date('Y-m-d')?>" class="form-control" id="datefrom" name="datefrom" value="<?php echo !empty($_REQUEST['datefrom']) ? $_REQUEST['datefrom'] : ''?>" placeholder="<?php echo _('From')?>">
 							</div>
 							<div class="col-md-6">
-								<input type="date" max="<?php echo date('Y-m-d')?>" class="form-control" id="dateto" name="dateto" value="<?php echo $_REQUEST['dateto'] ? $_REQUEST['dateto'] : ''?>" placeholder="<?php echo _('To')?>">
+								<input type="date" max="<?php echo date('Y-m-d')?>" class="form-control" id="dateto" name="dateto" value="<?php echo !empty($_REQUEST['dateto']) ? $_REQUEST['dateto'] : ''?>" placeholder="<?php echo _('To')?>">
 							</div>
 						</div>
 					</div>
@@ -58,7 +59,7 @@ foreach ($applications as $key => $value) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="callerid"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="text" class="form-control" id="callerid" name="callerid" value="<?php echo $_REQUEST['callerid']?>">
+						<input type="text" class="form-control" id="callerid" name="callerid" value="<?php echo !empty($_REQUEST['callerid']) ? $_REQUEST['callerid'] : ''?>">
 					</div>
 				</div>
 			</div>
@@ -82,7 +83,7 @@ foreach ($applications as $key => $value) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="exten"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="text" class="form-control" id="exten" name="exten" value="<?php echo $_REQUEST['exten']?>">
+						<input type="text" class="form-control" id="exten" name="exten" value="<?php echo !empty($_REQUEST['exten']) ? $_REQUEST['exten'] : ''?>">
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,7 @@
 //
 $cel = FreePBX::Cel();
 
-if($_REQUEST['action'] != 'getJSON'){
+if(empty($_REQUEST['action']) || $_REQUEST['action'] != 'getJSON'){
 ?>
 <div class="container-fluid">
 	<h1><?php echo _("Call Event Logging")?></h1>
@@ -18,11 +18,11 @@ if($_REQUEST['action'] != 'getJSON'){
 					<div class="display full-border">
 <?php } ?>
 						<?php echo $cel->myShowPage(); ?>
-<?php if($_REQUEST['action'] != 'getJSON'){?>
+<?php if(empty($_REQUEST['action']) || $_REQUEST['action'] != 'getJSON'){?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<?php } 
+<?php }
