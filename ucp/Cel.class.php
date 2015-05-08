@@ -26,7 +26,10 @@ class Cel extends Modules{
 	* Setup Menu Items for display in UCP
 	*/
 	public function getMenuItems() {
-		$extensions = $this->UCP->getSetting($this->user['username'],'Cel','assigned');
+		if(!$this->UCP->getCombinedSettingByID($this->user['id'],'Cel','enable')) {
+			return array();
+		}
+		$extensions = $this->UCP->getCombinedSettingByID($this->user['id'],'Cel','assigned');
 		$menu = array();
 		if(!empty($extensions)) {
 			$menu = array(
@@ -173,7 +176,10 @@ class Cel extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		$extensions = $this->UCP->getSetting($this->user['username'],'Cel','assigned');
+		if(!$this->UCP->getCombinedSettingByID($this->user['id'],'Cel','enable')) {
+			return false;
+		}
+		$extensions = $this->UCP->getCombinedSettingByID($this->user['id'],'Cel','assigned');
 		return in_array($extension,$extensions);
 	}
 }

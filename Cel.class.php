@@ -97,11 +97,13 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		if(!empty($_POST['ucp_cel'])) {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',$_POST['ucp_cel']);
 		} else {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',array());
+			$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',null);
 		}
 		if(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "yes") {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',true);
-		} else {
+		} elseif(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "no") {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',false);
+		} elseif(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "inherit") {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',null);
 		}
 	}
@@ -113,6 +115,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function ucpConfigPage($mode, $user, $action) {
 		if($mode == 'group') {
 			$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cel','enable');
+			$enable = !($enable) ? false : true;
 			$celassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cel','assigned');
 			$celassigned = !empty($celassigned) ? $celassigned : array('self');
 		} else {
@@ -134,7 +137,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$html[0] = array(
 			"title" => _("Call Event Logging"),
 			"rawname" => "cel",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("disable" => !($enable), "ausers" => $ausers, "celassigned" => $celassigned))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("mode" => $mode, "enabled" => $enable, "ausers" => $ausers, "celassigned" => $celassigned))
 		);
 		return $html;
 	}

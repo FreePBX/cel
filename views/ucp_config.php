@@ -9,10 +9,14 @@
 					</div>
 					<div class="col-md-9">
 						<span class="radioset">
-							<input type="radio" name="cel_enable" id="cel_enable_yes" value="yes" <?php echo !($disable) ? 'checked' : ''?>>
+							<input type="radio" name="cel_enable" id="cel_enable_yes" value="yes" <?php echo $enabled ? 'checked' : ''?>>
 							<label for="cel_enable_yes"><?php echo _('Yes')?></label>
-							<input type="radio" name="cel_enable" id="cel_enable_no" value="no" <?php echo ($disable) ? 'checked' : ''?>>
+							<input type="radio" name="cel_enable" id="cel_enable_no" value="no" <?php echo (!is_null($enabled) && !$enabled) ? 'checked' : ''?>>
 							<label for="cel_enable_no"><?php echo _('No')?></label>
+							<?php if($mode == "user") {?>
+								<input type="radio" id="cel_enable_inherit" name="cel_enable" value='inherit'  <?php echo (is_null($enabled)) ? 'checked' : ''?>>
+								<label for="cel_enable_inherit"><?php echo _('Inherit')?></label>
+							<?php } ?>
 						</span>
 					</div>
 				</div>
@@ -35,7 +39,7 @@
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ucp_cel"></i>
 					</div>
 					<div class="col-md-9">
-						<select data-placeholder="Extensions" id="ucp_cel" class="form-control chosenmultiselect ucp-cel" name="ucp_cel[]" multiple="multiple" <?php echo ($disable) ? "disabled" : ""?>>
+						<select data-placeholder="Extensions" id="ucp_cel" class="form-control chosenmultiselect ucp-cel" name="ucp_cel[]" multiple="multiple" <?php echo (!is_null($enabled) && !$enabled) ? "disabled" : ""?>>
 							<?php foreach($ausers as $key => $value) {?>
 								<option value="<?php echo $key?>" <?php echo in_array($key,$celassigned) ? 'selected' : '' ?>><?php echo $value?></option>
 							<?php } ?>
@@ -53,7 +57,7 @@
 </div>
 <script>
 	$("input[name=cel_enable]").change(function() {
-		if($(this).val() == "yes") {
+		if($(this).val() == "yes" || $(this).val() == "inherit") {
 			$(".ucp-cel").prop("disabled",false).trigger("chosen:updated");;
 		} else {
 			$(".ucp-cel").prop("disabled",true).trigger("chosen:updated");;
