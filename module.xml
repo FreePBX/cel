@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.1alpha1</version>
+		<version>13.0.1alpha2</version>
 		<publisher>Schmooze Com Inc</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+				*13.0.1alpha2* Groups in usermanager
 				*13.0.1alpha1* First beta release.
 		</changelog>
 		<hooks>
