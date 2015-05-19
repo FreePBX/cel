@@ -96,7 +96,7 @@ msgstr ""
 
 #: views/ucp_config.php:15
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: views/ucp_config.php:13
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: page.cel.php:12
 msgid ""
