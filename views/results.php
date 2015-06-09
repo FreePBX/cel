@@ -23,6 +23,7 @@ foreach ($calls as $callid => $call) {
 	$html.= cel_format_interval($call['starttime'], $call['endtime']);
 	$html.= '</td>';
 	$html.= '<td>';
+	$call['recordings'] = !empty($call['recordings']) ? $call['recordings'] : array();
 	foreach ($call['recordings'] as $recording => $exists) {
 		if ($exists) {
 			$recrow++;

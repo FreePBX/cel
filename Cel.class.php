@@ -589,40 +589,42 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 				$call = $calls[$callid];
 
-				foreach ($bridges as $bridgeid => $bridge) {
-					if (isset($bridge[$callid])) {
-						$action = array(
-							'type' => 'bridge',
-							'starttime' => $bridge[$callid]['entertime'],
-							'stoptime' => $bridge[$callid]['exittime'],
-							'bridge' => $bridgeid,
-							'members' => array(),
-						);
+				if(!empty($bridges) && is_array($bridges)) {
+					foreach ($bridges as $bridgeid => $bridge) {
+						if (isset($bridge[$callid])) {
+							$action = array(
+								'type' => 'bridge',
+								'starttime' => $bridge[$callid]['entertime'],
+								'stoptime' => $bridge[$callid]['exittime'],
+								'bridge' => $bridgeid,
+								'members' => array(),
+							);
 
-						foreach ($bridge as $linkid => $link) {
-							if ($linkid == $callid) {
-								continue;
+							foreach ($bridge as $linkid => $link) {
+								if ($linkid == $callid) {
+									continue;
+								}
+
+								$channame = substr($channels[$linkid]['channel'], 0, -2);
+								if (isset($localmaps[$channame]) && ($localmap = $localmaps[$channame]) && $localmap['owner'] == $channels[$linkid]['linkedid']) {
+									continue;
+								}
+
+								if ($action['stoptime'] > $link['entertime'] && $link['exittime'] > $action['starttime']) {
+									$member = array(
+										'dest' => $channels[$linkid],
+										'entertime' => ($link['entertime'] < $action['starttime'] ? $action['starttime'] : $link['entertime']),
+										'exittime' => ($link['exittime'] > $action['stoptime'] ? $action['stoptime'] : $link['exittime']),
+									);
+
+									$action['members'][] = $member;
+								}
+
 							}
 
-							$channame = substr($channels[$linkid]['channel'], 0, -2);
-							if (isset($localmaps[$channame]) && ($localmap = $localmaps[$channame]) && $localmap['owner'] == $channels[$linkid]['linkedid']) {
-								continue;
+							if (count($action['members']) > 0) {
+								$call['actions'][] = $action;
 							}
-
-							if ($action['stoptime'] > $link['entertime'] && $link['exittime'] > $action['starttime']) {
-								$member = array(
-									'dest' => $channels[$linkid],
-									'entertime' => ($link['entertime'] < $action['starttime'] ? $action['starttime'] : $link['entertime']),
-									'exittime' => ($link['exittime'] > $action['stoptime'] ? $action['stoptime'] : $link['exittime']),
-								);
-
-								$action['members'][] = $member;
-							}
-
-						}
-
-						if (count($action['members']) > 0) {
-							$call['actions'][] = $action;
 						}
 					}
 				}
@@ -631,7 +633,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			if (isset($channel['apps'])) {
 				foreach ($channel['apps'] as $app) {
 					if ($app['appname'] == 'MixMonitor') {
-						$args = split(',', $app['appdata']);
+						$args = explode(',', $app['appdata']);
 						if ($args[0]) {
 							$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 							$recording = $mon_dir . '/' . $args[0];
@@ -685,40 +687,40 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		switch (strtolower($name)) {
 			case 'confbridge':
 			case 'meetme':
-				$args = split(',', $data);
+				$args = explode(',', $data);
 				if ($args[0]) {
 					$parsed = 'joined Conference (' . $args[0] . ')';
 				}
 				break;
 			case 'mixmonitor':
-				$args = split(',', $data);
+				$args = explode(',', $data);
 				if ($args[0]) {
 					$parsed = 'started Recording';
 				}
 				break;
 			case 'stopmixmonitor':
-				$args = split(',', $data);
+				$args = explode(',', $data);
 				if ($args[0]) {
 					$parsed = 'stopped Recording';
 				}
 				break;
 			case 'queue':
-				$args = split(',', $data);
+				$args = explode(',', $data);
 				if ($args[0]) {
 					$parsed = 'entered Queue (' . $args[0] . ')';
 				}
 				break;
 			case 'voicemail':
-				$args = split(',', $data);
+				$args = explode(',', $data);
 				if ($args[0]) {
-					$vm = split('@', $args[0]);
+					$vm = explode('@', $args[0]);
 					$parsed = 'entered Voicemail (' . $vm[0] . ')';
 				}
 				break;
 			case 'voicemailmain':
-				$args = split(',', $data);
+				$args = explode(',', $data);
 				if ($args[0]) {
-					$vm = split('@', $args[0]);
+					$vm = explode('@', $args[0]);
 					$parsed = 'checked Voicemail (' . $vm[0] . ')';
 				} else {
 					$parsed = 'checked Voicemail';
