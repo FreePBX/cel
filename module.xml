@@ -2,24 +2,25 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.1alpha3</version>
+		<version>13.0.2</version>
 		<publisher>Schmooze Com Inc</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+		*13.0.2* Version bump Beta
 				*13.0.1alpha3* FREEPBX-9408 Fixes to invalid array looping
 				*13.0.1alpha2* Groups in usermanager
 				*13.0.1alpha1* First beta release.
 		</changelog>
 		<hooks>
 			<ucp class="Ucp">
-				<method namespace="FreePBX\modules" class="Cel" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
-				<method namespace="FreePBX\modules" class="Cel" callingMethod="addUser">ucpAddUser</method>
-				<method namespace="FreePBX\modules" class="Cel" callingMethod="updateUser">ucpUpdateUser</method>
-				<method namespace="FreePBX\modules" class="Cel" callingMethod="delUser">ucpDelUser</method>
-				<method namespace="FreePBX\modules" class="Cel" callingMethod="addGroup">ucpAddGroup</method>
-				<method namespace="FreePBX\modules" class="Cel" callingMethod="updateGroup">ucpUpdateGroup</method>
-				<method namespace="FreePBX\modules" class="Cel" callingMethod="delGroup">ucpDelGroup</method>
+				<method callingMethod="constructModuleConfigPages" class="Cel" namespace="FreePBX\modules">ucpConfigPage</method>
+				<method callingMethod="addUser" class="Cel" namespace="FreePBX\modules">ucpAddUser</method>
+				<method callingMethod="updateUser" class="Cel" namespace="FreePBX\modules">ucpUpdateUser</method>
+				<method callingMethod="delUser" class="Cel" namespace="FreePBX\modules">ucpDelUser</method>
+				<method callingMethod="addGroup" class="Cel" namespace="FreePBX\modules">ucpAddGroup</method>
+				<method callingMethod="updateGroup" class="Cel" namespace="FreePBX\modules">ucpUpdateGroup</method>
+				<method callingMethod="delGroup" class="Cel" namespace="FreePBX\modules">ucpDelGroup</method>
 			</ucp>
 		</hooks>
 		<category>Reports</category>
