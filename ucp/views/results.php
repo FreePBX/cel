@@ -26,6 +26,7 @@ foreach ($calls as $callid => $call) {
 	$html.= '</td>';
 	$html.= '<td>';
 	$recrow++;
+	$call['recordings'] = is_array($call['recordings']) ? $call['recordings'] : array();
 	foreach ($call['recordings'] as $recording => $exists) {
 		if ($exists) {
 			$html.= '<div class="recording">';

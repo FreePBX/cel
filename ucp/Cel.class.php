@@ -87,7 +87,11 @@ class Cel extends Modules{
 
 		$calls = $this->cel->getCalls($filters, $ext);
 		usort($calls, function($a, $b) {
-			return $b['starttime']->format('U') - $a['starttime']->format('U');
+			if(is_object($a['starttime']) && is_object($b['starttime'])) {
+				return $b['starttime']->format('U') - $a['starttime']->format('U');
+			} else {
+				return 0;
+			}
 		});
 
 		$count = 0;

@@ -658,6 +658,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 
 		foreach ($calls as $callid => $call) {
+			$call['actions'] = is_array($call['actions']) ? $call['actions'] : array();
 			usort($call['actions'], function($a, $b) {
 				if ($a['starttime'] == $b['starttime']) {
 					if ($b['type'] == 'transfer') {
