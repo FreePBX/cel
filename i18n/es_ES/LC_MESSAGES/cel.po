@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 18:59-0400\n"
+"POT-Creation-Date: 2015-07-07 12:58-0400\n"
 "PO-Revision-Date: 2015-05-26 07:47+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -109,7 +109,7 @@ msgstr "No Autorizado"
 msgid "OK"
 msgstr "Ok"
 
-#: ucp/views/results.php:34
+#: ucp/views/results.php:35
 msgid "Play"
 msgstr "Reproducir"
 

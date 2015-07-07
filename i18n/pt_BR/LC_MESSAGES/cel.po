@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 18:59-0400\n"
+"POT-Creation-Date: 2015-07-07 12:58-0400\n"
 "PO-Revision-Date: 2015-05-13 07:48+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -109,7 +109,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ucp/views/results.php:34
+#: ucp/views/results.php:35
 msgid "Play"
 msgstr ""
 
