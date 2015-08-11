@@ -24,7 +24,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$db_type = $db_hash[$dbt];
 		$db_name = !empty($db_name) ? $db_name : "asteriskcdrdb";
 		$db_host = !empty($db_host) ? $db_host : "localhost";
-		$db_port = empty($db_port) ? '' :  ':' . $db_port;
+		$db_port = empty($db_port) ? '' :  ';port=' . $db_port;
 		$db_user = empty($db_user) ? $amp_conf['AMPDBUSER'] : $db_user;
 		$db_pass = empty($db_pass) ? $amp_conf['AMPDBPASS'] : $db_pass;
 		try {
