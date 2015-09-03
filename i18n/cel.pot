@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-07 12:58-0400\n"
+"POT-Creation-Date: 2015-09-02 17:58-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgid "Date range of call"
 msgstr ""
 
 #: views/search.php:46
-msgid "Date range of calls"
+msgid "Date range of calls in the format of mm/dd/yyyy"
 msgstr ""
 
 #: ucp/views/view.php:30

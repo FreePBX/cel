@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-07 12:58-0400\n"
+"POT-Creation-Date: 2015-09-02 17:58-0700\n"
 "PO-Revision-Date: 2015-05-26 07:47+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -66,8 +66,8 @@ msgid "Date range of call"
 msgstr "Rango de fecha de una llamada"
 
 #: views/search.php:46
-msgid "Date range of calls"
-msgstr "Rango de fechas de las Llamadas"
+msgid "Date range of calls in the format of mm/dd/yyyy"
+msgstr ""
 
 #: ucp/views/view.php:30 views/search.php:82
 msgid "Dialed Number"
@@ -177,6 +177,9 @@ msgstr "chequeando por campo extra.."
 #: install.php:89
 msgid "checking for userfield field.."
 msgstr "chequeando por campo userfield.."
+
+#~ msgid "Date range of calls"
+#~ msgstr "Rango de fechas de las Llamadas"
 
 #~ msgid "CEL Report Module"
 #~ msgstr "Modulo Reporte CEL"
