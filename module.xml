@@ -2,14 +2,15 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.4</version>
+		<version>13.0.5</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*13.0.5* FREEPBX-10113 Address issues brought up by Chris
 			*13.0.4* FREEPBX-9986 invalid port declaration
-		*13.0.3* FREEPBX-9610 Cannot access Call History or Call Event Logs
-		*13.0.2* Version bump Beta
+			*13.0.3* FREEPBX-9610 Cannot access Call History or Call Event Logs
+			*13.0.2* Version bump Beta
 				*13.0.1alpha3* FREEPBX-9408 Fixes to invalid array looping
 				*13.0.1alpha2* Groups in usermanager
 				*13.0.1alpha1* First beta release.
@@ -33,7 +34,7 @@
 				<cel beta="yes" needsenginedb="yes">Call Event Logging</cel>
 		</menuitems>
 		<depends>
-				<version>12.0.0</version>
+				<version>13.0.1beta3.63</version>
 				<engine>asterisk ge 12.0.0</engine>
 		</depends>
 		<supported>

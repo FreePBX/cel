@@ -191,6 +191,7 @@ foreach ($calls as $callid => $call) {
 	}
 	$html.= '</tr>';
 
+	$call['records'] = is_array($call['records']) ? $call['records'] : array();
 	foreach ($call['records'] as $record) {
 		$html.= '<tr>';
 		foreach ($celcols as $colkey => $coldesc) {

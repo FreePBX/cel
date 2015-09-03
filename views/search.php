@@ -43,7 +43,7 @@ foreach ($applications as $key => $value) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="daterange-help" class="help-block fpbx-help-block"><?php echo _("Date range of calls")?></span>
+			<span id="daterange-help" class="help-block fpbx-help-block"><?php echo _("Date range of calls in the format of mm/dd/yyyy")?></span>
 		</div>
 	</div>
 </div>
