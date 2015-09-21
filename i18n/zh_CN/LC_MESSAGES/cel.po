@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-02 17:58-0700\n"
+"POT-Creation-Date: 2015-09-21 12:21-0700\n"
 "PO-Revision-Date: 2015-02-20 19:06-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -70,11 +70,11 @@ msgstr ""
 msgid "Dialed Number"
 msgstr ""
 
-#: install.php:81
+#: install.php:79
 msgid "ERROR failed to update extra field"
 msgstr ""
 
-#: install.php:97
+#: install.php:93
 msgid "ERROR failed to update userfield field"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr "否"
 msgid "Not Authorized"
 msgstr ""
 
-#: install.php:70 /usr/src/freepbx/cel/install.php:83 install.php:99
+#: install.php:70 /usr/src/freepbx/cel/install.php:81 install.php:95
 msgid "OK"
 msgstr "正常"
 
@@ -155,11 +155,11 @@ msgid ""
 "in the more refined the report."
 msgstr ""
 
-#: install.php:102
+#: install.php:98
 msgid "already deleted"
 msgstr ""
 
-#: install.php:86
+#: install.php:84
 msgid "already exists"
 msgstr "已存在"
 
@@ -167,7 +167,7 @@ msgstr "已存在"
 msgid "checking for extra field.."
 msgstr ""
 
-#: install.php:89
+#: install.php:87
 msgid "checking for userfield field.."
 msgstr ""
 

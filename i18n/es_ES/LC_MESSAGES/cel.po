@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-02 17:58-0700\n"
+"POT-Creation-Date: 2015-09-21 12:21-0700\n"
 "PO-Revision-Date: 2015-05-26 07:47+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -73,11 +73,11 @@ msgstr ""
 msgid "Dialed Number"
 msgstr "Numero Marcado"
 
-#: install.php:81
+#: install.php:79
 msgid "ERROR failed to update extra field"
 msgstr "ERROR falla al actualizar campo extra"
 
-#: install.php:97
+#: install.php:93
 msgid "ERROR failed to update userfield field"
 msgstr "ERROR falla al actualizar campo userfield"
 
@@ -105,7 +105,7 @@ msgstr "No"
 msgid "Not Authorized"
 msgstr "No Autorizado"
 
-#: install.php:70 /usr/src/freepbx/cel/install.php:83 install.php:99
+#: install.php:70 /usr/src/freepbx/cel/install.php:81 install.php:95
 msgid "OK"
 msgstr "Ok"
 
@@ -162,11 +162,11 @@ msgstr ""
 "Usted puede buscar por alguno o todos los campos abajo. Mientras mas campos "
 "use mas refinada la búsqueda."
 
-#: install.php:102
+#: install.php:98
 msgid "already deleted"
 msgstr "Ya eliminado"
 
-#: install.php:86
+#: install.php:84
 msgid "already exists"
 msgstr "ya existe"
 
@@ -174,7 +174,7 @@ msgstr "ya existe"
 msgid "checking for extra field.."
 msgstr "chequeando por campo extra.."
 
-#: install.php:89
+#: install.php:87
 msgid "checking for userfield field.."
 msgstr "chequeando por campo userfield.."
 
