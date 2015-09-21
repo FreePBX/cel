@@ -71,9 +71,7 @@ if(DB::IsError($check)) {
 }
 
 outn(_("checking for extra field.."));
-$sql = "SELECT `extra` FROM `" . $db_cel_name . "`.`" . $db_cel_table_name . "`";
-$check = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
-if(DB::IsError($check)) {
+if (!$dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "extra"')) {
 	// rename field
 	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` CHANGE `eventextra` `extra` varchar(512)";
 	$result = $dbcdr->query($sql);
@@ -87,10 +85,8 @@ if(DB::IsError($check)) {
 }
 
 outn(_("checking for userfield field.."));
-$sql = "SELECT `userfield` FROM `" . $db_cel_name . "`.`" . $db_cel_table_name . "`";
-$check = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
-if(!DB::IsError($check)) {
-	// delete field
+if ($dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "userfield"')) {
+	// drop field
 	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` DROP COLUMN `userfield`";
 	$result = $dbcdr->query($sql);
 	if(DB::IsError($result)) {

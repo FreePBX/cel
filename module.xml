@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.5</version>
+		<version>13.0.6</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*13.0.6* FREEPBX-10286 better check on columns for CEL records
 			*13.0.5* FREEPBX-10113 Address issues brought up by Chris
 			*13.0.4* FREEPBX-9986 invalid port declaration
 			*13.0.3* FREEPBX-9610 Cannot access Call History or Call Event Logs
