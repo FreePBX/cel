@@ -55,15 +55,17 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function ucpUpdateGroup($id,$display,$data) {
-		if(!empty($_POST['ucp_cel'])) {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cel','assigned',$_POST['ucp_cel']);
-		} else {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cel','assigned',array('self'));
-		}
-		if(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "yes") {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cel','enable',true);
-		} else {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cel','enable',false);
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+			if(!empty($_POST['ucp_cel'])) {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','assigned',$_POST['ucp_cel']);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','assigned',array('self'));
+			}
+			if(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','enable',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','enable',false);
+			}
 		}
 	}
 
@@ -94,17 +96,19 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	* @param {array} $data    Array of data to be able to use
 	*/
 	public function ucpUpdateUser($id, $display, $ucpStatus, $data) {
-		if(!empty($_POST['ucp_cel'])) {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',$_POST['ucp_cel']);
-		} else {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',null);
-		}
-		if(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "yes") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',true);
-		} elseif(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "no") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',false);
-		} elseif(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "inherit") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',null);
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
+			if(!empty($_POST['ucp_cel'])) {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',$_POST['ucp_cel']);
+			} else {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','assigned',null);
+			}
+			if(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',true);
+			} elseif(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',false);
+			} elseif(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',null);
+			}
 		}
 	}
 
