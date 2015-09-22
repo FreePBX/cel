@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-21 12:21-0700\n"
+"POT-Creation-Date: 2015-09-22 13:09-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgstr ""
 msgid "Application executed by a call participant"
 msgstr ""
 
-#: Cel.class.php:143 /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:147 /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
 
@@ -123,11 +123,11 @@ msgstr ""
 msgid "Queue"
 msgstr ""
 
-#: Cel.class.php:170
+#: Cel.class.php:174
 msgid "Reset"
 msgstr ""
 
-#: Cel.class.php:175
+#: Cel.class.php:179
 #: ucp/views/view.php:10
 #: ucp/views/view.php:54
 #: views/search.php:16
@@ -144,7 +144,7 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: Cel.class.php:134
+#: Cel.class.php:138
 msgid "User Primary Extension"
 msgstr ""
 
