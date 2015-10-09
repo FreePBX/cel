@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.8</version>
+		<version>13.0.9</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*13.0.9* FREEPBX-10478 Array validation
 			*13.0.8* FREEPBX-9384 Extensions in UCP need to be strings not integers
 			*13.0.7* Fix permission management in User Manager
 			*13.0.6* FREEPBX-10286 better check on columns for CEL records
@@ -14,9 +15,9 @@
 			*13.0.4* FREEPBX-9986 invalid port declaration
 			*13.0.3* FREEPBX-9610 Cannot access Call History or Call Event Logs
 			*13.0.2* Version bump Beta
-				*13.0.1alpha3* FREEPBX-9408 Fixes to invalid array looping
-				*13.0.1alpha2* Groups in usermanager
-				*13.0.1alpha1* First beta release.
+			*13.0.1alpha3* FREEPBX-9408 Fixes to invalid array looping
+			*13.0.1alpha2* Groups in usermanager
+			*13.0.1alpha1* First beta release.
 		</changelog>
 		<hooks>
 			<ucp class="Ucp">
