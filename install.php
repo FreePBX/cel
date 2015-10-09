@@ -60,7 +60,8 @@ CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "`.`" . $db_cel_table_name . "` (
   `extra` varchar(512) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `uniqueid_index` (`uniqueid`),
-  KEY `linkedid_index` (`linkedid`)
+  KEY `linkedid_index` (`linkedid`),
+  KEY `context_index` (`context`)
 )
 ";
 $check = $dbcdr->query($sql);
@@ -96,6 +97,19 @@ if ($dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_
 	}
 } else {
 	out(_("already deleted"));
+}
+
+outn(_("checking for context index.."));
+if ($dbcdr->getAll('SHOW INDEXES FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '`')) {
+	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` ADD INDEX context_index (context)";
+	$result = $dbcdr->query($sql);
+	if(DB::IsError($result)) {
+		out(_("ERROR failed to add context index"));
+	} else {
+		out(_("OK"));
+	}
+} else {
+	out(_("already indexed"));
 }
 
 $set['value'] = true;

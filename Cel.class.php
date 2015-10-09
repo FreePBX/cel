@@ -262,9 +262,12 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 		$crypt = new \Crypt();
 
+		$badcontexts = array('tc-maint');
+
 		$sql = "SELECT DISTINCT linkedid" .
 			" FROM cel" .
-		($extension ? " WHERE cid_num = '" . $extension . "' OR exten = '$extension'" : "");
+			" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" . 
+		($extension ? " AND (cid_num = '" . $extension . "' OR exten = '" . $extension . "')" : "");
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 		$linkedids = array();
 		foreach ($res as $row) {
@@ -274,9 +277,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		if ($filters['datefrom'] || $filters['dateto']) {
 			$datefrom = (!empty($filters['datefrom']) ? $filters['datefrom'] : date('Y-m-d')) . ' 00:00:00';
 			$dateto = (!empty($filters['dateto']) ? $filters['dateto'] : date('Y-m-d')) . ' 23:59:59';
-			$sql = "SELECT DISTINCT linkedid" .
+			$sql = "SELECT linkedid" .
 				" FROM cel" .
-				" WHERE eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
+				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
 			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 			$filterlinkedids = array();
@@ -288,9 +291,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 		if ($filters['callerid']) {
 			$callerid = $filters['callerid'];
-			$sql = "SELECT DISTINCT linkedid" .
+			$sql = "SELECT linkedid" .
 				" FROM cel" .
-				" WHERE cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%'";
+				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND (cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%')";
 			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 			$filterlinkedids = array();
@@ -302,9 +305,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 		if ($filters['exten']) {
 			$extension = $filters['exten'];
-			$sql = "SELECT DISTINCT linkedid" .
+			$sql = "SELECT linkedid" .
 				" FROM cel" .
-				" WHERE exten LIKE '%" . $extension . "%'";
+				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND exten LIKE '%" . $extension . "%'";
 			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 			$filterlinkedids = array();
@@ -321,9 +324,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			} else {
 				$application = array($application);
 			}
-			$sql = "SELECT DISTINCT linkedid" .
+			$sql = "SELECT linkedid" .
 				" FROM cel" .
-				" WHERE (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
+				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
 			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
 			$filterlinkedids = array();
@@ -350,7 +353,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			'peer',
 			'extra',
 		);
-		$badcontexts = array('tc-maint');
 
 		$calls = array();
 
@@ -373,8 +375,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 		$sql = "SELECT " . implode(", ", $fields) .
 			" FROM cel" .
-			" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" .
-			" AND linkedid IN ('" . implode("', '", $linkedids) . "')" .
+			" WHERE linkedid IN ('" . implode("', '", $linkedids) . "')" .
 			" ORDER BY id";
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
