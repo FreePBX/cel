@@ -6,6 +6,7 @@
 namespace FreePBX\modules;
 class Cel extends \FreePBX_Helpers implements \BMO {
 	private $message = '';
+	private $calls;
 
 	public function __construct($freepbx = null) {
 		$amp_conf = \FreePBX::$conf;
@@ -254,7 +255,66 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		return $html;
 	}
 
+	/**
+	* Get the Number of Pages by limit for extension
+	* @param {int} $extension The Extension to lookup
+	* @param {int} $limit=100 The limit of results per page
+	*/
+	public function getPages($extension,$search='',$limit=100) {
+		if(!empty($search)) {
+			//cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%'
+			//(eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')
+			$sql = "SELECT COUNT(DISTINCT linkedid) as count from cel WHERE (cid_num = :extension OR exten = :extension) AND (cid_num LIKE :search OR cid_name LIKE :search)";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%'));
+		} else {
+			$sql = "SELECT COUNT(DISTINCT linkedid) as count from cel WHERE (cid_num = :extension OR exten = :extension)";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':extension' => $extension));
+		}
+		$res = $sth->fetch(\PDO::FETCH_ASSOC);
+		$total = $res['count'];
+		if(!empty($total)) {
+			return ceil($total/$limit);
+		} else {
+			return false;
+		}
+	}
+
+	public function getUCPCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100) {
+		$start = ($limit * ($page - 1));
+		$end = $limit;
+		switch($orderby) {
+			case 'description':
+				$orderby = 'clid';
+			break;
+			case 'duration':
+				$orderby = 'duration';
+			break;
+			case 'date':
+			default:
+				$orderby = 'timestamp';
+			break;
+		}
+		$order = ($order == 'desc') ? 'desc' : 'asc';
+		if(!empty($search)) {
+			$sql = "SELECT distinct(linkedid), cel.*, UNIX_TIMESTAMP(eventtime) As timestamp FROM cel WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':extension' => $extension));
+		} else {
+			$sql = "SELECT distinct(linkedid), cel.*, UNIX_TIMESTAMP(eventtime) As timestamp FROM cel WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':extension' => $extension));
+		}
+		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
+		return $calls;
+	}
+
+
 	public function getCalls($filters, $extension = NULL) {
+		if(!empty($this->calls)) {
+			return $this->calls;
+		}
 		global $amp_conf;
 
 		include_once("crypt.php");
@@ -266,7 +326,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 		$sql = "SELECT DISTINCT linkedid" .
 			" FROM cel" .
-			" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" . 
+			" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" .
 		($extension ? " AND (cid_num = '" . $extension . "' OR exten = '" . $extension . "')" : "");
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 		$linkedids = array();
@@ -659,6 +719,14 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				}
 			}
 
+			foreach($call['actions'] as &$c) {
+				$st = $c['starttime']->format("U");
+				$et = $c['stoptime']->format("U");
+				$c['duration'] = $et - $st;
+				$c['timestamp'] = $st;
+				$c['detail'] = $c['src'] . " " . $c['dest'];
+			}
+
 			$calls[$callid] = $call;
 		}
 
@@ -676,11 +744,12 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 				return $a['starttime'] < $b['starttime'] ? -1 : 1;
 			});
-
+			$call['duration'] = $call['endtime']->format('U') - $call['starttime']->format('U');
+			$call['timestamp'] = $call['starttime']->format('U');
 			$calls[$callid] = $call;
 		}
-
-		return $calls;
+		$this->calls = $calls;
+		return $this->calls;
 	}
 
 	private function channelCallerID($channel) {

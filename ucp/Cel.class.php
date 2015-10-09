@@ -84,7 +84,7 @@ class Cel extends Modules{
 				$link.= "&" . $param . "=" . $_REQUEST[$param];
 			}
 		}
-
+		/*
 		$calls = $this->cel->getCalls($filters, $ext);
 		usort($calls, function($a, $b) {
 			if(is_object($a['starttime']) && is_object($b['starttime'])) {
@@ -108,11 +108,14 @@ class Cel extends Modules{
 		$totalPages = ceil(count($calls) / $this->limit);
 
 		$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages, $page, $link, $this->break);
-
+		*/
+		$html .= $this->load_view(__DIR__.'/views/table.php',$displayvars);
+		/*
 		$html .= $this->load_view(__DIR__.'/views/view.php',$displayvars);
 		if ($displayvars['calls']) {
 			$html .= $this->load_view(__DIR__.'/views/results.php',$displayvars);
 		}
+		*/
 
 		return $html;
 	}
@@ -128,6 +131,7 @@ class Cel extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case "grid":
 			case 'listen':
 				return true;
 			break;
@@ -147,6 +151,42 @@ class Cel extends Modules{
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case "grid":
+				$limit = $_REQUEST['limit'];
+				$ext = $_REQUEST['extension'];
+				$order = $_REQUEST['order'];
+				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "timestamp";
+				//$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
+				$filters = array();
+				if (!empty($search)) {
+					//$filters['callerid'] = $search;
+				}
+				if (!empty($search)) {
+					//$filters['exten'] = $search;
+				}
+				if (!empty($search)) {
+					//$filters['application'] = $search;
+				}
+				$calls = $this->cel->getCalls($filters,$ext);
+				$calls = array_values($calls);
+				if($orderby == "timestamp") {
+					usort($calls, function($a, $b) {
+						return $b['timestamp'] - $a['timestamp'];
+					});
+				} else {
+					@usort($calls, function($a, $b) {
+						return strcmp($b[$orderby],$a[$orderby]);
+					});
+				}
+
+				if($order == "asc") {
+					$calls = array_reverse($calls);
+				}
+				return array(
+					"total" => count($calls),
+					"rows" => array_splice ($calls, $_REQUEST['offset'],$limit)
+				);
+			break;
 			default:
 				return false;
 			break;
