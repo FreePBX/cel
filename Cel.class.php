@@ -266,7 +266,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			" FROM cel" .
 		($extension ? " WHERE cid_num = '" . $extension . "' OR exten = '$extension'" : "");
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
+		$linkedids = array();
 		foreach ($res as $row) {
 			$linkedids[] = $row['linkedid'];
 		}
