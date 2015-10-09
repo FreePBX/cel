@@ -100,7 +100,9 @@ if ($dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_
 }
 
 outn(_("checking for context index.."));
-if ($dbcdr->getAll('SHOW INDEXES FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '`')) {
+$sql = "SHOW INDEXES FROM `" . $db_cel_name . "`.`" . $db_cel_table_name . "` WHERE Key_name='context_index'";
+$check = $dbcdr->getOne($sql);
+if (empty($check)) {
 	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` ADD INDEX context_index (context)";
 	$result = $dbcdr->query($sql);
 	if(DB::IsError($result)) {
