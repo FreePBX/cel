@@ -67,6 +67,16 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			} else {
 				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','enable',false);
 			}
+			if(!empty($_REQUEST['cel_download']) && $_REQUEST['cel_download'] == 'yes') {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','download',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','download',false);
+			}
+			if(!empty($_REQUEST['cel_playback']) && $_REQUEST['cel_playback'] == 'yes') {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','playback',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cel','playback',false);
+			}
 		}
 	}
 
@@ -110,6 +120,20 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			} elseif(!empty($_POST['cel_enable']) && $_POST['cel_enable'] == "inherit") {
 				$this->FreePBX->Ucp->setSettingByID($id,'Cel','enable',null);
 			}
+			if(!empty($_REQUEST['cel_download']) && $_REQUEST['cel_download'] == 'yes') {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','download',true);
+			} elseif(!empty($_POST['cel_download']) && $_POST['cel_download'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','download',false);
+			} elseif(!empty($_POST['cel_download']) && $_POST['cel_download'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','download',null);
+			}
+			if(!empty($_REQUEST['cel_playback']) && $_REQUEST['cel_playback'] == 'yes') {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','playback',true);
+			} elseif(!empty($_POST['cel_playback']) && $_POST['cel_playback'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','playback',false);
+			} elseif(!empty($_POST['cel_playback']) && $_POST['cel_playback'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cel','playback',null);
+			}
 		}
 	}
 
@@ -120,15 +144,21 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function ucpConfigPage($mode, $user, $action) {
 		if(empty($user)) {
 			$enable = ($mode == 'group') ? true : null;
+			$download = ($mode == 'group') ? true : null;
+			$playback = ($mode == 'group') ? true : null;
 		} else {
 			if($mode == 'group') {
 				$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cel','enable');
 				$enable = !($enable) ? false : true;
 				$celassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cel','assigned');
 				$celassigned = !empty($celassigned) ? $celassigned : array('self');
+				$download = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cel','download');
+				$playback = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cel','playback');
 			} else {
 				$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cel','enable');
 				$celassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cel','assigned');
+				$download = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cel','download');
+				$playback = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cel','playback');
 			}
 		}
 		$celassigned = !empty($celassigned) ? $celassigned : array();
@@ -147,7 +177,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$html[0] = array(
 			"title" => _("Call Event Logging"),
 			"rawname" => "cel",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("mode" => $mode, "enabled" => $enable, "ausers" => $ausers, "celassigned" => $celassigned))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("mode" => $mode, "enabled" => $enable, "ausers" => $ausers, "celassigned" => $celassigned, "playback" => $playback,"download" => $download))
 		);
 		return $html;
 	}
@@ -808,5 +838,47 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 	function playRecording() {
 		include_once("audio.php");
+	}
+
+	/**
+	 * Validate Monitor Path
+	 * @param  string $file The full path to the file
+	 * @return boolean       True if a valid path else false
+	 */
+	public function validateMonitorPath($file) {
+		if (strpos($file, "..") !== false) {
+			return false;
+		}
+		$mixmondir = $this->FreePBX->Config->get("MIXMON_DIR");
+		$astspooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
+		$mon_dir = $mixmondir ? $mixmondir : $astspooldir . '/monitor';
+		if(!preg_match('/^'.str_replace("/","\/",$mon_dir).'/',$file)) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Tear apart the file name to get our correct path
+	 * @param  string $recordingFile The recording file
+	 * @return string                The full path
+	 */
+	private function processPath($recordingFile) {
+		if(empty($recordingFile)) {
+			return '';
+		}
+		$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
+		$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
+		$rec_parts = explode('-',$recordingFile);
+		$fyear = substr($rec_parts[3],0,4);
+		$fmonth = substr($rec_parts[3],4,2);
+		$fday = substr($rec_parts[3],6,2);
+		$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
+		$recordingFile = "$monitor_base/$fyear/$fmonth/$fday/" . $recordingFile;
+		//check to make sure the file size is bigger than 44 bytes (header size)
+		if(file_exists($recordingFile) && is_readable($recordingFile) && filesize($recordingFile) > 44) {
+			return $recordingFile;
+		}
+		return '';
 	}
 }

@@ -67,55 +67,9 @@ class Cel extends Modules{
 		$displayvars = array(
 			'ext' => $ext,
 		);
-
-		$link = '?display=dashboard&mod=cel&sub='.$ext.'&view=history';
-
-		$searchparams = array(
-			'datefrom',
-			'dateto',
-			'callerid',
-			'exten',
-			'application'
-		);
-		foreach ($searchparams as $param) {
-			if (isset($_REQUEST[$param])) {
-				$displayvars[$param] = $_REQUEST[$param];
-				$filters[$param] = $_REQUEST[$param];
-				$link.= "&" . $param . "=" . $_REQUEST[$param];
-			}
-		}
-		/*
-		$calls = $this->cel->getCalls($filters, $ext);
-		usort($calls, function($a, $b) {
-			if(is_object($a['starttime']) && is_object($b['starttime'])) {
-				return $b['starttime']->format('U') - $a['starttime']->format('U');
-			} else {
-				return 0;
-			}
-		});
-
-		$count = 0;
-		foreach ($calls as $uniqueid => $call) {
-			$count++;
-
-			if ($count > (($page - 1) * $this->limit) && $count <= ($page * $this->limit)) {
-				$paginatedcalls[$uniqueid] = $call;
-			}
-		}
-
-		$displayvars['calls'] = $paginatedcalls;
-
-		$totalPages = ceil(count($calls) / $this->limit);
-
-		$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages, $page, $link, $this->break);
-		*/
+		$displayvars['showPlayback'] = $this->_checkPlayback($ext);
+		$displayvars['script'] = "var showDownload = ".json_encode($this->_checkDownload($ext)).";var showPlayback = ".json_encode($this->_checkPlayback($ext)).";var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';";
 		$html .= $this->load_view(__DIR__.'/views/table.php',$displayvars);
-		/*
-		$html .= $this->load_view(__DIR__.'/views/view.php',$displayvars);
-		if ($displayvars['calls']) {
-			$html .= $this->load_view(__DIR__.'/views/results.php',$displayvars);
-		}
-		*/
 
 		return $html;
 	}
@@ -131,8 +85,10 @@ class Cel extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case 'gethtml5':
+			case 'playback':
 			case "grid":
-			case 'listen':
+			case 'download':
 				return true;
 			break;
 			default:
@@ -151,6 +107,29 @@ class Cel extends Modules{
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'gethtml5':
+				global $amp_conf;
+
+				include_once(dirname(__DIR__)."/crypt.php");
+				$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
+
+				$crypt = new \Crypt();
+				$file = $crypt->decrypt($_REQUEST['id'],$REC_CRYPT_PASSWORD);
+				if(!$this->cel->validateMonitorPath($file)) {
+					return array("status" => false, "message" => _("File does not exist"));
+				}
+				if(!file_exists($file)) {
+					return array("status" => false, "message" => _("File does not exist"));
+				}
+				$media = $this->UCP->FreePBX->Media();
+				$media->load($file);
+				$files = $media->generateHTML5();
+				$final = array();
+				foreach($files as $format => $name) {
+					$final[$format] = "index.php?quietmode=1&module=cel&command=playback&file=".$name;
+				}
+				return array("status" => true, "files" => $final);
+			break;
 			case "grid":
 				$limit = $_REQUEST['limit'];
 				$ext = $_REQUEST['extension'];
@@ -203,13 +182,20 @@ class Cel extends Modules{
 	*/
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
-			case "listen":
-				$filename = $_REQUEST['filename'];
-				$ext = $_REQUEST['ext'];
-				if(!$this->_checkExtension($ext)) {
-					return false;
-				}
-				$this->cel->playRecording();
+			case "download":
+				global $amp_conf;
+
+				include_once(dirname(__DIR__)."/crypt.php");
+				$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
+
+				$crypt = new \Crypt();
+				$file = $crypt->decrypt($_REQUEST['id'],$REC_CRYPT_PASSWORD);
+				$this->downloadFile($file,$_REQUEST['ext']);
+				return true;
+			break;
+			case "playback":
+				$media = $this->UCP->FreePBX->Media();
+				$media->getHTML5File($_REQUEST['file']);
 				return true;
 			break;
 			default:
@@ -219,11 +205,58 @@ class Cel extends Modules{
 		return false;
 	}
 
+	/**
+	 * Download a file to listen to on your desktop
+	 * @param  string $msgid The message id
+	 * @param  int $ext   Extension wanting to listen to
+	 */
+	private function downloadFile($file,$ext) {
+		if(!$this->_checkExtension($ext)) {
+			header("HTTP/1.0 403 Forbidden");
+			echo _("Forbidden");
+			exit;
+		}
+		if(!file_exists($file)) {
+			header("HTTP/1.0 404 Not Found");
+			echo _("Not Found");
+			exit;
+		}
+		//dont allow people do download random files on the system
+		if(!$this->cel->validateMonitorPath($file)) {
+			header("HTTP/1.0 403 Forbidden");
+			echo _("Forbidden");
+			exit;
+		}
+		header("Content-length: " . filesize($file));
+		header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+		header('Content-Disposition: attachment;filename="' . basename($file).'"');
+		readfile($file);
+	}
+
 	private function _checkExtension($extension) {
 		if(!$this->UCP->getCombinedSettingByID($this->user['id'],'Cel','enable')) {
 			return false;
 		}
 		$extensions = $this->UCP->getCombinedSettingByID($this->user['id'],'Cel','assigned');
 		return in_array($extension,$extensions);
+	}
+
+	private function _checkDownload($extension) {
+		if($this->_checkExtension($extension)) {
+			$user = $this->UCP->User->getUser();
+			$dl = $this->UCP->getCombinedSettingByID($user['id'],'Cel','download');
+			return is_null($dl) ? true : $dl;
+		}
+		return false;
+	}
+
+	private function _checkPlayback($extension) {
+		if($this->_checkExtension($extension)) {
+			$user = $this->UCP->User->getUser();
+			$pb = $this->UCP->getCombinedSettingByID($user['id'],'Cel','playback');
+			return is_null($pb) ? true : $pb;
+		}
+		return false;
 	}
 }

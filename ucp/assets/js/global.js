@@ -1,11 +1,11 @@
 var CelC = UCPMC.extend({
 	init: function() {
-		this.playing = null;
 	},
 	poll: function(data, url) {
 
 	},
 	display: function(event) {
+		var $this = this;
 		$(document).on("click", "[vm-pjax] a, a[vm-pjax]", function(event) {
 			var container = $("#dashboard-content");
 			$.pjax.click(event, { container: container });
@@ -16,29 +16,24 @@ var CelC = UCPMC.extend({
 				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 			}
 		});
-		$("#cel-grid").on("click-row.bs.table", function(row, element) {
-			$("#cel-detail-grid").bootstrapTable('load', element.actions);
+		$("#cel-grid").on("click-cell.bs.table", function(event, field, value, row) {
+			if(field == "playback" || field == "controls") {
+				return;
+			}
+			$("#cel-detail-grid").bootstrapTable('load', row.actions);
 			$('#callpreview').modal('toggle');
 		});
-	},
-	search: function() {
-		var params = "";
-		$(".search-param").each(function() {
-			params += "&" + $(this).attr("name") + "=" + encodeURIComponent($(this).val());
+		$('#callpreview').on('show.bs.modal', function () {
+			$('.modal .modal-body').css('overflow-y', 'auto');
+			$('.modal .modal-body').css('max-height', $(window).height() * 0.65);
 		});
-
-		$.pjax({
-			url: "?display=dashboard&mod=cel&sub=" + $.url().param("sub") + params,
-			container: "#dashboard-content"
+		$('#cel-grid').on("post-body.bs.table", function () {
+			$this.bindPlayers();
 		});
 	},
 	hide: function(event) {
 		$(document).off("click", "[vm-pjax] a, a[vm-pjax]");
 		$(".clickable").off("click");
-		if(Cel.playing !== null) {
-			$("#jquery_jplayer_" + Cel.playing).jPlayer("stop", 0);
-			Cel.playing = null;
-		}
 	},
 	windowState: function(state) {
 		//console.log(state);
@@ -58,7 +53,7 @@ var CelC = UCPMC.extend({
 			if(v === false) {
 				return true;
 			}
-			links = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cel&amp;command=download&amp;msgid='+v+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
+			links = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cel&amp;command=download&amp;id='+encodeURIComponent(k)+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
 		});
 		return links;
 	},
@@ -66,12 +61,13 @@ var CelC = UCPMC.extend({
 		if(typeof row.recordings === "undefined") {
 			return '';
 		}
-		var html = '';
+		var html = '',
+				count = 0;
 		$.each(row.recordings, function(k, v){
 			if(v === false) {
 				return true;
 			}
-			html += '<div id="jquery_jplayer_'+index+'" class="jp-jplayer" data-container="#jp_container_'+index+'" data-id="'+k+'"></div><div id="jp_container_'+index+'" data-player="jquery_jplayer_'+index+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+			html += '<div id="jquery_jplayer_'+index+'_'+count+'" class="jp-jplayer" data-container="#jp_container_'+index+'_'+count+'" data-id="'+k+'"></div><div id="jp_container_'+index+'_'+count+'" data-player="jquery_jplayer_'+index+'_'+count+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
 				'<div class="jp-type-single">'+
 					'<div class="jp-gui jp-interface">'+
 						'<div class="jp-controls">'+
@@ -100,7 +96,111 @@ var CelC = UCPMC.extend({
 					'</div>'+
 				'</div>'+
 			'</div>';
+			count++;
 		});
 		return html;
 	},
-}), Cel = new CelC();
+	bindPlayers: function() {
+		$(".jp-jplayer").each(function() {
+			var container = $(this).data("container"),
+					player = $(this),
+					id = $(this).data("id");
+			$(this).jPlayer({
+				ready: function() {
+					$(container + " .jp-play").click(function() {
+						if($(this).parents(".jp-controls").hasClass("recording")) {
+							var type = $(this).parents(".jp-audio-freepbx").data("type");
+							$this.recordGreeting(type);
+							return;
+						}
+						if(!player.data("jPlayer").status.srcSet) {
+							$(container).addClass("jp-state-loading");
+							$.ajax({
+								type: 'POST',
+								url: "index.php?quietmode=1",
+								data: {module: "cel", command: "gethtml5", id: id, ext: extension},
+								dataType: 'json',
+								timeout: 30000,
+								success: function(data) {
+									if(data.status) {
+										player.on($.jPlayer.event.error, function(event) {
+											$(container).removeClass("jp-state-loading");
+											console.log(event);
+										});
+										player.one($.jPlayer.event.canplay, function(event) {
+											$(container).removeClass("jp-state-loading");
+											player.jPlayer("play");
+										});
+										player.jPlayer( "setMedia", data.files);
+									} else {
+										alert(data.message);
+										$(container).removeClass("jp-state-loading");
+									}
+								}
+							});
+						}
+					});
+				},
+				timeupdate: function(event) {
+					$(container).find(".jp-ball").css("left",event.jPlayer.status.currentPercentAbsolute + "%");
+				},
+				ended: function(event) {
+					$(container).find(".jp-ball").css("left","0%");
+				},
+				swfPath: "/js",
+				supplied: supportedHTML5,
+				cssSelectorAncestor: container,
+				wmode: "window",
+				useStateClassSkin: true,
+				autoBlur: false,
+				keyEnabled: true,
+				remainingDuration: true,
+				toggleDuration: true
+			});
+			$(this).on($.jPlayer.event.play, function(event) {
+				$(this).jPlayer("pauseOthers");
+			});
+		});
+
+		var acontainer = null;
+		$('.jp-play-bar').mousedown(function (e) {
+			acontainer = $(this).parents(".jp-audio-freepbx");
+			updatebar(e.pageX);
+		});
+		$(document).mouseup(function (e) {
+			if (acontainer) {
+				updatebar(e.pageX);
+				acontainer = null;
+			}
+		});
+		$(document).mousemove(function (e) {
+			if (acontainer) {
+				updatebar(e.pageX);
+			}
+		});
+
+		//update Progress Bar control
+		var updatebar = function (x) {
+			var player = $("#" + acontainer.data("player")),
+					progress = acontainer.find('.jp-progress'),
+					maxduration = player.data("jPlayer").status.duration,
+					position = x - progress.offset().left,
+					percentage = 100 * position / progress.width();
+
+			//Check within range
+			if (percentage > 100) {
+				percentage = 100;
+			}
+			if (percentage < 0) {
+				percentage = 0;
+			}
+
+			player.jPlayer("playHead", percentage);
+
+			//Update progress bar and video currenttime
+			acontainer.find('.jp-ball').css('left', percentage+'%');
+			acontainer.find('.jp-play-bar').css('width', percentage + '%');
+			player.jPlayer.currentTime = maxduration * percentage / 100;
+		};
+	}
+});
