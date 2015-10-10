@@ -56,6 +56,9 @@
 	        data-search="true"
 					data-sort-order="asc"
 					data-sort-name="timestamp"
+					data-mobile-responsive="true"
+					data-check-on-init="true"
+					data-min-width="992"
 					>
 					<thead>
 						<th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Time")?></th>
