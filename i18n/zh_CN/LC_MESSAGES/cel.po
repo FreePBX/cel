@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 13:09-0700\n"
+"POT-Creation-Date: 2015-10-10 12:24-0700\n"
 "PO-Revision-Date: 2015-02-20 19:06-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,23 +18,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 
+#: ucp/assets/js/global.js:42
+#, perl-format
+msgid "%s seconds"
+msgstr ""
+
 #: views/ucp_config.php:7
 msgid "Allow CEL"
+msgstr ""
+
+#: views/ucp_config.php:95
+msgid "Allow CEL Downloads"
+msgstr ""
+
+#: views/ucp_config.php:64
+msgid "Allow CEL Playback"
+msgstr ""
+
+#: views/ucp_config.php:85
+msgid "Allow this user to playback recordings in UCP"
+msgstr ""
+
+#: views/ucp_config.php:116
+msgid "Allow users to download recordings in UCP"
 msgstr ""
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
 msgstr ""
 
-#: ucp/views/view.php:44 views/search.php:106
+#: views/search.php:106
 msgid "Application"
 msgstr ""
 
-#: ucp/views/view.php:50 views/search.php:120
+#: views/search.php:120
 msgid "Application executed by a call participant"
 msgstr ""
 
-#: Cel.class.php:147 /usr/src/freepbx/cel/page.cel.php:10
+#: ucp/views/table.php:46
+msgid "Call Detail"
+msgstr ""
+
+#: Cel.class.php:178 /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
 
@@ -42,39 +67,71 @@ msgstr ""
 msgid "Call Event Logs"
 msgstr ""
 
-#: ucp/views/view.php:25 views/search.php:58
+#: ucp/views/table.php:30
+msgid "Caller"
+msgstr ""
+
+#: views/search.php:58
 msgid "Caller ID"
 msgstr ""
 
-#: ucp/views/view.php:27 views/search.php:70
+#: views/search.php:70
 msgid "Caller ID of a call participant"
 msgstr ""
 
-#: ucp/views/view.php:38 views/search.php:4
+#: ucp/views/table.php:71
+msgid "Close"
+msgstr ""
+
+#: views/search.php:4
 msgid "Conference"
 msgstr ""
 
-#: ucp/views/view.php:16 views/search.php:27
-msgid "Date Range"
+#: ucp/views/table.php:36
+msgid "Controls"
 msgstr ""
 
-#: ucp/views/view.php:22
-msgid "Date range of call"
+#: ucp/views/table.php:28
+msgid "Date"
+msgstr ""
+
+#: views/search.php:27
+msgid "Date Range"
 msgstr ""
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
 msgstr ""
 
-#: ucp/views/view.php:30 views/search.php:82
+#: ucp/views/table.php:66
+msgid "Detail"
+msgstr ""
+
+#: ucp/views/table.php:31
+msgid "Dialed"
+msgstr ""
+
+#: views/search.php:82
 msgid "Dialed Number"
 msgstr ""
 
-#: install.php:79
+#: ucp/assets/js/global.js:56
+msgid "Download"
+msgstr ""
+
+#: ucp/views/table.php:32 ucp/views/table.php:65
+msgid "Duration"
+msgstr ""
+
+#: install.php:109
+msgid "ERROR failed to add context index"
+msgstr ""
+
+#: install.php:80
 msgid "ERROR failed to update extra field"
 msgstr ""
 
-#: install.php:93
+#: install.php:94
 msgid "ERROR failed to update userfield field"
 msgstr ""
 
@@ -82,19 +139,27 @@ msgstr ""
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr ""
 
-#: ucp/views/view.php:32 views/search.php:94
+#: views/search.php:94
 msgid "Extension or DID dialed"
+msgstr ""
+
+#: ucp/Cel.class.php:119 ucp/Cel.class.php:122
+msgid "File does not exist"
+msgstr ""
+
+#: ucp/Cel.class.php:216 ucp/Cel.class.php:227
+msgid "Forbidden"
 msgstr ""
 
 #: views/search.php:33
 msgid "From"
 msgstr ""
 
-#: views/ucp_config.php:18
+#: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
 msgstr ""
 
-#: views/ucp_config.php:15
+#: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
 msgstr "否"
 
@@ -102,24 +167,28 @@ msgstr "否"
 msgid "Not Authorized"
 msgstr ""
 
-#: install.php:70 /usr/src/freepbx/cel/install.php:81 install.php:95
+#: ucp/Cel.class.php:221
+msgid "Not Found"
+msgstr ""
+
+#: install.php:71 /usr/src/freepbx/cel/install.php:82 install.php:96
+#: /usr/src/freepbx/cel/install.php:111
 msgid "OK"
 msgstr "正常"
 
-#: ucp/views/results.php:35
-msgid "Play"
+#: ucp/views/table.php:34
+msgid "Playback"
 msgstr ""
 
-#: ucp/views/view.php:39 views/search.php:5
+#: views/search.php:5
 msgid "Queue"
 msgstr ""
 
-#: Cel.class.php:174
+#: Cel.class.php:205
 msgid "Reset"
 msgstr "重置"
 
-#: Cel.class.php:179 ucp/views/view.php:10 ucp/views/view.php:54
-#: views/search.php:16
+#: Cel.class.php:210 views/search.php:16
 msgid "Search"
 msgstr ""
 
@@ -129,25 +198,38 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
+#: ucp/views/table.php:64
+msgid "Time"
+msgstr ""
+
 #: views/search.php:36
 msgid "To"
 msgstr ""
 
-#: Cel.class.php:138
+#: Cel.class.php:169
 msgid "User Primary Extension"
 msgstr ""
 
-#: ucp/views/view.php:40 views/search.php:6
+#: views/search.php:6
 msgid "Voicemail"
 msgstr ""
 
-#: ucp/views/view.php:41 views/search.php:7
+#: views/search.php:7
 msgid "Voicemail Main"
 msgstr ""
 
-#: views/ucp_config.php:13
+#: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
 msgstr "是"
+
+#: ucp/assets/js/global.js:95
+#, perl-format
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
+msgstr ""
 
 #: page.cel.php:12
 msgid ""
@@ -155,19 +237,27 @@ msgid ""
 "in the more refined the report."
 msgstr ""
 
-#: install.php:98
+#: install.php:99
 msgid "already deleted"
 msgstr ""
 
-#: install.php:84
+#: install.php:85
 msgid "already exists"
 msgstr "已存在"
 
-#: install.php:73
+#: install.php:114
+msgid "already indexed"
+msgstr ""
+
+#: install.php:102
+msgid "checking for context index.."
+msgstr ""
+
+#: install.php:74
 msgid "checking for extra field.."
 msgstr ""
 
-#: install.php:87
+#: install.php:88
 msgid "checking for userfield field.."
 msgstr ""
 
