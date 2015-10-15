@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:24-0700\n"
-"PO-Revision-Date: 2015-10-14 14:48+0200\n"
+"PO-Revision-Date: 2015-10-15 09:39+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/zh_CN/>\n"
@@ -152,7 +152,7 @@ msgstr ""
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr ""
+msgstr "禁止"
 
 #: views/search.php:33
 msgid "From"
