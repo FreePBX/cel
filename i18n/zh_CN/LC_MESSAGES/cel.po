@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:24-0700\n"
-"PO-Revision-Date: 2015-10-15 09:39+0200\n"
+"PO-Revision-Date: 2015-10-16 08:29+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/zh_CN/>\n"
@@ -160,7 +160,7 @@ msgstr ""
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "继承"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: Cel.class.php:205
 msgid "Reset"
-msgstr "重置"
+msgstr "重新设置"
 
 #: Cel.class.php:210 views/search.php:16
 msgid "Search"
