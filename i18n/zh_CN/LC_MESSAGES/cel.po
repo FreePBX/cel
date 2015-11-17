@@ -193,7 +193,7 @@ msgstr "重新设置"
 
 #: Cel.class.php:210 views/search.php:16
 msgid "Search"
-msgstr ""
+msgstr "查询"
 
 #: views/ucp_config.php:54
 msgid ""
@@ -215,7 +215,7 @@ msgstr ""
 
 #: views/search.php:6
 msgid "Voicemail"
-msgstr ""
+msgstr "语音邮件"
 
 #: views/search.php:7
 msgid "Voicemail Main"
