@@ -750,6 +750,12 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			}
 
 			foreach($call['actions'] as &$c) {
+				if(!is_object($c['starttime'])) {
+					$c['starttime'] = new \DateTime($c['starttime']);
+				}
+				if(!is_object($c['stoptime'])) {
+					$c['stoptime'] = new \DateTime($c['stoptime']);
+				}
 				$st = $c['starttime']->format("U");
 				$et = $c['stoptime']->format("U");
 				$c['duration'] = $et - $st;
