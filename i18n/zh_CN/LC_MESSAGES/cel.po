@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:24-0700\n"
-"PO-Revision-Date: 2015-11-17 12:22+0200\n"
+"PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/zh_CN/>\n"
@@ -40,11 +40,11 @@ msgstr ""
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "支持用户通过UCP播放呼叫录音"
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "支持用户通过UCP下载录音"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
@@ -88,15 +88,15 @@ msgstr "关闭"
 
 #: views/search.php:4
 msgid "Conference"
-msgstr ""
+msgstr "会议"
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr ""
+msgstr "控制"
 
 #: ucp/views/table.php:28
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: views/search.php:27
 msgid "Date Range"
@@ -120,7 +120,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
-msgstr ""
+msgstr "下载"
 
 #: ucp/views/table.php:32 ucp/views/table.php:65
 msgid "Duration"
@@ -164,15 +164,15 @@ msgstr "继承"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr "无"
+msgstr ""
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
-msgstr ""
+msgstr "未经授权"
 
 #: ucp/Cel.class.php:221
 msgid "Not Found"
-msgstr ""
+msgstr "没有发现"
 
 #: install.php:71 /usr/src/freepbx/cel/install.php:82 install.php:96
 #: /usr/src/freepbx/cel/install.php:111
@@ -181,7 +181,7 @@ msgstr "正常"
 
 #: ucp/views/table.php:34
 msgid "Playback"
-msgstr ""
+msgstr "回放"
 
 #: views/search.php:5
 msgid "Queue"
