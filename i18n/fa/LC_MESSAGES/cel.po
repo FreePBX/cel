@@ -10,49 +10,49 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:24-0700\n"
-"PO-Revision-Date: 2015-11-23 13:56+0200\n"
-"Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese "
-"<http://weblate.freepbx.org/projects/freepbx/cel/zh_CN/>\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2015-11-04 11:09+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cel/fa/>"
+"\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: ucp/assets/js/global.js:42
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s ثانیه"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
-msgstr ""
+msgstr "مجوز گزارش تماس"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Downloads"
-msgstr ""
+msgstr "مجوز دانلود گزارش تماس"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Playback"
-msgstr ""
+msgstr "مجوز اجرای مجدد گزارش تماس"
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr "支持用户通过UCP播放呼叫录音"
+msgstr ""
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr "支持用户通过UCP下载录音"
+msgstr ""
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
-msgstr ""
+msgstr "گزارش تماس مجاز"
 
 #: views/search.php:106
 msgid "Application"
-msgstr ""
+msgstr "برنامه‌"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
@@ -60,23 +60,23 @@ msgstr ""
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
-msgstr ""
+msgstr "جزییات تماس"
 
 #: Cel.class.php:178 /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
-msgstr ""
+msgstr "لاگ تماس ها"
 
 #: ucp/Cel.class.php:37
 msgid "Call Event Logs"
-msgstr ""
+msgstr "گزارشات تماس"
 
 #: ucp/views/table.php:30
 msgid "Caller"
-msgstr ""
+msgstr "تماس گیرنده"
 
 #: views/search.php:58
 msgid "Caller ID"
-msgstr ""
+msgstr "شناسه تماس گیرنده"
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
@@ -84,59 +84,59 @@ msgstr ""
 
 #: ucp/views/table.php:71
 msgid "Close"
-msgstr "关闭"
+msgstr "بستن"
 
 #: views/search.php:4
 msgid "Conference"
-msgstr "会议"
+msgstr "کنفرانس"
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr "控制"
+msgstr "کنترل ها"
 
 #: ucp/views/table.php:28
 msgid "Date"
-msgstr "日期"
+msgstr "تاریخ"
 
 #: views/search.php:27
 msgid "Date Range"
-msgstr ""
+msgstr "محدوده تاریخ"
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
+msgstr "محدوده تاریخ تماس ها در فرمت روز/ماه/سال"
 
 #: ucp/views/table.php:66
 msgid "Detail"
-msgstr ""
+msgstr "جزییات"
 
 #: ucp/views/table.php:31
 msgid "Dialed"
-msgstr ""
+msgstr "تماس های گرفته شده"
 
 #: views/search.php:82
 msgid "Dialed Number"
-msgstr ""
+msgstr "تعداد تماس های گرفته شده"
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
-msgstr "下载"
+msgstr "دانلود"
 
 #: ucp/views/table.php:32 ucp/views/table.php:65
 msgid "Duration"
-msgstr ""
+msgstr "مدت"
 
 #: install.php:109
 msgid "ERROR failed to add context index"
-msgstr ""
+msgstr "خطا در اضافه کردن شاخص زمینه"
 
 #: install.php:80
 msgid "ERROR failed to update extra field"
-msgstr ""
+msgstr "خطا در به روزسانی فیلد اضافی"
 
 #: install.php:94
 msgid "ERROR failed to update userfield field"
-msgstr ""
+msgstr "خطا در به روزسانی فیلد کاربر"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
@@ -144,56 +144,56 @@ msgstr ""
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
-msgstr ""
+msgstr "داخلی تماس گرفته شده"
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
-msgstr "文件不存在"
+msgstr "فایل موجود نیست"
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr "禁止"
+msgstr "ممنوع"
 
 #: views/search.php:33
 msgid "From"
-msgstr ""
+msgstr "از"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "继承"
+msgstr "ارث بردن"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
-msgstr "未经授权"
+msgstr "شناخته نشده"
 
 #: ucp/Cel.class.php:221
 msgid "Not Found"
-msgstr "没有发现"
+msgstr "یافت نشد"
 
 #: install.php:71 /usr/src/freepbx/cel/install.php:82 install.php:96
 #: /usr/src/freepbx/cel/install.php:111
 msgid "OK"
-msgstr "正常"
+msgstr "تایید"
 
 #: ucp/views/table.php:34
 msgid "Playback"
-msgstr "回放"
+msgstr "اجرای مجدد"
 
 #: views/search.php:5
 msgid "Queue"
-msgstr ""
+msgstr "صف"
 
 #: Cel.class.php:205
 msgid "Reset"
-msgstr "重置"
+msgstr "بازنشانی"
 
 #: Cel.class.php:210 views/search.php:16
 msgid "Search"
-msgstr "查询"
+msgstr "جستجو"
 
 #: views/ucp_config.php:54
 msgid ""
@@ -203,27 +203,27 @@ msgstr ""
 
 #: ucp/views/table.php:64
 msgid "Time"
-msgstr ""
+msgstr "زمان"
 
 #: views/search.php:36
 msgid "To"
-msgstr ""
+msgstr "به"
 
 #: Cel.class.php:169
 msgid "User Primary Extension"
-msgstr ""
+msgstr "داخلی اختصاصی کاربر"
 
 #: views/search.php:6
 msgid "Voicemail"
-msgstr "语音邮件"
+msgstr "ایمیل صوتی"
 
 #: views/search.php:7
 msgid "Voicemail Main"
-msgstr ""
+msgstr "ایمیل صوتی اصلی"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr "是"
+msgstr "بله"
 
 #: ucp/assets/js/global.js:95
 #, perl-format
@@ -238,15 +238,15 @@ msgstr ""
 msgid ""
 "You may search by any or all of the fields below. The more fields you fill "
 "in the more refined the report."
-msgstr ""
+msgstr "شما با یک یا تمام فیلدهای زیر میتوانید جستجو کنید."
 
 #: install.php:99
 msgid "already deleted"
-msgstr ""
+msgstr "حذف شده"
 
 #: install.php:85
 msgid "already exists"
-msgstr "已存在"
+msgstr "موجود است"
 
 #: install.php:114
 msgid "already indexed"
@@ -258,11 +258,8 @@ msgstr ""
 
 #: install.php:74
 msgid "checking for extra field.."
-msgstr ""
+msgstr "بررسی فیلد خارجی.."
 
 #: install.php:88
 msgid "checking for userfield field.."
-msgstr ""
-
-#~ msgid "Reports"
-#~ msgstr "报表"
+msgstr "بررسی فیلد کاربر.."
