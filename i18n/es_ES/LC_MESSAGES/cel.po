@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-10 12:24-0700\n"
+"POT-Creation-Date: 2015-11-25 13:04-0800\n"
 "PO-Revision-Date: 2015-05-26 07:47+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -62,7 +62,8 @@ msgstr "Aplicación ejecutada por un participante en la llamada"
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:178 /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:178 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Call Event Logging (CEL)"
 
@@ -187,6 +188,10 @@ msgstr ""
 msgid "Queue"
 msgstr "Cola"
 
+#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
+msgid "Reports"
+msgstr "Reportes"
+
 #: Cel.class.php:205
 msgid "Reset"
 msgstr "Restablecer"
@@ -282,9 +287,6 @@ msgstr "chequeando por campo userfield.."
 
 #~ msgid "Enable CEL Reporting"
 #~ msgstr "Habilitar Reporte CEL"
-
-#~ msgid "Reports"
-#~ msgstr "Reportes"
 
 #~ msgid ""
 #~ "Setting this true will enable the CEL module to create call reports from "

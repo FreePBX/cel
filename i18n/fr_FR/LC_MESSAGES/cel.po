@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-10 12:24-0700\n"
+"POT-Creation-Date: 2015-11-25 13:04-0800\n"
 "PO-Revision-Date: 2015-06-01 19:52+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cel/fr_FR/"
@@ -62,7 +62,8 @@ msgstr "Application exécutée par un participant à un appel"
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:178 /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:178 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
 
@@ -185,6 +186,10 @@ msgstr ""
 
 #: views/search.php:5
 msgid "Queue"
+msgstr ""
+
+#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
+msgid "Reports"
 msgstr ""
 
 #: Cel.class.php:205
