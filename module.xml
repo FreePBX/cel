@@ -41,7 +41,7 @@
 		</menuitems>
 		<depends>
 				<version>13.0.1beta3.63</version>
-				<engine>asterisk ge 12.0.0</engine>
+				<engine>asterisk ge 11.0.0</engine>
 		</depends>
 		<supported>
 				<version>13.0</version>
