@@ -93,11 +93,11 @@ msgstr "Conferencia"
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr ""
+msgstr "Controles"
 
 #: ucp/views/table.php:28
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #: views/search.php:27
 msgid "Date Range"
@@ -121,11 +121,11 @@ msgstr "Numero Marcado"
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
-msgstr ""
+msgstr "Bajar"
 
 #: ucp/views/table.php:32 ucp/views/table.php:65
 msgid "Duration"
-msgstr ""
+msgstr "Duración"
 
 #: install.php:109
 msgid "ERROR failed to add context index"
@@ -153,7 +153,7 @@ msgstr ""
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr ""
+msgstr "Prohibido"
 
 #: views/search.php:33
 msgid "From"
@@ -205,8 +205,8 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
-"Estas son las extensiones asignadas y activas que se mostraran para este "
-"usuario para controlar y editar en UCP"
+"Estas son las extensiones asignadas y activas que se mostrarán para que este "
+"usuario pueda controlar y editar en UCP"
 
 #: ucp/views/table.php:64
 msgid "Time"
@@ -214,7 +214,7 @@ msgstr ""
 
 #: views/search.php:36
 msgid "To"
-msgstr "a"
+msgstr "A"
 
 #: Cel.class.php:169
 msgid "User Primary Extension"
@@ -222,7 +222,7 @@ msgstr "Extensión Primaria del Usuario"
 
 #: views/search.php:6
 msgid "Voicemail"
-msgstr "Correo de Voz"
+msgstr "Buzón de voz"
 
 #: views/search.php:7
 msgid "Voicemail Main"
