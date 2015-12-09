@@ -85,7 +85,7 @@ msgstr "ID de llamada de un participante en la llamada"
 
 #: ucp/views/table.php:71
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: views/search.php:4
 msgid "Conference"
