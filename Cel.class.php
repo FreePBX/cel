@@ -14,6 +14,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 		$config = $this->FreePBX->Config;
+		$this->astver = $config->get('ASTVERSION');
 		$db_name = $config->get('CDRDBNAME');
 		$db_host = $config->get('CDRDBHOST');
 		$db_port = $config->get('CDRDBPORT');
@@ -201,6 +202,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function getActionBar($request) {
+		if(!version_compare($this->astver , '12', 'ge')){return array();}
 		$buttons = array(
 			'reset' => array(
 				'name' => 'reset',
@@ -224,6 +226,10 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function myShowPage() {
 		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 		$html = '';
+
+		if(!version_compare($this->astver , '12', 'ge')){
+			return "<div class='alert alert-danger'>"._("The CEL module requires an Asterisk version of 12.0 or higher.")."</div>";
+		}
 		switch ($action) {
 		case "getJSON":
 			header('Content-Type: application/json');
