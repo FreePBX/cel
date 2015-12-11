@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.13</version>
+		<version>13.0.14</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*13.0.14* FREEPBX-10397 FREEPBX-10895
 			*13.0.13* FREEPBX-10816
 			*13.0.12* Fix bad class reference
 			*13.0.11* FREEPBX-10771
