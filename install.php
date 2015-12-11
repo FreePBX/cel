@@ -135,3 +135,18 @@ if (!$freepbx_conf->conf_setting_exists('CEL_ENABLED')) {
 	$freepbx_conf->remove_conf_setting('CEL_ENABLED');
 	$freepbx_conf->define_conf_setting('CEL_ENABLED',$set,true);
 }
+
+unset($set);
+$set['value'] = '';
+$set['defaultval'] = '';
+$set['readonly'] = 1;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'cel';
+$set['category'] = 'CEL Report Module';
+$set['emptyok'] = 1;
+$set['sortorder'] = 10;
+$set['name'] = 'Remote CEL DB Table';
+$set['description'] = 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX. Name of the table in the db where the cel is stored. cel is default.';
+$set['type'] = CONF_TYPE_TEXT;
+$freepbx_conf->define_conf_setting('CELDBTABLENAME',$set,true);

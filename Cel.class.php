@@ -7,6 +7,7 @@ namespace FreePBX\modules;
 class Cel extends \FreePBX_Helpers implements \BMO {
 	private $message = '';
 	private $calls;
+	private $db_table = 'cel';
 
 	public function __construct($freepbx = null) {
 		$amp_conf = \FreePBX::$conf;
@@ -18,11 +19,13 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$db_port = $config->get('CDRDBPORT');
 		$db_user = $config->get('CDRDBUSER');
 		$db_pass = $config->get('CDRDBPASS');
+		$db_table = $config->get('CELDBTABLENAME');
 		$dbt = $config->get('CDRDBTYPE');
 
 		$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
 		$dbt = !empty($dbt) ? $dbt : 'mysql';
 		$db_type = $db_hash[$dbt];
+		$this->db_table = !empty($db_table) ? $db_table : "cel";
 		$db_name = !empty($db_name) ? $db_name : "asteriskcdrdb";
 		$db_host = !empty($db_host) ? $db_host : "localhost";
 		$db_port = empty($db_port) ? '' :  ';port=' . $db_port;
@@ -294,11 +297,11 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		if(!empty($search)) {
 			//cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%'
 			//(eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')
-			$sql = "SELECT COUNT(DISTINCT linkedid) as count from cel WHERE (cid_num = :extension OR exten = :extension) AND (cid_num LIKE :search OR cid_name LIKE :search)";
+			$sql = "SELECT COUNT(DISTINCT linkedid) as count from ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) AND (cid_num LIKE :search OR cid_name LIKE :search)";
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%'));
 		} else {
-			$sql = "SELECT COUNT(DISTINCT linkedid) as count from cel WHERE (cid_num = :extension OR exten = :extension)";
+			$sql = "SELECT COUNT(DISTINCT linkedid) as count from ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension)";
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':extension' => $extension));
 		}
@@ -328,11 +331,11 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
-			$sql = "SELECT distinct(linkedid), cel.*, UNIX_TIMESTAMP(eventtime) As timestamp FROM cel WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT distinct(linkedid), ".$this->db_table.".*, UNIX_TIMESTAMP(eventtime) As timestamp FROM ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':extension' => $extension));
 		} else {
-			$sql = "SELECT distinct(linkedid), cel.*, UNIX_TIMESTAMP(eventtime) As timestamp FROM cel WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT distinct(linkedid), ".$this->db_table.".*, UNIX_TIMESTAMP(eventtime) As timestamp FROM ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':extension' => $extension));
 		}
@@ -355,7 +358,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$badcontexts = array('tc-maint');
 
 		$sql = "SELECT DISTINCT linkedid" .
-			" FROM cel" .
+			" FROM ".$this->db_table .
 			" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" .
 		($extension ? " AND (cid_num = '" . $extension . "' OR exten = '" . $extension . "')" : "");
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -368,7 +371,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			$datefrom = (!empty($filters['datefrom']) ? $filters['datefrom'] : date('Y-m-d')) . ' 00:00:00';
 			$dateto = (!empty($filters['dateto']) ? $filters['dateto'] : date('Y-m-d')) . ' 23:59:59';
 			$sql = "SELECT linkedid" .
-				" FROM cel" .
+				" FROM ".$this->db_table .
 				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
 			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
@@ -382,7 +385,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		if ($filters['callerid']) {
 			$callerid = $filters['callerid'];
 			$sql = "SELECT linkedid" .
-				" FROM cel" .
+				" FROM ".$this->db_table .
 				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND (cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%')";
 			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
@@ -396,7 +399,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		if ($filters['exten']) {
 			$extension = $filters['exten'];
 			$sql = "SELECT linkedid" .
-				" FROM cel" .
+				" FROM ".$this->db_table.
 				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND exten LIKE '%" . $extension . "%'";
 			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
@@ -415,7 +418,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				$application = array($application);
 			}
 			$sql = "SELECT linkedid" .
-				" FROM cel" .
+				" FROM ".$this->db_table.
 				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
 			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
@@ -448,7 +451,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 		/* Grab channels that are associated via an attended transfer */
 		$sql = "SELECT extra" .
-			" FROM cel" .
+			" FROM ".$this->db_table.
 			" WHERE eventtype = 'ATTENDEDTRANSFER' AND linkedid IN ('" . implode("', '", $linkedids) . "')";
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
 
@@ -464,7 +467,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 
 		$sql = "SELECT " . implode(", ", $fields) .
-			" FROM cel" .
+			" FROM ".$this->db_table.
 			" WHERE linkedid IN ('" . implode("', '", $linkedids) . "')" .
 			" ORDER BY id";
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -725,7 +728,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				}
 			}
 
-			if (isset($channel['apps'])) {
+			if (is_array($channel['apps'])) {
 				foreach ($channel['apps'] as $app) {
 					if ($app['appname'] == 'MixMonitor') {
 						$args = explode(',', $app['appdata']);
@@ -749,6 +752,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				}
 			}
 
+			$call['actions'] = is_array($call['actions']) ? $call['actions'] : array();
 			foreach($call['actions'] as &$c) {
 				if(!is_object($c['starttime'])) {
 					$c['starttime'] = new \DateTime($c['starttime']);
