@@ -780,6 +780,12 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 				return $a['starttime'] < $b['starttime'] ? -1 : 1;
 			});
+			if(!is_object($call['endtime'])) {
+				$call['endtime'] = new \DateTime($call['endtime']);
+			}
+			if(!is_object($call['starttime'])) {
+				$call['starttime'] = new \DateTime($call['starttime']);
+			}
 			$call['duration'] = $call['endtime']->format('U') - $call['starttime']->format('U');
 			$call['timestamp'] = $call['starttime']->format('U');
 			$calls[$callid] = $call;
