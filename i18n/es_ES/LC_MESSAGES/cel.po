@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-11 11:02-0800\n"
-"PO-Revision-Date: 2016-01-03 11:25+0200\n"
+"PO-Revision-Date: 2016-01-05 00:01+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/cel/es_ES/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: ucp/assets/js/global.js:42
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s segundos"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -32,19 +32,19 @@ msgstr "Permitir CEL"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Downloads"
-msgstr ""
+msgstr "Permitir Bajar CEL"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Playback"
-msgstr ""
+msgstr "Permitir Reproducir CEL"
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "Permitir a este usuario reproducir grabaciones en UCP"
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "Permitir usurios a bajar grabaciones en UCP"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
@@ -60,7 +60,7 @@ msgstr "Aplicación ejecutada por un participante en la llamada"
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
-msgstr ""
+msgstr "Detalle Llamada"
 
 #: Cel.class.php:182 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
@@ -73,7 +73,7 @@ msgstr "Bitácoras de Eventos de Llamadas"
 
 #: ucp/views/table.php:30
 msgid "Caller"
-msgstr ""
+msgstr "Llamante"
 
 #: views/search.php:58
 msgid "Caller ID"
@@ -105,15 +105,15 @@ msgstr "Rango de Fecha"
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
+msgstr "Rango de fechas de llamadas en formato mm/dd/yyyy"
 
 #: ucp/views/table.php:66
 msgid "Detail"
-msgstr ""
+msgstr "Detalle"
 
 #: ucp/views/table.php:31
 msgid "Dialed"
-msgstr ""
+msgstr "Discado"
 
 #: views/search.php:82
 msgid "Dialed Number"
@@ -129,7 +129,7 @@ msgstr "Duración"
 
 #: install.php:109
 msgid "ERROR failed to add context index"
-msgstr ""
+msgstr "ERROR falla al agregar indice de contexto"
 
 #: install.php:80
 msgid "ERROR failed to update extra field"
@@ -202,7 +202,7 @@ msgstr "Buscar"
 
 #: Cel.class.php:231
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr ""
+msgstr "El modulo CEL requiere Asterisk version 12.0 o mayor."
 
 #: views/ucp_config.php:54
 msgid ""
@@ -214,7 +214,7 @@ msgstr ""
 
 #: ucp/views/table.php:64
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 #: views/search.php:36
 msgid "To"
@@ -267,11 +267,11 @@ msgstr "Ya existe"
 
 #: install.php:114
 msgid "already indexed"
-msgstr ""
+msgstr "Ya indexado"
 
 #: install.php:102
 msgid "checking for context index.."
-msgstr ""
+msgstr "chequeando el indice de contexto..."
 
 #: install.php:74
 msgid "checking for extra field.."
