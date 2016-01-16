@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-11 11:02-0800\n"
-"PO-Revision-Date: 2016-01-16 02:38+0200\n"
+"PO-Revision-Date: 2016-01-16 06:24+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cel/fr_FR/>\n"
@@ -161,11 +161,11 @@ msgstr ""
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Hérite"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
