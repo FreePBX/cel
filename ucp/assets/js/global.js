@@ -45,7 +45,7 @@ var CelC = UCPMC.extend({
 		return UCP.dateFormatter(value);
 	},
 	formatControls: function (value, row, index) {
-		if(typeof row.recordings === "undefined") {
+		if(typeof row.recordings === "undefined" || showDownload === "0") {
 			return '';
 		}
 		var links = '';
@@ -58,7 +58,7 @@ var CelC = UCPMC.extend({
 		return links;
 	},
 	formatPlayback: function (value, row, index) {
-		if(typeof row.recordings === "undefined") {
+		if(typeof row.recordings === "undefined" || showPlayback === "0") {
 			return '';
 		}
 		var html = '',
