@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-11 11:02-0800\n"
-"PO-Revision-Date: 2016-01-20 06:00+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"PO-Revision-Date: 2016-02-07 01:41+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: English (United States) "
 "<http://weblate.freepbx.org/projects/freepbx/cel/en_US/>\n"
 "Language: en_US\n"
@@ -165,7 +165,7 @@ msgstr ""
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr "No"
+msgstr ""
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
@@ -232,7 +232,7 @@ msgstr ""
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr "Si"
+msgstr ""
 
 #: ucp/assets/js/global.js:95
 #, perl-format
