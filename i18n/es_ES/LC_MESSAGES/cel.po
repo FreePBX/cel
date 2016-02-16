@@ -10,21 +10,21 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-11 11:02-0800\n"
-"PO-Revision-Date: 2015-12-08 23:36+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
-"es_ES/>\n"
+"PO-Revision-Date: 2016-01-14 23:00+0200\n"
+"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/cel/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: ucp/assets/js/global.js:42
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s segundos"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -32,19 +32,19 @@ msgstr "Permitir CEL"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Downloads"
-msgstr ""
+msgstr "Permitir Bajar CEL"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Playback"
-msgstr ""
+msgstr "Permitir Reproducir CEL"
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "Permitir a este usuario reproducir grabaciones en UCP"
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "Permitir usurios a bajar grabaciones en UCP"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
@@ -60,7 +60,7 @@ msgstr "Aplicación ejecutada por un participante en la llamada"
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
-msgstr ""
+msgstr "Detalle Llamada"
 
 #: Cel.class.php:182 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
@@ -73,7 +73,7 @@ msgstr "Bitácoras de Eventos de Llamadas"
 
 #: ucp/views/table.php:30
 msgid "Caller"
-msgstr ""
+msgstr "Llamante"
 
 #: views/search.php:58
 msgid "Caller ID"
@@ -105,15 +105,15 @@ msgstr "Rango de Fecha"
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
+msgstr "Rango de fechas de llamadas en formato mm/dd/yyyy"
 
 #: ucp/views/table.php:66
 msgid "Detail"
-msgstr ""
+msgstr "Detalle"
 
 #: ucp/views/table.php:31
 msgid "Dialed"
-msgstr ""
+msgstr "Discado"
 
 #: views/search.php:82
 msgid "Dialed Number"
@@ -129,7 +129,7 @@ msgstr "Duración"
 
 #: install.php:109
 msgid "ERROR failed to add context index"
-msgstr ""
+msgstr "ERROR falla al agregar indice de contexto"
 
 #: install.php:80
 msgid "ERROR failed to update extra field"
@@ -149,7 +149,7 @@ msgstr "Extensión o DID discado"
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
-msgstr ""
+msgstr "Fichero no existe"
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
@@ -161,7 +161,7 @@ msgstr "De"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "Heredado"
+msgstr "Hereda"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -173,7 +173,7 @@ msgstr "No Autorizado"
 
 #: ucp/Cel.class.php:221
 msgid "Not Found"
-msgstr ""
+msgstr "No Encontrado"
 
 #: install.php:71 /usr/src/freepbx/cel/install.php:82 install.php:96
 #: /usr/src/freepbx/cel/install.php:111
@@ -182,7 +182,7 @@ msgstr "OK"
 
 #: ucp/views/table.php:34
 msgid "Playback"
-msgstr ""
+msgstr "Reproducir"
 
 #: views/search.php:5
 msgid "Queue"
@@ -194,7 +194,7 @@ msgstr "Reportes"
 
 #: Cel.class.php:210
 msgid "Reset"
-msgstr "Restablecer"
+msgstr "Reiniciar"
 
 #: Cel.class.php:215 views/search.php:16
 msgid "Search"
@@ -202,7 +202,7 @@ msgstr "Buscar"
 
 #: Cel.class.php:231
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr ""
+msgstr "El modulo CEL requiere Asterisk version 12.0 o mayor."
 
 #: views/ucp_config.php:54
 msgid ""
@@ -214,7 +214,7 @@ msgstr ""
 
 #: ucp/views/table.php:64
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 #: views/search.php:36
 msgid "To"
@@ -222,7 +222,7 @@ msgstr "A"
 
 #: Cel.class.php:173
 msgid "User Primary Extension"
-msgstr "Extensión Primaria del Usuario"
+msgstr "Extension Primaria del Usuario"
 
 #: views/search.php:6
 msgid "Voicemail"
@@ -244,6 +244,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Esta falando  el soporte para la reproducción en este navegador. Para apoyar "
+"plenamente la reproducción navegador HTML5 tendrá que instalar programas que "
+"no pueden ser distribuidos con la central. Si desea instalar los binarios "
+"necesarios para estas conversiones, haga clic en <a href='%s'>aquí</a>"
 
 #: page.cel.php:12
 msgid ""
@@ -263,11 +267,11 @@ msgstr "Ya existe"
 
 #: install.php:114
 msgid "already indexed"
-msgstr ""
+msgstr "Ya indexado"
 
 #: install.php:102
 msgid "checking for context index.."
-msgstr ""
+msgstr "chequeando el indice de contexto..."
 
 #: install.php:74
 msgid "checking for extra field.."
