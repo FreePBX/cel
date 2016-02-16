@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-11 11:02-0800\n"
+"POT-Creation-Date: 2016-02-16 14:45-0800\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -127,16 +127,17 @@ msgstr "下载"
 msgid "Duration"
 msgstr ""
 
-#: install.php:109
+#: install.php:110
 msgid "ERROR failed to add context index"
 msgstr ""
 
-#: install.php:80
-msgid "ERROR failed to update extra field"
+#: install.php:93
+#, php-format
+msgid "ERROR failed to delete %s field"
 msgstr ""
 
-#: install.php:94
-msgid "ERROR failed to update userfield field"
+#: install.php:76
+msgid "ERROR failed to update extra field"
 msgstr ""
 
 #: views/ucp_config.php:28
@@ -175,8 +176,8 @@ msgstr "未经授权"
 msgid "Not Found"
 msgstr "没有发现"
 
-#: install.php:71 /usr/src/freepbx/cel/install.php:82 install.php:96
-#: /usr/src/freepbx/cel/install.php:111
+#: install.php:67 /usr/src/freepbx/cel/install.php:78 install.php:95
+#: /usr/src/freepbx/cel/install.php:112
 msgid "OK"
 msgstr "正常"
 
@@ -253,22 +254,23 @@ msgstr ""
 msgid "already deleted"
 msgstr ""
 
-#: install.php:85
+#: install.php:81
 msgid "already exists"
 msgstr "已存在"
 
-#: install.php:114
+#: install.php:115
 msgid "already indexed"
 msgstr ""
 
-#: install.php:102
+#: install.php:87
+#, php-format
+msgid "checking for %s field.."
+msgstr ""
+
+#: install.php:103
 msgid "checking for context index.."
 msgstr ""
 
-#: install.php:74
+#: install.php:70
 msgid "checking for extra field.."
-msgstr ""
-
-#: install.php:88
-msgid "checking for userfield field.."
 msgstr ""

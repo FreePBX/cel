@@ -734,6 +734,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				}
 			}
 
+			dbug($channel);
 			if (is_array($channel['apps'])) {
 				foreach ($channel['apps'] as $app) {
 					if ($app['appname'] == 'MixMonitor') {
@@ -741,6 +742,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 						if ($args[0]) {
 							$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 							$recording = $mon_dir . '/' . $args[0];
+							dbug($recording);
 							$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD);
 							$call['recordings'][$recordingfile] = file_exists($recording);
 						}
