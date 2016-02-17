@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-16 14:45-0800\n"
+"POT-Creation-Date: 2016-02-17 09:55-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,12 +54,19 @@ msgstr ""
 msgid "Application executed by a call participant"
 msgstr ""
 
+#: cel.i18n.php:16
+#: cel.i18n.php:22
+msgid "CEL Report Module"
+msgstr ""
+
 #: ucp/views/table.php:46
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:182 /usr/src/freepbx/cel/cel.i18n.php:4
-#: cel.i18n.php:8 /usr/src/freepbx/cel/cel.i18n.php:10
+#: Cel.class.php:182
+#: cel.i18n.php:4
+#: cel.i18n.php:8
+#: cel.i18n.php:10
 #: page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
@@ -90,6 +97,13 @@ msgstr ""
 
 #: ucp/views/table.php:36
 msgid "Controls"
+msgstr ""
+
+#: cel.i18n.php:24
+msgid ""
+"DO NOT set this unless you know what you are doing. Only used if you do not "
+"use the default values provided by FreePBX. Name of the table in the db "
+"where the cel is stored. cel is default."
 msgstr ""
 
 #: ucp/views/table.php:28
@@ -142,6 +156,10 @@ msgstr ""
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr ""
 
+#: cel.i18n.php:14
+msgid "Enable CEL Reporting"
+msgstr ""
+
 #: views/search.php:94
 msgid "Extension or DID dialed"
 msgstr ""
@@ -180,8 +198,10 @@ msgstr ""
 msgid "Not Found"
 msgstr ""
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:78
-#: install.php:95 /usr/src/freepbx/cel/install.php:112
+#: install.php:67
+#: install.php:78
+#: install.php:95
+#: install.php:112
 msgid "OK"
 msgstr ""
 
@@ -193,7 +213,12 @@ msgstr ""
 msgid "Queue"
 msgstr ""
 
-#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
+#: cel.i18n.php:20
+msgid "Remote CEL DB Table"
+msgstr ""
+
+#: cel.i18n.php:6
+#: cel.i18n.php:12
 msgid "Reports"
 msgstr ""
 
@@ -204,6 +229,15 @@ msgstr ""
 #: Cel.class.php:215
 #: views/search.php:16
 msgid "Search"
+msgstr ""
+
+#: cel.i18n.php:18
+msgid ""
+"Setting this true will enable the CEL module to create call reports from CEL "
+"data. Although the CEL module will assure there is a CEL table available, "
+"the reporting functionality in Asterisk and associated ODBC database and CEL "
+"configuration must be done outside of FreePBX either by the user or at the "
+"Distro level."
 msgstr ""
 
 #: Cel.class.php:231
