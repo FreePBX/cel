@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.15</version>
+		<version>13.0.16</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*13.0.16* Fix incorrect spanish translations when in English
 			*13.0.15* Fix cel module so it actually works on a new install by lidl
 			*13.0.14* FREEPBX-10397 FREEPBX-10895
 			*13.0.13* FREEPBX-10816
