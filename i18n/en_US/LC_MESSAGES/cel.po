@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-16 14:45-0800\n"
-"PO-Revision-Date: 2016-02-07 01:41+0200\n"
+"PO-Revision-Date: 2016-02-17 09:44-0500\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: English (United States) <http://weblate.freepbx.org/projects/"
 "freepbx/cel/en_US/>\n"
@@ -24,108 +24,108 @@ msgstr ""
 #: ucp/assets/js/global.js:42
 #, perl-format
 msgid "%s seconds"
-msgstr "%s segundos"
+msgstr ""
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
-msgstr "Permitir CEL"
+msgstr ""
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Downloads"
-msgstr "Permitir descargas CEL"
+msgstr ""
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Playback"
-msgstr "Permitir reproduccion CEL"
+msgstr ""
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr "Permitir a este usuario reproducir grabaciones en UCP"
+msgstr ""
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr "Permitir a este usuario bajar grabaciones en UCP"
+msgstr ""
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
-msgstr "CEL Permitido"
+msgstr ""
 
 #: views/search.php:106
 msgid "Application"
-msgstr "Aplicación"
+msgstr ""
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
-msgstr "Aplicación ejecutada por un participante de llamada"
+msgstr ""
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
-msgstr "Detalle de Llamada"
+msgstr ""
 
 #: Cel.class.php:182 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
-msgstr "Registro de Eventos de Llamadas"
+msgstr ""
 
 #: ucp/Cel.class.php:37
 msgid "Call Event Logs"
-msgstr "Registro de eventos de llamadas"
+msgstr ""
 
 #: ucp/views/table.php:30
 msgid "Caller"
-msgstr "Llamante"
+msgstr ""
 
 #: views/search.php:58
 msgid "Caller ID"
-msgstr "ID de Llamante"
+msgstr ""
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
-msgstr "ID de llamada de participante"
+msgstr ""
 
 #: ucp/views/table.php:71
 msgid "Close"
-msgstr "Cerrar"
+msgstr ""
 
 #: views/search.php:4
 msgid "Conference"
-msgstr "Conferencia"
+msgstr ""
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr "Controles"
+msgstr ""
 
 #: ucp/views/table.php:28
 msgid "Date"
-msgstr "Fecha"
+msgstr ""
 
 #: views/search.php:27
 msgid "Date Range"
-msgstr "Rango de Fecha"
+msgstr ""
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr "Rango de fechas de llamadas en formato mm/dd/yyyy"
+msgstr ""
 
 #: ucp/views/table.php:66
 msgid "Detail"
-msgstr "Detalle"
+msgstr ""
 
 #: ucp/views/table.php:31
 msgid "Dialed"
-msgstr "Discado"
+msgstr ""
 
 #: views/search.php:82
 msgid "Dialed Number"
-msgstr "Numero Discado"
+msgstr ""
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
-msgstr "Bajar"
+msgstr ""
 
 #: ucp/views/table.php:32 ucp/views/table.php:65
 msgid "Duration"
-msgstr "Duracion"
+msgstr ""
 
 #: install.php:110
 msgid "ERROR failed to add context index"
