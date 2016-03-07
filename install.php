@@ -70,6 +70,7 @@ if(DB::IsError($check)) {
 outn(_("checking for extra field.."));
 if (!$dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "extra"')) {
 	// rename field
+	set_time_limit(0);
 	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` CHANGE `eventextra` `extra` varchar(512)";
 	$result = $dbcdr->query($sql);
 	if(DB::IsError($result)) {
@@ -87,6 +88,7 @@ foreach ($delfields as $field) {
 	outn(sprintf(_("checking for %s field.."), $field));
 	if ($dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "' . $field . '"')) {
 		// drop column
+		set_time_limit(0);
 		$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` DROP COLUMN `" . $field . "`";
 		$result = $dbcdr->query($sql);
 		if(DB::IsError($result)) {

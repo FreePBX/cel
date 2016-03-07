@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.18</version>
+		<version>13.0.19</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*13.0.19* If doing intense operations set time limit to 0
 			*13.0.18* Allow installs on older Asterisk versions
 			*13.0.17* Remove en_US Translations
 			*13.0.16* Fix incorrect spanish translations when in English
