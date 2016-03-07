@@ -8,6 +8,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	private $message = '';
 	private $calls;
 	private $db_table = 'cel';
+	public $cdrdb = null;
 
 	public function __construct($freepbx = null) {
 		$amp_conf = \FreePBX::$conf;
@@ -35,7 +36,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		try {
 			$this->cdrdb = new \DB(new \Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass));
 		} catch(\Exception $e) {
-			die('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.','.$db_user.','.$db_pass);
+			throw new \Exception('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.','.$db_user.','.$db_pass);
 		}
 	}
 
