@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-07 10:43-0800\n"
+"POT-Creation-Date: 2016-03-07 15:36-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,16 +136,16 @@ msgstr ""
 msgid "Duration"
 msgstr ""
 
-#: install.php:110
+#: install.php:112
 msgid "ERROR failed to add context index"
 msgstr ""
 
-#: install.php:93
+#: install.php:95
 #, php-format
 msgid "ERROR failed to delete %s field"
 msgstr ""
 
-#: install.php:76
+#: install.php:77
 msgid "ERROR failed to update extra field"
 msgstr ""
 
@@ -195,8 +195,8 @@ msgstr ""
 msgid "Not Found"
 msgstr ""
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:78
-#: install.php:95 /usr/src/freepbx/cel/install.php:112
+#: install.php:67 /usr/src/freepbx/cel/install.php:79
+#: install.php:97 /usr/src/freepbx/cel/install.php:114
 msgid "OK"
 msgstr ""
 
@@ -285,24 +285,24 @@ msgid ""
 "in the more refined the report."
 msgstr ""
 
-#: install.php:99
+#: install.php:101
 msgid "already deleted"
 msgstr ""
 
-#: install.php:81
+#: install.php:82
 msgid "already exists"
 msgstr ""
 
-#: install.php:115
+#: install.php:117
 msgid "already indexed"
 msgstr ""
 
-#: install.php:87
+#: install.php:88
 #, php-format
 msgid "checking for %s field.."
 msgstr ""
 
-#: install.php:103
+#: install.php:105
 msgid "checking for context index.."
 msgstr ""
 
