@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-17 09:55-0500\n"
+"POT-Creation-Date: 2016-03-07 10:43-0800\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Application executed by a call participant"
 msgstr ""
 
-#: cel.i18n.php:16 cel.i18n.php:22
+#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
 msgid "CEL Report Module"
 msgstr ""
 
@@ -66,8 +66,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:182 cel.i18n.php:4 cel.i18n.php:8 cel.i18n.php:10
-#: page.cel.php:10
+#: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
 
@@ -191,7 +191,8 @@ msgstr "未经授权"
 msgid "Not Found"
 msgstr "没有发现"
 
-#: install.php:67 install.php:78 install.php:95 install.php:112
+#: install.php:67 /usr/src/freepbx/cel/install.php:78 install.php:95
+#: /usr/src/freepbx/cel/install.php:112
 msgid "OK"
 msgstr "正常"
 
@@ -207,15 +208,15 @@ msgstr ""
 msgid "Remote CEL DB Table"
 msgstr ""
 
-#: cel.i18n.php:6 cel.i18n.php:12
+#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
 msgstr "报表"
 
-#: Cel.class.php:210
+#: Cel.class.php:211
 msgid "Reset"
 msgstr "重置"
 
-#: Cel.class.php:215 views/search.php:16
+#: Cel.class.php:216 views/search.php:16
 msgid "Search"
 msgstr "查询"
 
@@ -228,7 +229,7 @@ msgid ""
 "Distro level."
 msgstr ""
 
-#: Cel.class.php:231
+#: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr ""
 
@@ -246,7 +247,7 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: Cel.class.php:173
+#: Cel.class.php:174
 msgid "User Primary Extension"
 msgstr ""
 

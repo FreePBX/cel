@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-17 09:55-0500\n"
+"POT-Creation-Date: 2016-03-07 10:43-0800\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -58,7 +58,7 @@ msgstr "Aplicación"
 msgid "Application executed by a call participant"
 msgstr "Aplicación ejecutada por un participante en la llamada"
 
-#: cel.i18n.php:16 cel.i18n.php:22
+#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
 msgid "CEL Report Module"
 msgstr "Modulo Reporte CEL"
 
@@ -66,8 +66,8 @@ msgstr "Modulo Reporte CEL"
 msgid "Call Detail"
 msgstr "Detalle Llamada"
 
-#: Cel.class.php:182 cel.i18n.php:4 cel.i18n.php:8 cel.i18n.php:10
-#: page.cel.php:10
+#: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Call Event Logging (CEL)"
 
@@ -191,7 +191,8 @@ msgstr "No Autorizado"
 msgid "Not Found"
 msgstr "No Encontrado"
 
-#: install.php:67 install.php:78 install.php:95 install.php:112
+#: install.php:67 /usr/src/freepbx/cel/install.php:78 install.php:95
+#: /usr/src/freepbx/cel/install.php:112
 msgid "OK"
 msgstr "OK"
 
@@ -207,15 +208,15 @@ msgstr "Cola"
 msgid "Remote CEL DB Table"
 msgstr ""
 
-#: cel.i18n.php:6 cel.i18n.php:12
+#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
 msgstr "Reportes"
 
-#: Cel.class.php:210
+#: Cel.class.php:211
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: Cel.class.php:215 views/search.php:16
+#: Cel.class.php:216 views/search.php:16
 msgid "Search"
 msgstr "Buscar"
 
@@ -233,7 +234,7 @@ msgstr ""
 "el Asterisk y la configuración de base de datos ODBC y CEL asociado deben "
 "ser hechas fuera de FreePBX ya sea por el usuario o en el nivel Distro."
 
-#: Cel.class.php:231
+#: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "El modulo CEL requiere Asterisk version 12.0 o mayor."
 
@@ -253,7 +254,7 @@ msgstr "Hora"
 msgid "To"
 msgstr "A"
 
-#: Cel.class.php:173
+#: Cel.class.php:174
 msgid "User Primary Extension"
 msgstr "Extension Primaria del Usuario"
 
