@@ -16,10 +16,18 @@ function recording_play(rowNum, link, title) {
 	}
 	$("#jquery_jplayer_" + playerId).jPlayer({
 		ready: function() {
-		$(this).jPlayer("setMedia", {
-			title: title,
-			wav: link
-		});
+			$(this).jPlayer("setMedia", {
+				title: title,
+				wav: link
+			});
+			var $this = this;
+			$("#jquery_jplayer_" + playerId).find(".jp-restart").click(function() {
+				if($($this).data("jPlayer").status.paused) {
+					$($this).jPlayer("pause",0);
+				} else {
+					$($this).jPlayer("play",0);
+				}
+			});
 		},
 		swfPath: "/js",
 		supplied: "wav",
