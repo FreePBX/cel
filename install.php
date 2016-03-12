@@ -89,7 +89,7 @@ foreach ($delfields as $field) {
 	if ($dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "' . $field . '"')) {
 		// drop column
 		set_time_limit(0);
-		outn("removing (this might take a long time)")
+		outn(_("removing (this might take a long time)"));
 		$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` DROP COLUMN `" . $field . "`";
 		$result = $dbcdr->query($sql);
 		if(DB::IsError($result)) {
@@ -106,7 +106,7 @@ outn(_("Checking for context index.."));
 $sql = "SHOW INDEXES FROM `" . $db_cel_name . "`.`" . $db_cel_table_name . "` WHERE Key_name='context_index'";
 $check = $dbcdr->getOne($sql);
 if (empty($check)) {
-	outn(_("Adding (this might take a long time)"))
+	outn(_("Adding (this might take a long time)"));
 	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` ADD INDEX context_index (context)";
 	$result = $dbcdr->query($sql);
 	if(DB::IsError($result)) {

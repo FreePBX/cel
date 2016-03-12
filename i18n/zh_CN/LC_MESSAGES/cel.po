@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-07 15:36-0800\n"
+"POT-Creation-Date: 2016-03-12 01:37-0800\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -24,6 +24,10 @@ msgstr ""
 #: ucp/assets/js/global.js:42
 #, perl-format
 msgid "%s seconds"
+msgstr ""
+
+#: install.php:109
+msgid "Adding (this might take a long time)"
 msgstr ""
 
 #: views/ucp_config.php:7
@@ -48,6 +52,14 @@ msgstr "支持用户通过UCP下载录音"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
+msgstr ""
+
+#: install.php:101
+msgid "Already Removed"
+msgstr ""
+
+#: install.php:118
+msgid "Already indexed"
 msgstr ""
 
 #: views/search.php:106
@@ -85,6 +97,15 @@ msgstr ""
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
+msgstr ""
+
+#: install.php:88
+#, php-format
+msgid "Checking for %s field to remove.."
+msgstr ""
+
+#: install.php:105
+msgid "Checking for context index.."
 msgstr ""
 
 #: ucp/views/table.php:71
@@ -138,11 +159,11 @@ msgstr "下载"
 msgid "Duration"
 msgstr ""
 
-#: install.php:112
+#: install.php:113
 msgid "ERROR failed to add context index"
 msgstr ""
 
-#: install.php:95
+#: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
 msgstr ""
@@ -191,8 +212,7 @@ msgstr "未经授权"
 msgid "Not Found"
 msgstr "没有发现"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:97
-#: /usr/src/freepbx/cel/install.php:114
+#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
 msgstr "正常"
 
@@ -206,6 +226,10 @@ msgstr ""
 
 #: cel.i18n.php:20
 msgid "Remote CEL DB Table"
+msgstr ""
+
+#: install.php:98
+msgid "Removed"
 msgstr ""
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
@@ -278,27 +302,14 @@ msgid ""
 "in the more refined the report."
 msgstr ""
 
-#: install.php:101
-msgid "already deleted"
-msgstr ""
-
 #: install.php:82
 msgid "already exists"
 msgstr "已存在"
 
-#: install.php:117
-msgid "already indexed"
-msgstr ""
-
-#: install.php:88
-#, php-format
-msgid "checking for %s field.."
-msgstr ""
-
-#: install.php:105
-msgid "checking for context index.."
-msgstr ""
-
 #: install.php:70
 msgid "checking for extra field.."
+msgstr ""
+
+#: install.php:92
+msgid "removing (this might take a long time)"
 msgstr ""

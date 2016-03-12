@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-07 15:36-0800\n"
+"POT-Creation-Date: 2016-03-12 01:37-0800\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -25,6 +25,10 @@ msgstr ""
 #, perl-format
 msgid "%s seconds"
 msgstr "%s segundos"
+
+#: install.php:109
+msgid "Adding (this might take a long time)"
+msgstr ""
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -49,6 +53,14 @@ msgstr "Permitir usurios a bajar grabaciones en UCP"
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
 msgstr "CEL Permitido"
+
+#: install.php:101
+msgid "Already Removed"
+msgstr ""
+
+#: install.php:118
+msgid "Already indexed"
+msgstr ""
 
 #: views/search.php:106
 msgid "Application"
@@ -86,6 +98,15 @@ msgstr "ID de llamada"
 #: views/search.php:70
 msgid "Caller ID of a call participant"
 msgstr "ID de llamada de un participante en la llamada"
+
+#: install.php:88
+#, php-format
+msgid "Checking for %s field to remove.."
+msgstr ""
+
+#: install.php:105
+msgid "Checking for context index.."
+msgstr ""
 
 #: ucp/views/table.php:71
 msgid "Close"
@@ -138,11 +159,11 @@ msgstr "Bajar"
 msgid "Duration"
 msgstr "Duración"
 
-#: install.php:112
+#: install.php:113
 msgid "ERROR failed to add context index"
 msgstr "ERROR falla al agregar indice de contexto"
 
-#: install.php:95
+#: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
 msgstr ""
@@ -191,8 +212,7 @@ msgstr "No Autorizado"
 msgid "Not Found"
 msgstr "No Encontrado"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:97
-#: /usr/src/freepbx/cel/install.php:114
+#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
 msgstr "OK"
 
@@ -206,6 +226,10 @@ msgstr "Cola"
 
 #: cel.i18n.php:20
 msgid "Remote CEL DB Table"
+msgstr ""
+
+#: install.php:98
+msgid "Removed"
 msgstr ""
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
@@ -291,30 +315,26 @@ msgstr ""
 "Usted puede buscar por alguno o todos los campos abajo. Mientras mas campos "
 "use mas refinada la búsqueda."
 
-#: install.php:101
-msgid "already deleted"
-msgstr "Ya eliminado"
-
 #: install.php:82
 msgid "already exists"
 msgstr "Ya existe"
 
-#: install.php:117
-msgid "already indexed"
-msgstr "Ya indexado"
-
-#: install.php:88
-#, php-format
-msgid "checking for %s field.."
-msgstr ""
-
-#: install.php:105
-msgid "checking for context index.."
-msgstr "chequeando el indice de contexto..."
-
 #: install.php:70
 msgid "checking for extra field.."
 msgstr "chequeando por campo extra.."
+
+#: install.php:92
+msgid "removing (this might take a long time)"
+msgstr ""
+
+#~ msgid "already deleted"
+#~ msgstr "Ya eliminado"
+
+#~ msgid "already indexed"
+#~ msgstr "Ya indexado"
+
+#~ msgid "checking for context index.."
+#~ msgstr "chequeando el indice de contexto..."
 
 #~ msgid "ERROR failed to update userfield field"
 #~ msgstr "ERROR falla al actualizar campo userfield"
