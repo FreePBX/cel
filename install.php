@@ -85,27 +85,28 @@ if (!$dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table
 // delete some extranous fields from earlier (incorrect) schemas
 $delfields = array("userfield", "src", "dst", "channel", "dstchannel");
 foreach ($delfields as $field) {
-	outn(sprintf(_("checking for %s field.."), $field));
+	outn(sprintf(_("Checking for %s field to remove.."), $field));
 	if ($dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "' . $field . '"')) {
 		// drop column
 		set_time_limit(0);
+		outn("removing (this might take a long time)")
 		$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` DROP COLUMN `" . $field . "`";
 		$result = $dbcdr->query($sql);
 		if(DB::IsError($result)) {
-			outn(sprintf(_("ERROR failed to delete %s field"), $field));
+			out(sprintf(_("ERROR failed to delete %s field"), $field));
 		} else {
-			outn(_("OK"));
+			out(_("Removed"));
 		}
-		out("");
 	} else {
-		out(_("already deleted"));
+		out(_("Already Removed"));
 	}
 }
 
-outn(_("checking for context index.."));
+outn(_("Checking for context index.."));
 $sql = "SHOW INDEXES FROM `" . $db_cel_name . "`.`" . $db_cel_table_name . "` WHERE Key_name='context_index'";
 $check = $dbcdr->getOne($sql);
 if (empty($check)) {
+	outn(_("Adding (this might take a long time)"))
 	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` ADD INDEX context_index (context)";
 	$result = $dbcdr->query($sql);
 	if(DB::IsError($result)) {
@@ -114,7 +115,7 @@ if (empty($check)) {
 		out(_("OK"));
 	}
 } else {
-	out(_("already indexed"));
+	out(_("Already indexed"));
 }
 
 $set['value'] = true;
