@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-03-15 20:31+0300\n"
+"PO-Revision-Date: 2016-03-15 19:51+0300\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cdr/fa/>"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cel/fa/>"
 "\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "%s ثانیه"
 
 #: install.php:109
 msgid "Adding (this might take a long time)"
-msgstr ""
+msgstr "افزودن (به زمان زیادی نیاز است)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -56,11 +56,11 @@ msgstr "گزارش تماس مجاز"
 
 #: install.php:101
 msgid "Already Removed"
-msgstr ""
+msgstr "قبلا حذف شده"
 
 #: install.php:118
 msgid "Already indexed"
-msgstr ""
+msgstr "قبلا فهرست شده"
 
 #: views/search.php:106
 msgid "Application"
@@ -68,11 +68,11 @@ msgstr "برنامه ها"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
-msgstr ""
+msgstr "درخواست اجرا شده با شرکت تماس گیرنده"
 
 #: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
 msgid "CEL Report Module"
-msgstr ""
+msgstr "ماژول گزارشگیری کانال"
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
@@ -97,16 +97,16 @@ msgstr "شناسه تماس گیرنده"
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
-msgstr ""
+msgstr "شناسه تماس گیرنده یک شریک تماس"
 
 #: install.php:88
 #, php-format
 msgid "Checking for %s field to remove.."
-msgstr ""
+msgstr "بررسی فیلد %s برای حذف.."
 
 #: install.php:105
 msgid "Checking for context index.."
-msgstr ""
+msgstr "بررسی برای فهرست چهارچوب.."
 
 #: ucp/views/table.php:71
 msgid "Close"
@@ -166,7 +166,7 @@ msgstr "خطا در اضافه کردن شاخص زمینه"
 #: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
-msgstr ""
+msgstr "خطا در حذف فیلد %s "
 
 #: install.php:77
 msgid "ERROR failed to update extra field"
@@ -174,11 +174,11 @@ msgstr "خطا در به روزسانی فیلد اضافی"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
-msgstr ""
+msgstr "فعال کردن CEL   (گزارش رخدادهای تماس) در پنل کاربری برای این کاربر"
 
 #: cel.i18n.php:14
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "فعال سازی گزارش کانال"
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
@@ -226,11 +226,11 @@ msgstr "صف"
 
 #: cel.i18n.php:20
 msgid "Remote CEL DB Table"
-msgstr ""
+msgstr "جدول دیتابیس راه دور CEL"
 
 #: install.php:98
 msgid "Removed"
-msgstr ""
+msgstr "حذف شده"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
@@ -255,7 +255,7 @@ msgstr ""
 
 #: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr ""
+msgstr "ماژول CEL نیاز به استریسک نسخه 12.0 یا بالاتر دارد."
 
 #: views/ucp_config.php:54
 msgid ""
@@ -312,7 +312,7 @@ msgstr "بررسی فیلد خارجی.."
 
 #: install.php:92
 msgid "removing (this might take a long time)"
-msgstr ""
+msgstr "حذف کردن (ممکن است زمان زیادی صرف شود)"
 
 #~ msgid "already deleted"
 #~ msgstr "حذف شده"
