@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-03-16 22:03+0200\n"
+"PO-Revision-Date: 2016-03-16 23:51+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cel/fa/>"
 "\n"
@@ -168,7 +168,7 @@ msgstr "خطا در اضافه کردن شاخص زمینه"
 #: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
-msgstr "خطا در حذف فیلد %s "
+msgstr "خطا در حذف فیلد %s رخ داده"
 
 #: install.php:77
 msgid "ERROR failed to update extra field"
@@ -299,8 +299,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
-"مرورگر شما تکرار پخش را پشتیبانی نمیکند. If you'd like to install the "
-"binaries needed for these conversions click <a href='%s'>here</a>"
+"مرورگر شما تکرار پخش را پشتیبانی نمیکند.To fully support HTML5 browser "
+"playback you will need to install programs that can not be distributed with "
+"the PBX. If you'd like to install the binaries needed for these conversions "
+"click <a href='%s'>here</a>"
 
 #: page.cel.php:12
 msgid ""
