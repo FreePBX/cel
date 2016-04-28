@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-04-14 14:50+0200\n"
-"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"PO-Revision-Date: 2016-04-28 15:33+0200\n"
+"Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/cel/fa_IR/>\n"
 "Language: fa_IR\n"
@@ -216,7 +216,7 @@ msgstr "یافت نشد"
 
 #: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
-msgstr "تایید"
+msgstr "بله"
 
 #: ucp/views/table.php:34
 msgid "Playback"
@@ -312,7 +312,7 @@ msgstr "شما با یک یا تمام فیلدهای زیر میتوانید ج
 
 #: install.php:82
 msgid "already exists"
-msgstr "موجود است"
+msgstr "در حال حاضر وجود دارد"
 
 #: install.php:70
 msgid "checking for extra field.."
