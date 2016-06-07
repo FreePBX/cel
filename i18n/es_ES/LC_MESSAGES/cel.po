@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-01-14 23:00+0200\n"
+"PO-Revision-Date: 2016-06-06 20:55+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
-"es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/cel/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: ucp/assets/js/global.js:42
 #, perl-format
@@ -28,7 +28,7 @@ msgstr "%s segundos"
 
 #: install.php:109
 msgid "Adding (this might take a long time)"
-msgstr ""
+msgstr "Añadiendo (Esto podría tomar tiempo)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -56,11 +56,11 @@ msgstr "CEL Permitido"
 
 #: install.php:101
 msgid "Already Removed"
-msgstr ""
+msgstr "Ya Removido"
 
 #: install.php:118
 msgid "Already indexed"
-msgstr ""
+msgstr "Ya Indexado"
 
 #: views/search.php:106
 msgid "Application"
@@ -102,11 +102,11 @@ msgstr "ID de llamada de un participante en la llamada"
 #: install.php:88
 #, php-format
 msgid "Checking for %s field to remove.."
-msgstr ""
+msgstr "Chequeando campo %s para remover.."
 
 #: install.php:105
 msgid "Checking for context index.."
-msgstr ""
+msgstr "Chequeando por Indice de Contexto.."
 
 #: ucp/views/table.php:71
 msgid "Close"
@@ -126,6 +126,9 @@ msgid ""
 "use the default values provided by FreePBX. Name of the table in the db "
 "where the cel is stored. cel is default."
 msgstr ""
+"NO use esto a menos que sepa lo que está haciendo. Sólo se usa si no utiliza "
+"los valores predeterminados proporcionados por FreePBX. Nombre de la tabla "
+"en la base de datos donde se almacena el cel. cel es por defecto."
 
 #: ucp/views/table.php:28
 msgid "Date"
@@ -166,7 +169,7 @@ msgstr "ERROR falla al agregar indice de contexto"
 #: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
-msgstr ""
+msgstr "ERROR fallo al borrar campo %s"
 
 #: install.php:77
 msgid "ERROR failed to update extra field"
@@ -226,11 +229,11 @@ msgstr "Cola"
 
 #: cel.i18n.php:20
 msgid "Remote CEL DB Table"
-msgstr ""
+msgstr "Tabla remota CEL DB"
 
 #: install.php:98
 msgid "Removed"
-msgstr ""
+msgstr "Removido"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
@@ -325,7 +328,7 @@ msgstr "chequeando por campo extra.."
 
 #: install.php:92
 msgid "removing (this might take a long time)"
-msgstr ""
+msgstr "Removiendo (esto puede tomar tiempo)"
 
 #~ msgid "already deleted"
 #~ msgstr "Ya eliminado"
