@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-04-30 14:03+0200\n"
+"PO-Revision-Date: 2016-06-18 17:34+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/cel/fa_IR/>\n"
@@ -192,7 +192,7 @@ msgstr "فایل موجود نیست"
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr "ممنوع"
+msgstr "غیر مجاز"
 
 #: views/search.php:33
 msgid "From"
@@ -277,7 +277,7 @@ msgstr "به"
 
 #: Cel.class.php:174
 msgid "User Primary Extension"
-msgstr "داخلی اختصاصی کاربر"
+msgstr "داخلی اصلی کاربر"
 
 #: views/search.php:6
 msgid "Voicemail"
