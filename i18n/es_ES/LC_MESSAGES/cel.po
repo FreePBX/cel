@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-12 01:37-0800\n"
+"POT-Creation-Date: 2016-06-20 11:16-0700\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -70,10 +70,6 @@ msgstr "Aplicación"
 msgid "Application executed by a call participant"
 msgstr "Aplicación ejecutada por un participante en la llamada"
 
-#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
-msgid "CEL Report Module"
-msgstr "Modulo Reporte CEL"
-
 #: ucp/views/table.php:46
 msgid "Call Detail"
 msgstr "Detalle Llamada"
@@ -119,13 +115,6 @@ msgstr "Conferencia"
 #: ucp/views/table.php:36
 msgid "Controls"
 msgstr "Controles"
-
-#: cel.i18n.php:24
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of the table in the db "
-"where the cel is stored. cel is default."
-msgstr ""
 
 #: ucp/views/table.php:28
 msgid "Date"
@@ -176,10 +165,6 @@ msgstr "ERROR falla al actualizar campo extra"
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr "Habilitar CEL (Call Event Logging) en UCP para este usuario"
 
-#: cel.i18n.php:14
-msgid "Enable CEL Reporting"
-msgstr "Habilitar Reporte CEL"
-
 #: views/search.php:94
 msgid "Extension or DID dialed"
 msgstr "Extensión o DID discado"
@@ -224,10 +209,6 @@ msgstr "Reproducir"
 msgid "Queue"
 msgstr "Cola"
 
-#: cel.i18n.php:20
-msgid "Remote CEL DB Table"
-msgstr ""
-
 #: install.php:98
 msgid "Removed"
 msgstr ""
@@ -243,20 +224,6 @@ msgstr "Reiniciar"
 #: Cel.class.php:216 views/search.php:16
 msgid "Search"
 msgstr "Buscar"
-
-#: cel.i18n.php:18
-msgid ""
-"Setting this true will enable the CEL module to create call reports from CEL "
-"data. Although the CEL module will assure there is a CEL table available, "
-"the reporting functionality in Asterisk and associated ODBC database and CEL "
-"configuration must be done outside of FreePBX either by the user or at the "
-"Distro level."
-msgstr ""
-"Al establecer estp en \"verdadero\" será activar el módulo CEL para crear "
-"informes de llamadas a partir de datos de la CEL. Aunque el módulo CEL "
-"asegurará hay una tabla de CEL disponible, la funcionalidad de informes en "
-"el Asterisk y la configuración de base de datos ODBC y CEL asociado deben "
-"ser hechas fuera de FreePBX ya sea por el usuario o en el nivel Distro."
 
 #: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
@@ -326,6 +293,26 @@ msgstr "chequeando por campo extra.."
 #: install.php:92
 msgid "removing (this might take a long time)"
 msgstr ""
+
+#~ msgid "CEL Report Module"
+#~ msgstr "Modulo Reporte CEL"
+
+#~ msgid "Enable CEL Reporting"
+#~ msgstr "Habilitar Reporte CEL"
+
+#~ msgid ""
+#~ "Setting this true will enable the CEL module to create call reports from "
+#~ "CEL data. Although the CEL module will assure there is a CEL table "
+#~ "available, the reporting functionality in Asterisk and associated ODBC "
+#~ "database and CEL configuration must be done outside of FreePBX either by "
+#~ "the user or at the Distro level."
+#~ msgstr ""
+#~ "Al establecer estp en \"verdadero\" será activar el módulo CEL para crear "
+#~ "informes de llamadas a partir de datos de la CEL. Aunque el módulo CEL "
+#~ "asegurará hay una tabla de CEL disponible, la funcionalidad de informes "
+#~ "en el Asterisk y la configuración de base de datos ODBC y CEL asociado "
+#~ "deben ser hechas fuera de FreePBX ya sea por el usuario o en el nivel "
+#~ "Distro."
 
 #~ msgid "already deleted"
 #~ msgstr "Ya eliminado"

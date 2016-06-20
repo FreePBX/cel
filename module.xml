@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.22</version>
+		<version>13.0.23</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*13.0.23* FREEPBX-12361 XSS in sub argument
 			*13.0.22* Use mime type checks for ucp downloads
 			*13.0.21* FREEPBX-11816 Better descriptions of how long to process the upgrade
 			*13.0.20* FREEPBX-10571 remove repeat add restart button to player

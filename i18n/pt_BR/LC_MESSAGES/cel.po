@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-12 01:37-0800\n"
+"POT-Creation-Date: 2016-06-20 11:16-0700\n"
 "PO-Revision-Date: 2015-12-22 03:00+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -70,10 +70,6 @@ msgstr "Aplicação"
 msgid "Application executed by a call participant"
 msgstr ""
 
-#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
-msgid "CEL Report Module"
-msgstr ""
-
 #: ucp/views/table.php:46
 msgid "Call Detail"
 msgstr ""
@@ -118,13 +114,6 @@ msgstr ""
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr ""
-
-#: cel.i18n.php:24
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of the table in the db "
-"where the cel is stored. cel is default."
 msgstr ""
 
 #: ucp/views/table.php:28
@@ -176,10 +165,6 @@ msgstr ""
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr ""
 
-#: cel.i18n.php:14
-msgid "Enable CEL Reporting"
-msgstr ""
-
 #: views/search.php:94
 msgid "Extension or DID dialed"
 msgstr ""
@@ -224,10 +209,6 @@ msgstr ""
 msgid "Queue"
 msgstr ""
 
-#: cel.i18n.php:20
-msgid "Remote CEL DB Table"
-msgstr ""
-
 #: install.php:98
 msgid "Removed"
 msgstr ""
@@ -242,15 +223,6 @@ msgstr ""
 
 #: Cel.class.php:216 views/search.php:16
 msgid "Search"
-msgstr ""
-
-#: cel.i18n.php:18
-msgid ""
-"Setting this true will enable the CEL module to create call reports from CEL "
-"data. Although the CEL module will assure there is a CEL table available, "
-"the reporting functionality in Asterisk and associated ODBC database and CEL "
-"configuration must be done outside of FreePBX either by the user or at the "
-"Distro level."
 msgstr ""
 
 #: Cel.class.php:232

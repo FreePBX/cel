@@ -735,13 +735,12 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				}
 			}
 
-			dbug($channel);
 			if (is_array($channel['apps'])) {
 				foreach ($channel['apps'] as $app) {
 					if ($app['appname'] == 'MixMonitor') {
 						$args = explode(',', $app['appdata']);
 						if ($args[0]) {
-							$mon_dir = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
+							$mon_dir = !empty($amp_conf['MIXMON_DIR']) ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 							$recording = $mon_dir . '/' . $args[0];
 							dbug($recording);
 							$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD);
