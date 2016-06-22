@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-06-18 17:34+0200\n"
+"PO-Revision-Date: 2016-06-22 10:52+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/cel/fa_IR/>\n"
@@ -216,7 +216,7 @@ msgstr "یافت نشد"
 
 #: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
-msgstr "بله"
+msgstr "تایید"
 
 #: ucp/views/table.php:34
 msgid "Playback"
