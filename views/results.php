@@ -173,7 +173,7 @@ foreach ($calls as $callid => $call) {
 	$html.= '<td colspan="8">';
 	$html.= '<table class="table table-striped">';
 	$celcols = array(
-		'eventtime' => 'Timestamp',
+		'timestamp' => 'Timestamp',
 		'eventtype' => 'Event Type',
 		'uniqueid' => 'Unique ID',
 		'linkedid' => 'Linked ID',
@@ -196,7 +196,7 @@ foreach ($calls as $callid => $call) {
 		$html.= '<tr>';
 		foreach ($celcols as $colkey => $coldesc) {
 			$html.= '<td>';
-			$html.= $record[$colkey];
+			$html.= ($colkey == "timestamp") ? FreePBX::View()->getDateTime($record[$colkey]) : $record[$colkey];
 			$html.= '</td>';
 		}
 		$html.= '</tr>';
@@ -233,7 +233,7 @@ echo $html;
 
 function cel_format_date($date) {
 	if ($date) {
-		return $date->format('Y-m-d H:i:s');
+		return FreePBX::View()->getDateTime($date->format('U'));
 	}
 
 	return '';

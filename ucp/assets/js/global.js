@@ -42,7 +42,7 @@ var CelC = UCPMC.extend({
 		return sprintf(_("%s seconds"),value);
 	},
 	formatDate: function(value, row, index) {
-		return UCP.dateFormatter(value);
+		return UCP.dateTimeFormatter(value);
 	},
 	formatControls: function (value, row, index) {
 		if(typeof row.recordings === "undefined" || showDownload === "0") {

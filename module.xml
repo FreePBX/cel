@@ -2,36 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.23</version>
+		<version>14.0.1alpha1</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
-			*13.0.23* FREEPBX-12361 XSS in sub argument
-			*13.0.22* Use mime type checks for ucp downloads
-			*13.0.21* FREEPBX-11816 Better descriptions of how long to process the upgrade
-			*13.0.20* FREEPBX-10571 remove repeat add restart button to player
-			*13.0.19* If doing intense operations set time limit to 0
-			*13.0.18* Allow installs on older Asterisk versions
-			*13.0.17* Remove en_US Translations
-			*13.0.16* Fix incorrect spanish translations when in English
-			*13.0.15* Fix cel module so it actually works on a new install by lidl
-			*13.0.14* FREEPBX-10397 FREEPBX-10895
-			*13.0.13* FREEPBX-10816
-			*13.0.12* Fix bad class reference
-			*13.0.11* FREEPBX-10771
-			*13.0.10* Use boostrap tables and new HTML5 player
-			*13.0.9* FREEPBX-10478 Array validation
-			*13.0.8* FREEPBX-9384 Extensions in UCP need to be strings not integers
-			*13.0.7* Fix permission management in User Manager
-			*13.0.6* FREEPBX-10286 better check on columns for CEL records
-			*13.0.5* FREEPBX-10113 Address issues brought up by Chris
-			*13.0.4* FREEPBX-9986 invalid port declaration
-			*13.0.3* FREEPBX-9610 Cannot access Call History or Call Event Logs
-			*13.0.2* Version bump Beta
-			*13.0.1alpha3* FREEPBX-9408 Fixes to invalid array looping
-			*13.0.1alpha2* Groups in usermanager
-			*13.0.1alpha1* First beta release.
+			*14.0.1alpha1*
 		</changelog>
 		<hooks>
 			<ucp class="Ucp">
@@ -52,9 +28,9 @@
 				<cel beta="yes" needsenginedb="yes">Call Event Logging</cel>
 		</menuitems>
 		<depends>
-				<version>13.0.1beta3.63</version>
+				<version>14.0.1alpha12</version>
 		</depends>
 		<supported>
-				<version>13.0</version>
+				<version>14.0</version>
 		</supported>
 </module>

@@ -474,7 +474,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 
 		$sql = "SELECT " . implode(", ", $fields) .
-			" FROM ".$this->db_table.
+			", UNIX_TIMESTAMP(eventtime) As timestamp FROM ".$this->db_table.
 			" WHERE linkedid IN ('" . implode("', '", $linkedids) . "')" .
 			" ORDER BY id";
 		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
