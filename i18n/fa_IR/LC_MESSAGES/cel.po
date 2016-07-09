@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2016-03-16 23:20+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -174,7 +174,7 @@ msgstr "فایل موجود نیست"
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr "ممنوع"
+msgstr "غیر مجاز"
 
 #: views/search.php:33
 msgid "From"
@@ -182,7 +182,7 @@ msgstr "از"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "ارث بردن"
+msgstr "ارث بری"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -214,7 +214,7 @@ msgstr "حذف شده"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
-msgstr "گزارش ها"
+msgstr "گزارشات"
 
 #: Cel.class.php:211
 msgid "Reset"
@@ -229,16 +229,12 @@ msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "ماژول CEL نیاز به استریسک نسخه 12.0 یا بالاتر دارد."
 
 #: views/ucp_config.php:54
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
-msgstr ""
-"این پلاگین های فعالی هستند که برای کاربر نمایش داده میشود تا در پنل کاربری "
-"آنها را ویرایش کند"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
+msgstr "داخلی های فعال و مشخصی وجود دارد که به این کاربر در پنل کاربری ویرایش شده و نمایش داده میشوند"
 
 #: ucp/views/table.php:64
 msgid "Time"
-msgstr "زمان"
+msgstr "ساعت"
 
 #: views/search.php:36
 msgid "To"
@@ -246,7 +242,7 @@ msgstr "به"
 
 #: Cel.class.php:174
 msgid "User Primary Extension"
-msgstr "داخلی اختصاصی کاربر"
+msgstr "داخلی اصلی کاربر"
 
 #: views/search.php:6
 msgid "Voicemail"
@@ -262,26 +258,16 @@ msgstr "بله"
 
 #: ucp/assets/js/global.js:95
 #, perl-format
-msgid ""
-"You are missing support for playback in this browser. To fully support HTML5 "
-"browser playback you will need to install programs that can not be "
-"distributed with the PBX. If you'd like to install the binaries needed for "
-"these conversions click <a href='%s'>here</a>"
-msgstr ""
-"مرورگر شما تکرار پخش را پشتیبانی نمیکند.To fully support HTML5 browser "
-"playback you will need to install programs that can not be distributed with "
-"the PBX. If you'd like to install the binaries needed for these conversions "
-"click <a href='%s'>here</a>"
+msgid "You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
+msgstr "You are missing  support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
 
 #: page.cel.php:12
-msgid ""
-"You may search by any or all of the fields below. The more fields you fill "
-"in the more refined the report."
+msgid "You may search by any or all of the fields below. The more fields you fill in the more refined the report."
 msgstr "شما با یک یا تمام فیلدهای زیر میتوانید جستجو کنید."
 
 #: install.php:82
 msgid "already exists"
-msgstr "موجود است"
+msgstr "در حال حاضر وجود دارد"
 
 #: install.php:70
 msgid "checking for extra field.."
@@ -294,13 +280,11 @@ msgstr "حذف کردن (ممکن است زمان زیادی صرف شود)"
 #~ msgid "CEL Report Module"
 #~ msgstr "ماژول گزارشگیری کانال"
 
-#~ msgid ""
-#~ "DO NOT set this unless you know what you are doing. Only used if you do "
-#~ "not use the default values provided by FreePBX. Name of the table in the "
-#~ "db where the cel is stored. cel is default."
-#~ msgstr ""
-#~ "اگر اطلاع کافی ندارید انتخاب نکنید. اگر از مقادیر پیشفرض FreePBX استفاده "
-#~ "نمیکنید انتخاب کنید."
+#~ msgid "DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX. Name of the table in the db where the cel is stored. cel is default."
+#~ msgstr "اگر اطلاع کافی ندارید انتخاب نکنید. اگر از مقادیر پیشفرض FreePBX استفاده نمیکنید انتخاب کنید."
+
+#~ msgid "ERROR failed to update userfield field"
+#~ msgstr "خطا در به روزسانی فیلد کاربر"
 
 #~ msgid "Enable CEL Reporting"
 #~ msgstr "فعال سازی گزارش کانال"
@@ -308,19 +292,11 @@ msgstr "حذف کردن (ممکن است زمان زیادی صرف شود)"
 #~ msgid "Remote CEL DB Table"
 #~ msgstr "جدول دیتابیس راه دور CEL"
 
-#~ msgid ""
-#~ "Setting this true will enable the CEL module to create call reports from "
-#~ "CEL data. Although the CEL module will assure there is a CEL table "
-#~ "available, the reporting functionality in Asterisk and associated ODBC "
-#~ "database and CEL configuration must be done outside of FreePBX either by "
-#~ "the user or at the Distro level."
+#~ msgid "Setting this true will enable the CEL module to create call reports from CEL data. Although the CEL module will assure there is a CEL table available, the reporting functionality in Asterisk and associated ODBC database and CEL configuration must be done outside of FreePBX either by the user or at the Distro level."
 #~ msgstr "این گزینه ماژول CEL را فعال میکند برای ایجاد گزارش از تماس ها."
 
 #~ msgid "already deleted"
 #~ msgstr "حذف شده"
-
-#~ msgid "ERROR failed to update userfield field"
-#~ msgstr "خطا در به روزسانی فیلد کاربر"
 
 #~ msgid "checking for userfield field.."
 #~ msgstr "بررسی فیلد کاربر.."
