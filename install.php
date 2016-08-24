@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "`.`" . $db_cel_table_name . "` (
   `context` varchar(80) NOT NULL,
   `channame` varchar(80) NOT NULL,
   `appname` varchar(80) NOT NULL,
-  `appdata` varchar(80) NOT NULL,
+  `appdata` varchar(255) NOT NULL,
   `amaflags` int(11) NOT NULL,
   `accountcode` varchar(20) NOT NULL,
   `uniqueid` varchar(32) NOT NULL,
@@ -80,6 +80,15 @@ if (!$dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table
 	}
 } else {
 	out(_("already exists"));
+}
+//FREEPBX-12986
+outn(_("expanding appdata field.."));
+$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` MODIFY `appdata` varchar(255)";
+$result = $dbcdr->query($sql);
+if(DB::IsError($result)) {
+	out(_("ERROR failed to update extra field"));
+} else {
+	out(_("OK"));
 }
 
 // delete some extranous fields from earlier (incorrect) schemas
@@ -117,6 +126,8 @@ if (empty($check)) {
 } else {
 	out(_("Already indexed"));
 }
+
+
 
 $set['value'] = true;
 $set['defaultval'] = true;
