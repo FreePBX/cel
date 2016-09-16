@@ -82,6 +82,7 @@ if (!$dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table
 	out(_("already exists"));
 }
 //FREEPBX-12986
+/*
 outn(_("expanding appdata field.."));
 $sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` MODIFY `appdata` varchar(255)";
 $result = $dbcdr->query($sql);
@@ -90,6 +91,7 @@ if(DB::IsError($result)) {
 } else {
 	out(_("OK"));
 }
+ */
 
 // delete some extranous fields from earlier (incorrect) schemas
 $delfields = array("userfield", "src", "dst", "channel", "dstchannel");
