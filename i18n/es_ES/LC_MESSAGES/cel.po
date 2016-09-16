@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-10 17:32-0700\n"
+"POT-Creation-Date: 2016-09-16 16:33-0700\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "%s seconds"
 msgstr "%s segundos"
 
-#: install.php:109
+#: install.php:120
 msgid "Adding (this might take a long time)"
 msgstr "Añadiendo (Esto podría tomar tiempo)"
 
@@ -54,11 +54,11 @@ msgstr "Permitir usurios a bajar grabaciones en UCP"
 msgid "Allowed CEL"
 msgstr "CEL Permitido"
 
-#: install.php:101
+#: install.php:112
 msgid "Already Removed"
 msgstr "Ya Removido"
 
-#: install.php:118
+#: install.php:129
 msgid "Already indexed"
 msgstr "Ya Indexado"
 
@@ -99,12 +99,12 @@ msgstr "ID de llamada"
 msgid "Caller ID of a call participant"
 msgstr "ID de llamada de un participante en la llamada"
 
-#: install.php:88
+#: install.php:99
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "Chequeando campo %s para remover.."
 
-#: install.php:105
+#: install.php:116
 msgid "Checking for context index.."
 msgstr "Chequeando por Indice de Contexto.."
 
@@ -162,11 +162,11 @@ msgstr "Bajar"
 msgid "Duration"
 msgstr "Duración"
 
-#: install.php:113
+#: install.php:124
 msgid "ERROR failed to add context index"
 msgstr "ERROR falla al agregar indice de contexto"
 
-#: install.php:96
+#: install.php:107
 #, php-format
 msgid "ERROR failed to delete %s field"
 msgstr "ERROR fallo al borrar campo %s"
@@ -215,7 +215,7 @@ msgstr "No Autorizado"
 msgid "Not Found"
 msgstr "No Encontrado"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
+#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:126
 msgid "OK"
 msgstr "OK"
 
@@ -231,7 +231,7 @@ msgstr "Cola"
 msgid "Remote CEL DB Table"
 msgstr "Tabla remota CEL DB"
 
-#: install.php:98
+#: install.php:109
 msgid "Removed"
 msgstr "Removido"
 
@@ -326,7 +326,7 @@ msgstr "Ya existe"
 msgid "checking for extra field.."
 msgstr "chequeando por campo extra.."
 
-#: install.php:92
+#: install.php:103
 msgid "removing (this might take a long time)"
 msgstr "Removiendo (esto puede tomar tiempo)"
 

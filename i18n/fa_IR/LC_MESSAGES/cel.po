@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-10 17:32-0700\n"
+"POT-Creation-Date: 2016-09-16 16:33-0700\n"
 "PO-Revision-Date: 2016-03-16 23:20+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "%s seconds"
 msgstr "%s ثانیه"
 
-#: install.php:109
+#: install.php:120
 msgid "Adding (this might take a long time)"
 msgstr "افزودن (به زمان زیادی نیاز است)"
 
@@ -53,11 +53,11 @@ msgstr "اجازه به کاربر برای دانلود ضبط شده در پن
 msgid "Allowed CEL"
 msgstr "گزارش تماس مجاز"
 
-#: install.php:101
+#: install.php:112
 msgid "Already Removed"
 msgstr "قبلا حذف شده"
 
-#: install.php:118
+#: install.php:129
 msgid "Already indexed"
 msgstr "قبلا فهرست شده"
 
@@ -98,12 +98,12 @@ msgstr "شناسه تماس گیرنده"
 msgid "Caller ID of a call participant"
 msgstr "شناسه تماس گیرنده یک شریک تماس"
 
-#: install.php:88
+#: install.php:99
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "بررسی فیلد %s برای حذف.."
 
-#: install.php:105
+#: install.php:116
 msgid "Checking for context index.."
 msgstr "بررسی برای فهرست چهارچوب.."
 
@@ -160,11 +160,11 @@ msgstr "دانلود"
 msgid "Duration"
 msgstr "مدت"
 
-#: install.php:113
+#: install.php:124
 msgid "ERROR failed to add context index"
 msgstr "خطا در اضافه کردن شاخص زمینه"
 
-#: install.php:96
+#: install.php:107
 #, php-format
 msgid "ERROR failed to delete %s field"
 msgstr "خطا در حذف فیلد %s رخ داده"
@@ -213,7 +213,7 @@ msgstr "شناخته نشده"
 msgid "Not Found"
 msgstr "یافت نشد"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
+#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:126
 msgid "OK"
 msgstr "تایید"
 
@@ -229,7 +229,7 @@ msgstr "صف"
 msgid "Remote CEL DB Table"
 msgstr "جدول دیتابیس راه دور CEL"
 
-#: install.php:98
+#: install.php:109
 msgid "Removed"
 msgstr "حذف شده"
 
@@ -317,7 +317,7 @@ msgstr "در حال حاضر وجود دارد"
 msgid "checking for extra field.."
 msgstr "بررسی فیلد خارجی.."
 
-#: install.php:92
+#: install.php:103
 msgid "removing (this might take a long time)"
 msgstr "حذف کردن (ممکن است زمان زیادی صرف شود)"
 
