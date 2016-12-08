@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-12-07 01:27+0200\n"
+"PO-Revision-Date: 2016-12-07 22:50+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/cel/pt_BR/>\n"
@@ -110,7 +110,7 @@ msgstr ""
 
 #: ucp/views/table.php:71
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: views/search.php:4
 msgid "Conference"
