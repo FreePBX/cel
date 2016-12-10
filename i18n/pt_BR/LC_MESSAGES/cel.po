@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-12-07 22:50+0200\n"
+"PO-Revision-Date: 2016-12-09 21:51+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/cel/pt_BR/>\n"
@@ -44,11 +44,11 @@ msgstr ""
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "Permite este usuário reproduzir gravações no PCU"
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "Permitir usuários baixarem gravações no PCU"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
@@ -114,11 +114,11 @@ msgstr "Fechar"
 
 #: views/search.php:4
 msgid "Conference"
-msgstr ""
+msgstr "Conferência"
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr ""
+msgstr "Controles"
 
 #: cel.i18n.php:24
 msgid ""
@@ -129,7 +129,7 @@ msgstr ""
 
 #: ucp/views/table.php:28
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: views/search.php:27
 msgid "Date Range"
@@ -186,11 +186,11 @@ msgstr ""
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
-msgstr ""
+msgstr "Arquivo não existe"
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr ""
+msgstr "Proibido"
 
 #: views/search.php:33
 msgid "From"
@@ -198,7 +198,7 @@ msgstr ""
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Herdar"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -206,11 +206,11 @@ msgstr "Não"
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
-msgstr ""
+msgstr "Não Autorizado"
 
 #: ucp/Cel.class.php:221
 msgid "Not Found"
-msgstr ""
+msgstr "Não Encontrado"
 
 #: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
@@ -218,7 +218,7 @@ msgstr ""
 
 #: ucp/views/table.php:34
 msgid "Playback"
-msgstr ""
+msgstr "Reproduzir"
 
 #: views/search.php:5
 msgid "Queue"
