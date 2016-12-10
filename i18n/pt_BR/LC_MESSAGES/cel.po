@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-12-09 21:51+0200\n"
+"PO-Revision-Date: 2016-12-09 22:51+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/cel/pt_BR/>\n"
@@ -28,7 +28,7 @@ msgstr "%s segundos"
 
 #: install.php:109
 msgid "Adding (this might take a long time)"
-msgstr ""
+msgstr "Adicionando (isso pode levar muito tempo)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -36,11 +36,11 @@ msgstr "Permitir CEL"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Downloads"
-msgstr ""
+msgstr "Permitir Baixar CEL"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Playback"
-msgstr ""
+msgstr "Permitir Reproduzir CEL"
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
@@ -56,11 +56,11 @@ msgstr "CEL Permitido"
 
 #: install.php:101
 msgid "Already Removed"
-msgstr ""
+msgstr "Já Removido"
 
 #: install.php:118
 msgid "Already indexed"
-msgstr ""
+msgstr "Já indexado"
 
 #: views/search.php:106
 msgid "Application"
@@ -68,45 +68,45 @@ msgstr "Aplicação"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
-msgstr ""
+msgstr "Aplicação executada por um participante da chamada"
 
 #: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
 msgid "CEL Report Module"
-msgstr ""
+msgstr "Módulo de Relatório CEL"
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
-msgstr ""
+msgstr "Detalhes da Chamada"
 
 #: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
-msgstr ""
+msgstr "Registro de Eventos de Chamadas (CEL)"
 
 #: ucp/Cel.class.php:37
 msgid "Call Event Logs"
-msgstr ""
+msgstr "Logs de Eventos de Chamadas"
 
 #: ucp/views/table.php:30
 msgid "Caller"
-msgstr ""
+msgstr "Usuário Chamador"
 
 #: views/search.php:58
 msgid "Caller ID"
-msgstr ""
+msgstr "Identificação de Chamada"
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
-msgstr ""
+msgstr "Identificação de Chamada de um participante da chamada"
 
 #: install.php:88
 #, php-format
 msgid "Checking for %s field to remove.."
-msgstr ""
+msgstr "Verificando campo %s para remover..."
 
 #: install.php:105
 msgid "Checking for context index.."
-msgstr ""
+msgstr "Verificando por índice de contexto..."
 
 #: ucp/views/table.php:71
 msgid "Close"
@@ -126,6 +126,9 @@ msgid ""
 "use the default values provided by FreePBX. Name of the table in the db "
 "where the cel is stored. cel is default."
 msgstr ""
+"NÃO defina isso a menos que saiba o que está fazendo. Apenas usado se você "
+"não usar os valores padrão fornecidos pelo FreePBX. Nome da tabela no db "
+"onde o cel está armazenado. Cel é padrão."
 
 #: ucp/views/table.php:28
 msgid "Date"
@@ -133,23 +136,23 @@ msgstr "Data"
 
 #: views/search.php:27
 msgid "Date Range"
-msgstr ""
+msgstr "Intervalo de Data"
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
+msgstr "Intervalo de datas de chamadas no formato mm/dd/yyyy"
 
 #: ucp/views/table.php:66
 msgid "Detail"
-msgstr ""
+msgstr "Detalhe"
 
 #: ucp/views/table.php:31
 msgid "Dialed"
-msgstr ""
+msgstr "Discado"
 
 #: views/search.php:82
 msgid "Dialed Number"
-msgstr ""
+msgstr "Número Discado"
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
@@ -157,32 +160,33 @@ msgstr "Baixar"
 
 #: ucp/views/table.php:32 ucp/views/table.php:65
 msgid "Duration"
-msgstr ""
+msgstr "Duração"
 
 #: install.php:113
 msgid "ERROR failed to add context index"
-msgstr ""
+msgstr "ERRO ao adicionar índice de contexto"
 
 #: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
-msgstr ""
+msgstr "ERRO falha ao apagar o campo %s"
 
 #: install.php:77
 msgid "ERROR failed to update extra field"
-msgstr ""
+msgstr "ERRO Falha ao atualizar campo extra"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr ""
+"Habilitar CEL (Registro de Eventos de Chamadas) no PCU para este usuário"
 
 #: cel.i18n.php:14
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "Habilitar Relatório CEL"
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
-msgstr ""
+msgstr "Ramal ou DID discado"
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
@@ -194,7 +198,7 @@ msgstr "Proibido"
 
 #: views/search.php:33
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
@@ -222,15 +226,15 @@ msgstr "Reproduzir"
 
 #: views/search.php:5
 msgid "Queue"
-msgstr ""
+msgstr "Fila"
 
 #: cel.i18n.php:20
 msgid "Remote CEL DB Table"
-msgstr ""
+msgstr "Tabela Remota CEL DB"
 
 #: install.php:98
 msgid "Removed"
-msgstr ""
+msgstr "Removido"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
@@ -242,7 +246,7 @@ msgstr "Reiniciar"
 
 #: Cel.class.php:216 views/search.php:16
 msgid "Search"
-msgstr ""
+msgstr "Pesquisar"
 
 #: cel.i18n.php:18
 msgid ""
@@ -252,36 +256,43 @@ msgid ""
 "configuration must be done outside of FreePBX either by the user or at the "
 "Distro level."
 msgstr ""
+"Definir para \"verdadeiro\" permitirá que o módulo CEL crie relatórios de "
+"chamadas a partir de dados CEL. Embora o módulo CEL assegure que existe uma "
+"tabela CEL disponível, a funcionalidade de geração de relatórios no Asterisk "
+"e banco de dados ODBC associado e a configuração CEL deve ser feita fora do "
+"FreePBX pelo usuário ou pelo nível Distro."
 
 #: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr ""
+msgstr "O módulo CEL requer que a versão do Asterisk seja 12.0 ou superior."
 
 #: views/ucp_config.php:54
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Estas são os ramais atribuídos e ativos que aparecerão para que este usuário "
+"controle e edite no PCU"
 
 #: ucp/views/table.php:64
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 #: views/search.php:36
 msgid "To"
-msgstr ""
+msgstr "Para"
 
 #: Cel.class.php:174
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Ramal Principal do Usuário"
 
 #: views/search.php:6
 msgid "Voicemail"
-msgstr ""
+msgstr "Correio de Voz"
 
 #: views/search.php:7
 msgid "Voicemail Main"
-msgstr ""
+msgstr "Correio de Voz Principal"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
@@ -295,21 +306,27 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Falta suporte para reprodução neste navegador. Para suportar totalmente a "
+"reprodução do navegador HTML5, você precisará instalar programas que não "
+"podem ser distribuídos com o PBX. Se pretender instalar os binários "
+"necessários para estas conversões, clique <a href='%s'>aqui</a>"
 
 #: page.cel.php:12
 msgid ""
 "You may search by any or all of the fields below. The more fields you fill "
 "in the more refined the report."
 msgstr ""
+"Você pode pesquisar por qualquer um ou todos os campos abaixo. Quanto mais "
+"campos você preencher, mais refinado será o relatório."
 
 #: install.php:82
 msgid "already exists"
-msgstr ""
+msgstr "já existe"
 
 #: install.php:70
 msgid "checking for extra field.."
-msgstr ""
+msgstr "verificando por campo extra.."
 
 #: install.php:92
 msgid "removing (this might take a long time)"
-msgstr ""
+msgstr "removendo (Isso pode levar muito tempo)"
