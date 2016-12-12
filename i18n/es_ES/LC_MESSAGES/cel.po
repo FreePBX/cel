@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-12-12 04:57+0200\n"
+"PO-Revision-Date: 2016-12-12 07:38+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/cel/es_ES/>\n"
@@ -93,7 +93,7 @@ msgstr "Llamante"
 
 #: views/search.php:58
 msgid "Caller ID"
-msgstr "ID de llamada"
+msgstr "Caller ID"
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
