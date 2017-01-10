@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-01-09 14:39+0200\n"
+"PO-Revision-Date: 2017-01-09 18:35+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -44,11 +44,11 @@ msgstr ""
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben."
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen."
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
@@ -64,7 +64,7 @@ msgstr ""
 
 #: views/search.php:106
 msgid "Application"
-msgstr ""
+msgstr "Applikation"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
@@ -238,7 +238,7 @@ msgstr ""
 
 #: Cel.class.php:211
 msgid "Reset"
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: Cel.class.php:216 views/search.php:16
 msgid "Search"
@@ -285,7 +285,7 @@ msgstr ""
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: ucp/assets/js/global.js:95
 #, perl-format
