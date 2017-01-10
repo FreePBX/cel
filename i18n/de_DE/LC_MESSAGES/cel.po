@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-01-09 21:08+0200\n"
+"PO-Revision-Date: 2017-01-10 15:03+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -222,7 +222,7 @@ msgstr "Wiedergabe"
 
 #: views/search.php:5
 msgid "Queue"
-msgstr ""
+msgstr "Warteschlange"
 
 #: cel.i18n.php:20
 msgid "Remote CEL DB Table"
@@ -308,7 +308,7 @@ msgstr ""
 
 #: install.php:82
 msgid "already exists"
-msgstr ""
+msgstr "bereits vorhanden"
 
 #: install.php:70
 msgid "checking for extra field.."
