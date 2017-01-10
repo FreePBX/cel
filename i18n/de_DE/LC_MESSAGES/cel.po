@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-01-09 18:35+0200\n"
+"PO-Revision-Date: 2017-01-09 21:08+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -114,11 +114,11 @@ msgstr ""
 
 #: views/search.php:4
 msgid "Conference"
-msgstr ""
+msgstr "Konferenz"
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr ""
+msgstr "Steuerung"
 
 #: cel.i18n.php:24
 msgid ""
@@ -129,7 +129,7 @@ msgstr ""
 
 #: ucp/views/table.php:28
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: views/search.php:27
 msgid "Date Range"
@@ -153,11 +153,11 @@ msgstr ""
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
-msgstr ""
+msgstr "Herunterladen"
 
 #: ucp/views/table.php:32 ucp/views/table.php:65
 msgid "Duration"
-msgstr ""
+msgstr "Dauer"
 
 #: install.php:113
 msgid "ERROR failed to add context index"
@@ -186,19 +186,19 @@ msgstr ""
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
-msgstr ""
+msgstr "Datei existiert nicht"
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr ""
+msgstr "Verboten"
 
 #: views/search.php:33
 msgid "From"
-msgstr ""
+msgstr "Von"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Erben"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -206,19 +206,19 @@ msgstr "Nein"
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
-msgstr ""
+msgstr "Nicht berechtigt"
 
 #: ucp/Cel.class.php:221
 msgid "Not Found"
-msgstr ""
+msgstr "Nicht gefunden"
 
 #: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ucp/views/table.php:34
 msgid "Playback"
-msgstr ""
+msgstr "Wiedergabe"
 
 #: views/search.php:5
 msgid "Queue"
@@ -234,7 +234,7 @@ msgstr ""
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
-msgstr ""
+msgstr "Berichte"
 
 #: Cel.class.php:211
 msgid "Reset"
@@ -242,7 +242,7 @@ msgstr "Zurücksetzen"
 
 #: Cel.class.php:216 views/search.php:16
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: cel.i18n.php:18
 msgid ""
@@ -265,19 +265,19 @@ msgstr ""
 
 #: ucp/views/table.php:64
 msgid "Time"
-msgstr ""
+msgstr "Zeit"
 
 #: views/search.php:36
 msgid "To"
-msgstr ""
+msgstr "bis"
 
 #: Cel.class.php:174
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Primäre Benutzernebenstelle"
 
 #: views/search.php:6
 msgid "Voicemail"
-msgstr ""
+msgstr "Anrufbeantworter"
 
 #: views/search.php:7
 msgid "Voicemail Main"
@@ -295,6 +295,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Ihr Browser unterstützt keine HTML5 Wiedergabe. Für volle HTML5 Audio "
+"Wiedergabe unterstützung benötigen Sie zusätzliche Programme, welche "
+"zusammen mit der PBX nicht zur verfügung gestellt werden können. Möchten Sie "
+"die benötigten binaries installieren klicken Sie <a href='%s'>hier</a>"
 
 #: page.cel.php:12
 msgid ""
