@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-01-10 15:03+0200\n"
+"PO-Revision-Date: 2017-01-11 14:12+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -110,7 +110,7 @@ msgstr ""
 
 #: ucp/views/table.php:71
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: views/search.php:4
 msgid "Conference"
