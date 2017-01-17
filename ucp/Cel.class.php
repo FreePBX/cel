@@ -15,63 +15,71 @@ class Cel extends Modules{
 	public function __construct($Modules) {
 		$this->Modules = $Modules;
 		$this->cel = $this->UCP->FreePBX->Cel;
-		$this->user = $this->UCP->User->getUser();
 
 		if($this->UCP->Session->isMobile || $this->UCP->Session->isTablet) {
 			$this->limit = 7;
 		}
 	}
 
-	/**
-	* Setup Menu Items for display in UCP
-	*/
-	public function getMenuItems() {
-		if(!$this->UCP->getCombinedSettingByID($this->user['id'],'Cel','enable')) {
+	public function getWidgetList() {
+		$widgets = array();
+
+		$user = $this->UCP->User->getUser();
+		if(!$this->UCP->getCombinedSettingByID($user['id'],'Cel','enable')) {
 			return array();
 		}
-		$extensions = $this->UCP->getCombinedSettingByID($this->user['id'],'Cel','assigned');
-		$menu = array();
-		if(!empty($extensions)) {
-			$menu = array(
-				"rawname" => "cel",
-				"name" => _("Call Event Logs"),
-				"badge" => false
-			);
-			foreach($extensions as $e) {
-				$data = $this->UCP->FreePBX->Core->getDevice($e);
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cel','assigned');
+
+		if (!empty($extensions)) {
+			foreach($extensions as $extension) {
+				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				if(empty($data) || empty($data['description'])) {
-					$data = $this->UCP->FreePBX->Core->getUser($e);
+					$data = $this->UCP->FreePBX->Core->getUser($extension);
 					$name = $data['name'];
 				} else {
 					$name = $data['description'];
 				}
-				$menu["menu"][] = array(
-					"rawname" => $e,
-					"name" => $e . (!empty($name) ? " - " . $name : ""),
-					"badge" => false
+
+				$widgets[$extension] = array(
+					"display" => $name,
+					"description" => sprintf(_("Call Events for %s"),$name),
+					"defaultsize" => array("height" => 6, "width" => 5),
+					"minsize" => array("height" => 6, "width" => 4)
 				);
 			}
 		}
-		return !empty($menu["menu"]) ? $menu : array();
-	}
 
-	function getDisplay() {
-		$page = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
-		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
-		if(!$this->_checkExtension($ext)) {
-			return _('Not Authorized');
+		if (empty($widgets)) {
+			return array();
 		}
 
-		$html = '';
+		return array(
+			"rawname" => "cel",
+			"display" => _("Call Events"),
+			"icon" => "fa fa-database",
+			"list" => $widgets
+		);
+	}
+
+	public function getWidgetDisplay($id) {
+		if (!$this->_checkExtension($id)) {
+			return array();
+		}
 
 		$displayvars = array(
-			'ext' => $ext,
+			'ext' => $id,
 		);
-		$displayvars['showPlayback'] = $this->_checkPlayback($ext);
-		$displayvars['script'] = "var showDownload = ".json_encode($this->_checkDownload($ext)).";var showPlayback = ".json_encode($this->_checkPlayback($ext)).";var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';";
-		$html .= $this->load_view(__DIR__.'/views/table.php',$displayvars);
+		$displayvars['showPlayback'] = $this->_checkPlayback($id);
+		$displayvars['script'] = "var showDownload = ".json_encode($this->_checkDownload($id)).";var showPlayback = ".json_encode($this->_checkPlayback($id)).";var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';";
 
-		return $html;
+		$html = $this->load_view(__DIR__.'/views/widget.php',$displayvars);
+
+		$display = array(
+			'title' => _("Call Events"),
+			'html' => $html
+		);
+
+		return $display;
 	}
 
 	/**
@@ -89,6 +97,7 @@ class Cel extends Modules{
 			case 'playback':
 			case "grid":
 			case 'download':
+			case 'eventmodal':
 				return true;
 			break;
 			default:
@@ -166,6 +175,9 @@ class Cel extends Modules{
 					"rows" => array_splice ($calls, $_REQUEST['offset'],$limit)
 				);
 			break;
+			case "eventmodal":
+				$return = $this->load_view(__DIR__.'/views/eventModal.php',$displayvars);
+			break;
 			default:
 				return false;
 			break;
@@ -238,10 +250,11 @@ class Cel extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		if(!$this->UCP->getCombinedSettingByID($this->user['id'],'Cel','enable')) {
+		$user = $this->UCP->User->getUser();
+		if(!$this->UCP->getCombinedSettingByID($user['id'],'Cel','enable')) {
 			return false;
 		}
-		$extensions = $this->UCP->getCombinedSettingByID($this->user['id'],'Cel','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cel','assigned');
 		return in_array($extension,$extensions);
 	}
 

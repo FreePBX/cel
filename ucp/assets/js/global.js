@@ -2,41 +2,46 @@ var CelC = UCPMC.extend({
 	init: function() {
 	},
 	poll: function(data, url) {
-
 	},
-	display: function(event) {
-		var $this = this;
-		$(document).on("click", "[vm-pjax] a, a[vm-pjax]", function(event) {
-			var container = $("#dashboard-content");
-			$.pjax.click(event, { container: container });
-		});
+	displayWidget: function(widget_id) {
+		var self = this;
 		$(".clickable").click(function(e) {
 			var text = $(this).text();
 			if (UCP.validMethod("Contactmanager", "showActionDialog")) {
 				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 			}
 		});
-		$("#cel-grid").on("click-cell.bs.table", function(event, field, value, row) {
+		$(".cel-grid").on("click-cell.bs.table", function(event, field, value, row) {
 			if(field == "playback" || field == "controls") {
 				return;
 			}
-			$("#cel-detail-grid").bootstrapTable('load', row.actions);
-			$('#callpreview').modal('toggle');
+
+			$.getJSON(UCP.ajaxUrl+'?module=cel&command=eventmodal', function(data){
+				if (data.status === true){
+					UCP.showDialog(_("Call Events"),
+						data.message,
+						'<button type="button" class="btn btn-primary" data-dismiss="modal">'+_("Close")+'</button>',
+						function() {
+							$(".cel-detail-grid").bootstrapTable();
+							$(".cel-detail-grid").bootstrapTable('load', row.actions);
+						}
+					);
+				} else {
+					UCP.showAlert(_("Error getting form"),'danger');
+				}
+			}).always(function() {
+				$(self).prop("disabled",false);
+			}).fail(function() {
+				UCP.showAlert(_("Error getting form"),'danger');
+			});
 		});
 		$('#callpreview').on('show.bs.modal', function () {
 			$('.modal .modal-body').css('overflow-y', 'auto');
 			$('.modal .modal-body').css('max-height', $(window).height() * 0.65);
 		});
-		$('#cel-grid').on("post-body.bs.table", function () {
-			$this.bindPlayers();
+		$('.cel-grid').on("post-body.bs.table", function () {
+			self.bindPlayers();
 		});
-	},
-	hide: function(event) {
-		$(document).off("click", "[vm-pjax] a, a[vm-pjax]");
-		$(".clickable").off("click");
-	},
-	windowState: function(state) {
-		//console.log(state);
 	},
 	formatDuration: function (value, row, index) {
 		return sprintf(_("%s seconds"),value);
