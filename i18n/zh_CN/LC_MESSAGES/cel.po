@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-16 16:33-0700\n"
+"POT-Creation-Date: 2017-01-27 18:11-0800\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -24,10 +24,6 @@ msgstr ""
 #: ucp/assets/js/global.js:42
 #, perl-format
 msgid "%s seconds"
-msgstr ""
-
-#: install.php:120
-msgid "Adding (this might take a long time)"
 msgstr ""
 
 #: views/ucp_config.php:7
@@ -52,14 +48,6 @@ msgstr "支持用户通过UCP下载录音"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
-msgstr ""
-
-#: install.php:112
-msgid "Already Removed"
-msgstr ""
-
-#: install.php:129
-msgid "Already indexed"
 msgstr ""
 
 #: views/search.php:106
@@ -99,12 +87,12 @@ msgstr ""
 msgid "Caller ID of a call participant"
 msgstr ""
 
-#: install.php:99
+#: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr ""
 
-#: install.php:116
+#: install.php:92
 msgid "Checking for context index.."
 msgstr ""
 
@@ -159,17 +147,8 @@ msgstr "下载"
 msgid "Duration"
 msgstr ""
 
-#: install.php:124
-msgid "ERROR failed to add context index"
-msgstr ""
-
-#: install.php:107
-#, php-format
-msgid "ERROR failed to delete %s field"
-msgstr ""
-
-#: install.php:77
-msgid "ERROR failed to update extra field"
+#: install.php:110
+msgid "ERROR failed to update database"
 msgstr ""
 
 #: views/ucp_config.php:28
@@ -212,7 +191,7 @@ msgstr "未经授权"
 msgid "Not Found"
 msgstr "没有发现"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:126
+#: install.php:67
 msgid "OK"
 msgstr "正常"
 
@@ -228,8 +207,12 @@ msgstr ""
 msgid "Remote CEL DB Table"
 msgstr ""
 
-#: install.php:109
+#: install.php:112
 msgid "Removed"
+msgstr ""
+
+#: install.php:105
+msgid "Removing outdated fields (this might take a long time)"
 msgstr ""
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
@@ -302,14 +285,26 @@ msgid ""
 "in the more refined the report."
 msgstr ""
 
-#: install.php:82
+#: install.php:77
 msgid "already exists"
 msgstr "已存在"
 
-#: install.php:70
+#: install.php:99
+msgid "already indexed"
+msgstr ""
+
+#: install.php:88
+msgid "already removed"
+msgstr ""
+
+#: install.php:72
 msgid "checking for extra field.."
 msgstr ""
 
-#: install.php:103
-msgid "removing (this might take a long time)"
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
+msgid "found"
+msgstr ""
+
+#: install.php:75
+msgid "not found"
 msgstr ""

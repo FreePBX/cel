@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-16 16:33-0700\n"
+"POT-Creation-Date: 2017-01-27 18:11-0800\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -25,10 +25,6 @@ msgstr ""
 #, perl-format
 msgid "%s seconds"
 msgstr "%s segundos"
-
-#: install.php:120
-msgid "Adding (this might take a long time)"
-msgstr "Añadiendo (Esto podría tomar tiempo)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -53,14 +49,6 @@ msgstr "Permitir usurios a bajar grabaciones en UCP"
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
 msgstr "CEL Permitido"
-
-#: install.php:112
-msgid "Already Removed"
-msgstr "Ya Removido"
-
-#: install.php:129
-msgid "Already indexed"
-msgstr "Ya Indexado"
 
 #: views/search.php:106
 msgid "Application"
@@ -99,12 +87,12 @@ msgstr "ID de llamada"
 msgid "Caller ID of a call participant"
 msgstr "ID de llamada de un participante en la llamada"
 
-#: install.php:99
+#: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "Chequeando campo %s para remover.."
 
-#: install.php:116
+#: install.php:92
 msgid "Checking for context index.."
 msgstr "Chequeando por Indice de Contexto.."
 
@@ -162,18 +150,9 @@ msgstr "Bajar"
 msgid "Duration"
 msgstr "Duración"
 
-#: install.php:124
-msgid "ERROR failed to add context index"
-msgstr "ERROR falla al agregar indice de contexto"
-
-#: install.php:107
-#, php-format
-msgid "ERROR failed to delete %s field"
-msgstr "ERROR fallo al borrar campo %s"
-
-#: install.php:77
-msgid "ERROR failed to update extra field"
-msgstr "ERROR falla al actualizar campo extra"
+#: install.php:110
+msgid "ERROR failed to update database"
+msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
@@ -215,7 +194,7 @@ msgstr "No Autorizado"
 msgid "Not Found"
 msgstr "No Encontrado"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:126
+#: install.php:67
 msgid "OK"
 msgstr "OK"
 
@@ -231,9 +210,13 @@ msgstr "Cola"
 msgid "Remote CEL DB Table"
 msgstr "Tabla remota CEL DB"
 
-#: install.php:109
+#: install.php:112
 msgid "Removed"
 msgstr "Removido"
+
+#: install.php:105
+msgid "Removing outdated fields (this might take a long time)"
+msgstr ""
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
@@ -318,17 +301,50 @@ msgstr ""
 "Usted puede buscar por alguno o todos los campos abajo. Mientras mas campos "
 "use mas refinada la búsqueda."
 
-#: install.php:82
+#: install.php:77
 msgid "already exists"
 msgstr "Ya existe"
 
-#: install.php:70
+#: install.php:99
+msgid "already indexed"
+msgstr "Ya indexado"
+
+#: install.php:88
+msgid "already removed"
+msgstr ""
+
+#: install.php:72
 msgid "checking for extra field.."
 msgstr "chequeando por campo extra.."
 
-#: install.php:103
-msgid "removing (this might take a long time)"
-msgstr "Removiendo (esto puede tomar tiempo)"
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
+msgid "found"
+msgstr ""
+
+#: install.php:75
+msgid "not found"
+msgstr ""
+
+#~ msgid "Adding (this might take a long time)"
+#~ msgstr "Añadiendo (Esto podría tomar tiempo)"
+
+#~ msgid "Already Removed"
+#~ msgstr "Ya Removido"
+
+#~ msgid "Already indexed"
+#~ msgstr "Ya Indexado"
+
+#~ msgid "ERROR failed to add context index"
+#~ msgstr "ERROR falla al agregar indice de contexto"
+
+#~ msgid "ERROR failed to delete %s field"
+#~ msgstr "ERROR fallo al borrar campo %s"
+
+#~ msgid "ERROR failed to update extra field"
+#~ msgstr "ERROR falla al actualizar campo extra"
+
+#~ msgid "removing (this might take a long time)"
+#~ msgstr "Removiendo (esto puede tomar tiempo)"
 
 #~ msgid "Date range of call"
 #~ msgstr "Rango de fecha de una llamada"
@@ -344,9 +360,6 @@ msgstr "Removiendo (esto puede tomar tiempo)"
 
 #~ msgid "already deleted"
 #~ msgstr "Ya eliminado"
-
-#~ msgid "already indexed"
-#~ msgstr "Ya indexado"
 
 #~ msgid "checking for context index.."
 #~ msgstr "chequeando el indice de contexto..."

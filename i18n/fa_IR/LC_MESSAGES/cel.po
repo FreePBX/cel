@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-16 16:33-0700\n"
+"POT-Creation-Date: 2017-01-27 18:11-0800\n"
 "PO-Revision-Date: 2016-03-16 23:20+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -24,10 +24,6 @@ msgstr ""
 #, perl-format
 msgid "%s seconds"
 msgstr "%s ثانیه"
-
-#: install.php:120
-msgid "Adding (this might take a long time)"
-msgstr "افزودن (به زمان زیادی نیاز است)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -52,14 +48,6 @@ msgstr "اجازه به کاربر برای دانلود ضبط شده در پن
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
 msgstr "گزارش تماس مجاز"
-
-#: install.php:112
-msgid "Already Removed"
-msgstr "قبلا حذف شده"
-
-#: install.php:129
-msgid "Already indexed"
-msgstr "قبلا فهرست شده"
 
 #: views/search.php:106
 msgid "Application"
@@ -98,12 +86,12 @@ msgstr "شناسه تماس گیرنده"
 msgid "Caller ID of a call participant"
 msgstr "شناسه تماس گیرنده یک شریک تماس"
 
-#: install.php:99
+#: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "بررسی فیلد %s برای حذف.."
 
-#: install.php:116
+#: install.php:92
 msgid "Checking for context index.."
 msgstr "بررسی برای فهرست چهارچوب.."
 
@@ -160,18 +148,9 @@ msgstr "دانلود"
 msgid "Duration"
 msgstr "مدت"
 
-#: install.php:124
-msgid "ERROR failed to add context index"
-msgstr "خطا در اضافه کردن شاخص زمینه"
-
-#: install.php:107
-#, php-format
-msgid "ERROR failed to delete %s field"
-msgstr "خطا در حذف فیلد %s رخ داده"
-
-#: install.php:77
-msgid "ERROR failed to update extra field"
-msgstr "خطا در به روزسانی فیلد اضافی"
+#: install.php:110
+msgid "ERROR failed to update database"
+msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
@@ -213,7 +192,7 @@ msgstr "شناخته نشده"
 msgid "Not Found"
 msgstr "یافت نشد"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:126
+#: install.php:67
 msgid "OK"
 msgstr "تایید"
 
@@ -229,9 +208,13 @@ msgstr "صف"
 msgid "Remote CEL DB Table"
 msgstr "جدول دیتابیس راه دور CEL"
 
-#: install.php:109
+#: install.php:112
 msgid "Removed"
 msgstr "حذف شده"
+
+#: install.php:105
+msgid "Removing outdated fields (this might take a long time)"
+msgstr ""
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
@@ -309,17 +292,50 @@ msgid ""
 "in the more refined the report."
 msgstr "شما با یک یا تمام فیلدهای زیر میتوانید جستجو کنید."
 
-#: install.php:82
+#: install.php:77
 msgid "already exists"
 msgstr "در حال حاضر وجود دارد"
 
-#: install.php:70
+#: install.php:99
+msgid "already indexed"
+msgstr ""
+
+#: install.php:88
+msgid "already removed"
+msgstr ""
+
+#: install.php:72
 msgid "checking for extra field.."
 msgstr "بررسی فیلد خارجی.."
 
-#: install.php:103
-msgid "removing (this might take a long time)"
-msgstr "حذف کردن (ممکن است زمان زیادی صرف شود)"
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
+msgid "found"
+msgstr ""
+
+#: install.php:75
+msgid "not found"
+msgstr ""
+
+#~ msgid "Adding (this might take a long time)"
+#~ msgstr "افزودن (به زمان زیادی نیاز است)"
+
+#~ msgid "Already Removed"
+#~ msgstr "قبلا حذف شده"
+
+#~ msgid "Already indexed"
+#~ msgstr "قبلا فهرست شده"
+
+#~ msgid "ERROR failed to add context index"
+#~ msgstr "خطا در اضافه کردن شاخص زمینه"
+
+#~ msgid "ERROR failed to delete %s field"
+#~ msgstr "خطا در حذف فیلد %s رخ داده"
+
+#~ msgid "ERROR failed to update extra field"
+#~ msgstr "خطا در به روزسانی فیلد اضافی"
+
+#~ msgid "removing (this might take a long time)"
+#~ msgstr "حذف کردن (ممکن است زمان زیادی صرف شود)"
 
 #~ msgid "ERROR failed to update userfield field"
 #~ msgstr "خطا در به روزسانی فیلد کاربر"
