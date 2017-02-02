@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 18:11-0800\n"
+"POT-Creation-Date: 2017-02-01 17:11-0800\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -58,7 +58,7 @@ msgstr "Aplicación"
 msgid "Application executed by a call participant"
 msgstr "Aplicación ejecutada por un participante en la llamada"
 
-#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
+#: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr "Modulo Reporte CEL"
 
@@ -108,7 +108,7 @@ msgstr "Conferencia"
 msgid "Controls"
 msgstr "Controles"
 
-#: cel.i18n.php:24
+#: cel.i18n.php:20
 msgid ""
 "DO NOT set this unless you know what you are doing. Only used if you do not "
 "use the default values provided by FreePBX. Name of the table in the db "
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr "Habilitar CEL (Call Event Logging) en UCP para este usuario"
 
-#: cel.i18n.php:14
+#: cel.i18n.php:12
 msgid "Enable CEL Reporting"
 msgstr "Habilitar Reporte CEL"
 
@@ -206,7 +206,7 @@ msgstr "Reproducir"
 msgid "Queue"
 msgstr "Cola"
 
-#: cel.i18n.php:20
+#: cel.i18n.php:18
 msgid "Remote CEL DB Table"
 msgstr "Tabla remota CEL DB"
 
@@ -218,7 +218,7 @@ msgstr "Removido"
 msgid "Removing outdated fields (this might take a long time)"
 msgstr ""
 
-#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
+#: cel.i18n.php:6
 msgid "Reports"
 msgstr "Reportes"
 
@@ -230,7 +230,7 @@ msgstr "Reinicio"
 msgid "Search"
 msgstr "Buscar"
 
-#: cel.i18n.php:18
+#: cel.i18n.php:16
 msgid ""
 "Setting this true will enable the CEL module to create call reports from CEL "
 "data. Although the CEL module will assure there is a CEL table available, "

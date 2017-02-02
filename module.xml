@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.26.1</version>
+		<version>13.0.26.2</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*13.0.26.2* FREEPBX-13360 Missing configuration option for CELDBNAME variable
 			*13.0.26.1* FREEPBX-14044 Speed up upgrades
 			*13.0.26* Increase size of appdata
 			*13.0.25* FREEPBX-12997 Connection should be UTF8

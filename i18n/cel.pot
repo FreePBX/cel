@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for cel
-# Copyright (C) 2008-2017 Sangoma, Inc.
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 18:11-0800\n"
+"POT-Creation-Date: 2017-02-01 17:11-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Application executed by a call participant"
 msgstr ""
 
-#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
+#: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Controls"
 msgstr ""
 
-#: cel.i18n.php:24
+#: cel.i18n.php:20
 msgid ""
 "DO NOT set this unless you know what you are doing. Only used if you do not "
 "use the default values provided by FreePBX. Name of the table in the db "
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr ""
 
-#: cel.i18n.php:14
+#: cel.i18n.php:12
 msgid "Enable CEL Reporting"
 msgstr ""
 
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Queue"
 msgstr ""
 
-#: cel.i18n.php:20
+#: cel.i18n.php:18
 msgid "Remote CEL DB Table"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 msgid "Removing outdated fields (this might take a long time)"
 msgstr ""
 
-#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
+#: cel.i18n.php:6
 msgid "Reports"
 msgstr ""
 
@@ -232,7 +232,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: cel.i18n.php:18
+#: cel.i18n.php:16
 msgid ""
 "Setting this true will enable the CEL module to create call reports from CEL "
 "data. Although the CEL module will assure there is a CEL table available, "
