@@ -3,6 +3,9 @@ var CelC = UCPMC.extend({
 	},
 	poll: function(data, url) {
 	},
+	resize: function(widget_id) {
+		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").bootstrapTable('resetView',{height: $(".grid-stack-item[data-id='"+widget_id+"'] .widget-content").height()-1});
+	},
 	displayWidget: function(widget_id) {
 		var self = this;
 		$(".clickable").click(function(e) {
