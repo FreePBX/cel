@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 22:31+0000\n"
+"POT-Creation-Date: 2017-02-01 17:43-0800\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -21,14 +21,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: ucp/assets/js/global.js:42
+#: ucp/assets/js/global.js:50
 #, perl-format
 msgid "%s seconds"
 msgstr "%s segundos"
-
-#: install.php:120
-msgid "Adding (this might take a long time)"
-msgstr "Añadiendo (Esto podría tomar tiempo)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
@@ -54,14 +50,6 @@ msgstr "Permitir usurios a bajar grabaciones en UCP"
 msgid "Allowed CEL"
 msgstr "CEL Permitido"
 
-#: install.php:112
-msgid "Already Removed"
-msgstr "Ya Removido"
-
-#: install.php:129
-msgid "Already indexed"
-msgstr "Ya Indexado"
-
 #: views/search.php:106
 msgid "Application"
 msgstr "Aplicación"
@@ -70,24 +58,25 @@ msgstr "Aplicación"
 msgid "Application executed by a call participant"
 msgstr "Aplicación ejecutada por un participante en la llamada"
 
-#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
+#: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr "Modulo Reporte CEL"
-
-#: ucp/views/table.php:46
-msgid "Call Detail"
-msgstr "Detalle Llamada"
 
 #: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Call Event Logging (CEL)"
 
-#: ucp/Cel.class.php:37
-msgid "Call Event Logs"
-msgstr "Bitácoras de Eventos de Llamadas"
+#: ucp/Cel.class.php:58 ucp/Cel.class.php:78 ucp/assets/js/global.js:24
+msgid "Call Events"
+msgstr ""
 
-#: ucp/views/table.php:30
+#: ucp/Cel.class.php:45
+#, php-format
+msgid "Call Events for %s"
+msgstr ""
+
+#: ucp/views/widget.php:27
 msgid "Caller"
 msgstr "Llamante"
 
@@ -99,16 +88,16 @@ msgstr "ID de llamada"
 msgid "Caller ID of a call participant"
 msgstr "ID de llamada de un participante en la llamada"
 
-#: install.php:99
+#: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "Chequeando campo %s para remover.."
 
-#: install.php:116
+#: install.php:92
 msgid "Checking for context index.."
 msgstr "Chequeando por Indice de Contexto.."
 
-#: ucp/views/table.php:71
+#: ucp/assets/js/global.js:26
 msgid "Close"
 msgstr "Cerrar"
 
@@ -116,11 +105,11 @@ msgstr "Cerrar"
 msgid "Conference"
 msgstr "Conferencia"
 
-#: ucp/views/table.php:36
+#: ucp/views/widget.php:33
 msgid "Controls"
 msgstr "Controles"
 
-#: cel.i18n.php:24
+#: cel.i18n.php:20
 msgid ""
 "DO NOT set this unless you know what you are doing. Only used if you do not "
 "use the default values provided by FreePBX. Name of the table in the db "
@@ -130,7 +119,7 @@ msgstr ""
 "los valores predeterminados proporcionados por FreePBX. Nombre de la tabla "
 "en la base de datos donde se almacena el cel. cel es por defecto."
 
-#: ucp/views/table.php:28
+#: ucp/views/widget.php:26
 msgid "Date"
 msgstr "Fecha"
 
@@ -142,11 +131,11 @@ msgstr "Rango de Fecha"
 msgid "Date range of calls in the format of mm/dd/yyyy"
 msgstr "Rango de fechas de llamadas en formato mm/dd/yyyy"
 
-#: ucp/views/table.php:66
+#: ucp/views/eventModal.php:16
 msgid "Detail"
 msgstr "Detalle"
 
-#: ucp/views/table.php:31
+#: ucp/views/widget.php:28
 msgid "Dialed"
 msgstr "Discado"
 
@@ -154,44 +143,39 @@ msgstr "Discado"
 msgid "Dialed Number"
 msgstr "Numero Marcado"
 
-#: ucp/assets/js/global.js:56
+#: ucp/assets/js/global.js:64
 msgid "Download"
 msgstr "Bajar"
 
-#: ucp/views/table.php:32 ucp/views/table.php:65
+#: ucp/views/eventModal.php:15 ucp/views/widget.php:29
 msgid "Duration"
 msgstr "Duración"
 
-#: install.php:124
-msgid "ERROR failed to add context index"
-msgstr "ERROR falla al agregar indice de contexto"
-
-#: install.php:107
-#, php-format
-msgid "ERROR failed to delete %s field"
-msgstr "ERROR fallo al borrar campo %s"
-
-#: install.php:77
-msgid "ERROR failed to update extra field"
-msgstr "ERROR falla al actualizar campo extra"
+#: install.php:110
+msgid "ERROR failed to update database"
+msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr "Habilitar CEL (Call Event Logging) en UCP para este usuario"
 
-#: cel.i18n.php:14
+#: cel.i18n.php:12
 msgid "Enable CEL Reporting"
 msgstr "Habilitar Reporte CEL"
+
+#: ucp/assets/js/global.js:33 ucp/assets/js/global.js:38
+msgid "Error getting form"
+msgstr ""
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
 msgstr "Extensión o DID discado"
 
-#: ucp/Cel.class.php:119 ucp/Cel.class.php:122
+#: ucp/Cel.class.php:128 ucp/Cel.class.php:131
 msgid "File does not exist"
 msgstr "Fichero no existe"
 
-#: ucp/Cel.class.php:216 ucp/Cel.class.php:227
+#: ucp/Cel.class.php:228 ucp/Cel.class.php:239
 msgid "Forbidden"
 msgstr "Prohibido"
 
@@ -207,19 +191,15 @@ msgstr "heredado"
 msgid "No"
 msgstr "No"
 
-#: ucp/Cel.class.php:62
-msgid "Not Authorized"
-msgstr "No Autorizado"
-
-#: ucp/Cel.class.php:221
+#: ucp/Cel.class.php:233
 msgid "Not Found"
 msgstr "No Encontrado"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:126
+#: install.php:67
 msgid "OK"
 msgstr "OK"
 
-#: ucp/views/table.php:34
+#: ucp/views/widget.php:31
 msgid "Playback"
 msgstr "Reproducir"
 
@@ -227,15 +207,19 @@ msgstr "Reproducir"
 msgid "Queue"
 msgstr "Cola"
 
-#: cel.i18n.php:20
+#: cel.i18n.php:18
 msgid "Remote CEL DB Table"
 msgstr "Tabla remota CEL DB"
 
-#: install.php:109
+#: install.php:112
 msgid "Removed"
 msgstr "Removido"
 
-#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
+#: install.php:105
+msgid "Removing outdated fields (this might take a long time)"
+msgstr ""
+
+#: cel.i18n.php:6
 msgid "Reports"
 msgstr "Reportes"
 
@@ -247,7 +231,7 @@ msgstr "Reinicio"
 msgid "Search"
 msgstr "Buscar"
 
-#: cel.i18n.php:18
+#: cel.i18n.php:16
 msgid ""
 "Setting this true will enable the CEL module to create call reports from CEL "
 "data. Although the CEL module will assure there is a CEL table available, "
@@ -273,7 +257,7 @@ msgstr ""
 "Estas son las extensiones asignadas y activas que se mostrarán para que este "
 "usuario pueda controlar y editar en UCP"
 
-#: ucp/views/table.php:64
+#: ucp/views/eventModal.php:14
 msgid "Time"
 msgstr "Hora"
 
@@ -297,7 +281,7 @@ msgstr "Correo de Voz Principal"
 msgid "Yes"
 msgstr "Si"
 
-#: ucp/assets/js/global.js:95
+#: ucp/assets/js/global.js:103
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -318,17 +302,59 @@ msgstr ""
 "Usted puede buscar por alguno o todos los campos abajo. Mientras mas campos "
 "use mas refinada la búsqueda."
 
-#: install.php:82
+#: install.php:77
 msgid "already exists"
 msgstr "Ya existe"
 
-#: install.php:70
+#: install.php:99
+msgid "already indexed"
+msgstr "Ya indexado"
+
+#: install.php:88
+msgid "already removed"
+msgstr ""
+
+#: install.php:72
 msgid "checking for extra field.."
 msgstr "chequeando por campo extra.."
 
-#: install.php:103
-msgid "removing (this might take a long time)"
-msgstr "Removiendo (esto puede tomar tiempo)"
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
+msgid "found"
+msgstr ""
+
+#: install.php:75
+msgid "not found"
+msgstr ""
+
+#~ msgid "Adding (this might take a long time)"
+#~ msgstr "Añadiendo (Esto podría tomar tiempo)"
+
+#~ msgid "Already Removed"
+#~ msgstr "Ya Removido"
+
+#~ msgid "Already indexed"
+#~ msgstr "Ya Indexado"
+
+#~ msgid "Call Detail"
+#~ msgstr "Detalle Llamada"
+
+#~ msgid "Call Event Logs"
+#~ msgstr "Bitácoras de Eventos de Llamadas"
+
+#~ msgid "ERROR failed to add context index"
+#~ msgstr "ERROR falla al agregar indice de contexto"
+
+#~ msgid "ERROR failed to delete %s field"
+#~ msgstr "ERROR fallo al borrar campo %s"
+
+#~ msgid "ERROR failed to update extra field"
+#~ msgstr "ERROR falla al actualizar campo extra"
+
+#~ msgid "Not Authorized"
+#~ msgstr "No Autorizado"
+
+#~ msgid "removing (this might take a long time)"
+#~ msgstr "Removiendo (esto puede tomar tiempo)"
 
 #~ msgid "Date range of call"
 #~ msgstr "Rango de fecha de una llamada"
@@ -344,9 +370,6 @@ msgstr "Removiendo (esto puede tomar tiempo)"
 
 #~ msgid "already deleted"
 #~ msgstr "Ya eliminado"
-
-#~ msgid "already indexed"
-#~ msgstr "Ya indexado"
 
 #~ msgid "checking for context index.."
 #~ msgstr "chequeando el indice de contexto..."

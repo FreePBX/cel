@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 22:31+0000\n"
+"POT-Creation-Date: 2017-02-01 17:43-0800\n"
 "PO-Revision-Date: 2015-03-09 17:34-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,13 +18,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ucp/assets/js/global.js:42
+#: ucp/assets/js/global.js:50
 #, perl-format
 msgid "%s seconds"
-msgstr ""
-
-#: install.php:120
-msgid "Adding (this might take a long time)"
 msgstr ""
 
 #: views/ucp_config.php:7
@@ -51,14 +47,6 @@ msgstr ""
 msgid "Allowed CEL"
 msgstr ""
 
-#: install.php:112
-msgid "Already Removed"
-msgstr ""
-
-#: install.php:129
-msgid "Already indexed"
-msgstr ""
-
 #: views/search.php:106
 msgid "Application"
 msgstr ""
@@ -67,12 +55,8 @@ msgstr ""
 msgid "Application executed by a call participant"
 msgstr ""
 
-#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
+#: cel.i18n.php:14
 msgid "CEL Report Module"
-msgstr ""
-
-#: ucp/views/table.php:46
-msgid "Call Detail"
 msgstr ""
 
 #: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
@@ -80,11 +64,16 @@ msgstr ""
 msgid "Call Event Logging"
 msgstr ""
 
-#: ucp/Cel.class.php:37
-msgid "Call Event Logs"
+#: ucp/Cel.class.php:58 ucp/Cel.class.php:78 ucp/assets/js/global.js:24
+msgid "Call Events"
 msgstr ""
 
-#: ucp/views/table.php:30
+#: ucp/Cel.class.php:45
+#, php-format
+msgid "Call Events for %s"
+msgstr ""
+
+#: ucp/views/widget.php:27
 msgid "Caller"
 msgstr ""
 
@@ -96,16 +85,16 @@ msgstr ""
 msgid "Caller ID of a call participant"
 msgstr ""
 
-#: install.php:99
+#: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr ""
 
-#: install.php:116
+#: install.php:92
 msgid "Checking for context index.."
 msgstr ""
 
-#: ucp/views/table.php:71
+#: ucp/assets/js/global.js:26
 msgid "Close"
 msgstr ""
 
@@ -113,18 +102,18 @@ msgstr ""
 msgid "Conference"
 msgstr ""
 
-#: ucp/views/table.php:36
+#: ucp/views/widget.php:33
 msgid "Controls"
 msgstr ""
 
-#: cel.i18n.php:24
+#: cel.i18n.php:20
 msgid ""
 "DO NOT set this unless you know what you are doing. Only used if you do not "
 "use the default values provided by FreePBX. Name of the table in the db "
 "where the cel is stored. cel is default."
 msgstr ""
 
-#: ucp/views/table.php:28
+#: ucp/views/widget.php:26
 msgid "Date"
 msgstr ""
 
@@ -136,11 +125,11 @@ msgstr ""
 msgid "Date range of calls in the format of mm/dd/yyyy"
 msgstr ""
 
-#: ucp/views/table.php:66
+#: ucp/views/eventModal.php:16
 msgid "Detail"
 msgstr ""
 
-#: ucp/views/table.php:31
+#: ucp/views/widget.php:28
 msgid "Dialed"
 msgstr ""
 
@@ -148,44 +137,39 @@ msgstr ""
 msgid "Dialed Number"
 msgstr ""
 
-#: ucp/assets/js/global.js:56
+#: ucp/assets/js/global.js:64
 msgid "Download"
 msgstr ""
 
-#: ucp/views/table.php:32 ucp/views/table.php:65
+#: ucp/views/eventModal.php:15 ucp/views/widget.php:29
 msgid "Duration"
 msgstr ""
 
-#: install.php:124
-msgid "ERROR failed to add context index"
-msgstr ""
-
-#: install.php:107
-#, php-format
-msgid "ERROR failed to delete %s field"
-msgstr ""
-
-#: install.php:77
-msgid "ERROR failed to update extra field"
+#: install.php:110
+msgid "ERROR failed to update database"
 msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr ""
 
-#: cel.i18n.php:14
+#: cel.i18n.php:12
 msgid "Enable CEL Reporting"
+msgstr ""
+
+#: ucp/assets/js/global.js:33 ucp/assets/js/global.js:38
+msgid "Error getting form"
 msgstr ""
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
 msgstr ""
 
-#: ucp/Cel.class.php:119 ucp/Cel.class.php:122
+#: ucp/Cel.class.php:128 ucp/Cel.class.php:131
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cel.class.php:216 ucp/Cel.class.php:227
+#: ucp/Cel.class.php:228 ucp/Cel.class.php:239
 msgid "Forbidden"
 msgstr ""
 
@@ -201,19 +185,15 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ucp/Cel.class.php:62
-msgid "Not Authorized"
-msgstr ""
-
-#: ucp/Cel.class.php:221
+#: ucp/Cel.class.php:233
 msgid "Not Found"
 msgstr ""
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:126
+#: install.php:67
 msgid "OK"
 msgstr ""
 
-#: ucp/views/table.php:34
+#: ucp/views/widget.php:31
 msgid "Playback"
 msgstr ""
 
@@ -221,15 +201,19 @@ msgstr ""
 msgid "Queue"
 msgstr ""
 
-#: cel.i18n.php:20
+#: cel.i18n.php:18
 msgid "Remote CEL DB Table"
 msgstr ""
 
-#: install.php:109
+#: install.php:112
 msgid "Removed"
 msgstr ""
 
-#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
+#: install.php:105
+msgid "Removing outdated fields (this might take a long time)"
+msgstr ""
+
+#: cel.i18n.php:6
 msgid "Reports"
 msgstr ""
 
@@ -241,7 +225,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: cel.i18n.php:18
+#: cel.i18n.php:16
 msgid ""
 "Setting this true will enable the CEL module to create call reports from CEL "
 "data. Although the CEL module will assure there is a CEL table available, "
@@ -260,7 +244,7 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
-#: ucp/views/table.php:64
+#: ucp/views/eventModal.php:14
 msgid "Time"
 msgstr ""
 
@@ -284,7 +268,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: ucp/assets/js/global.js:95
+#: ucp/assets/js/global.js:103
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -299,14 +283,26 @@ msgid ""
 "in the more refined the report."
 msgstr ""
 
-#: install.php:82
+#: install.php:77
 msgid "already exists"
 msgstr ""
 
-#: install.php:70
+#: install.php:99
+msgid "already indexed"
+msgstr ""
+
+#: install.php:88
+msgid "already removed"
+msgstr ""
+
+#: install.php:72
 msgid "checking for extra field.."
 msgstr ""
 
-#: install.php:103
-msgid "removing (this might take a long time)"
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
+msgid "found"
+msgstr ""
+
+#: install.php:75
+msgid "not found"
 msgstr ""
