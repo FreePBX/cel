@@ -67,49 +67,25 @@ if(DB::IsError($check)) {
 	out(_("OK"));
 }
 
+$alterclauses = array();
+
 outn(_("checking for extra field.."));
 if (!$dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "extra"')) {
-	// rename field
-	set_time_limit(0);
-	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` CHANGE `eventextra` `extra` varchar(512)";
-	$result = $dbcdr->query($sql);
-	if(DB::IsError($result)) {
-		out(_("ERROR failed to update extra field"));
-	} else {
-		out(_("OK"));
-	}
+	$alterclauses[] = "CHANGE `eventextra` `extra` varchar(512)";
+	out(_("not found"));
 } else {
 	out(_("already exists"));
 }
-//FREEPBX-12986
-/*
-outn(_("expanding appdata field.."));
-$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` MODIFY `appdata` varchar(255)";
-$result = $dbcdr->query($sql);
-if(DB::IsError($result)) {
-	out(_("ERROR failed to update extra field"));
-} else {
-	out(_("OK"));
-}
- */
 
 // delete some extranous fields from earlier (incorrect) schemas
 $delfields = array("userfield", "src", "dst", "channel", "dstchannel");
 foreach ($delfields as $field) {
 	outn(sprintf(_("Checking for %s field to remove.."), $field));
 	if ($dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "' . $field . '"')) {
-		// drop column
-		set_time_limit(0);
-		outn(_("removing (this might take a long time)"));
-		$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` DROP COLUMN `" . $field . "`";
-		$result = $dbcdr->query($sql);
-		if(DB::IsError($result)) {
-			out(sprintf(_("ERROR failed to delete %s field"), $field));
-		} else {
-			out(_("Removed"));
-		}
+		$alterclauses[] = "DROP COLUMN `$field`";
+		out(_("found"));
 	} else {
-		out(_("Already Removed"));
+		out(_("already removed"));
 	}
 }
 
@@ -117,19 +93,25 @@ outn(_("Checking for context index.."));
 $sql = "SHOW INDEXES FROM `" . $db_cel_name . "`.`" . $db_cel_table_name . "` WHERE Key_name='context_index'";
 $check = $dbcdr->getOne($sql);
 if (empty($check)) {
-	outn(_("Adding (this might take a long time)"));
-	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "` ADD INDEX context_index (context)";
-	$result = $dbcdr->query($sql);
-	if(DB::IsError($result)) {
-		out(_("ERROR failed to add context index"));
-	} else {
-		out(_("OK"));
-	}
+	$alterclauses[] = "ADD INDEX context_index (context)";
+	out(_("found"));
 } else {
-	out(_("Already indexed"));
+	out(_("already indexed"));
 }
 
-
+if (count($alterclauses)) {
+	// drop column
+	set_time_limit(0);
+	outn(_("Removing outdated fields (this might take a long time)"));
+	$sql = "ALTER TABLE `" . $db_cel_name . "`.`" . $db_cel_table_name . "`";
+	$sql .= implode(",", $alterclauses);
+	$result = $dbcdr->query($sql);
+	if(DB::IsError($result)) {
+		out(_("ERROR failed to update database"));
+	} else {
+		out(_("Removed"));
+	}
+}
 
 $set['value'] = true;
 $set['defaultval'] = true;
@@ -163,6 +145,21 @@ $set['module'] = 'cel';
 $set['category'] = 'CEL Report Module';
 $set['emptyok'] = 1;
 $set['sortorder'] = 10;
+$set['name'] = 'Remote CEL DB Name';
+$set['description'] = 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX. Name of database used for where the cel is stored. asteriskcdrdb is default.';
+$set['type'] = CONF_TYPE_TEXT;
+$freepbx_conf->define_conf_setting('CELDBNAME',$set,true);
+
+unset($set);
+$set['value'] = '';
+$set['defaultval'] = '';
+$set['readonly'] = 1;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'cel';
+$set['category'] = 'CEL Report Module';
+$set['emptyok'] = 1;
+$set['sortorder'] = 11;
 $set['name'] = 'Remote CEL DB Table';
 $set['description'] = 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX. Name of the table in the db where the cel is stored. cel is default.';
 $set['type'] = CONF_TYPE_TEXT;
