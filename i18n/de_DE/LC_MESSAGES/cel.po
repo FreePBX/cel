@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-03-03 15:42+0200\n"
+"PO-Revision-Date: 2017-03-06 03:05+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -44,11 +44,11 @@ msgstr ""
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben."
+msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben"
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen."
+msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
@@ -308,7 +308,7 @@ msgstr ""
 
 #: install.php:82
 msgid "already exists"
-msgstr "bereits vorhanden"
+msgstr "besteht bereits"
 
 #: install.php:70
 msgid "checking for extra field.."
