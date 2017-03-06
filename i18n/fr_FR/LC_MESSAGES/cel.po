@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2016-11-25 04:11+0200\n"
-"Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
+"PO-Revision-Date: 2017-03-05 21:34+0200\n"
+"Last-Translator: Francis <fbinet@solist.ca>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cel/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -153,11 +153,11 @@ msgstr ""
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 #: ucp/views/table.php:32 ucp/views/table.php:65
 msgid "Duration"
-msgstr ""
+msgstr "Durée"
 
 #: install.php:113
 msgid "ERROR failed to add context index"
@@ -186,11 +186,11 @@ msgstr ""
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
-msgstr "Le fichier n'existe pas"
+msgstr "Fichier inexistant"
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr "Interdit"
+msgstr "Refusé"
 
 #: views/search.php:33
 msgid "From"
