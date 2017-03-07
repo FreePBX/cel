@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-03-05 21:34+0200\n"
-"Last-Translator: Francis <fbinet@solist.ca>\n"
+"PO-Revision-Date: 2017-03-07 09:14+0200\n"
+"Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cel/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -238,7 +238,7 @@ msgstr "Rapports"
 
 #: Cel.class.php:211
 msgid "Reset"
-msgstr "Remise à zéro"
+msgstr "Réinitialiser"
 
 #: Cel.class.php:216 views/search.php:16
 msgid "Search"
