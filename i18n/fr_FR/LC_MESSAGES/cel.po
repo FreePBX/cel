@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-03-12 17:22+0200\n"
-"Last-Translator: Nicolas <freepbx@riendeau.org>\n"
+"PO-Revision-Date: 2017-03-12 20:37+0200\n"
+"Last-Translator: Francis <fbinet@solist.ca>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cel/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -210,7 +210,7 @@ msgstr ""
 
 #: ucp/Cel.class.php:221
 msgid "Not Found"
-msgstr "Non trouvé"
+msgstr "Introuvable"
 
 #: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
@@ -218,7 +218,7 @@ msgstr "OK"
 
 #: ucp/views/table.php:34
 msgid "Playback"
-msgstr "Écouter"
+msgstr "Lecture"
 
 #: views/search.php:5
 msgid "Queue"
