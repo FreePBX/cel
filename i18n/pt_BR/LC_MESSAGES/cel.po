@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-03-13 13:25+0200\n"
-"Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
+"PO-Revision-Date: 2017-03-27 13:40+0200\n"
+"Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/cel/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -81,7 +81,7 @@ msgstr "Detalhes da Chamada"
 #: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
-msgstr "Registro de Eventos de Chamadas (CEL)"
+msgstr "Registro de Eventos de Chamadas"
 
 #: ucp/Cel.class.php:37
 msgid "Call Event Logs"
