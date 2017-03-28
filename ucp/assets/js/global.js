@@ -8,13 +8,15 @@ var CelC = UCPMC.extend({
 	},
 	displayWidget: function(widget_id) {
 		var self = this;
-		$(".clickable").click(function(e) {
-			var text = $(this).text();
-			if (UCP.validMethod("Contactmanager", "showActionDialog")) {
-				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
-			}
+
+		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").one("post-body.bs.table", function() {
+			setTimeout(function() {
+				self.resize(widget_id);
+			},250);
+			self.bindPlayers(widget_id);
 		});
-		$(".cel-grid").on("click-cell.bs.table", function(event, field, value, row) {
+
+		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").on("click-cell.bs.table", function(event, field, value, row) {
 			if(field == "playback" || field == "controls") {
 				return;
 			}
@@ -25,25 +27,17 @@ var CelC = UCPMC.extend({
 						data.message,
 						'<button type="button" class="btn btn-primary" data-dismiss="modal">'+_("Close")+'</button>',
 						function() {
-							$(".cel-detail-grid").bootstrapTable();
-							$(".cel-detail-grid").bootstrapTable('load', row.actions);
+							$("#globalModal .cel-detail-grid").bootstrapTable();
+							$("#globalModal .cel-detail-grid").bootstrapTable('load', row.actions);
 						}
 					);
 				} else {
 					UCP.showAlert(_("Error getting form"),'danger');
 				}
 			}).always(function() {
-				$(self).prop("disabled",false);
 			}).fail(function() {
 				UCP.showAlert(_("Error getting form"),'danger');
 			});
-		});
-		$('#callpreview').on('show.bs.modal', function () {
-			$('.modal .modal-body').css('overflow-y', 'auto');
-			$('.modal .modal-body').css('max-height', $(window).height() * 0.65);
-		});
-		$('.cel-grid').on("post-body.bs.table", function () {
-			self.bindPlayers();
 		});
 	},
 	formatDuration: function (value, row, index) {
@@ -61,7 +55,7 @@ var CelC = UCPMC.extend({
 			if(v === false) {
 				return true;
 			}
-			links = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cel&amp;command=download&amp;id='+encodeURIComponent(k)+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
+			links = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cel&amp;command=download&amp;id='+encodeURIComponent(k)+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
 		});
 		return links;
 	},
@@ -108,8 +102,8 @@ var CelC = UCPMC.extend({
 		});
 		return html;
 	},
-	bindPlayers: function() {
-		$(".jp-jplayer").each(function() {
+	bindPlayers: function(widget_id) {
+		$(".grid-stack-item[data-id='"+widget_id+"'] .jp-jplayer").each(function() {
 			var container = $(this).data("container"),
 					player = $(this),
 					id = $(this).data("id");
@@ -179,7 +173,7 @@ var CelC = UCPMC.extend({
 		});
 
 		var acontainer = null;
-		$('.jp-play-bar').mousedown(function (e) {
+		$(".grid-stack-item[data-id='"+widget_id+"'] .jp-play-bar").mousedown(function (e) {
 			acontainer = $(this).parents(".jp-audio-freepbx");
 			updatebar(e.pageX);
 		});

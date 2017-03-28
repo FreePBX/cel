@@ -43,8 +43,8 @@ class Cel extends Modules{
 				$widgets[$extension] = array(
 					"display" => $name,
 					"description" => sprintf(_("Call Events for %s"),$name),
-					"defaultsize" => array("height" => 6, "width" => 5),
-					"minsize" => array("height" => 6, "width" => 4)
+					"defaultsize" => array("height" => 7, "width" => 6),
+					"minsize" => array("height" => 6, "width" => 3)
 				);
 			}
 		}
@@ -61,7 +61,7 @@ class Cel extends Modules{
 		);
 	}
 
-	public function getWidgetDisplay($id) {
+	public function getWidgetDisplay($id, $uuid) {
 		if (!$this->_checkExtension($id)) {
 			return array();
 		}
