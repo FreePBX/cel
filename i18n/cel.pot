@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 17:43-0800\n"
+"POT-Creation-Date: 2017-03-28 15:10-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ucp/assets/js/global.js:50
+#: ucp/assets/js/global.js:44
 #, perl-format
 msgid "%s seconds"
 msgstr ""
@@ -67,7 +67,7 @@ msgstr ""
 
 #: ucp/Cel.class.php:58
 #: ucp/Cel.class.php:78
-#: ucp/assets/js/global.js:24
+#: ucp/assets/js/global.js:26
 msgid "Call Events"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Checking for context index.."
 msgstr ""
 
-#: ucp/assets/js/global.js:26
+#: ucp/assets/js/global.js:28
 msgid "Close"
 msgstr ""
 
@@ -110,6 +110,13 @@ msgid "Controls"
 msgstr ""
 
 #: cel.i18n.php:20
+msgid ""
+"DO NOT set this unless you know what you are doing. Only used if you do not "
+"use the default values provided by FreePBX. Name of database used for where "
+"the cel is stored. asteriskcdrdb is default."
+msgstr ""
+
+#: cel.i18n.php:24
 msgid ""
 "DO NOT set this unless you know what you are doing. Only used if you do not "
 "use the default values provided by FreePBX. Name of the table in the db "
@@ -140,7 +147,7 @@ msgstr ""
 msgid "Dialed Number"
 msgstr ""
 
-#: ucp/assets/js/global.js:64
+#: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr ""
 
@@ -161,8 +168,8 @@ msgstr ""
 msgid "Enable CEL Reporting"
 msgstr ""
 
-#: ucp/assets/js/global.js:33
-#: ucp/assets/js/global.js:38
+#: ucp/assets/js/global.js:35
+#: ucp/assets/js/global.js:39
 msgid "Error getting form"
 msgstr ""
 
@@ -213,6 +220,10 @@ msgid "Queue"
 msgstr ""
 
 #: cel.i18n.php:18
+msgid "Remote CEL DB Name"
+msgstr ""
+
+#: cel.i18n.php:22
 msgid "Remote CEL DB Table"
 msgstr ""
 
@@ -282,7 +293,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: ucp/assets/js/global.js:103
+#: ucp/assets/js/global.js:97
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

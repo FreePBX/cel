@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 17:43-0800\n"
+"POT-Creation-Date: 2017-03-28 15:10-0700\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: ucp/assets/js/global.js:50
+#: ucp/assets/js/global.js:44
 #, perl-format
 msgid "%s seconds"
 msgstr ""
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Call Event Logging"
 msgstr ""
 
-#: ucp/Cel.class.php:58 ucp/Cel.class.php:78 ucp/assets/js/global.js:24
+#: ucp/Cel.class.php:58 ucp/Cel.class.php:78 ucp/assets/js/global.js:26
 msgid "Call Events"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Checking for context index.."
 msgstr ""
 
-#: ucp/assets/js/global.js:26
+#: ucp/assets/js/global.js:28
 msgid "Close"
 msgstr "关闭"
 
@@ -110,6 +110,13 @@ msgid "Controls"
 msgstr "控制"
 
 #: cel.i18n.php:20
+msgid ""
+"DO NOT set this unless you know what you are doing. Only used if you do not "
+"use the default values provided by FreePBX. Name of database used for where "
+"the cel is stored. asteriskcdrdb is default."
+msgstr ""
+
+#: cel.i18n.php:24
 msgid ""
 "DO NOT set this unless you know what you are doing. Only used if you do not "
 "use the default values provided by FreePBX. Name of the table in the db "
@@ -140,7 +147,7 @@ msgstr ""
 msgid "Dialed Number"
 msgstr ""
 
-#: ucp/assets/js/global.js:64
+#: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr "下载"
 
@@ -160,7 +167,7 @@ msgstr ""
 msgid "Enable CEL Reporting"
 msgstr ""
 
-#: ucp/assets/js/global.js:33 ucp/assets/js/global.js:38
+#: ucp/assets/js/global.js:35 ucp/assets/js/global.js:39
 msgid "Error getting form"
 msgstr ""
 
@@ -205,6 +212,10 @@ msgid "Queue"
 msgstr ""
 
 #: cel.i18n.php:18
+msgid "Remote CEL DB Name"
+msgstr ""
+
+#: cel.i18n.php:22
 msgid "Remote CEL DB Table"
 msgstr ""
 
@@ -271,7 +282,7 @@ msgstr ""
 msgid "Yes"
 msgstr "是"
 
-#: ucp/assets/js/global.js:103
+#: ucp/assets/js/global.js:97
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
