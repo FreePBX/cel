@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-06-10 21:36+0200\n"
+"PO-Revision-Date: 2017-06-13 16:31+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/vi/>\n"
@@ -44,11 +44,11 @@ msgstr ""
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "Cho phép người dùng này phát lại các ghi âm trong UCP"
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "Cho phép người dùng tải xuống các ghi âm trong UCP"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
@@ -64,7 +64,7 @@ msgstr ""
 
 #: views/search.php:106
 msgid "Application"
-msgstr ""
+msgstr "Ứng dụng"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
