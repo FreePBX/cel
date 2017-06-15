@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-06-14 22:34+0200\n"
+"PO-Revision-Date: 2017-06-15 17:35+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/vi/>\n"
@@ -153,11 +153,11 @@ msgstr ""
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
-msgstr ""
+msgstr "Tải xuống"
 
 #: ucp/views/table.php:32 ucp/views/table.php:65
 msgid "Duration"
-msgstr ""
+msgstr "Khoảng thời gian"
 
 #: install.php:113
 msgid "ERROR failed to add context index"
@@ -186,19 +186,19 @@ msgstr ""
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
-msgstr ""
+msgstr "Tệp không tồn tại"
 
 #: ucp/Cel.class.php:216 ucp/Cel.class.php:227
 msgid "Forbidden"
-msgstr ""
+msgstr "Bị cấm"
 
 #: views/search.php:33
 msgid "From"
-msgstr ""
+msgstr "Từ"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Kế thừa"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -206,11 +206,11 @@ msgstr "Không"
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
-msgstr ""
+msgstr "Không có thẩm quyền"
 
 #: ucp/Cel.class.php:221
 msgid "Not Found"
-msgstr ""
+msgstr "Không tìm thấy"
 
 #: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
@@ -218,7 +218,7 @@ msgstr ""
 
 #: ucp/views/table.php:34
 msgid "Playback"
-msgstr ""
+msgstr "Phát lại"
 
 #: views/search.php:5
 msgid "Queue"
@@ -234,7 +234,7 @@ msgstr ""
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
-msgstr ""
+msgstr "Các báo cáo"
 
 #: Cel.class.php:211
 msgid "Reset"
@@ -242,7 +242,7 @@ msgstr "Cài đặt lại"
 
 #: Cel.class.php:216 views/search.php:16
 msgid "Search"
-msgstr ""
+msgstr "Tìm kiếm"
 
 #: cel.i18n.php:18
 msgid ""
@@ -262,22 +262,24 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Có những máy nhánh được chỉ định và hoạt động sẽ hiển thị cho người dùng này "
+"điều khiển và hiệu chỉnh trong UCP"
 
 #: ucp/views/table.php:64
 msgid "Time"
-msgstr ""
+msgstr "Thời gian"
 
 #: views/search.php:36
 msgid "To"
-msgstr ""
+msgstr "Đến"
 
 #: Cel.class.php:174
 msgid "User Primary Extension"
-msgstr "Số máy nhánh chính của người dùng"
+msgstr "Máy nhánh chính của người dùng"
 
 #: views/search.php:6
 msgid "Voicemail"
-msgstr ""
+msgstr "Thư thoại"
 
 #: views/search.php:7
 msgid "Voicemail Main"
@@ -295,6 +297,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Bạn đang thiếu hỗ trợ cho việc phát lại trong trình duyệt này. Để có hỗ trợ "
+"phát lại trình duyệt HTML5 đầy đủ bạn cần cài đặt các chương trình không bị "
+"phân bố tới PBX. Nếu bạn muốn cài đặt các chương trình cần thiết cho các "
+"chuyển đổi này, vui lòng nhấp <a href='%s'>here</a>"
 
 #: page.cel.php:12
 msgid ""
