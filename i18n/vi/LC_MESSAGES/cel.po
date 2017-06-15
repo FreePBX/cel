@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-06-14 09:49+0200\n"
+"PO-Revision-Date: 2017-06-14 22:34+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/vi/>\n"
@@ -114,11 +114,11 @@ msgstr "Đóng"
 
 #: views/search.php:4
 msgid "Conference"
-msgstr ""
+msgstr "Hội nghị"
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr ""
+msgstr "Điều khiển"
 
 #: cel.i18n.php:24
 msgid ""
@@ -129,7 +129,7 @@ msgstr ""
 
 #: ucp/views/table.php:28
 msgid "Date"
-msgstr ""
+msgstr "Ngày"
 
 #: views/search.php:27
 msgid "Date Range"
@@ -273,7 +273,7 @@ msgstr ""
 
 #: Cel.class.php:174
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Số máy nhánh chính của người dùng"
 
 #: views/search.php:6
 msgid "Voicemail"
