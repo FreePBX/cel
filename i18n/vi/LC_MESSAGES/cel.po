@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-06-15 17:35+0200\n"
+"PO-Revision-Date: 2017-06-15 20:07+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/vi/>\n"
@@ -24,23 +24,23 @@ msgstr ""
 #: ucp/assets/js/global.js:42
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s giây"
 
 #: install.php:109
 msgid "Adding (this might take a long time)"
-msgstr ""
+msgstr "Đang thêm ( việc này có thể mất nhiều thời gian)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
-msgstr ""
+msgstr "Cho phép CEL ( Nhật ký sự kiện cuộc gọi)"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Downloads"
-msgstr ""
+msgstr "Cho phép tải lên CEL ( Nhật ký sự kiện cuộc gọi )"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Playback"
-msgstr ""
+msgstr "Cho phép phát lại CEL ( Nhật ký sự kiện cuộc gọi)"
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
@@ -52,15 +52,15 @@ msgstr "Cho phép người dùng tải xuống các ghi âm trong UCP"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
-msgstr ""
+msgstr "CEL ( Nhật ký sự kiện cuộc gọi) được cho phép"
 
 #: install.php:101
 msgid "Already Removed"
-msgstr ""
+msgstr "Đã xóa xong"
 
 #: install.php:118
 msgid "Already indexed"
-msgstr ""
+msgstr "Đã lập chỉ mục"
 
 #: views/search.php:106
 msgid "Application"
@@ -68,45 +68,45 @@ msgstr "Ứng dụng"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
-msgstr ""
+msgstr "Ứng dụng được thực hiện bởi một người tham gia cuộc gọi"
 
 #: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
 msgid "CEL Report Module"
-msgstr ""
+msgstr "Mô đun báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
-msgstr ""
+msgstr "Chi tiết cuộc gọi"
 
 #: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
-msgstr ""
+msgstr "Nhật ký sự kiện cuộc gọi"
 
 #: ucp/Cel.class.php:37
 msgid "Call Event Logs"
-msgstr ""
+msgstr "Các nhật ký sự kiện cuộc gọi"
 
 #: ucp/views/table.php:30
 msgid "Caller"
-msgstr ""
+msgstr "Người gọi"
 
 #: views/search.php:58
 msgid "Caller ID"
-msgstr ""
+msgstr "Định danh người gọi đến"
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
-msgstr ""
+msgstr "Caller ID của một người tham gia cuộc gọi"
 
 #: install.php:88
 #, php-format
 msgid "Checking for %s field to remove.."
-msgstr ""
+msgstr "Đang kiểm tra %s trường để xóa.."
 
 #: install.php:105
 msgid "Checking for context index.."
-msgstr ""
+msgstr "Đang kiểm tra chỉ mục ngữ cảnh..."
 
 #: ucp/views/table.php:71
 msgid "Close"
@@ -126,6 +126,9 @@ msgid ""
 "use the default values provided by FreePBX. Name of the table in the db "
 "where the cel is stored. cel is default."
 msgstr ""
+"KHÔNG ĐƯỢC cài đặt như thế trừ khi bạn biết bạn đang làm cái gì. Chỉ được sử "
+"dụng nếu bạn không sử dụng giá trị mặc định do FreePBX cung cấp. Tên của "
+"bảng trong db nơi cel ( Nhật ký sự kiện cuộc gọi) được lưu trữ. Cel mặc định."
 
 #: ucp/views/table.php:28
 msgid "Date"
@@ -133,23 +136,23 @@ msgstr "Ngày"
 
 #: views/search.php:27
 msgid "Date Range"
-msgstr ""
+msgstr "Khoảng thời gian"
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
+msgstr "Khoảng thời gian của các cuộc gọi là định dạng mm/dd/yyyy"
 
 #: ucp/views/table.php:66
 msgid "Detail"
-msgstr ""
+msgstr "Chi tiết"
 
 #: ucp/views/table.php:31
 msgid "Dialed"
-msgstr ""
+msgstr "Đã gọi"
 
 #: views/search.php:82
 msgid "Dialed Number"
-msgstr ""
+msgstr "Số đã gọi"
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
@@ -161,28 +164,28 @@ msgstr "Khoảng thời gian"
 
 #: install.php:113
 msgid "ERROR failed to add context index"
-msgstr ""
+msgstr "LỖI thất bại khi thêm chỉ mục ngữ cảnh"
 
 #: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
-msgstr ""
+msgstr "LỖI thất bại khi xóa %s trường"
 
 #: install.php:77
 msgid "ERROR failed to update extra field"
-msgstr ""
+msgstr "LỖI thất bại khi cập nhật trường phụ"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
-msgstr ""
+msgstr "Bật CEL ( Nhật ký sự kiện cuộc gọi) trong UCP cho người dùng"
 
 #: cel.i18n.php:14
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "Bật báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
-msgstr ""
+msgstr "Máy nhánh hoặc DID ( quay số vào trực tiếp) đã gọi"
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
@@ -214,7 +217,7 @@ msgstr "Không tìm thấy"
 
 #: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ucp/views/table.php:34
 msgid "Playback"
@@ -222,15 +225,15 @@ msgstr "Phát lại"
 
 #: views/search.php:5
 msgid "Queue"
-msgstr ""
+msgstr "Hàng đợi"
 
 #: cel.i18n.php:20
 msgid "Remote CEL DB Table"
-msgstr ""
+msgstr "Bảng dữ liệu CEL từ xa"
 
 #: install.php:98
 msgid "Removed"
-msgstr ""
+msgstr "Đã xóa"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
@@ -252,10 +255,14 @@ msgid ""
 "configuration must be done outside of FreePBX either by the user or at the "
 "Distro level."
 msgstr ""
+"Cài đặt về True sẽ bật mô đun CEL để tạo báo cáo cuộc gọi từ dữ liệu CEL. Dù "
+"mô đun CEL sẽ đảm bảo có mộ bảng CEL sẵn có, tính nắng báo cáo trong "
+"Asterisk và cơ sở dữ liệu ODBC và cấu hình CEL  phải được thực hiện bên "
+"ngoài FreePBX bở người dùng hoặc tại mức Distro."
 
 #: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr ""
+msgstr "Mô đun CEL yêu cầu một phiên bản Asterisk 12.0 hoặc cao hơn."
 
 #: views/ucp_config.php:54
 msgid ""
@@ -283,7 +290,7 @@ msgstr "Thư thoại"
 
 #: views/search.php:7
 msgid "Voicemail Main"
-msgstr ""
+msgstr "Thư thoại chính"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
@@ -307,15 +314,17 @@ msgid ""
 "You may search by any or all of the fields below. The more fields you fill "
 "in the more refined the report."
 msgstr ""
+"Bạn có thể tìm kiếm bằng bất kỳ hoặc tất cả các trường dưới đây. Bạn càng "
+"điền nhiều trường các báo cáo càng được lọc chính xác."
 
 #: install.php:82
 msgid "already exists"
-msgstr ""
+msgstr "Đã tồn tại"
 
 #: install.php:70
 msgid "checking for extra field.."
-msgstr ""
+msgstr "Đang kiểm tra trường phụ.."
 
 #: install.php:92
 msgid "removing (this might take a long time)"
-msgstr ""
+msgstr "Đang xóa ( Việc này có thể mất nhiều thời gian)"
