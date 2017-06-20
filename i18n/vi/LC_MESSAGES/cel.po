@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-06-15 20:07+0200\n"
-"Last-Translator: Peter Trinh <ftek@ymail.com>\n"
+"PO-Revision-Date: 2017-06-20 09:27+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/vi/>\n"
 "Language: vi\n"
@@ -209,7 +209,7 @@ msgstr "Không"
 
 #: ucp/Cel.class.php:62
 msgid "Not Authorized"
-msgstr "Không có thẩm quyền"
+msgstr "Không được cho phép"
 
 #: ucp/Cel.class.php:221
 msgid "Not Found"
@@ -217,7 +217,7 @@ msgstr "Không tìm thấy"
 
 #: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
 msgid "OK"
-msgstr "OK"
+msgstr "Ok"
 
 #: ucp/views/table.php:34
 msgid "Playback"
