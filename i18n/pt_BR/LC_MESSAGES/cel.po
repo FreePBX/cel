@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 15:10-0700\n"
+"POT-Creation-Date: 2017-06-23 14:13-0700\n"
 "PO-Revision-Date: 2017-03-27 13:40+0200\n"
 "Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: ucp/assets/js/global.js:44
+#: ucp/assets/js/global.js:48
 #, perl-format
 msgid "%s seconds"
 msgstr "%s segundos"
@@ -67,7 +67,7 @@ msgstr "Módulo de Relatório CEL"
 msgid "Call Event Logging"
 msgstr "Registro de Eventos de Chamadas"
 
-#: ucp/Cel.class.php:58 ucp/Cel.class.php:78 ucp/assets/js/global.js:26
+#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:30
 msgid "Call Events"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr "Verificando campo %s para remover..."
 msgid "Checking for context index.."
 msgstr "Verificando por índice de contexto..."
 
-#: ucp/assets/js/global.js:28
+#: ucp/assets/js/global.js:32
 msgid "Close"
 msgstr "Fechar"
 
@@ -150,7 +150,7 @@ msgstr "Discado"
 msgid "Dialed Number"
 msgstr "Número Discado"
 
-#: ucp/assets/js/global.js:58
+#: ucp/assets/js/global.js:63
 msgid "Download"
 msgstr "Baixar"
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Enable CEL Reporting"
 msgstr "Habilitar Relatório CEL"
 
-#: ucp/assets/js/global.js:35 ucp/assets/js/global.js:39
+#: ucp/assets/js/global.js:39 ucp/assets/js/global.js:43
 msgid "Error getting form"
 msgstr ""
 
@@ -179,11 +179,11 @@ msgstr ""
 msgid "Extension or DID dialed"
 msgstr "Ramal ou DID discado"
 
-#: ucp/Cel.class.php:128 ucp/Cel.class.php:131
+#: ucp/Cel.class.php:139 ucp/Cel.class.php:142
 msgid "File does not exist"
 msgstr "Arquivo não existe"
 
-#: ucp/Cel.class.php:228 ucp/Cel.class.php:239
+#: ucp/Cel.class.php:239 ucp/Cel.class.php:250
 msgid "Forbidden"
 msgstr "Proibido"
 
@@ -199,7 +199,7 @@ msgstr "Herdar"
 msgid "No"
 msgstr "Não"
 
-#: ucp/Cel.class.php:233
+#: ucp/Cel.class.php:244
 msgid "Not Found"
 msgstr "Não Encontrado"
 
@@ -293,7 +293,7 @@ msgstr "Correio de Voz Principal"
 msgid "Yes"
 msgstr "Sim"
 
-#: ucp/assets/js/global.js:97
+#: ucp/assets/js/global.js:104
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

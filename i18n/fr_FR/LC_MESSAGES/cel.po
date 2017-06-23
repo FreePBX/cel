@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 15:10-0700\n"
+"POT-Creation-Date: 2017-06-23 14:13-0700\n"
 "PO-Revision-Date: 2016-02-04 23:02+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cel/fr_FR/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: ucp/assets/js/global.js:44
+#: ucp/assets/js/global.js:48
 #, perl-format
 msgid "%s seconds"
 msgstr "%s secondes"
@@ -67,7 +67,7 @@ msgstr "CEL Module de rapport"
 msgid "Call Event Logging"
 msgstr ""
 
-#: ucp/Cel.class.php:58 ucp/Cel.class.php:78 ucp/assets/js/global.js:26
+#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:30
 msgid "Call Events"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Checking for context index.."
 msgstr ""
 
-#: ucp/assets/js/global.js:28
+#: ucp/assets/js/global.js:32
 msgid "Close"
 msgstr "Fermer"
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Dialed Number"
 msgstr ""
 
-#: ucp/assets/js/global.js:58
+#: ucp/assets/js/global.js:63
 msgid "Download"
 msgstr ""
 
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Enable CEL Reporting"
 msgstr ""
 
-#: ucp/assets/js/global.js:35 ucp/assets/js/global.js:39
+#: ucp/assets/js/global.js:39 ucp/assets/js/global.js:43
 msgid "Error getting form"
 msgstr ""
 
@@ -175,11 +175,11 @@ msgstr ""
 msgid "Extension or DID dialed"
 msgstr ""
 
-#: ucp/Cel.class.php:128 ucp/Cel.class.php:131
+#: ucp/Cel.class.php:139 ucp/Cel.class.php:142
 msgid "File does not exist"
 msgstr "Le fichier n'existe pas"
 
-#: ucp/Cel.class.php:228 ucp/Cel.class.php:239
+#: ucp/Cel.class.php:239 ucp/Cel.class.php:250
 msgid "Forbidden"
 msgstr "Interdit"
 
@@ -195,7 +195,7 @@ msgstr "Par défaut"
 msgid "No"
 msgstr "Non"
 
-#: ucp/Cel.class.php:233
+#: ucp/Cel.class.php:244
 msgid "Not Found"
 msgstr "Non trouvé"
 
@@ -284,7 +284,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Oui"
 
-#: ucp/assets/js/global.js:97
+#: ucp/assets/js/global.js:104
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

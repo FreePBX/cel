@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-12 01:37-0800\n"
+"POT-Creation-Date: 2017-06-23 14:13-0700\n"
 "PO-Revision-Date: 2017-06-22 10:39+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
-"Language-Team: Vietnamese "
-"<http://weblate.freepbx.org/projects/freepbx/cel/vi/>\n"
+"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cel/"
+"vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,46 +21,34 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: ucp/assets/js/global.js:42
+#: ucp/assets/js/global.js:48
 #, perl-format
 msgid "%s seconds"
 msgstr "%s giây"
-
-#: install.php:109
-msgid "Adding (this might take a long time)"
-msgstr "Đang thêm ( việc này có thể mất nhiều thời gian)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
 msgstr "Cho phép CEL ( Nhật ký sự kiện cuộc gọi)"
 
-#: views/ucp_config.php:95
+#: views/ucp_config.php:64
 msgid "Allow CEL Downloads"
 msgstr "Cho phép tải lên CEL ( Nhật ký sự kiện cuộc gọi )"
 
-#: views/ucp_config.php:64
+#: views/ucp_config.php:95
 msgid "Allow CEL Playback"
 msgstr "Cho phép phát lại CEL ( Nhật ký sự kiện cuộc gọi)"
 
-#: views/ucp_config.php:85
+#: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
 msgstr "Cho phép người dùng này phát lại các ghi âm trong UCP"
 
-#: views/ucp_config.php:116
+#: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
 msgstr "Cho phép người dùng tải xuống các ghi âm trong UCP"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
 msgstr "CEL ( Nhật ký sự kiện cuộc gọi) được cho phép"
-
-#: install.php:101
-msgid "Already Removed"
-msgstr "Đã xóa xong"
-
-#: install.php:118
-msgid "Already indexed"
-msgstr "Đã lập chỉ mục"
 
 #: views/search.php:106
 msgid "Application"
@@ -70,24 +58,25 @@ msgstr "Ứng dụng"
 msgid "Application executed by a call participant"
 msgstr "Ứng dụng được thực hiện bởi một người tham gia cuộc gọi"
 
-#: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
+#: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr "Mô đun báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
-
-#: ucp/views/table.php:46
-msgid "Call Detail"
-msgstr "Chi tiết cuộc gọi"
 
 #: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Nhật ký sự kiện cuộc gọi"
 
-#: ucp/Cel.class.php:37
-msgid "Call Event Logs"
-msgstr "Các nhật ký sự kiện cuộc gọi"
+#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:30
+msgid "Call Events"
+msgstr ""
 
-#: ucp/views/table.php:30
+#: ucp/Cel.class.php:45
+#, php-format
+msgid "Call Events for %s"
+msgstr ""
+
+#: ucp/views/widget.php:27
 msgid "Caller"
 msgstr "Người gọi"
 
@@ -99,16 +88,16 @@ msgstr "Định danh người gọi đến"
 msgid "Caller ID of a call participant"
 msgstr "Caller ID của một người tham gia cuộc gọi"
 
-#: install.php:88
+#: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "Đang kiểm tra %s trường để xóa.."
 
-#: install.php:105
+#: install.php:92
 msgid "Checking for context index.."
 msgstr "Đang kiểm tra chỉ mục ngữ cảnh..."
 
-#: ucp/views/table.php:71
+#: ucp/assets/js/global.js:32
 msgid "Close"
 msgstr "Đóng"
 
@@ -116,9 +105,16 @@ msgstr "Đóng"
 msgid "Conference"
 msgstr "Hội nghị"
 
-#: ucp/views/table.php:36
+#: ucp/views/widget.php:33
 msgid "Controls"
 msgstr "Điều khiển"
+
+#: cel.i18n.php:20
+msgid ""
+"DO NOT set this unless you know what you are doing. Only used if you do not "
+"use the default values provided by FreePBX. Name of database used for where "
+"the cel is stored. asteriskcdrdb is default."
+msgstr ""
 
 #: cel.i18n.php:24
 msgid ""
@@ -130,7 +126,7 @@ msgstr ""
 "dụng nếu bạn không sử dụng giá trị mặc định do FreePBX cung cấp. Tên của "
 "bảng trong db nơi cel ( Nhật ký sự kiện cuộc gọi) được lưu trữ. Cel mặc định."
 
-#: ucp/views/table.php:28
+#: ucp/views/widget.php:26
 msgid "Date"
 msgstr "Ngày"
 
@@ -142,11 +138,11 @@ msgstr "Khoảng thời gian"
 msgid "Date range of calls in the format of mm/dd/yyyy"
 msgstr "Khoảng thời gian của các cuộc gọi là định dạng mm/dd/yyyy"
 
-#: ucp/views/table.php:66
+#: ucp/views/eventModal.php:16
 msgid "Detail"
 msgstr "Chi tiết"
 
-#: ucp/views/table.php:31
+#: ucp/views/widget.php:28
 msgid "Dialed"
 msgstr "Đã gọi"
 
@@ -154,44 +150,39 @@ msgstr "Đã gọi"
 msgid "Dialed Number"
 msgstr "Số đã gọi"
 
-#: ucp/assets/js/global.js:56
+#: ucp/assets/js/global.js:63
 msgid "Download"
 msgstr "Tải xuống"
 
-#: ucp/views/table.php:32 ucp/views/table.php:65
+#: ucp/views/eventModal.php:15 ucp/views/widget.php:29
 msgid "Duration"
 msgstr "Khoảng thời gian"
 
-#: install.php:113
-msgid "ERROR failed to add context index"
-msgstr "LỖI thất bại khi thêm chỉ mục ngữ cảnh"
-
-#: install.php:96
-#, php-format
-msgid "ERROR failed to delete %s field"
-msgstr "LỖI thất bại khi xóa %s trường"
-
-#: install.php:77
-msgid "ERROR failed to update extra field"
-msgstr "LỖI thất bại khi cập nhật trường phụ"
+#: install.php:110
+msgid "ERROR failed to update database"
+msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr "Bật CEL ( Nhật ký sự kiện cuộc gọi) trong UCP cho người dùng"
 
-#: cel.i18n.php:14
+#: cel.i18n.php:12
 msgid "Enable CEL Reporting"
 msgstr "Bật báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
+
+#: ucp/assets/js/global.js:39 ucp/assets/js/global.js:43
+msgid "Error getting form"
+msgstr ""
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
 msgstr "Máy nhánh hoặc DID ( quay số vào trực tiếp) đã gọi"
 
-#: ucp/Cel.class.php:119 ucp/Cel.class.php:122
+#: ucp/Cel.class.php:139 ucp/Cel.class.php:142
 msgid "File does not exist"
 msgstr "Tệp không tồn tại"
 
-#: ucp/Cel.class.php:216 ucp/Cel.class.php:227
+#: ucp/Cel.class.php:239 ucp/Cel.class.php:250
 msgid "Forbidden"
 msgstr "Bị cấm"
 
@@ -207,19 +198,15 @@ msgstr "Kế thừa"
 msgid "No"
 msgstr "Không"
 
-#: ucp/Cel.class.php:62
-msgid "Not Authorized"
-msgstr "Không được cho phép"
-
-#: ucp/Cel.class.php:221
+#: ucp/Cel.class.php:244
 msgid "Not Found"
 msgstr "Không tìm thấy"
 
-#: install.php:67 /usr/src/freepbx/cel/install.php:79 install.php:115
+#: install.php:67
 msgid "OK"
 msgstr "OK"
 
-#: ucp/views/table.php:34
+#: ucp/views/widget.php:31
 msgid "Playback"
 msgstr "Phát lại"
 
@@ -227,15 +214,23 @@ msgstr "Phát lại"
 msgid "Queue"
 msgstr "Hàng đợi"
 
-#: cel.i18n.php:20
+#: cel.i18n.php:18
+msgid "Remote CEL DB Name"
+msgstr ""
+
+#: cel.i18n.php:22
 msgid "Remote CEL DB Table"
 msgstr "Bảng dữ liệu CEL từ xa"
 
-#: install.php:98
+#: install.php:112
 msgid "Removed"
 msgstr "Đã xóa"
 
-#: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
+#: install.php:105
+msgid "Removing outdated fields (this might take a long time)"
+msgstr ""
+
+#: cel.i18n.php:6
 msgid "Reports"
 msgstr "Các báo cáo"
 
@@ -247,7 +242,7 @@ msgstr "Cài đặt lại"
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: cel.i18n.php:18
+#: cel.i18n.php:16
 msgid ""
 "Setting this true will enable the CEL module to create call reports from CEL "
 "data. Although the CEL module will assure there is a CEL table available, "
@@ -272,7 +267,7 @@ msgstr ""
 "Có những máy nhánh được chỉ định và hoạt động sẽ hiển thị cho người dùng này "
 "điều khiển và hiệu chỉnh trong UCP"
 
-#: ucp/views/table.php:64
+#: ucp/views/eventModal.php:14
 msgid "Time"
 msgstr "Thời gian"
 
@@ -296,7 +291,7 @@ msgstr "Thư thoại chính"
 msgid "Yes"
 msgstr "Có"
 
-#: ucp/assets/js/global.js:95
+#: ucp/assets/js/global.js:104
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -317,14 +312,56 @@ msgstr ""
 "Bạn có thể tìm kiếm bằng bất kỳ hoặc tất cả các trường dưới đây. Bạn càng "
 "điền nhiều trường các báo cáo càng được lọc chính xác."
 
-#: install.php:82
+#: install.php:77
 msgid "already exists"
 msgstr "Đã tồn tại"
 
-#: install.php:70
+#: install.php:99
+msgid "already indexed"
+msgstr ""
+
+#: install.php:88
+msgid "already removed"
+msgstr ""
+
+#: install.php:72
 msgid "checking for extra field.."
 msgstr "Đang kiểm tra trường phụ.."
 
-#: install.php:92
-msgid "removing (this might take a long time)"
-msgstr "Đang xóa ( Việc này có thể mất nhiều thời gian)"
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
+msgid "found"
+msgstr ""
+
+#: install.php:75
+msgid "not found"
+msgstr ""
+
+#~ msgid "Adding (this might take a long time)"
+#~ msgstr "Đang thêm ( việc này có thể mất nhiều thời gian)"
+
+#~ msgid "Already Removed"
+#~ msgstr "Đã xóa xong"
+
+#~ msgid "Already indexed"
+#~ msgstr "Đã lập chỉ mục"
+
+#~ msgid "Call Detail"
+#~ msgstr "Chi tiết cuộc gọi"
+
+#~ msgid "Call Event Logs"
+#~ msgstr "Các nhật ký sự kiện cuộc gọi"
+
+#~ msgid "ERROR failed to add context index"
+#~ msgstr "LỖI thất bại khi thêm chỉ mục ngữ cảnh"
+
+#~ msgid "ERROR failed to delete %s field"
+#~ msgstr "LỖI thất bại khi xóa %s trường"
+
+#~ msgid "ERROR failed to update extra field"
+#~ msgstr "LỖI thất bại khi cập nhật trường phụ"
+
+#~ msgid "Not Authorized"
+#~ msgstr "Không được cho phép"
+
+#~ msgid "removing (this might take a long time)"
+#~ msgstr "Đang xóa ( Việc này có thể mất nhiều thời gian)"
