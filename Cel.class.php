@@ -352,6 +352,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 
 	public function getCalls($filters, $extension = NULL) {
+		$requestingExtension = $extension;
 		if(!empty($this->calls)) {
 			return $this->calls;
 		}
@@ -800,6 +801,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			}
 			$call['duration'] = $call['endtime']->format('U') - $call['starttime']->format('U');
 			$call['timestamp'] = $call['starttime']->format('U');
+			$call['requestingExtension'] = $requestingExtension;
 			$calls[$callid] = $call;
 		}
 		$this->calls = $calls;

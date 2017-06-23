@@ -7,12 +7,16 @@ var CelC = UCPMC.extend({
 		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").bootstrapTable('resetView',{height: $(".grid-stack-item[data-id='"+widget_id+"'] .widget-content").height()-1});
 	},
 	displayWidget: function(widget_id) {
-		var self = this;
+		var self = this,
+				extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 
 		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").one("post-body.bs.table", function() {
 			setTimeout(function() {
 				self.resize(widget_id);
 			},250);
+		});
+
+		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").on("post-body.bs.table", function() {
 			self.bindPlayers(widget_id);
 		});
 
@@ -47,7 +51,8 @@ var CelC = UCPMC.extend({
 		return UCP.dateTimeFormatter(value);
 	},
 	formatControls: function (value, row, index) {
-		if(typeof row.recordings === "undefined" || showDownload === "0") {
+		var settings = UCP.Modules.Cel.staticsettings;
+		if(typeof row.recordings === "undefined" || settings.showDownload === "0") {
 			return '';
 		}
 		var links = '';
@@ -55,12 +60,14 @@ var CelC = UCPMC.extend({
 			if(v === false) {
 				return true;
 			}
-			links = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cel&amp;command=download&amp;id='+encodeURIComponent(k)+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
+			links = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cel&amp;command=download&amp;id='+encodeURIComponent(k)+'&amp;type=download&amp;ext='+row.requestingExtension+'"><i class="fa fa-cloud-download"></i></a>';
 		});
 		return links;
 	},
 	formatPlayback: function (value, row, index) {
-		if(typeof row.recordings === "undefined" || showPlayback === "0") {
+		var settings = UCP.Modules.Cel.staticsettings,
+				rand = Math.floor(Math.random() * 10000);
+		if(typeof row.recordings === "undefined" || settings.showPlayback === "0") {
 			return '';
 		}
 		var html = '',
@@ -69,7 +76,7 @@ var CelC = UCPMC.extend({
 			if(v === false) {
 				return true;
 			}
-			html += '<div id="jquery_jplayer_'+index+'_'+count+'" class="jp-jplayer" data-container="#jp_container_'+index+'_'+count+'" data-id="'+k+'"></div><div id="jp_container_'+index+'_'+count+'" data-player="jquery_jplayer_'+index+'_'+count+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+			html += '<div id="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-jplayer" data-container="#jp_container_'+index+'_'+count+'-'+rand+'" data-id="'+k+'"></div><div id="jp_container_'+index+'_'+count+'-'+rand+'" data-player="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
 				'<div class="jp-type-single">'+
 					'<div class="jp-gui jp-interface">'+
 						'<div class="jp-controls">'+
@@ -158,7 +165,7 @@ var CelC = UCPMC.extend({
 					$(container).find(".jp-ball").css("left","0%");
 				},
 				swfPath: "/js",
-				supplied: supportedHTML5,
+				supplied: UCP.Modules.Cel.staticsettings.supportedHTML5,
 				cssSelectorAncestor: container,
 				wmode: "window",
 				useStateClassSkin: true,

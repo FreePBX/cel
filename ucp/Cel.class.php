@@ -61,6 +61,15 @@ class Cel extends Modules{
 		);
 	}
 
+	public function getStaticSettings() {
+		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
+		return array(
+			"showPlayback" => $this->_checkPlayback() ? "1" : "0",
+			"showDownload" => $this->_checkDownload() ? "1" : "0",
+			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())
+		);
+	}
+
 	public function getWidgetDisplay($id, $uuid) {
 		if (!$this->_checkExtension($id)) {
 			return array();
@@ -68,9 +77,11 @@ class Cel extends Modules{
 
 		$displayvars = array(
 			'ext' => $id,
+			"showPlayback" => $this->_checkPlayback(),
+			"showDownload" => $this->_checkDownload(),
+			"extension" => $id,
+			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())
 		);
-		$displayvars['showPlayback'] = $this->_checkPlayback($id);
-		$displayvars['script'] = "var showDownload = ".json_encode($this->_checkDownload($id)).";var showPlayback = ".json_encode($this->_checkPlayback($id)).";var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';";
 
 		$html = $this->load_view(__DIR__.'/views/widget.php',$displayvars);
 
@@ -258,20 +269,32 @@ class Cel extends Modules{
 		return in_array($extension,$extensions);
 	}
 
-	private function _checkDownload($extension) {
-		if($this->_checkExtension($extension)) {
-			$user = $this->UCP->User->getUser();
+	private function _checkDownload($extension=null) {
+		$user = $this->UCP->User->getUser();
+		$enabled = $this->UCP->getCombinedSettingByID($user['id'],'Cel','enable');
+		if(!$enabled) {
+			return false;
+		}
+		if(!is_null($extension) && $this->_checkExtension($extension)) {
 			$dl = $this->UCP->getCombinedSettingByID($user['id'],'Cel','download');
 			return is_null($dl) ? true : $dl;
+		} elseif(is_null($extension)) {
+			return true;
 		}
 		return false;
 	}
 
-	private function _checkPlayback($extension) {
-		if($this->_checkExtension($extension)) {
-			$user = $this->UCP->User->getUser();
-			$pb = $this->UCP->getCombinedSettingByID($user['id'],'Cel','playback');
-			return is_null($pb) ? true : $pb;
+	private function _checkPlayback($extension=null) {
+		$user = $this->UCP->User->getUser();
+		$enabled = $this->UCP->getCombinedSettingByID($user['id'],'Cel','enable');
+		if(!$enabled) {
+			return false;
+		}
+		if(!is_null($extension) && $this->_checkExtension($extension)) {
+			$dl = $this->UCP->getCombinedSettingByID($user['id'],'Cel','playback');
+			return is_null($dl) ? true : $dl;
+		} elseif(is_null($extension)) {
+			return true;
 		}
 		return false;
 	}
