@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-07-11 08:51+0200\n"
+"PO-Revision-Date: 2017-07-11 15:44+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cel/vi/>\n"
@@ -237,7 +237,7 @@ msgstr "Đã xóa"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
-msgstr "Báo cáo"
+msgstr "Các báo cáo"
 
 #: Cel.class.php:211
 msgid "Reset"
