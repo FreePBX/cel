@@ -14,15 +14,15 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$amp_conf = \FreePBX::$conf;
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
-		$config = $this->FreePBX->Config;
-		$this->astver = $config->get('ASTVERSION');
-		$db_name = $config->get('CDRDBNAME');
-		$db_host = $config->get('CDRDBHOST');
-		$db_port = $config->get('CDRDBPORT');
-		$db_user = $config->get('CDRDBUSER');
-		$db_pass = $config->get('CDRDBPASS');
-		$db_table = $config->get('CELDBTABLENAME');
-		$dbt = $config->get('CDRDBTYPE');
+		$this->config = $this->FreePBX->Config;
+		$this->astver = $this->config->get('ASTVERSION');
+		$db_name = $this->config->get('CDRDBNAME');
+		$db_host = $this->config->get('CDRDBHOST');
+		$db_port = $this->config->get('CDRDBPORT');
+		$db_user = $this->config->get('CDRDBUSER');
+		$db_pass = $this->config->get('CDRDBPASS');
+		$db_table = $this->config->get('CELDBTABLENAME');
+		$dbt = $this->config->get('CDRDBTYPE');
 
 		$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
 		$dbt = !empty($dbt) ? $dbt : 'mysql';
@@ -46,11 +46,85 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function uninstall() {
 
 	}
-	public function backup(){
+	public function backup($backupObj){
+		$settings = [];
+		$id = $backupObj->getBackupId();
+		if($id){
+			$settings = $this->backupSettingsGet($id);
+		}
+		//Something for the SQL file though this shouldn't be a thing
+		$id = isset($id)?$id:'cel-'.time();
+		$advancedsettings = [
+			'CEL_ENABLED' => $this->config->get('CEL_ENABLED'),
+			'CELDBNAME' => $this->config->get('CELDBNAME'),
+			'CELDBTABLENAME' => $this->config->get('CELDBTABLENAME'),
+		];
+		$age = isset($settings['cel_dump_days'])?$settings['cel_dump_days']:0;
+		$advanced = isset($settings['cel_advancedsetting'])?$settings['cel_advancedsetting']:'no';
+		if($advanced == 'yes'){
+			$backupObj->addConfigs($advancedsettings);
+		}
+		$structureFile = sprintf('%s/structure-%s.sql.gz',sys_get_temp_dir(),$id);
+		$dataFile = sprintf('%s/data-%s.sql.gz',sys_get_temp_dir(),$id);
+		$db_name = $this->config->get('CDRDBNAME');
+		$db_host = $this->config->get('CDRDBHOST');
+		$db_port = $this->config->get('CDRDBPORT');
+		$db_user = $this->config->get('CDRDBUSER');
+		$db_pass = $this->config->get('CDRDBPASS');
+		$db_table = $this->config->get('CELDBTABLENAME');
+		$files = [];
+		exec(sprintf('mysqldump --no-data --user=%s --password=%s --host=%s %s %s | gzip -c > %s',$db_user,$db_pass,$db_host,$db_name,$db_table,$structureFile),$out,$ret);
+		if($ret === 0){
+			$parts = pathinfo($structureFile);
+			$files[] = [
+				'type' => 'dbstructure',
+				'filename' => $parts['basename'],
+				'path' => $parts['dirname'],
+			];
+			$backupObj->addGarbage($structureFile);
+		}
 
+		if($age == 0){
+			//TODO: Does this need escaping?
+			exec(sprintf('mysqldump --no-create-info --user=%s --password=%s --host=%s %s %s | gzip -c > %s',$db_user,$db_pass,$db_host,$db_name,$db_table,$dataFile),$out,$ret);
+		}
+		if($age > 0){
+			$age = '-w"STR_TO_DATE(eventtime, \'%Y-%m-%d %H:%i:%s\') > NOW() - INTERVAL '.$age.' DAY"';
+			exec(sprintf('mysqldump --no-create-info --user=%s --password=%s --host=%s %s %s %s | gzip -c > %s',$db_user,$db_pass,$db_host,$age,$db_name,$db_table,$dataFile),$out,$ret);
+		}
+		if($ret === 0){
+			$parts = pathinfo($dataFile);
+			$files[] = [
+				'type' => 'dbdata',
+				'filename' => $parts['basename'],
+				'path' => $parts['dirname'],
+			];
+			$backupObj->addGarbage($dataFile);
+		}
+		$backupObj->addFiles($files);
 	}
+
 	public function restore($backup){
 
+	}
+
+	public function backupSettingsDisplay($module,$id = ''){
+		if($module == 'Cel'){
+			$settings = $this->getAll($id);
+			return load_view(__DIR__.'/views/backupSettings.php',$settings);
+		}
+		return false;
+	}
+	public function backupSettingsProcess($id,$settings=[]){
+		foreach ($settings as $key => $value) {
+			$allowed = ['cel_dump_days','cel_advancedsettings'];
+			if(in_array($key, $allowed)){
+				$this->setConfig($key,$value,$id);
+			}
+		}
+	}
+	public function backupSettingsGet($id){
+		$this->getAll($id);
 	}
 
 	public function ucpDelGroup($id,$display,$data) {

@@ -1,39 +1,41 @@
 <module>
-		<rawname>cel</rawname>
-		<repo>standard</repo>
-		<name>Call Event Logging</name>
-		<version>14.0.2.2</version>
-		<publisher>Sangoma Technologies Corporation</publisher>
-		<license>GPLv3+</license>
-		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-		<changelog>
-			*14.0.2.2* FREEPBX-15139 Recordings playing/downloading in call history doesn't work with multiple widget in the same dashboard
-			*14.0.2.1* Adjustments in UCP
-			*14.0.2* Support new UCP
-			*14.0.1* Merge from 13
-		</changelog>
-		<hooks>
-			<ucp class="Ucp">
-				<method callingMethod="constructModuleConfigPages" class="Cel" namespace="FreePBX\modules">ucpConfigPage</method>
-				<method callingMethod="addUser" class="Cel" namespace="FreePBX\modules">ucpAddUser</method>
-				<method callingMethod="updateUser" class="Cel" namespace="FreePBX\modules">ucpUpdateUser</method>
-				<method callingMethod="delUser" class="Cel" namespace="FreePBX\modules">ucpDelUser</method>
-				<method callingMethod="addGroup" class="Cel" namespace="FreePBX\modules">ucpAddGroup</method>
-				<method callingMethod="updateGroup" class="Cel" namespace="FreePBX\modules">ucpUpdateGroup</method>
-				<method callingMethod="delGroup" class="Cel" namespace="FreePBX\modules">ucpDelGroup</method>
-			</ucp>
-		</hooks>
-		<category>Reports</category>
-		<description>
-				Call Event Logging
-		</description>
-		<menuitems>
-				<cel beta="yes" needsenginedb="yes">Call Event Logging</cel>
-		</menuitems>
-		<depends>
-				<version>14.0.1alpha12</version>
-		</depends>
-		<supported>
-				<version>14.0</version>
-		</supported>
+	<rawname>cel</rawname>
+	<repo>standard</repo>
+	<name>Call Event Logging</name>
+	<version>15.0.1</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<changelog>
+		*15.0.1* Branch from 14.0.2.2
+	</changelog>
+	<hooks>
+		<ucp class="Ucp">
+			<method callingMethod="constructModuleConfigPages" class="Cel" namespace="FreePBX\modules">ucpConfigPage</method>
+			<method callingMethod="addUser" class="Cel" namespace="FreePBX\modules">ucpAddUser</method>
+			<method callingMethod="updateUser" class="Cel" namespace="FreePBX\modules">ucpUpdateUser</method>
+			<method callingMethod="delUser" class="Cel" namespace="FreePBX\modules">ucpDelUser</method>
+			<method callingMethod="addGroup" class="Cel" namespace="FreePBX\modules">ucpAddGroup</method>
+			<method callingMethod="updateGroup" class="Cel" namespace="FreePBX\modules">ucpUpdateGroup</method>
+			<method callingMethod="delGroup" class="Cel" namespace="FreePBX\modules">ucpDelGroup</method>
+		</ucp>
+		<backup class="Backup" namespace="FreePBX\modules">
+			<method callingMethod="getBackupSettingsDisplay" class="Cel" namespace="FreePBX\modules">backupSettingsDisplay</method>
+			<method callingMethod="processBackupSettings" class="Cel" namespace="FreePBX\modules">backupSettingsProcess</method>
+			<method callingMethod="getBackupSettings" class="Cel" namespace="FreePBX\modules">backupSettingsGet</method>
+		</backup>
+	</hooks>
+	<category>Reports</category>
+	<description>
+			Call Event Logging
+	</description>
+	<menuitems>
+			<cel beta="yes" needsenginedb="yes">Call Event Logging</cel>
+	</menuitems>
+	<depends>
+			<version>14.0.1alpha12</version>
+	</depends>
+	<supported>
+			<version>14.0</version>
+	</supported>
 </module>
