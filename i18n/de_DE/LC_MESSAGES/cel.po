@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-12-09 05:09+0200\n"
+"PO-Revision-Date: 2017-12-09 05:18+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -48,7 +48,7 @@ msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben"
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
-msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen"
+msgstr "Benutzern erlauben, Aufzeichnungen in UCP herunterzuladen"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
@@ -60,11 +60,11 @@ msgstr "Bereits entfernt"
 
 #: install.php:118
 msgid "Already indexed"
-msgstr "Bereits im Verzeichnis"
+msgstr "Bereits indexiert"
 
 #: views/search.php:106
 msgid "Application"
-msgstr "Applikation"
+msgstr "Anwendung"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
@@ -118,7 +118,7 @@ msgstr "Konferenz"
 
 #: ucp/views/table.php:36
 msgid "Controls"
-msgstr "Steuerung"
+msgstr "Steuerungen"
 
 #: cel.i18n.php:24
 msgid ""
@@ -202,7 +202,7 @@ msgstr "Von"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "Erben"
+msgstr "Übernehmen"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
