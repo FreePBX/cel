@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-12-08 21:58+0200\n"
+"PO-Revision-Date: 2017-12-09 00:59+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -28,19 +28,19 @@ msgstr "%s Sekunden"
 
 #: install.php:109
 msgid "Adding (this might take a long time)"
-msgstr ""
+msgstr "Hinzufügen (dies könnte lange dauern)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
-msgstr ""
+msgstr "CEL ermöglichen"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Downloads"
-msgstr ""
+msgstr "CEL Downloads ermöglichen"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Playback"
-msgstr ""
+msgstr "CEL Wiedergabe ermöglichen"
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
@@ -52,15 +52,15 @@ msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
-msgstr ""
+msgstr "Ermöglichte CEL"
 
 #: install.php:101
 msgid "Already Removed"
-msgstr ""
+msgstr "Bereits entfernt"
 
 #: install.php:118
 msgid "Already indexed"
-msgstr ""
+msgstr "Bereits im Verzeichnis"
 
 #: views/search.php:106
 msgid "Application"
@@ -68,28 +68,28 @@ msgstr "Applikation"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
-msgstr ""
+msgstr "Anwendung von einem Anrufteilnehmer ausgeführt"
 
 #: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
 msgid "CEL Report Module"
-msgstr ""
+msgstr "CEL Berichtsmodul"
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
-msgstr ""
+msgstr "Anrufdetail"
 
 #: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
-msgstr ""
+msgstr "Anrufereignisprotokollierung"
 
 #: ucp/Cel.class.php:37
 msgid "Call Event Logs"
-msgstr ""
+msgstr "Anrufereignisprotokolle"
 
 #: ucp/views/table.php:30
 msgid "Caller"
-msgstr ""
+msgstr "Anrufer"
 
 #: views/search.php:58
 msgid "Caller ID"
@@ -97,16 +97,16 @@ msgstr "Anrufer-ID"
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
-msgstr ""
+msgstr "Anrufer-ID eines Anrufteilnehmers"
 
 #: install.php:88
 #, php-format
 msgid "Checking for %s field to remove.."
-msgstr ""
+msgstr "Auf zu löschendes %s Feld prüfen ..."
 
 #: install.php:105
 msgid "Checking for context index.."
-msgstr ""
+msgstr "Auf Kontext-Index prüfen ..."
 
 #: ucp/views/table.php:71
 msgid "Close"
@@ -126,6 +126,10 @@ msgid ""
 "use the default values provided by FreePBX. Name of the table in the db "
 "where the cel is stored. cel is default."
 msgstr ""
+"STELLEN SIE DIES NUR EIN, wenn Sie wissen, was Sie tun. Nur verwendet, wenn "
+"Sie nicht die von FreePBX bereitgestellten Standardwerte nutzen. Name der "
+"Tabelle in der db, wo die Zelle gespeichert ist. Zelle ist "
+"Standardeinstellung."
 
 #: ucp/views/table.php:28
 msgid "Date"
@@ -133,23 +137,23 @@ msgstr "Datum"
 
 #: views/search.php:27
 msgid "Date Range"
-msgstr ""
+msgstr "Datumsbereich"
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
+msgstr "Datumsbereich von Anrufen im Format mm/tt/jjjj"
 
 #: ucp/views/table.php:66
 msgid "Detail"
-msgstr ""
+msgstr "Detail"
 
 #: ucp/views/table.php:31
 msgid "Dialed"
-msgstr ""
+msgstr "Gewählt"
 
 #: views/search.php:82
 msgid "Dialed Number"
-msgstr ""
+msgstr "Gewählte Nummer"
 
 #: ucp/assets/js/global.js:56
 msgid "Download"
@@ -161,20 +165,20 @@ msgstr "Dauer"
 
 #: install.php:113
 msgid "ERROR failed to add context index"
-msgstr ""
+msgstr "FEHLER Hinzufügen von Kontext-Index fehlgeschlagen"
 
 #: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
-msgstr ""
+msgstr "FEHLER Löschen von %s Feld fehlgeschlagen"
 
 #: install.php:77
 msgid "ERROR failed to update extra field"
-msgstr ""
+msgstr "FEHLER Die Aktualisierung des Zusatzfeldes ist fehlgeschlagen"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
-msgstr ""
+msgstr "CEL (Call Event Logging) in UCP für diesen Benutzer aktivieren"
 
 #: cel.i18n.php:14
 msgid "Enable CEL Reporting"
@@ -262,6 +266,8 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Dies sind die zugeordneten und aktiven Erweiterungen, die diesem Benutzer "
+"zur Steuerung und Bearbeitung in UCP angezeigt werden"
 
 #: ucp/views/table.php:64
 msgid "Time"
