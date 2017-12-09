@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-12-09 00:59+0200\n"
+"PO-Revision-Date: 2017-12-09 05:09+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -182,11 +182,11 @@ msgstr "CEL (Call Event Logging) in UCP für diesen Benutzer aktivieren"
 
 #: cel.i18n.php:14
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "CEL-Berichterstattung aktivieren"
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
-msgstr ""
+msgstr "Erweiterung oder gewählte DID"
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
@@ -230,11 +230,11 @@ msgstr "Warteschlange"
 
 #: cel.i18n.php:20
 msgid "Remote CEL DB Table"
-msgstr ""
+msgstr "Fern-CEL-DB-Tabelle"
 
 #: install.php:98
 msgid "Removed"
-msgstr ""
+msgstr "Entfernt"
 
 #: cel.i18n.php:6 /usr/src/freepbx/cel/cel.i18n.php:12
 msgid "Reports"
@@ -256,10 +256,16 @@ msgid ""
 "configuration must be done outside of FreePBX either by the user or at the "
 "Distro level."
 msgstr ""
+"Wenn dies auf 'wahr' gestellt wird, kann das CEL-Modul Anrufberichte aus den "
+"CEL-Daten erstellen. Obwohl das CEL-Modul sicherstellen wird, dass eine CEL-"
+"Tabelle verfügbar sein wird, muss die Berichterstattungsfunktion in Asterisk "
+"und der verbundenen ODBC-Datenbank und CEL-Konfiguration außerhalb von "
+"FreePBX durchgeführt werden, entweder durch den Benutzer oder auf Distro-"
+"Ebene."
 
 #: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr ""
+msgstr "Das CEL-Modul erfordert eine Asterisk Version 12.0 oder neuer."
 
 #: views/ucp_config.php:54
 msgid ""
@@ -287,7 +293,7 @@ msgstr "Anrufbeantworter"
 
 #: views/search.php:7
 msgid "Voicemail Main"
-msgstr ""
+msgstr "Voicemail Hauptleitung"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
@@ -311,6 +317,8 @@ msgid ""
 "You may search by any or all of the fields below. The more fields you fill "
 "in the more refined the report."
 msgstr ""
+"Sie können anhand eines oder aller unten stehenden Felder suchen. Je mehr "
+"Felder Sie ausfüllen, umso genauer der Bericht."
 
 #: install.php:82
 msgid "already exists"
@@ -318,8 +326,8 @@ msgstr "besteht bereits"
 
 #: install.php:70
 msgid "checking for extra field.."
-msgstr ""
+msgstr "Auf zusätzliches Feld prüfen .."
 
 #: install.php:92
 msgid "removing (this might take a long time)"
-msgstr ""
+msgstr "Wird entfernt (dies könnte lange dauern)"
