@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-12-15 20:13+0200\n"
-"Last-Translator: tranlsated <noemi@translated.net>\n"
+"PO-Revision-Date: 2017-12-18 17:23+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
 "Language: de_DE\n"
@@ -272,8 +272,8 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
-"Dies sind die zugeordneten und aktiven Erweiterungen, die für diesen "
-"Benutzer zur Steuerung und Bearbeitung in UCP angezeigt werden"
+"Dies sind die zugeordneten und aktiven Erweiterungen, die diesem Benutzer "
+"zur Steuerung und Bearbeitung in UCP angezeigt werden"
 
 #: ucp/views/table.php:64
 msgid "Time"
@@ -281,16 +281,15 @@ msgstr "Zeit"
 
 #: views/search.php:36
 msgid "To"
-msgstr "An"
+msgstr "bis"
 
 #: Cel.class.php:174
 msgid "User Primary Extension"
-msgstr "Primärerweiterung des Nutzers"
+msgstr "Primäre Benutzernebenstelle"
 
 #: views/search.php:6
-#, fuzzy
 msgid "Voicemail"
-msgstr "Voicemail"
+msgstr "Anrufbeantworter"
 
 #: views/search.php:7
 msgid "Voicemail Main"
