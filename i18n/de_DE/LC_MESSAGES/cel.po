@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-12-18 17:23+0200\n"
+"PO-Revision-Date: 2017-12-18 17:27+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -293,7 +293,7 @@ msgstr "Anrufbeantworter"
 
 #: views/search.php:7
 msgid "Voicemail Main"
-msgstr "Voicemail Hauptleitung"
+msgstr "Haupt- Anrufbeantworter"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
@@ -307,11 +307,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
-"Die Wiedergabe wird in diesem Browser nicht unterstützt. Um HTML5 Browser-"
-"Wiedergabe vollständig nutzen zu können, müssen Sie Programme installieren, "
-"die nicht mit PBX verteilt werden können. Wenn Sie die für diese "
-"Konversionen erforderlichen Binärdateien installieren möchten, klicken Sie <"
-"a href='%s'>hier</a>"
+"Ihr Browser unterstützt keine HTML5 Wiedergabe. Für volle HTML5 Audio "
+"Wiedergabenunterstützung benötigen Sie zusätzliche Programme, welche "
+"zusammen mit der PBX nicht zur Verfügung gestellt werden können. Möchten Sie "
+"die benötigten binaries installieren - klicken Sie <a href='%s'>hier</a>"
 
 #: page.cel.php:12
 msgid ""
