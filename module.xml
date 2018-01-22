@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>14.0.2.2</version>
+		<version>14.0.2.3</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+			*14.0.2.3* FREEPBX-14302 jPlayer takes control of all input in UCP 14
 			*14.0.2.2* FREEPBX-15139 Recordings playing/downloading in call history doesn't work with multiple widget in the same dashboard
 			*14.0.2.1* Adjustments in UCP
 			*14.0.2* Support new UCP
