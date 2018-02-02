@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2017-12-18 17:27+0200\n"
-"Last-Translator: Nils <Nils@heckenkamp.info>\n"
+"PO-Revision-Date: 2018-02-02 06:58+0200\n"
+"Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
 "Language: de_DE\n"
@@ -28,23 +28,23 @@ msgstr "%s Sekunden"
 
 #: install.php:109
 msgid "Adding (this might take a long time)"
-msgstr "Hinzufügen (dies könnte lange dauern)"
+msgstr "Hinzufügen (dies könnte eine Weile dauern)"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
-msgstr "CEL ermöglichen"
+msgstr "CEL zulassen"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Downloads"
-msgstr "CEL Downloads ermöglichen"
+msgstr "CEL Downloads zulassen"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Playback"
-msgstr "CEL Wiedergabe ermöglichen"
+msgstr "CEL-Wiedergabe zulassen"
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
-msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben"
+msgstr "Diesem Benutzer erlauben, Aufzeichnungen in UCP wiederzugeben"
 
 #: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
@@ -52,7 +52,7 @@ msgstr "Benutzern erlauben, Aufzeichnungen in UCP herunterzuladen"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
-msgstr "Ermöglichte CEL"
+msgstr "CEL zugelassen"
 
 #: install.php:101
 msgid "Already Removed"
@@ -72,7 +72,7 @@ msgstr "Anwendung von einem Anrufteilnehmer ausgeführt"
 
 #: cel.i18n.php:16 /usr/src/freepbx/cel/cel.i18n.php:22
 msgid "CEL Report Module"
-msgstr "CEL Berichtsmodul"
+msgstr "CEL-Berichtsmodul"
 
 #: ucp/views/table.php:46
 msgid "Call Detail"
@@ -126,9 +126,9 @@ msgid ""
 "use the default values provided by FreePBX. Name of the table in the db "
 "where the cel is stored. cel is default."
 msgstr ""
-"STELLEN SIE DIES NUR EIN, wenn Sie wissen, was Sie tun. Nur verwendet, wenn "
-"Sie nicht die von FreePBX bereitgestellten Standardwerte nutzen. Name der "
-"Tabelle in der db, wo die Zelle gespeichert ist. Zelle ist "
+"Verwenden Sie diese Einstellung NUR, wenn Sie wissen, was Sie tun. Wird nur "
+"verwendet, wenn Sie nicht die von FreePBX bereitgestellten Standardwerte "
+"nutzen. Name der Tabelle in der Datenbank, die die CEL enthält. CEL ist die "
 "Standardeinstellung."
 
 #: ucp/views/table.php:28
@@ -170,11 +170,11 @@ msgstr "FEHLER Hinzufügen von Kontext-Index fehlgeschlagen"
 #: install.php:96
 #, php-format
 msgid "ERROR failed to delete %s field"
-msgstr "FEHLER Löschen von %s Feld fehlgeschlagen"
+msgstr "FEHLER Löschen von Feld %s fehlgeschlagen"
 
 #: install.php:77
 msgid "ERROR failed to update extra field"
-msgstr "FEHLER Die Aktualisierung des Zusatzfeldes ist fehlgeschlagen"
+msgstr "FEHLER Aktualisierung des Zusatzfeldes fehlgeschlagen"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
@@ -186,7 +186,7 @@ msgstr "CEL-Berichterstattung aktivieren"
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
-msgstr "Erweiterung oder gewählte DID"
+msgstr "Gewählte Nebenstelle oder DID"
 
 #: ucp/Cel.class.php:119 ucp/Cel.class.php:122
 msgid "File does not exist"
