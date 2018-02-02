@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 01:37-0800\n"
-"PO-Revision-Date: 2018-02-02 06:58+0200\n"
+"PO-Revision-Date: 2018-02-02 07:58+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cel/de_DE/>\n"
@@ -258,22 +258,22 @@ msgid ""
 msgstr ""
 "Wenn dies auf 'wahr' gestellt wird, kann das CEL-Modul Anrufberichte aus den "
 "CEL-Daten erstellen. Obwohl das CEL-Modul sicherstellen wird, dass eine CEL-"
-"Tabelle verfügbar sein wird, muss die Berichterstattungsfunktion in Asterisk "
-"und der verbundenen ODBC-Datenbank und CEL-Konfiguration außerhalb von "
+"Tabelle verfügbar ist, müssen die Berichterstattungsfunktion in Asterisk und "
+"der verbundenen ODBC-Datenbank und die CEL-Konfiguration außerhalb von "
 "FreePBX durchgeführt werden, entweder durch den Benutzer oder auf Distro-"
 "Ebene."
 
 #: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr "Das CEL-Modul erfordert eine Asterisk Version 12.0 oder neuer."
+msgstr "Das CEL-Modul erfordert Asterisk Version 12.0 oder neuer."
 
 #: views/ucp_config.php:54
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
-"Dies sind die zugeordneten und aktiven Erweiterungen, die diesem Benutzer "
-"zur Steuerung und Bearbeitung in UCP angezeigt werden"
+"Dies sind die zugeordneten und aktiven Nebenstellen, die diesem Benutzer zur "
+"Steuerung und Bearbeitung in UCP angezeigt werden"
 
 #: ucp/views/table.php:64
 msgid "Time"
@@ -281,7 +281,7 @@ msgstr "Zeit"
 
 #: views/search.php:36
 msgid "To"
-msgstr "bis"
+msgstr "Bis"
 
 #: Cel.class.php:174
 msgid "User Primary Extension"
@@ -293,7 +293,7 @@ msgstr "Anrufbeantworter"
 
 #: views/search.php:7
 msgid "Voicemail Main"
-msgstr "Haupt- Anrufbeantworter"
+msgstr "Haupt-Anrufbeantworter"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
@@ -307,10 +307,11 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
-"Ihr Browser unterstützt keine HTML5 Wiedergabe. Für volle HTML5 Audio "
-"Wiedergabenunterstützung benötigen Sie zusätzliche Programme, welche "
-"zusammen mit der PBX nicht zur Verfügung gestellt werden können. Möchten Sie "
-"die benötigten binaries installieren - klicken Sie <a href='%s'>hier</a>"
+"Die Wiedergabe wird in diesem Browser nicht unterstützt. Für eine volle "
+"HTML5-Wiedergabeunterstützung im Browser benötigen Sie zusätzliche "
+"Programme, die nicht zusammen mit der PBX verteilt werden können. Wenn Sie "
+"die benötigten Binaries installieren möchten, klicken Sie <a "
+"href='%s'>hier</a>"
 
 #: page.cel.php:12
 msgid ""
@@ -318,11 +319,11 @@ msgid ""
 "in the more refined the report."
 msgstr ""
 "Sie können anhand eines oder aller unten stehenden Felder suchen. Je mehr "
-"Felder Sie ausfüllen, umso genauer der Bericht."
+"Felder Sie ausfüllen, desto genauere Ergebnisse erhalten Sie."
 
 #: install.php:82
 msgid "already exists"
-msgstr "besteht bereits"
+msgstr "bereits vorhanden"
 
 #: install.php:70
 msgid "checking for extra field.."
@@ -330,4 +331,4 @@ msgstr "Auf zusätzliches Feld prüfen .."
 
 #: install.php:92
 msgid "removing (this might take a long time)"
-msgstr "Wird entfernt (dies könnte lange dauern)"
+msgstr "Wird entfernt (dies könnte eine Weile dauern)"
