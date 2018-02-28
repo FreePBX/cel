@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-22 11:12-0800\n"
+"POT-Creation-Date: 2018-02-28 03:17-0500\n"
 "PO-Revision-Date: 2017-12-18 17:27+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/cel/de_DE/"
@@ -58,11 +58,15 @@ msgstr "Anwendung"
 msgid "Application executed by a call participant"
 msgstr "Anwendung von einem Anrufteilnehmer ausgeführt"
 
+#: views/backupSettings.php:7
+msgid "Backup Days"
+msgstr ""
+
 #: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr "CEL Berichtsmodul"
 
-#: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: Cel.class.php:257 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Anrufereignisprotokollierung"
@@ -195,7 +199,8 @@ msgstr "Von"
 msgid "Inherit"
 msgstr "Übernehmen"
 
-#: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
+#: views/backupSettings.php:30 views/ucp_config.php:15 views/ucp_config.php:72
+#: views/ucp_config.php:103
 msgid "No"
 msgstr "Nein"
 
@@ -235,11 +240,15 @@ msgstr ""
 msgid "Reports"
 msgstr "Berichte"
 
-#: Cel.class.php:211
+#: Cel.class.php:285
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: Cel.class.php:216 views/search.php:16
+#: views/backupSettings.php:22
+msgid "Restore Advanced Settings"
+msgstr ""
+
+#: Cel.class.php:290 views/search.php:16
 msgid "Search"
 msgstr "Suche"
 
@@ -258,7 +267,7 @@ msgstr ""
 "FreePBX durchgeführt werden, entweder durch den Benutzer oder auf Distro-"
 "Ebene."
 
-#: Cel.class.php:232
+#: Cel.class.php:306
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "Das CEL-Modul erfordert eine Asterisk Version 12.0 oder neuer."
 
@@ -278,7 +287,7 @@ msgstr "Zeit"
 msgid "To"
 msgstr "bis"
 
-#: Cel.class.php:174
+#: Cel.class.php:248
 msgid "User Primary Extension"
 msgstr "Primäre Benutzernebenstelle"
 
@@ -290,7 +299,8 @@ msgstr "Anrufbeantworter"
 msgid "Voicemail Main"
 msgstr "Haupt- Anrufbeantworter"
 
-#: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
+#: views/backupSettings.php:28 views/ucp_config.php:13 views/ucp_config.php:70
+#: views/ucp_config.php:101
 msgid "Yes"
 msgstr "Ja"
 

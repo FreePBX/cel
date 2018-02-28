@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-22 11:12-0800\n"
+"POT-Creation-Date: 2018-02-28 03:17-0500\n"
 "PO-Revision-Date: 2017-12-11 23:20+0200\n"
 "Last-Translator: JCattan <jeremie@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cel/fr_FR/"
@@ -58,11 +58,15 @@ msgstr "Application"
 msgid "Application executed by a call participant"
 msgstr "Application exécutée par un participant à un appel"
 
+#: views/backupSettings.php:7
+msgid "Backup Days"
+msgstr ""
+
 #: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr "CEL Module de rapport"
 
-#: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: Cel.class.php:257 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
@@ -191,7 +195,8 @@ msgstr ""
 msgid "Inherit"
 msgstr "Hérite"
 
-#: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
+#: views/backupSettings.php:30 views/ucp_config.php:15 views/ucp_config.php:72
+#: views/ucp_config.php:103
 msgid "No"
 msgstr "Non"
 
@@ -231,11 +236,15 @@ msgstr ""
 msgid "Reports"
 msgstr "Rapports"
 
-#: Cel.class.php:211
+#: Cel.class.php:285
 msgid "Reset"
 msgstr "Reset"
 
-#: Cel.class.php:216 views/search.php:16
+#: views/backupSettings.php:22
+msgid "Restore Advanced Settings"
+msgstr ""
+
+#: Cel.class.php:290 views/search.php:16
 msgid "Search"
 msgstr ""
 
@@ -248,7 +257,7 @@ msgid ""
 "Distro level."
 msgstr ""
 
-#: Cel.class.php:232
+#: Cel.class.php:306
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr ""
 
@@ -268,7 +277,7 @@ msgstr "Heure"
 msgid "To"
 msgstr "À"
 
-#: Cel.class.php:174
+#: Cel.class.php:248
 msgid "User Primary Extension"
 msgstr "Poste primaire de l'utilisateur"
 
@@ -280,7 +289,8 @@ msgstr ""
 msgid "Voicemail Main"
 msgstr ""
 
-#: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
+#: views/backupSettings.php:28 views/ucp_config.php:13 views/ucp_config.php:70
+#: views/ucp_config.php:101
 msgid "Yes"
 msgstr "Oui"
 

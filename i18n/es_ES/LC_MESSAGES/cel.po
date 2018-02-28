@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 14:13-0700\n"
+"POT-Creation-Date: 2018-02-28 03:17-0500\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -58,11 +58,15 @@ msgstr "Aplicación"
 msgid "Application executed by a call participant"
 msgstr "Aplicación ejecutada por un participante en la llamada"
 
+#: views/backupSettings.php:7
+msgid "Backup Days"
+msgstr ""
+
 #: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr "Modulo Reporte CEL"
 
-#: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: Cel.class.php:257 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Call Event Logging (CEL)"
@@ -194,7 +198,8 @@ msgstr "De"
 msgid "Inherit"
 msgstr "heredado"
 
-#: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
+#: views/backupSettings.php:30 views/ucp_config.php:15 views/ucp_config.php:72
+#: views/ucp_config.php:103
 msgid "No"
 msgstr "No"
 
@@ -234,11 +239,15 @@ msgstr ""
 msgid "Reports"
 msgstr "Reportes"
 
-#: Cel.class.php:211
+#: Cel.class.php:285
 msgid "Reset"
 msgstr "Reinicio"
 
-#: Cel.class.php:216 views/search.php:16
+#: views/backupSettings.php:22
+msgid "Restore Advanced Settings"
+msgstr ""
+
+#: Cel.class.php:290 views/search.php:16
 msgid "Search"
 msgstr "Buscar"
 
@@ -256,7 +265,7 @@ msgstr ""
 "el Asterisk y la configuración de base de datos ODBC y CEL asociado deben "
 "ser hechas fuera de FreePBX ya sea por el usuario o en el nivel Distro."
 
-#: Cel.class.php:232
+#: Cel.class.php:306
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "El modulo CEL requiere Asterisk version 12.0 o mayor."
 
@@ -276,7 +285,7 @@ msgstr "Hora"
 msgid "To"
 msgstr "A"
 
-#: Cel.class.php:174
+#: Cel.class.php:248
 msgid "User Primary Extension"
 msgstr "Extension Primaria del Usuario"
 
@@ -288,7 +297,8 @@ msgstr "Buzón de voz"
 msgid "Voicemail Main"
 msgstr "Correo de Voz Principal"
 
-#: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
+#: views/backupSettings.php:28 views/ucp_config.php:13 views/ucp_config.php:70
+#: views/ucp_config.php:101
 msgid "Yes"
 msgstr "Si"
 

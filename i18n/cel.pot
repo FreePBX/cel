@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-22 11:12-0800\n"
+"POT-Creation-Date: 2018-02-28 03:17-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,11 +55,15 @@ msgstr ""
 msgid "Application executed by a call participant"
 msgstr ""
 
+#: views/backupSettings.php:7
+msgid "Backup Days"
+msgstr ""
+
 #: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr ""
 
-#: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4
+#: Cel.class.php:257 /usr/src/freepbx/cel/cel.i18n.php:4
 #: cel.i18n.php:8 /usr/src/freepbx/cel/cel.i18n.php:10
 #: page.cel.php:10
 msgid "Call Event Logging"
@@ -197,6 +201,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
+#: views/backupSettings.php:30
 #: views/ucp_config.php:15
 #: views/ucp_config.php:72
 #: views/ucp_config.php:103
@@ -239,11 +244,15 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
-#: Cel.class.php:211
+#: Cel.class.php:285
 msgid "Reset"
 msgstr ""
 
-#: Cel.class.php:216
+#: views/backupSettings.php:22
+msgid "Restore Advanced Settings"
+msgstr ""
+
+#: Cel.class.php:290
 #: views/search.php:16
 msgid "Search"
 msgstr ""
@@ -257,7 +266,7 @@ msgid ""
 "Distro level."
 msgstr ""
 
-#: Cel.class.php:232
+#: Cel.class.php:306
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr ""
 
@@ -275,7 +284,7 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: Cel.class.php:174
+#: Cel.class.php:248
 msgid "User Primary Extension"
 msgstr ""
 
@@ -287,6 +296,7 @@ msgstr ""
 msgid "Voicemail Main"
 msgstr ""
 
+#: views/backupSettings.php:28
 #: views/ucp_config.php:13
 #: views/ucp_config.php:70
 #: views/ucp_config.php:101
