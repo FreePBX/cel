@@ -227,7 +227,6 @@ $(function() {
 });
 </script>';
 
-$html.= form_close();
 
 echo $html;
 
