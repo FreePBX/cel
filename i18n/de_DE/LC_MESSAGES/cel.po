@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 14:13-0700\n"
-"PO-Revision-Date: 2017-01-11 14:12+0200\n"
-"Last-Translator: Sven <spiderrs4@web.de>\n"
+"POT-Creation-Date: 2018-01-22 11:12-0800\n"
+"PO-Revision-Date: 2017-12-18 17:27+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/cel/de_DE/"
 ">\n"
 "Language: de_DE\n"
@@ -24,48 +24,48 @@ msgstr ""
 #: ucp/assets/js/global.js:48
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s Sekunden"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
-msgstr ""
+msgstr "CEL ermöglichen"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Downloads"
-msgstr ""
+msgstr "CEL Downloads ermöglichen"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Playback"
-msgstr ""
+msgstr "CEL Wiedergabe ermöglichen"
 
 #: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
-msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben."
+msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben"
 
 #: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
-msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen."
+msgstr "Benutzern erlauben, Aufzeichnungen in UCP herunterzuladen"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
-msgstr ""
+msgstr "Ermöglichte CEL"
 
 #: views/search.php:106
 msgid "Application"
-msgstr "Applikation"
+msgstr "Anwendung"
 
 #: views/search.php:120
 msgid "Application executed by a call participant"
-msgstr ""
+msgstr "Anwendung von einem Anrufteilnehmer ausgeführt"
 
 #: cel.i18n.php:14
 msgid "CEL Report Module"
-msgstr ""
+msgstr "CEL Berichtsmodul"
 
 #: Cel.class.php:183 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
-msgstr ""
+msgstr "Anrufereignisprotokollierung"
 
 #: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:30
 msgid "Call Events"
@@ -78,24 +78,24 @@ msgstr ""
 
 #: ucp/views/widget.php:27
 msgid "Caller"
-msgstr ""
+msgstr "Anrufer"
 
 #: views/search.php:58
 msgid "Caller ID"
-msgstr ""
+msgstr "Anrufer-ID"
 
 #: views/search.php:70
 msgid "Caller ID of a call participant"
-msgstr ""
+msgstr "Anrufer-ID eines Anrufteilnehmers"
 
 #: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
-msgstr ""
+msgstr "Auf zu löschendes %s Feld prüfen ..."
 
 #: install.php:92
 msgid "Checking for context index.."
-msgstr ""
+msgstr "Auf Kontext-Index prüfen ..."
 
 #: ucp/assets/js/global.js:32
 msgid "Close"
@@ -107,7 +107,7 @@ msgstr "Konferenz"
 
 #: ucp/views/widget.php:33
 msgid "Controls"
-msgstr "Steuerung"
+msgstr "Steuerungen"
 
 #: cel.i18n.php:20
 msgid ""
@@ -122,6 +122,10 @@ msgid ""
 "use the default values provided by FreePBX. Name of the table in the db "
 "where the cel is stored. cel is default."
 msgstr ""
+"STELLEN SIE DIES NUR EIN, wenn Sie wissen, was Sie tun. Nur verwendet, wenn "
+"Sie nicht die von FreePBX bereitgestellten Standardwerte nutzen. Name der "
+"Tabelle in der db, wo die Zelle gespeichert ist. Zelle ist "
+"Standardeinstellung."
 
 #: ucp/views/widget.php:26
 msgid "Date"
@@ -129,23 +133,23 @@ msgstr "Datum"
 
 #: views/search.php:27
 msgid "Date Range"
-msgstr ""
+msgstr "Datumsbereich"
 
 #: views/search.php:46
 msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
+msgstr "Datumsbereich von Anrufen im Format mm/tt/jjjj"
 
 #: ucp/views/eventModal.php:16
 msgid "Detail"
-msgstr ""
+msgstr "Detail"
 
 #: ucp/views/widget.php:28
 msgid "Dialed"
-msgstr ""
+msgstr "Gewählt"
 
 #: views/search.php:82
 msgid "Dialed Number"
-msgstr ""
+msgstr "Gewählte Nummer"
 
 #: ucp/assets/js/global.js:63
 msgid "Download"
@@ -161,11 +165,11 @@ msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
-msgstr ""
+msgstr "CEL (Call Event Logging) in UCP für diesen Benutzer aktivieren"
 
 #: cel.i18n.php:12
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "CEL-Berichterstattung aktivieren"
 
 #: ucp/assets/js/global.js:39 ucp/assets/js/global.js:43
 msgid "Error getting form"
@@ -173,7 +177,7 @@ msgstr ""
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
-msgstr ""
+msgstr "Erweiterung oder gewählte DID"
 
 #: ucp/Cel.class.php:139 ucp/Cel.class.php:142
 msgid "File does not exist"
@@ -189,7 +193,7 @@ msgstr "Von"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "Erben"
+msgstr "Übernehmen"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -217,11 +221,11 @@ msgstr ""
 
 #: cel.i18n.php:22
 msgid "Remote CEL DB Table"
-msgstr ""
+msgstr "Fern-CEL-DB-Tabelle"
 
 #: install.php:112
 msgid "Removed"
-msgstr ""
+msgstr "Entfernt"
 
 #: install.php:105
 msgid "Removing outdated fields (this might take a long time)"
@@ -247,16 +251,24 @@ msgid ""
 "configuration must be done outside of FreePBX either by the user or at the "
 "Distro level."
 msgstr ""
+"Wenn dies auf 'wahr' gestellt wird, kann das CEL-Modul Anrufberichte aus den "
+"CEL-Daten erstellen. Obwohl das CEL-Modul sicherstellen wird, dass eine CEL-"
+"Tabelle verfügbar sein wird, muss die Berichterstattungsfunktion in Asterisk "
+"und der verbundenen ODBC-Datenbank und CEL-Konfiguration außerhalb von "
+"FreePBX durchgeführt werden, entweder durch den Benutzer oder auf Distro-"
+"Ebene."
 
 #: Cel.class.php:232
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr ""
+msgstr "Das CEL-Modul erfordert eine Asterisk Version 12.0 oder neuer."
 
 #: views/ucp_config.php:54
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Dies sind die zugeordneten und aktiven Erweiterungen, die diesem Benutzer "
+"zur Steuerung und Bearbeitung in UCP angezeigt werden"
 
 #: ucp/views/eventModal.php:14
 msgid "Time"
@@ -276,7 +288,7 @@ msgstr "Anrufbeantworter"
 
 #: views/search.php:7
 msgid "Voicemail Main"
-msgstr ""
+msgstr "Haupt- Anrufbeantworter"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
@@ -291,19 +303,21 @@ msgid ""
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
 "Ihr Browser unterstützt keine HTML5 Wiedergabe. Für volle HTML5 Audio "
-"Wiedergabe unterstützung benötigen Sie zusätzliche Programme, welche "
-"zusammen mit der PBX nicht zur verfügung gestellt werden können. Möchten Sie "
-"die benötigten binaries installieren klicken Sie <a href='%s'>hier</a>"
+"Wiedergabenunterstützung benötigen Sie zusätzliche Programme, welche "
+"zusammen mit der PBX nicht zur Verfügung gestellt werden können. Möchten Sie "
+"die benötigten binaries installieren - klicken Sie <a href='%s'>hier</a>"
 
 #: page.cel.php:12
 msgid ""
 "You may search by any or all of the fields below. The more fields you fill "
 "in the more refined the report."
 msgstr ""
+"Sie können anhand eines oder aller unten stehenden Felder suchen. Je mehr "
+"Felder Sie ausfüllen, umso genauer der Bericht."
 
 #: install.php:77
 msgid "already exists"
-msgstr "bereits vorhanden"
+msgstr "besteht bereits"
 
 #: install.php:99
 msgid "already indexed"
@@ -315,7 +329,7 @@ msgstr ""
 
 #: install.php:72
 msgid "checking for extra field.."
-msgstr ""
+msgstr "Auf zusätzliches Feld prüfen .."
 
 #: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
@@ -325,5 +339,32 @@ msgstr ""
 msgid "not found"
 msgstr ""
 
+#~ msgid "Adding (this might take a long time)"
+#~ msgstr "Hinzufügen (dies könnte lange dauern)"
+
+#~ msgid "Already Removed"
+#~ msgstr "Bereits entfernt"
+
+#~ msgid "Already indexed"
+#~ msgstr "Bereits indexiert"
+
+#~ msgid "Call Detail"
+#~ msgstr "Anrufdetail"
+
+#~ msgid "Call Event Logs"
+#~ msgstr "Anrufereignisprotokolle"
+
+#~ msgid "ERROR failed to add context index"
+#~ msgstr "FEHLER Hinzufügen von Kontext-Index fehlgeschlagen"
+
+#~ msgid "ERROR failed to delete %s field"
+#~ msgstr "FEHLER Löschen von %s Feld fehlgeschlagen"
+
+#~ msgid "ERROR failed to update extra field"
+#~ msgstr "FEHLER Die Aktualisierung des Zusatzfeldes ist fehlgeschlagen"
+
 #~ msgid "Not Authorized"
 #~ msgstr "Nicht berechtigt"
+
+#~ msgid "removing (this might take a long time)"
+#~ msgstr "Wird entfernt (dies könnte lange dauern)"

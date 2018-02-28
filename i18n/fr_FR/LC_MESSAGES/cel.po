@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 14:13-0700\n"
-"PO-Revision-Date: 2016-02-04 23:02+0200\n"
-"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
+"POT-Creation-Date: 2018-01-22 11:12-0800\n"
+"PO-Revision-Date: 2017-12-11 23:20+0200\n"
+"Last-Translator: JCattan <jeremie@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cel/fr_FR/"
 ">\n"
 "Language: fr_FR\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: ucp/assets/js/global.js:48
 #, perl-format
@@ -149,11 +149,11 @@ msgstr ""
 
 #: ucp/assets/js/global.js:63
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 #: ucp/views/eventModal.php:15 ucp/views/widget.php:29
 msgid "Duration"
-msgstr ""
+msgstr "Durée"
 
 #: install.php:110
 msgid "ERROR failed to update database"
@@ -177,11 +177,11 @@ msgstr ""
 
 #: ucp/Cel.class.php:139 ucp/Cel.class.php:142
 msgid "File does not exist"
-msgstr "Le fichier n'existe pas"
+msgstr "Fichier inexistant"
 
 #: ucp/Cel.class.php:239 ucp/Cel.class.php:250
 msgid "Forbidden"
-msgstr "Interdit"
+msgstr "Refusé"
 
 #: views/search.php:33
 msgid "From"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "Par défaut"
+msgstr "Hérite"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -197,7 +197,7 @@ msgstr "Non"
 
 #: ucp/Cel.class.php:244
 msgid "Not Found"
-msgstr "Non trouvé"
+msgstr "Introuvable"
 
 #: install.php:67
 msgid "OK"
@@ -205,7 +205,7 @@ msgstr "OK"
 
 #: ucp/views/widget.php:31
 msgid "Playback"
-msgstr "Écouter"
+msgstr "Lecture"
 
 #: views/search.php:5
 msgid "Queue"
@@ -233,7 +233,7 @@ msgstr "Rapports"
 
 #: Cel.class.php:211
 msgid "Reset"
-msgstr "Remise à zéro"
+msgstr "Reset"
 
 #: Cel.class.php:216 views/search.php:16
 msgid "Search"
@@ -292,10 +292,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
-"Le support pour l'écoute dans ce navigateur est absent. Pour supporter "
-"l'écoute en HTML5, vous devez installer des programmes qui ne peuvent pas "
-"être distribués avec le PBX. Si vous désirez installer les exécutables "
-"requis pour ces conversions cliquer <a href='%s'>ici</a>"
+"Vous manquez de support pour la lecture dans ce navigateur. Pour prendre en "
+"charge la lecture HTML5, vous devez installer des programmes qui ne peuvent "
+"pas être distribués avec le PBX. Si vous souhaitez installer les binaires "
+"requis pour ces conversions, cliquez <a href='%s'> ici </a>"
 
 #: page.cel.php:12
 msgid ""
