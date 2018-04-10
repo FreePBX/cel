@@ -1,6 +1,5 @@
 <?php
 $html = '';
-$html.= form_open($_SERVER['REQUEST_URI']);
 
 $html.= '<h3>Search returned ' . count($calls) . ' calls</h3>';
 
