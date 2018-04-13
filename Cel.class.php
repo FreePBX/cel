@@ -46,7 +46,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function uninstall() {
 
 	}
-	public function backup($backupObj){
+	public function backup(){
 		$settings = [];
 		$id = $backupObj->getBackupId();
 		if($id){
