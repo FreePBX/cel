@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>14.0.2.5</version>
+		<version>14.0.2.6</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+		*14.0.2.6* FREEPBX-16337 CDRDBHOST not following AMPDBHOST when empty 
 		*14.0.2.5* FREEPBX-17187 Don't set all fields to empty default when a new search is issued in Call Event Logging
 		*14.0.2.4* FREEPBX-15626 On clicking search button redirects to the home page. 
 			*14.0.2.3* FREEPBX-14302 jPlayer takes control of all input in UCP 14
