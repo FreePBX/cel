@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.26.3</version>
+		<version>13.0.26.4</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+		*13.0.26.4* FREEPBX-16337 CDRDBHOST not following AMPDBHOST when empty 
 			*13.0.26.3* FREEPBX-17187 Don't set all fields to empty default when a new search is issued in Call Event Logging
 			*13.0.26.2* FREEPBX-13360 Missing configuration option for CELDBNAME variable
 			*13.0.26.1* FREEPBX-14044 Speed up upgrades
@@ -38,7 +39,7 @@
 			*13.0.1alpha3* FREEPBX-9408 Fixes to invalid array looping
 			*13.0.1alpha2* Groups in usermanager
 			*13.0.1alpha1* First beta release.
-		</changelog>
+	</changelog>
 		<hooks>
 			<ucp class="Ucp">
 				<method callingMethod="constructModuleConfigPages" class="Cel" namespace="FreePBX\modules">ucpConfigPage</method>
