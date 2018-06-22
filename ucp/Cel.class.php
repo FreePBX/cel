@@ -68,6 +68,7 @@ class Cel extends Modules{
 			'ext' => $ext,
 		);
 		$displayvars['showPlayback'] = $this->_checkPlayback($ext);
+		$displayvars['showdownload'] = $this->_checkDownload($ext);
 		$displayvars['script'] = "var showDownload = ".json_encode($this->_checkDownload($ext)).";var showPlayback = ".json_encode($this->_checkPlayback($ext)).";var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';";
 		$html .= $this->load_view(__DIR__.'/views/table.php',$displayvars);
 
@@ -109,12 +110,10 @@ class Cel extends Modules{
 		switch($_REQUEST['command']) {
 			case 'gethtml5':
 				global $amp_conf;
-
 				include_once(dirname(__DIR__)."/crypt.php");
 				$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
-
 				$crypt = new \Crypt();
-				$file = $crypt->decrypt($_REQUEST['id'],$REC_CRYPT_PASSWORD);
+				$file = $crypt->decrypt($_REQUEST['file'],$REC_CRYPT_PASSWORD);
 				if(!$this->cel->validateMonitorPath($file)) {
 					return array("status" => false, "message" => _("File does not exist"));
 				}
@@ -135,35 +134,12 @@ class Cel extends Modules{
 				$ext = $_REQUEST['extension'];
 				$order = $_REQUEST['order'];
 				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "timestamp";
-				//$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
-				$filters = array();
-				if (!empty($search)) {
-					//$filters['callerid'] = $search;
-				}
-				if (!empty($search)) {
-					//$filters['exten'] = $search;
-				}
-				if (!empty($search)) {
-					//$filters['application'] = $search;
-				}
-				$calls = $this->cel->getCalls($filters,$ext);
-				$calls = array_values($calls);
-				if($orderby == "timestamp") {
-					usort($calls, function($a, $b) {
-						return $b['timestamp'] - $a['timestamp'];
-					});
-				} else {
-					@usort($calls, function($a, $b) {
-						return strcmp($b[$orderby],$a[$orderby]);
-					});
-				}
-
-				if($order == "asc") {
-					$calls = array_reverse($calls);
-				}
+				$callsarray = $this->cel->cel_getreport($_REQUEST,$ext);
+				$calls = $callsarray['rows'];
+				$count = $callsarray['total'];
 				return array(
-					"total" => count($calls),
-					"rows" => array_splice ($calls, $_REQUEST['offset'],$limit)
+					"total" => $count,
+					"rows" => $calls
 				);
 			break;
 			default:
