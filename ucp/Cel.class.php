@@ -110,10 +110,7 @@ class Cel extends Modules{
 		switch($_REQUEST['command']) {
 			case 'gethtml5':
 				global $amp_conf;
-				include_once(dirname(__DIR__)."/crypt.php");
-				$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
-				$crypt = new \Crypt();
-				$file = $crypt->decrypt($_REQUEST['file'],$REC_CRYPT_PASSWORD);
+				$file = $_REQUEST['file'];
 				if(!$this->cel->validateMonitorPath($file)) {
 					return array("status" => false, "message" => _("File does not exist"));
 				}
@@ -159,12 +156,6 @@ class Cel extends Modules{
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
 			case "download":
-				global $amp_conf;
-
-				include_once(dirname(__DIR__)."/crypt.php");
-				$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
-
-				$crypt = new \Crypt();
 				$file = $crypt->decrypt($_REQUEST['id'],$REC_CRYPT_PASSWORD);
 				$this->downloadFile($file,$_REQUEST['ext']);
 				return true;

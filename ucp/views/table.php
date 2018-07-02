@@ -20,7 +20,6 @@
 				data-check-on-init="true"
 				data-min-width="992"
         class="table table-hover">
-				>
     <thead>
         <tr class="cdr-header">
 			<th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Date")?></th>

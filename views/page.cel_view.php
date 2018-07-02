@@ -198,7 +198,6 @@ foreach ($applications as $key => $value) {
 								data-side-pagination="server"
 								data-query-params="queryParams"
 								data-show-export="true"
-								data-export-data-type="all"
 								data-page-list="[10, 25, 50, 100, 200, 400, 800, 1600]">
 								<thead>
 									<tr class="call">
@@ -207,7 +206,6 @@ foreach ($applications as $key => $value) {
 										<th data-field="exten" data-sortable="true"><?php echo _("Dialed")?></th>
 										<th data-field="duration" data-sortable="true" ><?php echo _("Duration")?></th>
 										<th data-field="file" data-formatter="playFormatter" class="col-sm-4"><?php echo _("Play") ?></th>
-								
 										<th data-field="moreinfo" data-formatter="format"><?php echo _("Details")?></th>
 									</tr>
 								</thead>

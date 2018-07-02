@@ -90,7 +90,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			break;
 			case "gethtml5":
                    $media = $this->FreePBX->Media();
-                   $file = $this->directory . $_REQUEST['year'] . '/' . $_REQUEST['month'] . '/' . $_REQUEST['day'] . '/' . urldecode($_REQUEST['file']);
+                   $file = urldecode($_REQUEST['file']);
                    if (file_exists($file)) {
                           $media->load($file);
                           $files = $media->generateHTML5();
@@ -263,73 +263,12 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		if(!version_compare($this->astver , '12', 'ge')){
 			return "<div class='alert alert-danger'>"._("The CEL module requires an Asterisk version of 12.0 or higher.")."</div>";
 		}
-		switch ($action) {
-		case "getJSON":
-			header('Content-Type: application/json');
-			switch($_REQUEST['jdata']){
-				case 'results':
-					if (!empty($_REQUEST['datefrom']) && !empty($_REQUEST['dateto'])) {
-						$filters['datefrom'] = $_REQUEST['datefrom'];
-						$filters['dateto'] = $_REQUEST['dateto'];
-					}
-					if (!empty($_REQUEST['callerid'])) {
-						$filters['callerid'] = $_REQUEST['callerid'];
-					}
-					if (!empty($_REQUEST['exten'])) {
-						$filters['exten'] = $_REQUEST['exten'];
-					}
-					if (!empty($_REQUEST['application'])) {
-						$filters['application'] = $_REQUEST['application'];
-					}
-					$calls = $this->getCalls($filters);
-					echo json_encode($calls);
-					exit();
-					break;
-				default:
-					echo json_encode(array('error'=> 'invalid request'));
-					exit();
-					break;
-			}
-			break;
-		case "playrecording":
-			$this->playRecording();
-			break;
-		case "":
 			$html.= load_view(dirname(__FILE__).'/views/page.cel_view.php', array("message" => $this->message));
-
-			break;
-		case "search":
-			if (!empty($_REQUEST['datefrom']) && !empty($_REQUEST['dateto'])) {
-				$filters['datefrom'] = $_REQUEST['datefrom'];
-				$filters['dateto'] = $_REQUEST['dateto'];
-			}
-
-			if (!empty($_REQUEST['callerid'])) {
-				$filters['callerid'] = $_REQUEST['callerid'];
-			}
-
-			if (!empty($_REQUEST['exten'])) {
-				$filters['exten'] = $_REQUEST['exten'];
-			}
-
-			if (!empty($_REQUEST['application'])) {
-				$filters['application'] = $_REQUEST['application'];
-			}
-
-			$calls = $this->getCalls($filters);
-			$html.= load_view(dirname(__FILE__).'/views/page.cel_view.php', array("calls" => $calls, "message" => $this->message));
-
-			break;
-		}
-
-		return $html;
+	return $html;
 	}
 
 	public function cel_getreport($request,$ext = null) {
 		extract($request);
-		include_once("crypt.php");
-		$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
-		$crypt = new \Crypt();
 
 		$sql = "SELECT DISTINCT cel.linkedid FROM cel WHERE 1";
 		$vars = array();
@@ -374,7 +313,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			//lets form the main row for display
 				if($row['eventtype']=='CHAN_START' && $row['uniqueid'] == $row['linkedid'] ){
 					$mainrow['eventtime'] = $row['eventtime'];
-					$c['timestamp'] = new \DateTime($row['eventtime']);
+					$c['timestamp'] = new \DateTime($row['eventtime']);// using in CUP
 					$st = $c['timestamp']->format("U");
 					$mainrow['timestamp'] = $st;
 					$mainrow['cid_num'] = $row['cid_num'];
@@ -400,12 +339,10 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 							$mainrow['day'] = $dates[2];
 							$recording = $dates[3];
 							if($recording){
-							 $file = $this->directory . $dates[0] . '/' . $dates[1] . '/' . $dates[2] . '/' .$recording;
-							 $mainrow['file'] = '';
+								$file = $this->directory . $dates[0] . '/' . $dates[1] . '/' . $dates[2] . '/' .$recording;
+								$mainrow['file'] = '';
 								if(file_exists($file)){
-									$mainrow['file'] = $recording;
-									$recordingfile = $crypt->encrypt( $file, $REC_CRYPT_PASSWORD);
-									$mainrow['encryptfile'] = $recordingfile;
+									$mainrow['file'] = $file;
 								}else {
 									$mainrow['year'] ='';
 									$mainrow['month'] = '';
