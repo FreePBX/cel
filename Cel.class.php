@@ -64,6 +64,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function ajaxRequest($req, &$setting) {
 		switch ($req) {
 			case 'report':
+				$setting['changesession'] = true;
+			return true;
+			break;
 			case 'gethtml5':
 			case 'playback':
 			return true;
@@ -78,7 +81,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		switch($_REQUEST['command']) {
 		case "playback":
 			$media = $this->FreePBX->Media();
-		        $media->getHTML5File($_REQUEST['file']);
+			$media->getHTML5File($_REQUEST['file']);
 		break;
 		}
 	}
@@ -89,23 +92,22 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				return $return;
 			break;
 			case "gethtml5":
-                   $media = $this->FreePBX->Media();
-                   $file = urldecode($_REQUEST['file']);
-                   if (file_exists($file)) {
-                          $media->load($file);
-                          $files = $media->generateHTML5();
-                          $final = array();
-                          foreach($files as $format => $name) {
-                                 $final[$format] = "ajax.php?module=cel&command=playback&file=".$name;
-                         }
-                         return array("status" => true, "files" => $final);
-                   } else {
-                          return array("status" => false, "message" => _("File does not exist"));
-                   }
-              break;
-
+				$media = $this->FreePBX->Media();
+				$file = isset($_SESSION['cel']['recordings'][$_REQUEST['uniqueid']]['file']) ? $_SESSION['cel']['recordings'][$_REQUEST['uniqueid']]['file'] : '';
+				if (!empty($file) && file_exists($file)) {
+					$media->load($file);
+					$files = $media->generateHTML5();
+					$final = array();
+					foreach($files as $format => $name) {
+						$final[$format] = "ajax.php?module=cel&command=playback&file=".$name;
+					}
+					return array("status" => true, "files" => $final);
+				} else {
+					return array("status" => false, "message" => _("File does not exist"));
+				}
+			break;
 			default:
-			return array('status' => 'error', 'message' => _("Invalid Command"));
+				return array('status' => 'error', 'message' => _("Invalid Command"));
 			break;
 		}
 	}
@@ -306,6 +308,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$rows = $sth->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_ASSOC);
 		$returnrows = array();
 		$channels = array();
+		$_SESSION['cel']['recordings'] = array();
 		foreach($rows as $key => $array){
 			unset($more);
 			unset($mainrow);
@@ -328,7 +331,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				if($row['eventtype']=='LINKEDID_END' &&  $row['uniqueid'] == $row['linkedid']){
 					$mainrow['duration'] = $row['eventunixtime'] - $start;
 				}
-				// letus find out the recoding file
+				// letus find out the recording file
 				if($row['exten'] == 'recordcheck' && $row['eventtype']=='APP_START'){
 					if ($row['appname'] == 'MixMonitor') {
 						$args = explode(',', $row['appdata']);
@@ -343,6 +346,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 								$mainrow['file'] = '';
 								if(file_exists($file)){
 									$mainrow['file'] = $file;
+									$_SESSION['cel']['recordings'][$row['uniqueid']] = array(
+										'file' => $mainrow['file']
+									);
 								}else {
 									$mainrow['year'] ='';
 									$mainrow['month'] = '';
@@ -811,9 +817,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 						if ($args[0]) {
 							$mon_dir = !empty($amp_conf['MIXMON_DIR']) ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 							$recording = $mon_dir . '/' . $args[0];
-							dbug($recording);
-							$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD);
-							$call['recordings'][$recordingfile] = file_exists($recording);
+							$call['recordings'][] = file_exists($recording);
 						}
 					}
 

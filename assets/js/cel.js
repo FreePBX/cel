@@ -1,4 +1,4 @@
-function format(value){ 
+function format(value){
 	html = '<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#callpreview" >show</button>';
 	return html;
 }
@@ -29,7 +29,7 @@ function playFormatter(val,row){
 		if (typeof val == 'undefined') { return;}
 		if(val =='undefined'){return;}
 
-	return '<div id="jquery_jplayer_'+row.id+'" class="jp-jplayer" data-container="#jp_container_'+row.id+'" data-year="'+row.year+'" data-month="'+row.month+'" data-day="'+row.day+'" data-file="'+row.file+'"></div><div id="jp_container_'+row.id+'" data-player="jquery_jplayer_'+row.id+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+	return '<div id="jquery_jplayer_'+row.id+'" class="jp-jplayer" data-container="#jp_container_'+row.id+'" data-uniqueid="'+row.uniqueid+'"></div><div id="jp_container_'+row.id+'" data-player="jquery_jplayer_'+row.id+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
 		'<div class="jp-type-single">'+
 			'<div class="jp-gui jp-interface">'+
 				'<div class="jp-controls">'+
@@ -65,14 +65,11 @@ $('#report').on("post-body.bs.table", function () {
 	});
 });
 
-function bindPlayers() { 
+function bindPlayers() {
 	$(".jp-jplayer").each(function() {
 		var container = $(this).data("container"),
 		player = $(this),
-		file = $(this).data("file"),
-		year = $(this).data("year"),
-		month = $(this).data("month"),
-		day = $(this).data("day");
+		uniqueid = $(this).data("uniqueid");
 		$(this).jPlayer({
 			ready: function() {
 				$(container + " .jp-play").click(function() {
@@ -81,7 +78,7 @@ function bindPlayers() {
 						$.ajax({
 							type: 'POST',
 							url: "ajax.php",
-							data: {module: "cel", command: "gethtml5", file: file, year: year, month: month, day: day},
+							data: {module: "cel", command: "gethtml5", uniqueid: uniqueid},
 							dataType: 'json',
 							timeout: 30000,
 							success: function(data) {
