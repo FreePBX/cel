@@ -84,11 +84,13 @@ class Cel extends Modules{
 	* @param string $settings The Settings being passed through $_POST or $_PUT
 	* @return bool True if pass
 	*/
-	function ajaxRequest($command, $settings) {
+	function ajaxRequest($command, &$settings) {
 		switch($command) {
+			case "grid":
+			$setting['changesession'] = true;
+				return true;
 			case 'gethtml5':
 			case 'playback':
-			case "grid":
 			case 'download':
 				return true;
 			break;
@@ -109,8 +111,7 @@ class Cel extends Modules{
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'gethtml5':
-				global $amp_conf;
-				$file = $_REQUEST['file'];
+				$file = isset($_SESSION['celucp']['recordings'][$_REQUEST['uniqueid']]['file']) ? $_SESSION['celucp']['recordings'][$_REQUEST['uniqueid']]['file'] : '';
 				if(!$this->cel->validateMonitorPath($file)) {
 					return array("status" => false, "message" => _("File does not exist"));
 				}
@@ -156,7 +157,7 @@ class Cel extends Modules{
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
 			case "download":
-				$file = $crypt->decrypt($_REQUEST['id'],$REC_CRYPT_PASSWORD);
+				$file = isset($_SESSION['celucp']['recordings'][$_REQUEST['uniqueid']]['file']) ? $_SESSION['celucp']['recordings'][$_REQUEST['uniqueid']]['file'] : '';
 				$this->downloadFile($file,$_REQUEST['ext']);
 				return true;
 			break;

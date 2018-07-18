@@ -309,6 +309,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$returnrows = array();
 		$channels = array();
 		$_SESSION['cel']['recordings'] = array();
+		$_SESSION['celucp']['recordings'] = array();// if freepbx admini and UCP are loggedin then we need two session variables
 		foreach($rows as $key => $array){
 			unset($more);
 			unset($mainrow);
@@ -332,7 +333,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					$mainrow['duration'] = $row['eventunixtime'] - $start;
 				}
 				// letus find out the recording file
-				if($row['exten'] == 'recordcheck' && $row['eventtype']=='APP_START'){
+				if($row['exten'] == 'recordcheck' && $row['eventtype']=='APP_START' &&  $row['uniqueid'] == $row['linkedid']){
 					if ($row['appname'] == 'MixMonitor') {
 						$args = explode(',', $row['appdata']);
 						if ($args[0]) {
@@ -347,6 +348,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 								if(file_exists($file)){
 									$mainrow['file'] = $file;
 									$_SESSION['cel']['recordings'][$row['uniqueid']] = array(
+										'file' => $mainrow['file']
+									);
+									$_SESSION['celucp']['recordings'][$row['uniqueid']] = array(
 										'file' => $mainrow['file']
 									);
 								}else {

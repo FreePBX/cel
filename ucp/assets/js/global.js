@@ -50,7 +50,7 @@ var CelC = UCPMC.extend({
 			return '';
 		}
 		var links = '';
-		links = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cel&amp;command=download&amp;id='+encodeURIComponent(row.file)+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
+		links = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cel&amp;command=download&amp;id='+encodeURIComponent(row.uniqueid)+'&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
 		return links;
 	},
 	formatPlayback: function (value, row, index) {
@@ -59,7 +59,7 @@ var CelC = UCPMC.extend({
 		}
 
 		var html = '',
-		html = '<div id="jquery_jplayer_'+row.id+'" class="jp-jplayer" data-container="#jp_container_'+row.id+'" data-year="'+row.year+'" data-month="'+row.month+'" data-day="'+row.day+'" data-encryptfile="'+row.file+'"  data-file="'+row.file+'"></div><div id="jp_container_'+row.id+'" data-player="jquery_jplayer_'+row.id+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+		html = '<div id="jquery_jplayer_'+row.id+'" class="jp-jplayer" data-container="#jp_container_'+row.id+'"  data-playbackuniqueid="'+row.uniqueid+'"  data-file="'+row.uniqueid+'"></div><div id="jp_container_'+row.id+'" data-player="jquery_jplayer_'+row.id+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
 		'<div class="jp-type-single">'+
 			'<div class="jp-gui jp-interface">'+
 				'<div class="jp-controls">'+
@@ -94,7 +94,7 @@ var CelC = UCPMC.extend({
 		$(".jp-jplayer").each(function() {
 			var container = $(this).data("container"),
 					player = $(this),
-					playback = $(this).data("file");
+					playback = $(this).data("playbackuniqueid");
 			$(this).jPlayer({
 				ready: function() {
 					$(container + " .jp-play").click(function() {
@@ -108,7 +108,7 @@ var CelC = UCPMC.extend({
 							$.ajax({
 								type: 'POST',
 								url: "index.php?quietmode=1",
-								data: {module: "cel", command: "gethtml5", file: playback, ext: extension},
+								data: {module: "cel", command: "gethtml5", uniqueid: playback, ext: extension},
 								dataType: 'json',
 								timeout: 30000,
 								success: function(data) {
