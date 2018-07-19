@@ -16,7 +16,6 @@ class Cel extends Modules{
 		$this->Modules = $Modules;
 		$this->cel = $this->UCP->FreePBX->Cel;
 		$this->user = $this->UCP->User->getUser();
-
 		if($this->UCP->Session->isMobile || $this->UCP->Session->isTablet) {
 			$this->limit = 7;
 		}
@@ -87,8 +86,6 @@ class Cel extends Modules{
 	function ajaxRequest($command, &$settings) {
 		switch($command) {
 			case "grid":
-			$setting['changesession'] = true;
-				return true;
 			case 'gethtml5':
 			case 'playback':
 			case 'download':
@@ -111,7 +108,7 @@ class Cel extends Modules{
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'gethtml5':
-				$file = isset($_SESSION['celucp']['recordings'][$_REQUEST['uniqueid']]['file']) ? $_SESSION['celucp']['recordings'][$_REQUEST['uniqueid']]['file'] : '';
+				$file = isset($this->UCP->Session->celucp['recordings'][$_REQUEST['uniqueid']]['file']) ? $this->UCP->Session->celucp['recordings'][$_REQUEST['uniqueid']]['file'] : '';
 				if(!$this->cel->validateMonitorPath($file)) {
 					return array("status" => false, "message" => _("File does not exist"));
 				}
@@ -135,6 +132,7 @@ class Cel extends Modules{
 				$callsarray = $this->cel->cel_getreport($_REQUEST,$ext);
 				$calls = $callsarray['rows'];
 				$count = $callsarray['total'];
+				$this->UCP->Session->celucp = $callsarray['recordings'];
 				return array(
 					"total" => $count,
 					"rows" => $calls

@@ -309,7 +309,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$returnrows = array();
 		$channels = array();
 		$_SESSION['cel']['recordings'] = array();
-		$_SESSION['celucp']['recordings'] = array();// if freepbx admini and UCP are loggedin then we need two session variables
+		$rec = array();
 		foreach($rows as $key => $array){
 			unset($more);
 			unset($mainrow);
@@ -350,7 +350,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 									$_SESSION['cel']['recordings'][$row['uniqueid']] = array(
 										'file' => $mainrow['file']
 									);
-									$_SESSION['celucp']['recordings'][$row['uniqueid']] = array(
+									$rec['recordings'][$row['uniqueid']] = array(
 										'file' => $mainrow['file']
 									);
 								}else {
@@ -372,7 +372,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 		return array(
 			"total" => $totalRows,
-			"rows" => $returnrows
+			"rows" => $returnrows,
+			"recordings" => $rec
 		);
 
 }
