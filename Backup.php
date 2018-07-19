@@ -36,10 +36,11 @@ class Backup Extends Base\BackupBase{
     $command[] = 'cel';
     $command[] = '--skip-lock-tables';
     $command[] = '--no-create-info';
+    $command[] = '--fields-terminated-by="," --fields-enclosed-by="\"" --lines-terminated-by="\r\n"';
     $command[] = '|';
     $command[] = '/usr/bin/gzip';
     $command[] = '>';
-    $command[] = $tmpdir.'/cel.sql.gz';
+    $command[] = $tmpdir.'/cel.csv.gz';
     $command = (implode(" ", $command));
     $process= new Process($command);
     if($fs->exists($tmpdir)){
@@ -47,11 +48,10 @@ class Backup Extends Base\BackupBase{
     }
     mkdir($tmpdir, 0755, true);
     $dirs = [$tmpdir];
-    //$process->disableOutput();
+    $process->disableOutput();
     $process->mustRun();
-    $fileObj = new \SplFileInfo($tmpdir . '/cel.sql.gz');
+    $fileObj = new \SplFileInfo($tmpdir . '/cel.csv.gz');
     $this->addFile($fileObj->getBasename(), $fileObj->getPath(), '', $fileObj->getExtension());
     $this->addDirectories([$fileObj->getPath()]);
-    $this->addDependency('cdr');
   }
 }
