@@ -4,36 +4,35 @@
 		<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 	<?php } ?>
 	<table id="cel-grid"
+		data-sort-name="eventtime"
+		data-sort-order="desc"
         data-url="index.php?quietmode=1&amp;module=cel&amp;command=grid&amp;extension=<?php echo htmlentities($ext)?>"
-        data-cache="false"
-        data-cookie="true"
-        data-cookie-id-table="ucp-cel-table"
-        data-maintain-selected="true"
+		data-cookie-id-table="ucp-cel-table"
+	 data-maintain-selected="true"
         data-show-columns="true"
         data-show-toggle="true"
         data-toggle="table"
         data-pagination="true"
-				data-sort-order="desc"
-				data-sort-name="timestamp"
-				data-side-pagination="server"
+       			data-side-pagination="server"
 				data-show-refresh="true"
 				data-silent-sort="false"
 				data-mobile-responsive="true"
 				data-check-on-init="true"
 				data-min-width="992"
-        class="table table-hover"
-				>
+        class="table table-hover">
     <thead>
         <tr class="cdr-header">
-						<th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Date")?></th>
-
-            <th data-field="src" data-sortable="true"><?php echo _("Caller")?></th>
-						<th data-field="extension" data-sortable="true"><?php echo _("Dialed")?></th>
-						<th data-field="duration" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDuration"><?php echo _("Duration")?></th>
-						<?php if($showPlayback) {?>
-							<th data-field="playback" data-formatter="UCP.Modules.Cel.formatPlayback"><?php echo _("Playback")?></th>
-						<?php } ?>
-						<th data-field="controls" data-formatter="UCP.Modules.Cel.formatControls"><?php echo _("Controls")?></th>
+			<th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Date")?></th>
+            <th data-field="cid_num" data-sortable="true"><?php echo _("Caller")?></th>
+			<th data-field="exten" data-sortable="true"><?php echo _("Dialed")?></th>
+			<th data-field="duration" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDuration"><?php echo _("Duration")?></th>
+			<?php if($showPlayback) {?>
+				<th data-field="file" data-formatter="UCP.Modules.Cel.formatPlayback"><?php echo _("Playback")?></th>
+			<?php } 
+			if($showdownload) {
+				?>
+				<th data-field="file" data-formatter="UCP.Modules.Cel.formatControls"><?php echo _("Controls")?></th>
+			<?php } ?>
         </tr>
     </thead>
 	</table>
@@ -62,8 +61,13 @@
 					>
 					<thead>
 						<th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Time")?></th>
-						<th data-field="duration" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDuration"><?php echo _("Duration")?></th>
-						<th data-field="detail" data-sortable="true"><?php echo _("Detail")?></th>
+						<th data-field="eventtype" data-sortable="true" ><?php echo _("Event Type")?></th>
+						<th data-field="uniqueid" data-sortable="true" ><?php echo _("UniqueID")?></th>
+						<th data-field="linkedid" data-sortable="true" ><?php echo _("LinkedID")?></th>
+						<th data-field="cid_num" data-sortable="true" ><?php echo _("Cid num")?></th>
+						<th data-field="exten" data-sortable="true" ><?php echo _("Extension")?></th>
+						<th data-field="context" data-sortable="true" ><?php echo _("Context")?></th>
+						<th data-field="channame" data-sortable="true"><?php echo _("Channle Name")?></th>
 					</thead>
 				</table>
 			</div>
