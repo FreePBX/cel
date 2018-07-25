@@ -23,7 +23,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$db_pass = $config->get('CDRDBPASS');
 		$db_table = $config->get('CELDBTABLENAME');
 		$dbt = $config->get('CDRDBTYPE');
-
+		$mixmon = \FreePBX::Config()->get('MIXMON_DIR',true);
+        $spool = \FreePBX::Config()->get('ASTSPOOLDIR',true);
+		$this->directory = $mixmon ? $mixmon . '/' : $spool . '/monitor/';
 		$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
 		$dbt = !empty($dbt) ? $dbt : 'mysql';
 		$db_type = $db_hash[$dbt];
@@ -58,6 +60,56 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 	public function ucpAddGroup($id, $display, $data) {
 		$this->ucpUpdateGroup($id,$display,$data);
+	}
+	public function ajaxRequest($req, &$setting) {
+		switch ($req) {
+			case 'report':
+				$setting['changesession'] = true;
+			return true;
+			break;
+			case 'gethtml5':
+			case 'playback':
+			return true;
+			break;
+
+			default:
+			return false;
+			break;
+		}
+	}
+	public function ajaxCustomHandler() {
+		switch($_REQUEST['command']) {
+		case "playback":
+			$media = $this->FreePBX->Media();
+			$media->getHTML5File($_REQUEST['file']);
+		break;
+		}
+	}
+	public function ajaxHandler() {
+		switch ($_REQUEST['command']) {
+			case 'report':
+				$return = $this->cel_getreport($_REQUEST);
+				return $return;
+			break;
+			case "gethtml5":
+				$media = $this->FreePBX->Media();
+				$file = isset($_SESSION['cel']['recordings'][$_REQUEST['uniqueid']]['file']) ? $_SESSION['cel']['recordings'][$_REQUEST['uniqueid']]['file'] : '';
+				if (!empty($file) && file_exists($file)) {
+					$media->load($file);
+					$files = $media->generateHTML5();
+					$final = array();
+					foreach($files as $format => $name) {
+						$final[$format] = "ajax.php?module=cel&command=playback&file=".$name;
+					}
+					return array("status" => true, "files" => $final);
+				} else {
+					return array("status" => false, "message" => _("File does not exist"));
+				}
+			break;
+			default:
+				return array('status' => 'error', 'message' => _("Invalid Command"));
+			break;
+		}
 	}
 
 	public function ucpUpdateGroup($id,$display,$data) {
@@ -202,24 +254,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$this->FreePBX->WriteConfig($conf);
 	}
 
-	public function getActionBar($request) {
-		if(!version_compare($this->astver , '12', 'ge')){return array();}
-		$buttons = array(
-			'reset' => array(
-				'name' => 'reset',
-				'id' => 'reset',
-				'value' => _('Reset')
-			),
-			'submit' => array(
-				'name' => 'submit',
-				'id' => 'submit',
-				'value' => _('Search')
-			)
-		);
-
-		return $buttons;
-	}
-
 	public function doConfigPageInit($display) {
 		return true;
 	}
@@ -231,123 +265,138 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		if(!version_compare($this->astver , '12', 'ge')){
 			return "<div class='alert alert-danger'>"._("The CEL module requires an Asterisk version of 12.0 or higher.")."</div>";
 		}
-		switch ($action) {
-		case "getJSON":
-			header('Content-Type: application/json');
-			switch($_REQUEST['jdata']){
-				case 'results':
-					if (!empty($_REQUEST['datefrom']) && !empty($_REQUEST['dateto'])) {
-						$filters['datefrom'] = $_REQUEST['datefrom'];
-						$filters['dateto'] = $_REQUEST['dateto'];
-					}
-					if (!empty($_REQUEST['callerid'])) {
-						$filters['callerid'] = $_REQUEST['callerid'];
-					}
-					if (!empty($_REQUEST['exten'])) {
-						$filters['exten'] = $_REQUEST['exten'];
-					}
-					if (!empty($_REQUEST['application'])) {
-						$filters['application'] = $_REQUEST['application'];
-					}
-					$calls = $this->getCalls($filters);
-					echo json_encode($calls);
-					exit();
-					break;
+			$html.= load_view(dirname(__FILE__).'/views/page.cel_view.php', array("message" => $this->message));
+	return $html;
+	}
+
+	public function cel_getreport($request,$ext = null) {
+		extract($request);
+
+		$sql = "SELECT DISTINCT cel.linkedid FROM cel WHERE 1";
+		$vars = array();
+		if(!empty($dateto)){
+			$sql .=" AND eventtime <= '".$dateto." 23:59:59'";
+		}
+		if(!empty($datefrom)){
+			$sql .= " AND eventtime >= '".$datefrom." 00:00:00'";
+		}
+		if(!empty($source)){
+			$sql .=" AND (cid_num LIKE '".$source."' OR cid_name LIKE '".$source."')";
+		}
+		// this is for UCP
+		if(!empty($ext)){
+			$sql .=" AND (cid_num LIKE '".$ext."' OR cid_name LIKE '".$ext."')";
+		}
+		if(!empty($destination)){
+			$sql .= "AND exten LIKE '".$destination."'";
+		}
+		if(!empty($application)) {
+			$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like '" .$application."' ";
+		}
+		if(!empty($sort)){
+			switch($sort) {
+				case 'cid_num':
+				case 'exten':
+				break;
+				case 'eventtime':
 				default:
-					echo json_encode(array('error'=> 'invalid request'));
-					exit();
-					break;
+					$sort = 'eventtime';
+				break;
 			}
-			break;
-		case "playrecording":
-			$this->playRecording();
-			break;
-		case "":
-			$html.= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
-
-			break;
-		case "search":
-			if (!empty($_REQUEST['datefrom']) && !empty($_REQUEST['dateto'])) {
-				$filters['datefrom'] = $_REQUEST['datefrom'];
-				$filters['dateto'] = $_REQUEST['dateto'];
-			}
-
-			if (!empty($_REQUEST['callerid'])) {
-				$filters['callerid'] = $_REQUEST['callerid'];
-			}
-
-			if (!empty($_REQUEST['exten'])) {
-				$filters['exten'] = $_REQUEST['exten'];
-			}
-
-			if (!empty($_REQUEST['application'])) {
-				$filters['application'] = $_REQUEST['application'];
-			}
-
-			$calls = $this->getCalls($filters);
-
-			$html.= load_view(dirname(__FILE__).'/views/search.php', array("message" => $this->message));
-			$html.= load_view(dirname(__FILE__).'/views/results.php', array("calls" => $calls, "message" => $this->message));
-
-			break;
-		}
-
-		return $html;
-	}
-
-	/**
-	* Get the Number of Pages by limit for extension
-	* @param {int} $extension The Extension to lookup
-	* @param {int} $limit=100 The limit of results per page
-	*/
-	public function getPages($extension,$search='',$limit=100) {
-		if(!empty($search)) {
-			//cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%'
-			//(eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')
-			$sql = "SELECT COUNT(DISTINCT linkedid) as count from ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) AND (cid_num LIKE :search OR cid_name LIKE :search)";
-			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%'));
+			$sql .= " ORDER by $sort";
 		} else {
-			$sql = "SELECT COUNT(DISTINCT linkedid) as count from ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension)";
-			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension));
+			$sql .= " ORDER by eventtime";
 		}
-		$res = $sth->fetch(\PDO::FETCH_ASSOC);
-		$total = $res['count'];
-		if(!empty($total)) {
-			return ceil($total/$limit);
+		if(!empty($order)){
+			switch($order) {
+				case 'asc':
+				break;
+				case 'desc':
+				default:
+					$order = 'DESC';
+				break;
+			}
+			$sql .= " $order";
 		} else {
-			return false;
+			$sql .= " DESC";
 		}
-	}
-
-	public function getUCPCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100) {
-		$start = ($limit * ($page - 1));
-		$end = $limit;
-		switch($orderby) {
-			case 'description':
-				$orderby = 'clid';
-			break;
-			case 'duration':
-				$orderby = 'duration';
-			break;
-			case 'date':
-			default:
-				$orderby = 'timestamp';
-			break;
+		$sth = $this->cdrdb->prepare($sql);
+		$sth->execute();
+		$records = $sth->fetchAll(\PDO::FETCH_COLUMN);
+		$totalRows = count($records);
+		// i think we should limit the members(unqiueid) based on page navigation
+		$limitedid = array_slice($records,$offset,$limit);
+		$members = implode("','",$limitedid);
+		$sql = "SELECT cel.linkedid, cel.*, UNIX_TIMESTAMP(cel.eventtime) as eventunixtime FROM cel WHERE linkedid IN ('".$members."')";
+		$sth = $this->cdrdb->prepare($sql);
+		$sth->execute();
+		//Grouped by linked id
+		$rows = $sth->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_ASSOC);
+		$returnrows = array();
+		$channels = array();
+		$_SESSION['cel']['recordings'] = array();
+		$rec = array();
+		foreach($rows as $key => $array){
+			unset($more);
+			unset($mainrow);
+			foreach($array as $row){
+			//lets form the main row for display
+				if($row['eventtype']=='CHAN_START' && $row['uniqueid'] == $row['linkedid'] ){
+					$mainrow['eventtime'] = $row['eventtime'];
+					$mainrow['timestamp'] = $row['eventunixtime'];
+					$mainrow['cid_num'] = $row['cid_num'];
+					$mainrow['exten'] = $row['exten'];
+					$mainrow['channame'] = $row['channame'];
+					$mainrow['uniqueid'] = $row['uniqueid'];
+					//remove . from uniqueid
+					$mainrow['id'] = str_replace(".",'_',$row['uniqueid']);
+					$start = $row['eventunixtime'];
+				}
+				//lets calcurate the duration of the call LINKEDID_END
+				if($row['eventtype']=='LINKEDID_END' &&  $row['uniqueid'] == $row['linkedid']){
+					$mainrow['duration'] = $row['eventunixtime'] - $start;
+				}
+				// letus find out the recording file
+				if($row['exten'] == 'recordcheck' && $row['eventtype']=='APP_START' &&  $row['uniqueid'] == $row['linkedid']){
+					if ($row['appname'] == 'MixMonitor') {
+						$args = explode(',', $row['appdata']);
+						if ($args[0]) {
+							$dates = explode('/',$args[0]);
+							$mainrow['year'] = $dates[0];
+							$mainrow['month'] = $dates[1];
+							$mainrow['day'] = $dates[2];
+							$recording = $dates[3];
+							if($recording){
+								$file = $this->directory . $dates[0] . '/' . $dates[1] . '/' . $dates[2] . '/' .$recording;
+								$mainrow['file'] = '';
+								if(file_exists($file)){
+									$mainrow['file'] = $file;
+									$_SESSION['cel']['recordings'][$row['uniqueid']] = array(
+										'file' => $mainrow['file']
+									);
+									$rec['recordings'][$row['uniqueid']] = array(
+										'file' => $mainrow['file']
+									);
+								}else {
+									$mainrow['year'] ='';
+									$mainrow['month'] = '';
+									$mainrow['day'] = '';
+								}
+							}
+						}
+					}
+				}
+					$row['timestamp'] = $row['eventunixtime'];
+					$more[] = $row;
+			}
+			$mainrow['moreinfo'] = $more;
+			$returnrows[] = $mainrow;
 		}
-		$order = ($order == 'desc') ? 'desc' : 'asc';
-		if(!empty($search)) {
-			$sql = "SELECT distinct(linkedid), ".$this->db_table.".*, UNIX_TIMESTAMP(eventtime) As timestamp FROM ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
-			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension));
-		} else {
-			$sql = "SELECT distinct(linkedid), ".$this->db_table.".*, UNIX_TIMESTAMP(eventtime) As timestamp FROM ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
-			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension));
-		}
-		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
-		return $calls;
+		return array(
+			"total" => $totalRows,
+			"rows" => $returnrows,
+			"recordings" => $rec
+		);
 	}
 
 
@@ -743,9 +792,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 						if ($args[0]) {
 							$mon_dir = !empty($amp_conf['MIXMON_DIR']) ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 							$recording = $mon_dir . '/' . $args[0];
-							dbug($recording);
-							$recordingfile = $crypt->encrypt($recording, $REC_CRYPT_PASSWORD);
-							$call['recordings'][$recordingfile] = file_exists($recording);
+							$call['recordings'][] = file_exists($recording);
 						}
 					}
 
@@ -807,7 +854,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$this->calls = $calls;
 		return $this->calls;
 	}
-
 	private function channelCallerID($channel) {
 		return ($channel['cid_name'] ? $channel['cid_name'] : 'Unknown') . ' <' . $channel['cid_num'] . '>';
 	}

@@ -6,13 +6,18 @@
 	data-toggle="table"
 	data-pagination="true"
 	data-search="true"
-	data-sort-order="asc"
+	data-sort-order="desc"
 	data-sort-name="timestamp"
 	data-mobile-responsive="true"
 	data-check-on-init="true">
 	<thead>
 		<th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Time")?></th>
-		<th data-field="duration" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDuration"><?php echo _("Duration")?></th>
-		<th data-field="detail" data-sortable="true"><?php echo _("Detail")?></th>
+		<th data-field="eventtype" data-sortable="true" ><?php echo _("Event Type")?></th>
+		<th data-field="uniqueid" data-sortable="true" ><?php echo _("UniqueID")?></th>
+		<th data-field="linkedid" data-sortable="true" ><?php echo _("LinkedID")?></th>
+		<th data-field="cid_num" data-sortable="true" ><?php echo _("Cid num")?></th>
+		<th data-field="exten" data-sortable="true" ><?php echo _("Extension")?></th>
+		<th data-field="context" data-sortable="true" ><?php echo _("Context")?></th>
+		<th data-field="channame" data-sortable="true"><?php echo _("Channle Name")?></th>
 	</thead>
 </table>
