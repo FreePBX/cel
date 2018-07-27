@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-25 18:37-0400\n"
+"POT-Creation-Date: 2018-07-27 14:57-0400\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -182,7 +182,7 @@ msgstr "Discado"
 msgid "Dialed Number"
 msgstr "Numero Marcado"
 
-#: ucp/assets/js/global.js:62
+#: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr "Bajar"
 
@@ -364,7 +364,7 @@ msgstr "Correo de Voz Principal"
 msgid "Yes"
 msgstr "Si"
 
-#: assets/js/cel.js:58 ucp/assets/js/global.js:105
+#: assets/js/cel.js:58 ucp/assets/js/global.js:103
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-25 18:37-0400\n"
+"POT-Creation-Date: 2018-07-27 14:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Dialed Number"
 msgstr ""
 
-#: ucp/assets/js/global.js:62
+#: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr ""
 
@@ -388,7 +388,7 @@ msgid "Yes"
 msgstr ""
 
 #: assets/js/cel.js:58
-#: ucp/assets/js/global.js:105
+#: ucp/assets/js/global.js:103
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
