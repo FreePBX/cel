@@ -22,13 +22,13 @@
         class="table table-hover">
     <thead>
         <tr class="cdr-header">
-			<th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Date")?></th>
+			<th data-field="eventtime" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Date")?></th>
             <th data-field="cid_num" data-sortable="true"><?php echo _("Caller")?></th>
 			<th data-field="exten" data-sortable="true"><?php echo _("Dialed")?></th>
-			<th data-field="duration" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDuration"><?php echo _("Duration")?></th>
+			<th data-field="duration" data-formatter="UCP.Modules.Cel.formatDuration"><?php echo _("Duration")?></th>
 			<?php if($showPlayback) {?>
 				<th data-field="file" data-formatter="UCP.Modules.Cel.formatPlayback"><?php echo _("Playback")?></th>
-			<?php } 
+			<?php }
 			if($showdownload) {
 				?>
 				<th data-field="file" data-formatter="UCP.Modules.Cel.formatControls"><?php echo _("Controls")?></th>

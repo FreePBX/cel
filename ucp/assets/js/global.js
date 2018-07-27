@@ -16,7 +16,7 @@ var CelC = UCPMC.extend({
 				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 			}
 		});
-		$("#cel-grid").on("click-cell.bs.table", function(event, field, value, row) { 
+		$("#cel-grid").on("click-cell.bs.table", function(event, field, value, row) {
 			if(field == "file" || field == "controls") {
 				return;
 			}
@@ -43,7 +43,7 @@ var CelC = UCPMC.extend({
 		return sprintf(_("%s seconds"),value);
 	},
 	formatDate: function(value, row, index) {
-		return UCP.dateFormatter(value);
+		return UCP.dateFormatter(row.timestamp);
 	},
 	formatControls: function (value, row, index) {
 		if(typeof row.file === "undefined" || showDownload === "0") {

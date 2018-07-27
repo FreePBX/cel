@@ -293,7 +293,36 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		if(!empty($application)) {
 			$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like '" .$application."' ";
 		}
-		$sql .= " ORDER by eventtime DESC";
+
+		if(!empty($sort)){
+			switch($sort) {
+				case 'cid_num':
+				case 'exten':
+				break;
+				case 'eventtime':
+				default:
+					$sort = 'eventtime';
+				break;
+			}
+			$sql .= " ORDER by $sort";
+		} else {
+			$sql .= " ORDER by eventtime";
+		}
+
+		if(!empty($order)){
+			switch($order) {
+				case 'asc':
+				break;
+				case 'desc':
+				default:
+					$order = 'DESC';
+				break;
+			}
+			$sql .= " $order";
+		} else {
+			$sql .= " DESC";
+		}
+
 		$sth = $this->cdrdb->prepare($sql);
 		$sth->execute();
 		$records = $sth->fetchAll(\PDO::FETCH_COLUMN);
@@ -317,9 +346,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			//lets form the main row for display
 				if($row['eventtype']=='CHAN_START' && $row['uniqueid'] == $row['linkedid'] ){
 					$mainrow['eventtime'] = $row['eventtime'];
-					$c['timestamp'] = new \DateTime($row['eventtime']);// using in CUP
-					$st = $c['timestamp']->format("U");
-					$mainrow['timestamp'] = $st;
+					$mainrow['timestamp'] = $row['eventunixtime'];
 					$mainrow['cid_num'] = $row['cid_num'];
 					$mainrow['exten'] = $row['exten'];
 					$mainrow['channame'] = $row['channame'];
@@ -354,6 +381,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 										'file' => $mainrow['file']
 									);
 								}else {
+									unset($mainrow['file']);
 									$mainrow['year'] ='';
 									$mainrow['month'] = '';
 									$mainrow['day'] = '';
@@ -362,9 +390,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 						}
 					}
 				}
-					$c['time'] = new \DateTime($row['eventtime']);
-					$st = $c['time']->format("U");
-					$row['timestamp'] = $st;
+					$row['timestamp'] = $row['eventunixtime'];
 					$more[] = $row;
 			}
 			$mainrow['moreinfo'] = $more;
@@ -375,516 +401,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			"rows" => $returnrows,
 			"recordings" => $rec
 		);
-
-}
-	/**
-	* Get the Number of Pages by limit for extension
-	* @param {int} $extension The Extension to lookup
-	* @param {int} $limit=100 The limit of results per page
-	*/
-	public function getPages($extension,$search='',$limit=100) {
-		if(!empty($search)) {
-			//cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%'
-			//(eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')
-			$sql = "SELECT COUNT(DISTINCT linkedid) as count from ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) AND (cid_num LIKE :search OR cid_name LIKE :search)";
-			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%'));
-		} else {
-			$sql = "SELECT COUNT(DISTINCT linkedid) as count from ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension)";
-			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension));
-		}
-		$res = $sth->fetch(\PDO::FETCH_ASSOC);
-		$total = $res['count'];
-		if(!empty($total)) {
-			return ceil($total/$limit);
-		} else {
-			return false;
-		}
-	}
-
-	public function getUCPCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100) {
-		$start = ($limit * ($page - 1));
-		$end = $limit;
-		switch($orderby) {
-			case 'description':
-				$orderby = 'clid';
-			break;
-			case 'duration':
-				$orderby = 'duration';
-			break;
-			case 'date':
-			default:
-				$orderby = 'timestamp';
-			break;
-		}
-		$order = ($order == 'desc') ? 'desc' : 'asc';
-		if(!empty($search)) {
-			$sql = "SELECT distinct(linkedid), ".$this->db_table.".*, UNIX_TIMESTAMP(eventtime) As timestamp FROM ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
-			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension));
-		} else {
-			$sql = "SELECT distinct(linkedid), ".$this->db_table.".*, UNIX_TIMESTAMP(eventtime) As timestamp FROM ".$this->db_table." WHERE (cid_num = :extension OR exten = :extension) ORDER by $orderby $order LIMIT $start,$end";
-			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension));
-		}
-		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
-		return $calls;
-	}
-	public function getCalls($filters, $extension = NULL) {
-		if(!empty($this->calls)) {
-			return $this->calls;
-		}
-		global $amp_conf;
-
-		include_once("crypt.php");
-		$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
-
-		$crypt = new \Crypt();
-
-		$badcontexts = array('tc-maint');
-
-		$sql = "SELECT DISTINCT linkedid" .
-			" FROM ".$this->db_table .
-			" WHERE context NOT IN ('" . implode("', '", $badcontexts) . "')" .
-		($extension ? " AND (cid_num = '" . $extension . "' OR exten = '" . $extension . "')" : "");
-		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-		$linkedids = array();
-		foreach ($res as $row) {
-			$linkedids[] = $row['linkedid'];
-		}
-
-		if ($filters['datefrom'] || $filters['dateto']) {
-			$datefrom = (!empty($filters['datefrom']) ? $filters['datefrom'] : date('Y-m-d')) . ' 00:00:00';
-			$dateto = (!empty($filters['dateto']) ? $filters['dateto'] : date('Y-m-d')) . ' 23:59:59';
-			$sql = "SELECT linkedid" .
-				" FROM ".$this->db_table .
-				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND eventtime BETWEEN '" . $datefrom . "' AND '" . $dateto . "'";
-			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-			$filterlinkedids = array();
-			foreach ($res as $row) {
-				$filterlinkedids[] = $row['linkedid'];
-			}
-			$linkedids = array_intersect($linkedids, $filterlinkedids);
-		}
-
-		if ($filters['callerid']) {
-			$callerid = $filters['callerid'];
-			$sql = "SELECT linkedid" .
-				" FROM ".$this->db_table .
-				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND (cid_num LIKE '%" . $callerid . "%' OR cid_name LIKE '%" . $callerid . "%')";
-			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-			$filterlinkedids = array();
-			foreach ($res as $row) {
-				$filterlinkedids[] = $row['linkedid'];
-			}
-			$linkedids = array_intersect($linkedids, $filterlinkedids);
-		}
-
-		if ($filters['exten']) {
-			$extension = $filters['exten'];
-			$sql = "SELECT linkedid" .
-				" FROM ".$this->db_table.
-				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND exten LIKE '%" . $extension . "%'";
-			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-			$filterlinkedids = array();
-			foreach ($res as $row) {
-				$filterlinkedids[] = $row['linkedid'];
-			}
-			$linkedids = array_intersect($linkedids, $filterlinkedids);
-		}
-
-		if ($filters['application']) {
-			$application = $filters['application'];
-			if ($application == 'conference') {
-				$application = array('confbridge', 'meetme');
-			} else {
-				$application = array($application);
-			}
-			$sql = "SELECT linkedid" .
-				" FROM ".$this->db_table.
-				" WHERE linkedid IN ('" . implode("', '", $linkedids) . "') AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname IN ('" . implode("', '", $application) . "')";
-			$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-			$filterlinkedids = array();
-			foreach ($res as $row) {
-				$filterlinkedids[] = $row['linkedid'];
-			}
-			$linkedids = array_intersect($linkedids, $filterlinkedids);
-		}
-
-
-
-		$fields = array(
-			'eventtype',
-			'eventtime',
-			'uniqueid',
-			'linkedid',
-			'cid_name',
-			'cid_num',
-			'exten',
-			'context',
-			'appname',
-			'appdata',
-			'channame',
-			'peer',
-			'extra',
-		);
-
-		$calls = array();
-
-		/* Grab channels that are associated via an attended transfer */
-		$sql = "SELECT extra" .
-			" FROM ".$this->db_table.
-			" WHERE eventtype = 'ATTENDEDTRANSFER' AND linkedid IN ('" . implode("', '", $linkedids) . "')";
-		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-		foreach ($res as $row) {
-			$extra = json_decode($row['extra'], true);
-
-			if (!in_array($extra['transferee_channel_uniqueid'], $linkedids)) {
-				$linkedids[] = $extra['transferee_channel_uniqueid'];
-			}
-			if (!in_array($extra['channel2_uniqueid'], $linkedids)) {
-				$linkedids[] = $extra['channel2_uniqueid'];
-			}
-		}
-
-		$sql = "SELECT " . implode(", ", $fields) .
-			" FROM ".$this->db_table.
-			" WHERE linkedid IN ('" . implode("', '", $linkedids) . "')" .
-			" ORDER BY id";
-		$res = $this->cdrdb->getAll($sql, DB_FETCHMODE_ASSOC);
-
-		$channels = array();
-		foreach ($res as $row) {
-			$extra = json_decode($row['extra'], true);
-
-			$calls[$row['linkedid']]['records'][] = $row;
-
-			switch ($row['eventtype']) {
-			case 'CHAN_START':
-				if (substr($row['channame'], 0, 6) == "Local/") {
-					/* Ugh... */
-					$mapname = substr($row['channame'], 0, -2);
-					if (substr($row['channame'], -2, 2) == ";1") {
-						if ($row['uniqueid'] != $row['linkedid']) {
-							$localmaps[$mapname]['owner'] = $row['linkedid'];
-						}
-						$localmaps[$mapname]['one'] = $row['uniqueid'];
-					} else {
-						$localmaps[$mapname]['two'] = $row['uniqueid'];
-					}
-				}
-
-				/* New channel! */
-				$channels[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
-				$channels[$row['uniqueid']]['cid_num'] = $row['cid_num'];
-				$channels[$row['uniqueid']]['cid_name'] = $row['cid_name'];
-				$channels[$row['uniqueid']]['channel'] = $row['channame'];
-				$channels[$row['uniqueid']]['extension'] = $row['exten'];
-				if ($row['linkedid'] != $row['uniqueid']) {
-					$channels[$row['uniqueid']]['linkedid'] = $row['linkedid'];
-				}
-
-				if ($channels[$row['linkedid']]['successor']) {
-					/* Linked ID channel has a successor. */
-					$channels[$row['uniqueid']]['owner'] = $channels[$row['linkedid']]['successor'];
-				}
-
-				if ($row['uniqueid'] == $row['linkedid']) {
-					$calls[$row['uniqueid']]['starttime'] = new \DateTime($row['eventtime']);
-					$calls[$row['uniqueid']]['src'] = $this->channelCallerID($channels[$row['uniqueid']]);
-					$calls[$row['uniqueid']]['extension'] = $row['exten'];
-				}
-				break;
-			case 'CHAN_END':
-				$channels[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
-
-				if ($row['uniqueid'] == $row['linkedid']) {
-					$callid = $row['uniqueid'];
-
-					$call = $calls[$callid];
-
-					$calls[$row['uniqueid']]['endtime'] = new \DateTime($row['eventtime']);
-
-					if ($channels[$row['uniqueid']]['hanguptime']) {
-						$call['actions'][] = array(
-							'type' => 'hangup',
-							'starttime' => $channels[$row['uniqueid']]['hanguptime'],
-							'stoptime' => $channels[$row['uniqueid']]['endtime'],
-							'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-						);
-					}
-
-					$calls[$callid] = $call;
-				} else {
-					$callid = $row['linkedid'];
-
-					$call = $calls[$callid];
-
-					if (substr($channels[$row['uniqueid']]['channel'], 0, 12) == 'DAHDI/pseudo') {
-						continue;
-					}
-
-					if (($localmap = $localmaps[substr($channels[$row['uniqueid']]['channel'], 0, -2)]) && $localmap['owner'] == $row['linkedid']) {
-						continue;
-					}
-
-					$call['actions'][] = array(
-						'type' => 'call',
-						'starttime' => $channels[$row['uniqueid']]['starttime'],
-						'stoptime' => ($channels[$row['uniqueid']]['answertime'] ? $channels[$row['uniqueid']]['answertime'] : $channels[$row['uniqueid']]['endtime']),
-						'src' =>  $this->channelCallerID($channels[($channels[$row['uniqueid']]['owner'] ? $channels[$row['uniqueid']]['owner'] : $callid)]),
-						'dest' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-						'status' => $channels[$callid]['dialstatus'],
-					);
-
-					if ($channels[$row['uniqueid']]['answertime']) {
-						$call['actions'][] = array(
-							'type' => 'answer',
-							'starttime' => $channels[$row['uniqueid']]['answertime'],
-							'stoptime' => $channels[$row['uniqueid']]['hanguptime'],
-							'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-							'status' => $channels[$callid]['dialstatus'],
-						);
-
-						if ($channels[$row['uniqueid']]['hanguptime']) {
-							$call['actions'][] = array(
-								'type' => 'hangup',
-								'starttime' => $channels[$row['uniqueid']]['hanguptime'],
-								'stoptime' => $channels[$row['uniqueid']]['endtime'],
-								'src' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-							);
-						}
-					}
-
-					$calls[$callid] = $call;
-				}
-				break;
-			case 'LINKEDID_END':
-				/* Override the endtime of the call. */
-				$calls[$row['linkedid']]['endtime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'ANSWER':
-				$channels[$row['uniqueid']]['answertime'] = new \DateTime($row['eventtime']);
-				/* Update the Caller ID, because it may have changed. */
-				$channels[$row['uniqueid']]['cid_num'] = $row['cid_num'];
-				$channels[$row['uniqueid']]['cid_name'] = $row['cid_name'];
-				break;
-			case 'HANGUP':
-				$channels[$row['uniqueid']]['hanguptime'] = new \DateTime($row['eventtime']);
-				$channels[$row['uniqueid']]['hangupcause'] = $extra['hangupcause'];
-				if ($extra['dialstatus']) {
-					$channels[$row['uniqueid']]['dialstatus'] = $extra['dialstatus'];
-				}
-				break;
-			case 'BRIDGE_ENTER':
-				if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
-					$uniqueid = $localmap['owner'];
-				} else {
-					$uniqueid = $row['uniqueid'];
-				}
-				$bridges[$extra['bridge_id']][$uniqueid]['entertime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'BRIDGE_EXIT':
-				if (($localmap = $localmaps[substr($row['channame'], 0, -2)]) && $row['uniqueid'] == $localmap['two']) {
-					$uniqueid = $localmap['owner'];
-				} else {
-					$uniqueid = $row['uniqueid'];
-				}
-				$bridges[$extra['bridge_id']][$uniqueid]['exittime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'ATTENDEDTRANSFER':
-				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
-					/* The owner (or successor) of the channel is giving up control to the transferee. */
-					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
-				}
-
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'transfer',
-					'transfertype' => 'attended',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
-					'dest' =>  $this->channelCallerID($channels[$extra['transfer_target_channel_uniqueid']]),
-				);
-				break;
-			case 'BLINDTRANSFER':
-				if ($row['uniqueid'] == $row['linkedid'] || $channels[$row['linkedid']]['successor'] == $row['uniqueid']) {
-					/* The owner (or successor) of the channel is giving up control to the transferee. */
-					$channels[$row['linkedid']]['successor'] = $extra['transferee_channel_uniqueid'];
-				}
-
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'transfer',
-					'transfertype' => 'blind',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'transferer' =>  $this->channelCallerID($channels[$row['uniqueid']]),
-					'transferee' =>  $this->channelCallerID($channels[$extra['transferee_channel_uniqueid']]),
-					'dest' => 'Extension ' . $extra['extension'],
-				);
-				break;
-			case 'APP_START':
-				$channels[$row['uniqueid']]['apps'][] = array(
-					'appname' => $row['appname'],
-					'appdata' => $row['appdata'],
-					'starttime' => new \DateTime($row['eventtime']),
-				);
-				break;
-			case 'APP_END':
-				/* Can two applications be executing on a channel at once?  I don't think so. */
-				$channels[$row['uniqueid']]['apps'][count($channels[$row['uniqueid']]['apps']) - 1]['stoptime'] = new \DateTime($row['eventtime']);
-				break;
-			case 'PARK_START':
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'park',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'src' => $this->channelCallerID($channels[$row['uniqueid']]),
-					'dest' => $extra['parking_lot'],
-				);
-				break;
-			case 'PARK_END':
-				$calls[$row['linkedid']]['actions'][] = array(
-					'type' => 'unpark',
-					'starttime' => new \DateTime($row['eventtime']),
-					'stoptime' => new \DateTime($row['eventtime']),
-					'src' => $this->channelCallerID($channels[$row['uniqueid']]),
-					'reason' => $extra['reason'],
-				);
-				break;
-			default:
-				break;
-			}
-		}
-
-		foreach ($channels as $uniqueid => $channel) {
-			if ($channel['linkedid']) {
-				$callid = $channel['linkedid'];
-
-				$call = $calls[$callid];
-			} else {
-				$callid = $uniqueid;
-
-				$call = $calls[$callid];
-
-				if(!empty($bridges) && is_array($bridges)) {
-					foreach ($bridges as $bridgeid => $bridge) {
-						if (isset($bridge[$callid])) {
-							$action = array(
-								'type' => 'bridge',
-								'starttime' => $bridge[$callid]['entertime'],
-								'stoptime' => $bridge[$callid]['exittime'],
-								'bridge' => $bridgeid,
-								'members' => array(),
-							);
-
-							foreach ($bridge as $linkid => $link) {
-								if ($linkid == $callid) {
-									continue;
-								}
-
-								$channame = substr($channels[$linkid]['channel'], 0, -2);
-								if (isset($localmaps[$channame]) && ($localmap = $localmaps[$channame]) && $localmap['owner'] == $channels[$linkid]['linkedid']) {
-									continue;
-								}
-
-								if ($action['stoptime'] > $link['entertime'] && $link['exittime'] > $action['starttime']) {
-									$member = array(
-										'dest' => $channels[$linkid],
-										'entertime' => ($link['entertime'] < $action['starttime'] ? $action['starttime'] : $link['entertime']),
-										'exittime' => ($link['exittime'] > $action['stoptime'] ? $action['stoptime'] : $link['exittime']),
-									);
-
-									$action['members'][] = $member;
-								}
-
-							}
-
-							if (count($action['members']) > 0) {
-								$call['actions'][] = $action;
-							}
-						}
-					}
-				}
-			}
-
-			if (is_array($channel['apps'])) {
-				foreach ($channel['apps'] as $app) {
-					if ($app['appname'] == 'MixMonitor') {
-						$args = explode(',', $app['appdata']);
-						if ($args[0]) {
-							$mon_dir = !empty($amp_conf['MIXMON_DIR']) ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
-							$recording = $mon_dir . '/' . $args[0];
-							$call['recordings'][] = file_exists($recording);
-						}
-					}
-
-					if (($dest = $this->parseApplication($app['appname'], $app['appdata']))) {
-						$call['actions'][] = array(
-							'type' => 'application',
-							'starttime' => $app['starttime'],
-							'stoptime' => $app['stoptime'],
-							'src' =>  $this->channelCallerID($channel),
-							'dest' => $dest,
-						);
-					}
-				}
-			}
-
-			$call['actions'] = is_array($call['actions']) ? $call['actions'] : array();
-			foreach($call['actions'] as &$c) {
-				if(!is_object($c['starttime'])) {
-					$c['starttime'] = new \DateTime($c['starttime']);
-				}
-				if(!is_object($c['stoptime'])) {
-					$c['stoptime'] = new \DateTime($c['stoptime']);
-				}
-				$st = $c['starttime']->format("U");
-				$et = $c['stoptime']->format("U");
-				$c['duration'] = $et - $st;
-				$c['timestamp'] = $st;
-				$c['detail'] = $c['src'] . " " . $c['dest'];
-			}
-
-			$calls[$callid] = $call;
-		}
-
-		foreach ($calls as $callid => $call) {
-			$call['actions'] = is_array($call['actions']) ? $call['actions'] : array();
-			usort($call['actions'], function($a, $b) {
-				if ($a['starttime'] == $b['starttime']) {
-					if ($b['type'] == 'transfer') {
-						/* Transfer should come before others. */
-						return 1;
-					}
-
-					return 0;
-				}
-
-				return $a['starttime'] < $b['starttime'] ? -1 : 1;
-			});
-			if(!is_object($call['endtime'])) {
-				$call['endtime'] = new \DateTime($call['endtime']);
-			}
-			if(!is_object($call['starttime'])) {
-				$call['starttime'] = new \DateTime($call['starttime']);
-			}
-			$call['duration'] = $call['endtime']->format('U') - $call['starttime']->format('U');
-			$call['timestamp'] = $call['starttime']->format('U');
-			$calls[$callid] = $call;
-		}
-		$this->calls = $calls;
-		return $this->calls;
-	}
-	private function channelCallerID($channel) {
-		return ($channel['cid_name'] ? $channel['cid_name'] : 'Unknown') . ' <' . $channel['cid_num'] . '>';
 	}
 
 	private function parseApplication($name, $data) {
@@ -935,51 +451,5 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 
 		return $parsed;
-	}
-
-	function playRecording() {
-		include_once("audio.php");
-	}
-
-	/**
-	 * Validate Monitor Path
-	 * @param  string $file The full path to the file
-	 * @return boolean       True if a valid path else false
-	 */
-	public function validateMonitorPath($file) {
-		if (strpos($file, "..") !== false) {
-			return false;
-		}
-		$mixmondir = $this->FreePBX->Config->get("MIXMON_DIR");
-		$astspooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
-		$mon_dir = $mixmondir ? $mixmondir : $astspooldir . '/monitor';
-		if(!preg_match('/^'.str_replace("/","\/",$mon_dir).'/',$file)) {
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Tear apart the file name to get our correct path
-	 * @param  string $recordingFile The recording file
-	 * @return string                The full path
-	 */
-	private function processPath($recordingFile) {
-		if(empty($recordingFile)) {
-			return '';
-		}
-		$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
-		$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
-		$rec_parts = explode('-',$recordingFile);
-		$fyear = substr($rec_parts[3],0,4);
-		$fmonth = substr($rec_parts[3],4,2);
-		$fday = substr($rec_parts[3],6,2);
-		$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
-		$recordingFile = "$monitor_base/$fyear/$fmonth/$fday/" . $recordingFile;
-		//check to make sure the file size is bigger than 44 bytes (header size)
-		if(file_exists($recordingFile) && is_readable($recordingFile) && filesize($recordingFile) > 44) {
-			return $recordingFile;
-		}
-		return '';
 	}
 }
