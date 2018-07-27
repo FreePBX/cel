@@ -452,4 +452,22 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 		return $parsed;
 	}
+
+	/**
+	 * Validate Monitor Path
+	 * @param  string $file The full path to the file
+	 * @return boolean       True if a valid path else false
+	 */
+	public function validateMonitorPath($file) {
+		if (strpos($file, "..") !== false) {
+			return false;
+		}
+		$mixmondir = $this->FreePBX->Config->get("MIXMON_DIR");
+		$astspooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
+		$mon_dir = $mixmondir ? $mixmondir : $astspooldir . '/monitor';
+		if(!preg_match('/^'.str_replace("/","\/",$mon_dir).'/',$file)) {
+			return false;
+		}
+		return true;
+	}
 }
