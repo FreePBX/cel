@@ -272,7 +272,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	public function cel_getreport($request,$ext = null) {
 		extract($request);
 
-		$sql = "SELECT DISTINCT cel.linkedid FROM cel WHERE 1";
+		$sql = "SELECT SQL_CALC_FOUND_ROWS DISTINCT cel.linkedid FROM cel WHERE 1";
+		//$sql = "SELECT DISTINCT cel.linkedid FROM cel WHERE 1";
 		$vars = array();
 		if(!empty($dateto)){
 			$sql .=" AND eventtime <= '".$dateto." 23:59:59'";
@@ -320,13 +321,27 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		} else {
 			$sql .= " DESC";
 		}
+
+
+		//$limit = $limit+1;
+		$sql .= " LIMIT $offset,$limit";
+
 		$sth = $this->cdrdb->prepare($sql);
 		$sth->execute();
 		$records = $sth->fetchAll(\PDO::FETCH_COLUMN);
-		$totalRows = count($records);
-		// i think we should limit the members(unqiueid) based on page navigation
-		$limitedid = array_slice($records,$offset,$limit);
-		$members = implode("','",$limitedid);
+
+		/*
+		if(count($records) === $limit) {
+			$totalRows = $offset + ($limit - 1) + ($limit - 1);
+			array_pop($records);
+		}
+		*/
+
+		$sth = $this->cdrdb->prepare("SELECT FOUND_ROWS() as count");
+		$sth->execute();
+		$totalRows = $sth->fetchAll(\PDO::FETCH_COLUMN);
+
+		$members = implode("','",$records);
 		$sql = "SELECT cel.linkedid, cel.*, UNIX_TIMESTAMP(cel.eventtime) as eventunixtime FROM cel WHERE linkedid IN ('".$members."')";
 		$sth = $this->cdrdb->prepare($sql);
 		$sth->execute();
