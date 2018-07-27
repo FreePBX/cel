@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-25 18:37-0400\n"
-"PO-Revision-Date: 2017-12-18 17:27+0200\n"
-"Last-Translator: Nils <Nils@heckenkamp.info>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/cel/de_DE/"
-">\n"
+"PO-Revision-Date: 2018-07-27 15:00+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"Language-Team: German <http://*/projects/freepbx/cel/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: ucp/assets/js/global.js:47
 #, perl-format
@@ -193,7 +192,7 @@ msgstr "Dauer"
 
 #: install.php:110
 msgid "ERROR failed to update database"
-msgstr ""
+msgstr "FEHLER Konnte Datenbank nicht aktualisieren"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
@@ -213,7 +212,7 @@ msgstr ""
 
 #: ucp/views/eventModal.php:19 views/page.cel_view.php:56
 msgid "Extension"
-msgstr ""
+msgstr "Nebenstelle"
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
