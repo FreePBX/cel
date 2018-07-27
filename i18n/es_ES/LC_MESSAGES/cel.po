@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 20:35-0400\n"
+"POT-Creation-Date: 2018-07-27 14:21-0400\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
 "es_ES/>\n"
-"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -70,8 +70,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr "Detalle Llamada"
 
-#: Cel.class.php:235 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
-#: /dev/shm/freepbx/cel/cel.i18n.php:10 page.cel.php:10
+#: Cel.class.php:235 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Call Event Logging (CEL)"
 
@@ -396,7 +396,7 @@ msgstr ""
 msgid "checking for extra field.."
 msgstr "chequeando por campo extra.."
 
-#: install.php:86 /dev/shm/freepbx/cel/install.php:97
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
 msgstr ""
 
