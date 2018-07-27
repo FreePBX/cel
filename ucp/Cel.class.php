@@ -177,8 +177,8 @@ class Cel extends Modules{
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
 			case "download":
-				$file = isset($_SESSION['celucp']['recordings'][$_REQUEST['uniqueid']]['file']) ? $_SESSION['celucp']['recordings'][$_REQUEST['uniqueid']]['file'] : '';
-				$this->downloadFile($file,$_REQUEST['ext']);
+				$file = isset($this->UCP->Session->celucp['recordings'][$_REQUEST['id']]['file']) ? $this->UCP->Session->celucp['recordings'][$_REQUEST['id']]['file'] : '';
+				$this->downloadFile($file,$this->user['default_extension']);
 				return true;
 			break;
 			case "playback":

@@ -20,7 +20,7 @@ var CelC = UCPMC.extend({
 			self.bindPlayers(widget_id);
 		});
 		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").on("click-cell.bs.table", function(event, field, value, row) {
-			if(field == "playback" || field == "controls") {
+			if(field == "file" || field == "controls") {
 				return;
 			}
 
@@ -51,32 +51,30 @@ var CelC = UCPMC.extend({
 	},
 	formatControls: function (value, row, index) {
 		var settings = UCP.Modules.Cel.staticsettings;
-		if(typeof row.recordings === "undefined" || settings.showDownload === "0") {
+		if(typeof row.file === "undefined" || settings.showDownload === "0") {
 			return '';
 		}
 		var links = '';
-		$.each(row.recordings, function(k, v){
-			if(v === false) {
-				return true;
-			}
-			links = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cel&amp;command=download&amp;id='+encodeURIComponent(k)+'&amp;type=download&amp;ext='+row.requestingExtension+'"><i class="fa fa-cloud-download"></i></a>';
-		});
+		links = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cel&amp;command=download&amp;id='+encodeURIComponent(row.uniqueid)+'&amp;type=download"><i class="fa fa-cloud-download"></i></a>';
 		return links;
 	},
 	formatPlayback: function (value, row, index) {
 		var settings = UCP.Modules.Cel.staticsettings,
 				rand = Math.floor(Math.random() * 10000);
-		if(typeof row.recordings === "undefined" || settings.showPlayback === "0") {
+
+		if(typeof row.file === "undefined" || settings.showPlayback === "0") {
 			return '';
 		}
 
+		var recordings = [row.file];
+
 		var html = '',
 			count = 0;
-		$.each(row.recordings, function(k, v){
+		$.each(recordings, function(k, v){
 			if(v === false) {
 				return true;
 			}
-			html += '<div id="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-jplayer" data-container="#jp_container_'+index+'_'+count+'-'+rand+'" data-id="'+k+'"></div>'+
+			html += '<div id="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-jplayer" data-container="#jp_container_'+index+'_'+count+'-'+rand+'" data-playbackuniqueid="'+row.uniqueid+'" data-id="'+k+'"></div>'+
 			'<div id="jp_container_'+index+'_'+count+'-'+rand+'" data-player="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
 				'<div class="jp-type-single">'+
 				'<div class="jp-gui jp-interface">'+
@@ -113,6 +111,7 @@ var CelC = UCPMC.extend({
 			var container = $(this).data("container"),
 					player = $(this),
 					playback = $(this).data("playbackuniqueid");
+
 			$(this).jPlayer({
 				ready: function() {
 					$(container + " .jp-play").click(function() {
@@ -125,7 +124,7 @@ var CelC = UCPMC.extend({
 							$(container).addClass("jp-state-loading");
 							$.ajax({
 								type: 'POST',
-								url: "index.php?quietmode=1",
+								url: "ajax.php",
 								data: {module: "cel", command: "gethtml5", uniqueid: playback, ext: extension},
 								dataType: 'json',
 								timeout: 30000,
