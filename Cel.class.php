@@ -395,7 +395,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 		return array(
 			"total" => $totalRows,
-			"rows" => $returnrows,
+			"rows" => array_reverse($returnrows),
 			"recordings" => $rec
 		);
 	}

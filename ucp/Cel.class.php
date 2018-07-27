@@ -148,7 +148,7 @@ class Cel extends Modules{
 				if($_REQUEST['sort'] === 'timestamp') {
 					$_REQUEST['sort'] = 'eventtime';
 				}
-				$callsarray = $this->cel->cel_getreport($_REQUEST,$ext);
+				$callsarray = $this->cel->cel_getreport($_REQUEST,$this->user['default_extension']);
 				$calls = $callsarray['rows'];
 				$count = $callsarray['total'];
 				$this->UCP->Session->celucp = $callsarray['recordings'];
