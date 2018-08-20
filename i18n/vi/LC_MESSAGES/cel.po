@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 03:17-0500\n"
+"POT-Creation-Date: 2018-08-20 14:37-0400\n"
 "PO-Revision-Date: 2017-06-22 10:39+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: ucp/assets/js/global.js:48
+#: ucp/assets/js/global.js:47
 #, perl-format
 msgid "%s seconds"
 msgstr "%s giây"
@@ -50,11 +50,11 @@ msgstr "Cho phép người dùng tải xuống các ghi âm trong UCP"
 msgid "Allowed CEL"
 msgstr "CEL ( Nhật ký sự kiện cuộc gọi) được cho phép"
 
-#: views/search.php:106
+#: views/page.cel_view.php:163 views/search.php:106
 msgid "Application"
 msgstr "Ứng dụng"
 
-#: views/search.php:120
+#: views/page.cel_view.php:177 views/search.php:120
 msgid "Application executed by a call participant"
 msgstr "Ứng dụng được thực hiện bởi một người tham gia cuộc gọi"
 
@@ -66,12 +66,20 @@ msgstr ""
 msgid "CEL Report Module"
 msgstr "Mô đun báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
 
-#: Cel.class.php:257 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: views/page.cel_view.php:22
+msgid "CEL Reports"
+msgstr ""
+
+#: views/page.cel_view.php:33
+msgid "Call Detail"
+msgstr "Chi tiết cuộc gọi"
+
+#: Cel.class.php:310 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Nhật ký sự kiện cuộc gọi"
 
-#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:30
+#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr ""
 
@@ -80,7 +88,7 @@ msgstr ""
 msgid "Call Events for %s"
 msgstr ""
 
-#: ucp/views/widget.php:27
+#: ucp/views/widget.php:25 views/page.cel_view.php:205
 msgid "Caller"
 msgstr "Người gọi"
 
@@ -92,6 +100,14 @@ msgstr "Định danh người gọi đến"
 msgid "Caller ID of a call participant"
 msgstr "Caller ID của một người tham gia cuộc gọi"
 
+#: views/page.cel_view.php:58
+msgid "Channel Name"
+msgstr ""
+
+#: ucp/views/eventModal.php:21
+msgid "Channle Name"
+msgstr ""
+
 #: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
@@ -101,15 +117,23 @@ msgstr "Đang kiểm tra %s trường để xóa.."
 msgid "Checking for context index.."
 msgstr "Đang kiểm tra chỉ mục ngữ cảnh..."
 
-#: ucp/assets/js/global.js:32
+#: ucp/views/eventModal.php:18 views/page.cel_view.php:55
+msgid "Cid num"
+msgstr ""
+
+#: views/page.cel_view.php:63 ucp/assets/js/global.js:31
 msgid "Close"
 msgstr "Đóng"
 
-#: views/search.php:4
+#: views/page.cel_view.php:9 views/search.php:4
 msgid "Conference"
 msgstr "Hội nghị"
 
-#: ucp/views/widget.php:33
+#: ucp/views/eventModal.php:20 views/page.cel_view.php:57
+msgid "Context"
+msgstr ""
+
+#: ucp/views/widget.php:31
 msgid "Controls"
 msgstr "Điều khiển"
 
@@ -130,11 +154,11 @@ msgstr ""
 "dụng nếu bạn không sử dụng giá trị mặc định do FreePBX cung cấp. Tên của "
 "bảng trong db nơi cel ( Nhật ký sự kiện cuộc gọi) được lưu trữ. Cel mặc định."
 
-#: ucp/views/widget.php:26
+#: ucp/views/widget.php:24 views/page.cel_view.php:204
 msgid "Date"
 msgstr "Ngày"
 
-#: views/search.php:27
+#: views/page.cel_view.php:76 views/search.php:27
 msgid "Date Range"
 msgstr "Khoảng thời gian"
 
@@ -142,11 +166,19 @@ msgstr "Khoảng thời gian"
 msgid "Date range of calls in the format of mm/dd/yyyy"
 msgstr "Khoảng thời gian của các cuộc gọi là định dạng mm/dd/yyyy"
 
-#: ucp/views/eventModal.php:16
-msgid "Detail"
-msgstr "Chi tiết"
+#: views/page.cel_view.php:140
+msgid "Destination"
+msgstr ""
 
-#: ucp/views/widget.php:28
+#: views/page.cel_view.php:187
+msgid "Detailed Report"
+msgstr ""
+
+#: views/page.cel_view.php:209
+msgid "Details"
+msgstr ""
+
+#: ucp/views/widget.php:26 views/page.cel_view.php:206
 msgid "Dialed"
 msgstr "Đã gọi"
 
@@ -154,11 +186,11 @@ msgstr "Đã gọi"
 msgid "Dialed Number"
 msgstr "Số đã gọi"
 
-#: ucp/assets/js/global.js:63
+#: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr "Tải xuống"
 
-#: ucp/views/eventModal.php:15 ucp/views/widget.php:29
+#: ucp/views/widget.php:27 views/page.cel_view.php:207
 msgid "Duration"
 msgstr "Khoảng thời gian"
 
@@ -174,23 +206,39 @@ msgstr "Bật CEL ( Nhật ký sự kiện cuộc gọi) trong UCP cho người 
 msgid "Enable CEL Reporting"
 msgstr "Bật báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
 
-#: ucp/assets/js/global.js:39 ucp/assets/js/global.js:43
+#: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
+msgstr ""
+
+#: ucp/views/eventModal.php:15 views/page.cel_view.php:52
+msgid "Event Type"
+msgstr ""
+
+#: ucp/views/eventModal.php:19 views/page.cel_view.php:56
+msgid "Extension"
 msgstr ""
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
 msgstr "Máy nhánh hoặc DID ( quay số vào trực tiếp) đã gọi"
 
-#: ucp/Cel.class.php:139 ucp/Cel.class.php:142
+#: Cel.class.php:181 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "Tệp không tồn tại"
 
-#: ucp/Cel.class.php:239 ucp/Cel.class.php:250
+#: views/page.cel_view.php:128
+msgid "Filter by Source"
+msgstr ""
+
+#: views/page.cel_view.php:152
+msgid "Filter by destination"
+msgstr ""
+
+#: ucp/Cel.class.php:204 ucp/Cel.class.php:215
 msgid "Forbidden"
 msgstr "Bị cấm"
 
-#: views/search.php:33
+#: views/page.cel_view.php:80 views/page.cel_view.php:84 views/search.php:33
 msgid "From"
 msgstr "Từ"
 
@@ -198,12 +246,20 @@ msgstr "Từ"
 msgid "Inherit"
 msgstr "Kế thừa"
 
+#: Cel.class.php:185
+msgid "Invalid Command"
+msgstr ""
+
+#: ucp/views/eventModal.php:17 views/page.cel_view.php:54
+msgid "LinkedID"
+msgstr ""
+
 #: views/backupSettings.php:30 views/ucp_config.php:15 views/ucp_config.php:72
 #: views/ucp_config.php:103
 msgid "No"
 msgstr "Không"
 
-#: ucp/Cel.class.php:244
+#: ucp/Cel.class.php:209
 msgid "Not Found"
 msgstr "Không tìm thấy"
 
@@ -211,13 +267,21 @@ msgstr "Không tìm thấy"
 msgid "OK"
 msgstr "OK"
 
-#: ucp/views/widget.php:31
+#: views/page.cel_view.php:208
+msgid "Play"
+msgstr ""
+
+#: ucp/views/widget.php:29
 msgid "Playback"
 msgstr "Phát lại"
 
-#: views/search.php:5
+#: views/page.cel_view.php:10 views/search.php:5
 msgid "Queue"
 msgstr "Hàng đợi"
+
+#: views/page.cel_view.php:184
+msgid "Refresh"
+msgstr ""
 
 #: cel.i18n.php:18
 msgid "Remote CEL DB Name"
@@ -239,17 +303,17 @@ msgstr ""
 msgid "Reports"
 msgstr "Các báo cáo"
 
-#: Cel.class.php:285
-msgid "Reset"
-msgstr "Cài đặt lại"
-
 #: views/backupSettings.php:22
 msgid "Restore Advanced Settings"
 msgstr ""
 
-#: Cel.class.php:290 views/search.php:16
+#: views/search.php:16
 msgid "Search"
 msgstr "Tìm kiếm"
+
+#: views/page.cel_view.php:104
+msgid "Select the date range for the report"
+msgstr ""
 
 #: cel.i18n.php:16
 msgid ""
@@ -264,7 +328,11 @@ msgstr ""
 "Asterisk và cơ sở dữ liệu ODBC và cấu hình CEL  phải được thực hiện bên "
 "ngoài FreePBX bở người dùng hoặc tại mức Distro."
 
-#: Cel.class.php:306
+#: views/page.cel_view.php:116
+msgid "Source"
+msgstr ""
+
+#: Cel.class.php:341
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "Mô đun CEL yêu cầu một phiên bản Asterisk 12.0 hoặc cao hơn."
 
@@ -276,23 +344,27 @@ msgstr ""
 "Có những máy nhánh được chỉ định và hoạt động sẽ hiển thị cho người dùng này "
 "điều khiển và hiệu chỉnh trong UCP"
 
-#: ucp/views/eventModal.php:14
+#: ucp/views/eventModal.php:14 views/page.cel_view.php:51
 msgid "Time"
 msgstr "Thời gian"
 
-#: views/search.php:36
+#: views/page.cel_view.php:89 views/page.cel_view.php:93 views/search.php:36
 msgid "To"
 msgstr "Đến"
 
-#: Cel.class.php:248
+#: ucp/views/eventModal.php:16 views/page.cel_view.php:53
+msgid "UniqueID"
+msgstr ""
+
+#: Cel.class.php:301
 msgid "User Primary Extension"
 msgstr "Máy nhánh chính của người dùng"
 
-#: views/search.php:6
+#: views/page.cel_view.php:11 views/search.php:6
 msgid "Voicemail"
 msgstr "Thư thoại"
 
-#: views/search.php:7
+#: views/page.cel_view.php:12 views/search.php:7
 msgid "Voicemail Main"
 msgstr "Thư thoại chính"
 
@@ -301,7 +373,7 @@ msgstr "Thư thoại chính"
 msgid "Yes"
 msgstr "Có"
 
-#: ucp/assets/js/global.js:104
+#: assets/js/cel.js:58 ucp/assets/js/global.js:103
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -346,6 +418,12 @@ msgstr ""
 msgid "not found"
 msgstr ""
 
+#~ msgid "Detail"
+#~ msgstr "Chi tiết"
+
+#~ msgid "Reset"
+#~ msgstr "Cài đặt lại"
+
 #~ msgid "Adding (this might take a long time)"
 #~ msgstr "Đang thêm ( việc này có thể mất nhiều thời gian)"
 
@@ -354,9 +432,6 @@ msgstr ""
 
 #~ msgid "Already indexed"
 #~ msgstr "Đã lập chỉ mục"
-
-#~ msgid "Call Detail"
-#~ msgstr "Chi tiết cuộc gọi"
 
 #~ msgid "Call Event Logs"
 #~ msgstr "Các nhật ký sự kiện cuộc gọi"

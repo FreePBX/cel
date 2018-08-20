@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 03:17-0500\n"
+"POT-Creation-Date: 2018-08-20 14:37-0400\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: ucp/assets/js/global.js:48
+#: ucp/assets/js/global.js:47
 #, perl-format
 msgid "%s seconds"
 msgstr ""
@@ -50,11 +50,11 @@ msgstr "支持用户通过UCP下载录音"
 msgid "Allowed CEL"
 msgstr ""
 
-#: views/search.php:106
+#: views/page.cel_view.php:163 views/search.php:106
 msgid "Application"
 msgstr ""
 
-#: views/search.php:120
+#: views/page.cel_view.php:177 views/search.php:120
 msgid "Application executed by a call participant"
 msgstr ""
 
@@ -66,12 +66,20 @@ msgstr ""
 msgid "CEL Report Module"
 msgstr ""
 
-#: Cel.class.php:257 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: views/page.cel_view.php:22
+msgid "CEL Reports"
+msgstr ""
+
+#: views/page.cel_view.php:33
+msgid "Call Detail"
+msgstr ""
+
+#: Cel.class.php:310 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
 
-#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:30
+#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr ""
 
@@ -80,7 +88,7 @@ msgstr ""
 msgid "Call Events for %s"
 msgstr ""
 
-#: ucp/views/widget.php:27
+#: ucp/views/widget.php:25 views/page.cel_view.php:205
 msgid "Caller"
 msgstr ""
 
@@ -92,6 +100,14 @@ msgstr ""
 msgid "Caller ID of a call participant"
 msgstr ""
 
+#: views/page.cel_view.php:58
+msgid "Channel Name"
+msgstr ""
+
+#: ucp/views/eventModal.php:21
+msgid "Channle Name"
+msgstr ""
+
 #: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
@@ -101,15 +117,23 @@ msgstr ""
 msgid "Checking for context index.."
 msgstr ""
 
-#: ucp/assets/js/global.js:32
+#: ucp/views/eventModal.php:18 views/page.cel_view.php:55
+msgid "Cid num"
+msgstr ""
+
+#: views/page.cel_view.php:63 ucp/assets/js/global.js:31
 msgid "Close"
 msgstr "关闭"
 
-#: views/search.php:4
+#: views/page.cel_view.php:9 views/search.php:4
 msgid "Conference"
 msgstr "会议"
 
-#: ucp/views/widget.php:33
+#: ucp/views/eventModal.php:20 views/page.cel_view.php:57
+msgid "Context"
+msgstr ""
+
+#: ucp/views/widget.php:31
 msgid "Controls"
 msgstr "控制"
 
@@ -127,11 +151,11 @@ msgid ""
 "where the cel is stored. cel is default."
 msgstr ""
 
-#: ucp/views/widget.php:26
+#: ucp/views/widget.php:24 views/page.cel_view.php:204
 msgid "Date"
 msgstr "日期"
 
-#: views/search.php:27
+#: views/page.cel_view.php:76 views/search.php:27
 msgid "Date Range"
 msgstr ""
 
@@ -139,11 +163,19 @@ msgstr ""
 msgid "Date range of calls in the format of mm/dd/yyyy"
 msgstr ""
 
-#: ucp/views/eventModal.php:16
-msgid "Detail"
+#: views/page.cel_view.php:140
+msgid "Destination"
 msgstr ""
 
-#: ucp/views/widget.php:28
+#: views/page.cel_view.php:187
+msgid "Detailed Report"
+msgstr ""
+
+#: views/page.cel_view.php:209
+msgid "Details"
+msgstr ""
+
+#: ucp/views/widget.php:26 views/page.cel_view.php:206
 msgid "Dialed"
 msgstr ""
 
@@ -151,11 +183,11 @@ msgstr ""
 msgid "Dialed Number"
 msgstr ""
 
-#: ucp/assets/js/global.js:63
+#: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr "下载"
 
-#: ucp/views/eventModal.php:15 ucp/views/widget.php:29
+#: ucp/views/widget.php:27 views/page.cel_view.php:207
 msgid "Duration"
 msgstr ""
 
@@ -171,23 +203,39 @@ msgstr ""
 msgid "Enable CEL Reporting"
 msgstr ""
 
-#: ucp/assets/js/global.js:39 ucp/assets/js/global.js:43
+#: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
+msgstr ""
+
+#: ucp/views/eventModal.php:15 views/page.cel_view.php:52
+msgid "Event Type"
+msgstr ""
+
+#: ucp/views/eventModal.php:19 views/page.cel_view.php:56
+msgid "Extension"
 msgstr ""
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
 msgstr ""
 
-#: ucp/Cel.class.php:139 ucp/Cel.class.php:142
+#: Cel.class.php:181 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "文件不存在"
 
-#: ucp/Cel.class.php:239 ucp/Cel.class.php:250
+#: views/page.cel_view.php:128
+msgid "Filter by Source"
+msgstr ""
+
+#: views/page.cel_view.php:152
+msgid "Filter by destination"
+msgstr ""
+
+#: ucp/Cel.class.php:204 ucp/Cel.class.php:215
 msgid "Forbidden"
 msgstr "禁止"
 
-#: views/search.php:33
+#: views/page.cel_view.php:80 views/page.cel_view.php:84 views/search.php:33
 msgid "From"
 msgstr ""
 
@@ -195,12 +243,20 @@ msgstr ""
 msgid "Inherit"
 msgstr "继承"
 
+#: Cel.class.php:185
+msgid "Invalid Command"
+msgstr ""
+
+#: ucp/views/eventModal.php:17 views/page.cel_view.php:54
+msgid "LinkedID"
+msgstr ""
+
 #: views/backupSettings.php:30 views/ucp_config.php:15 views/ucp_config.php:72
 #: views/ucp_config.php:103
 msgid "No"
 msgstr ""
 
-#: ucp/Cel.class.php:244
+#: ucp/Cel.class.php:209
 msgid "Not Found"
 msgstr "没有发现"
 
@@ -208,12 +264,20 @@ msgstr "没有发现"
 msgid "OK"
 msgstr "正常"
 
-#: ucp/views/widget.php:31
+#: views/page.cel_view.php:208
+msgid "Play"
+msgstr ""
+
+#: ucp/views/widget.php:29
 msgid "Playback"
 msgstr "回放"
 
-#: views/search.php:5
+#: views/page.cel_view.php:10 views/search.php:5
 msgid "Queue"
+msgstr ""
+
+#: views/page.cel_view.php:184
+msgid "Refresh"
 msgstr ""
 
 #: cel.i18n.php:18
@@ -236,17 +300,17 @@ msgstr ""
 msgid "Reports"
 msgstr "报表"
 
-#: Cel.class.php:285
-msgid "Reset"
-msgstr "重置"
-
 #: views/backupSettings.php:22
 msgid "Restore Advanced Settings"
 msgstr ""
 
-#: Cel.class.php:290 views/search.php:16
+#: views/search.php:16
 msgid "Search"
 msgstr "查询"
+
+#: views/page.cel_view.php:104
+msgid "Select the date range for the report"
+msgstr ""
 
 #: cel.i18n.php:16
 msgid ""
@@ -257,7 +321,11 @@ msgid ""
 "Distro level."
 msgstr ""
 
-#: Cel.class.php:306
+#: views/page.cel_view.php:116
+msgid "Source"
+msgstr ""
+
+#: Cel.class.php:341
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr ""
 
@@ -267,23 +335,27 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
-#: ucp/views/eventModal.php:14
+#: ucp/views/eventModal.php:14 views/page.cel_view.php:51
 msgid "Time"
 msgstr ""
 
-#: views/search.php:36
+#: views/page.cel_view.php:89 views/page.cel_view.php:93 views/search.php:36
 msgid "To"
 msgstr ""
 
-#: Cel.class.php:248
+#: ucp/views/eventModal.php:16 views/page.cel_view.php:53
+msgid "UniqueID"
+msgstr ""
+
+#: Cel.class.php:301
 msgid "User Primary Extension"
 msgstr ""
 
-#: views/search.php:6
+#: views/page.cel_view.php:11 views/search.php:6
 msgid "Voicemail"
 msgstr "语音邮件"
 
-#: views/search.php:7
+#: views/page.cel_view.php:12 views/search.php:7
 msgid "Voicemail Main"
 msgstr ""
 
@@ -292,7 +364,7 @@ msgstr ""
 msgid "Yes"
 msgstr "是"
 
-#: ucp/assets/js/global.js:104
+#: assets/js/cel.js:58 ucp/assets/js/global.js:103
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -330,6 +402,9 @@ msgstr ""
 #: install.php:75
 msgid "not found"
 msgstr ""
+
+#~ msgid "Reset"
+#~ msgstr "重置"
 
 #~ msgid "Not Authorized"
 #~ msgstr "未经授权"
