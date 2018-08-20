@@ -15,7 +15,7 @@ class Cel extends Modules{
 	public function __construct($Modules) {
 		$this->Modules = $Modules;
 		$this->cel = $this->UCP->FreePBX->Cel;
-
+		$this->user = $this->UCP->User->getUser();
 		if($this->UCP->Session->isMobile || $this->UCP->Session->isTablet) {
 			$this->limit = 7;
 		}
@@ -102,11 +102,11 @@ class Cel extends Modules{
 	* @param string $settings The Settings being passed through $_POST or $_PUT
 	* @return bool True if pass
 	*/
-	function ajaxRequest($command, $settings) {
+	function ajaxRequest($command, &$settings) {
 		switch($command) {
+			case "grid":
 			case 'gethtml5':
 			case 'playback':
-			case "grid":
 			case 'download':
 			case 'eventmodal':
 				return true;
@@ -128,13 +128,7 @@ class Cel extends Modules{
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'gethtml5':
-				global $amp_conf;
-
-				include_once(dirname(__DIR__)."/crypt.php");
-				$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
-
-				$crypt = new \Crypt();
-				$file = $crypt->decrypt($_REQUEST['id'],$REC_CRYPT_PASSWORD);
+				$file = isset($this->UCP->Session->celucp['recordings'][$_REQUEST['uniqueid']]['file']) ? $this->UCP->Session->celucp['recordings'][$_REQUEST['uniqueid']]['file'] : '';
 				if(!$this->cel->validateMonitorPath($file)) {
 					return array("status" => false, "message" => _("File does not exist"));
 				}
@@ -151,39 +145,16 @@ class Cel extends Modules{
 				return array("status" => true, "files" => $final);
 			break;
 			case "grid":
-				$limit = $_REQUEST['limit'];
-				$ext = $_REQUEST['extension'];
-				$order = $_REQUEST['order'];
-				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "timestamp";
-				//$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
-				$filters = array();
-				if (!empty($search)) {
-					//$filters['callerid'] = $search;
+				if($_REQUEST['sort'] === 'timestamp') {
+					$_REQUEST['sort'] = 'eventtime';
 				}
-				if (!empty($search)) {
-					//$filters['exten'] = $search;
-				}
-				if (!empty($search)) {
-					//$filters['application'] = $search;
-				}
-				$calls = $this->cel->getCalls($filters,$ext);
-				$calls = array_values($calls);
-				if($orderby == "timestamp") {
-					usort($calls, function($a, $b) {
-						return $b['timestamp'] - $a['timestamp'];
-					});
-				} else {
-					@usort($calls, function($a, $b) {
-						return strcmp($b[$orderby],$a[$orderby]);
-					});
-				}
-
-				if($order == "asc") {
-					$calls = array_reverse($calls);
-				}
+				$callsarray = $this->cel->cel_getreport($_REQUEST,$this->user['default_extension']);
+				$calls = $callsarray['rows'];
+				$count = $callsarray['total'];
+				$this->UCP->Session->celucp = $callsarray['recordings'];
 				return array(
-					"total" => count($calls),
-					"rows" => array_splice ($calls, $_REQUEST['offset'],$limit)
+					"total" => $count,
+					"rows" => $calls
 				);
 			break;
 			case "eventmodal":
@@ -206,14 +177,8 @@ class Cel extends Modules{
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
 			case "download":
-				global $amp_conf;
-
-				include_once(dirname(__DIR__)."/crypt.php");
-				$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'CorrectHorseBatteryStaple';
-
-				$crypt = new \Crypt();
-				$file = $crypt->decrypt($_REQUEST['id'],$REC_CRYPT_PASSWORD);
-				$this->downloadFile($file,$_REQUEST['ext']);
+				$file = isset($this->UCP->Session->celucp['recordings'][$_REQUEST['id']]['file']) ? $this->UCP->Session->celucp['recordings'][$_REQUEST['id']]['file'] : '';
+				$this->downloadFile($file,$this->user['default_extension']);
 				return true;
 			break;
 			case "playback":
@@ -279,7 +244,7 @@ class Cel extends Modules{
 			$dl = $this->UCP->getCombinedSettingByID($user['id'],'Cel','download');
 			return is_null($dl) ? true : $dl;
 		} elseif(is_null($extension)) {
-			return true;
+			return $this->UCP->getCombinedSettingByID($user['id'],'Cel','download');
 		}
 		return false;
 	}
@@ -294,7 +259,7 @@ class Cel extends Modules{
 			$dl = $this->UCP->getCombinedSettingByID($user['id'],'Cel','playback');
 			return is_null($dl) ? true : $dl;
 		} elseif(is_null($extension)) {
-			return true;
+			return $this->UCP->getCombinedSettingByID($user['id'],'Cel','playback');;
 		}
 		return false;
 	}

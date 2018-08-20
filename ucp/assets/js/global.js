@@ -19,9 +19,8 @@ var CelC = UCPMC.extend({
 		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").on("post-body.bs.table", function() {
 			self.bindPlayers(widget_id);
 		});
-
 		$(".grid-stack-item[data-id='"+widget_id+"'] .cel-grid").on("click-cell.bs.table", function(event, field, value, row) {
-			if(field == "playback" || field == "controls") {
+			if(field == "file" || field == "controls") {
 				return;
 			}
 
@@ -32,7 +31,7 @@ var CelC = UCPMC.extend({
 						'<button type="button" class="btn btn-primary" data-dismiss="modal">'+_("Close")+'</button>',
 						function() {
 							$("#globalModal .cel-detail-grid").bootstrapTable();
-							$("#globalModal .cel-detail-grid").bootstrapTable('load', row.actions);
+							$("#globalModal .cel-detail-grid").bootstrapTable('load', row.moreinfo);
 						}
 					);
 				} else {
@@ -52,68 +51,67 @@ var CelC = UCPMC.extend({
 	},
 	formatControls: function (value, row, index) {
 		var settings = UCP.Modules.Cel.staticsettings;
-		if(typeof row.recordings === "undefined" || settings.showDownload === "0") {
+		if(typeof row.file === "undefined" || settings.showDownload === "0") {
 			return '';
 		}
 		var links = '';
-		$.each(row.recordings, function(k, v){
-			if(v === false) {
-				return true;
-			}
-			links = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cel&amp;command=download&amp;id='+encodeURIComponent(k)+'&amp;type=download&amp;ext='+row.requestingExtension+'"><i class="fa fa-cloud-download"></i></a>';
-		});
+		links = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cel&amp;command=download&amp;id='+encodeURIComponent(row.uniqueid)+'&amp;type=download"><i class="fa fa-cloud-download"></i></a>';
 		return links;
 	},
 	formatPlayback: function (value, row, index) {
 		var settings = UCP.Modules.Cel.staticsettings,
 				rand = Math.floor(Math.random() * 10000);
-		if(typeof row.recordings === "undefined" || settings.showPlayback === "0") {
+
+		if(typeof row.file === "undefined" || settings.showPlayback === "0") {
 			return '';
 		}
+
+		var recordings = [row.file];
+
 		var html = '',
-				count = 0;
-		$.each(row.recordings, function(k, v){
+			count = 0;
+		$.each(recordings, function(k, v){
 			if(v === false) {
 				return true;
 			}
-			html += '<div id="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-jplayer" data-container="#jp_container_'+index+'_'+count+'-'+rand+'" data-id="'+k+'"></div><div id="jp_container_'+index+'_'+count+'-'+rand+'" data-player="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+			html += '<div id="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-jplayer" data-container="#jp_container_'+index+'_'+count+'-'+rand+'" data-playbackuniqueid="'+row.uniqueid+'" data-id="'+k+'"></div>'+
+			'<div id="jp_container_'+index+'_'+count+'-'+rand+'" data-player="jquery_jplayer_'+index+'_'+count+'-'+rand+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
 				'<div class="jp-type-single">'+
-					'<div class="jp-gui jp-interface">'+
-						'<div class="jp-controls">'+
-							'<i class="fa fa-play jp-play"></i>'+
-							'<i class="fa fa-undo jp-restart"></i>'+
-						'</div>'+
-						'<div class="jp-progress">'+
-							'<div class="jp-seek-bar progress">'+
-								'<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>'+
-								'<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>'+
-								'<div class="jp-play-bar progress-bar"></div>'+
-								'<div class="jp-play-bar">'+
-									'<div class="jp-ball"></div>'+
-								'</div>'+
-								'<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>'+
+				'<div class="jp-gui jp-interface">'+
+					'<div class="jp-controls">'+
+						'<i class="fa fa-play jp-play"></i>'+
+						'<i class="fa fa-undo jp-restart"></i>'+
+					'</div>'+
+					'<div class="jp-progress">'+
+						'<div class="jp-seek-bar progress">'+
+							'<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>'+
+							'<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>'+
+							'<div class="jp-play-bar progress-bar"></div>'+
+							'<div class="jp-play-bar">'+
+								'<div class="jp-ball"></div>'+
 							'</div>'+
-						'</div>'+
-						'<div class="jp-volume-controls">'+
-							'<i class="fa fa-volume-up jp-mute"></i>'+
-							'<i class="fa fa-volume-off jp-unmute"></i>'+
+							'<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>'+
 						'</div>'+
 					'</div>'+
-					'<div class="jp-no-solution">'+
-						'<span>Update Required</span>'+
-						sprintf(_("You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"),"http://wiki.freepbx.org/display/FOP/Installing+Media+Conversion+Libraries")+
+					'<div class="jp-volume-controls">'+
+						'<i class="fa fa-volume-up jp-mute"></i>'+
+						'<i class="fa fa-volume-off jp-unmute"></i>'+
 					'</div>'+
 				'</div>'+
+				'<div class="jp-no-solution">'+
+					'<span>Update Required</span>'+
+					sprintf(_("You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"),"http://wiki.freepbx.org/display/FOP/Installing+Media+Conversion+Libraries")+
+				'</div>'+
 			'</div>';
-			count++;
-		});
+});
 		return html;
 	},
 	bindPlayers: function(widget_id) {
 		$(".grid-stack-item[data-id='"+widget_id+"'] .jp-jplayer").each(function() {
 			var container = $(this).data("container"),
 					player = $(this),
-					id = $(this).data("id");
+					playback = $(this).data("playbackuniqueid");
+
 			$(this).jPlayer({
 				ready: function() {
 					$(container + " .jp-play").click(function() {
@@ -126,8 +124,8 @@ var CelC = UCPMC.extend({
 							$(container).addClass("jp-state-loading");
 							$.ajax({
 								type: 'POST',
-								url: "index.php?quietmode=1",
-								data: {module: "cel", command: "gethtml5", id: id, ext: extension},
+								url: "ajax.php",
+								data: {module: "cel", command: "gethtml5", uniqueid: playback, ext: extension},
 								dataType: 'json',
 								timeout: 30000,
 								success: function(data) {
