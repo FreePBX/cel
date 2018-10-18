@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 14:57-0400\n"
-"PO-Revision-Date: 2018-08-25 13:00+0000\n"
+"PO-Revision-Date: 2018-10-18 21:21+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cel/de/>\n"
 "Language: de_DE\n"
@@ -138,6 +138,10 @@ msgid ""
 "use the default values provided by FreePBX. Name of database used for where "
 "the cel is stored. asteriskcdrdb is default."
 msgstr ""
+"Setzen Sie dies NICHT, wenn Sie nicht wissen, was Sie tun. Wird nur "
+"verwendet, wenn Sie nicht die Standardwerte von FreePBX verwenden. Name der "
+"Datenbank in der <i>cel</i> abgelegt ist. Standardmäßig ist dies "
+"<i>asteriskdb</i>."
 
 #: cel.i18n.php:24
 msgid ""
@@ -240,7 +244,7 @@ msgstr "Von"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "Übernehmen"
+msgstr "Erben"
 
 #: Cel.class.php:110
 msgid "Invalid Command"
