@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 14:37-0400\n"
+"POT-Creation-Date: 2018-11-14 22:07-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,8 +73,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:310 /usr/src/freepbx/cel/cel.i18n.php:4
-#: cel.i18n.php:8 /usr/src/freepbx/cel/cel.i18n.php:10
+#: Cel.class.php:310 /dev/shm/freepbx/cel/cel.i18n.php:4
+#: cel.i18n.php:8 /dev/shm/freepbx/cel/cel.i18n.php:10
 #: page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
@@ -429,7 +429,7 @@ msgstr ""
 msgid "checking for extra field.."
 msgstr ""
 
-#: install.php:86 /usr/src/freepbx/cel/install.php:97
+#: install.php:86 /dev/shm/freepbx/cel/install.php:97
 msgid "found"
 msgstr ""
 

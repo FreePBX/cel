@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 14:37-0400\n"
+"POT-Creation-Date: 2018-11-14 22:07-0500\n"
 "PO-Revision-Date: 2017-06-22 10:39+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -74,8 +74,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr "Chi tiết cuộc gọi"
 
-#: Cel.class.php:310 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
-#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
+#: Cel.class.php:310 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /dev/shm/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Nhật ký sự kiện cuộc gọi"
 
@@ -410,7 +410,7 @@ msgstr ""
 msgid "checking for extra field.."
 msgstr "Đang kiểm tra trường phụ.."
 
-#: install.php:86 /usr/src/freepbx/cel/install.php:97
+#: install.php:86 /dev/shm/freepbx/cel/install.php:97
 msgid "found"
 msgstr ""
 
