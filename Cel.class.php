@@ -40,6 +40,10 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		} catch(\Exception $e) {
 			throw new \Exception('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.';charset=utf8,'.$db_user.','.$db_pass);
 		}
+		//Set the CDR session timezone to GMT if CDRUSEGMT is true
+		if ($amp_conf["CDRUSEGMT"]) {
+			$this->cdrdb->execute("SET time_zone = '+00:00'");
+		}
 	}
 
 	public function install() {
@@ -240,11 +244,14 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function genConfig() {
+		$usegmt = ($this->FreePBX->Config->get('CDRUSEGMT') !== true)?'no':'yes';
+
 		$conf['cel_general_additional.conf'][] = array(
 			'enable=yes',
 			'apps=confbridge,meetme,mixmonitor,queue,stopmixmonitor,voicemail,voicemailmain',
 			'events=all',
 			'dateformat=%F %T',
+			'usegmtime='. $usegmt,
 		);
 
 		return $conf;
