@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-14 22:07-0500\n"
+"POT-Creation-Date: 2018-12-17 19:10-0500\n"
 "PO-Revision-Date: 2017-06-22 10:39+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Call Detail"
 msgstr "Chi tiết cuộc gọi"
 
-#: Cel.class.php:310 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: Cel.class.php:314 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
 #: /dev/shm/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Nhật ký sự kiện cuộc gọi"
@@ -222,7 +222,7 @@ msgstr ""
 msgid "Extension or DID dialed"
 msgstr "Máy nhánh hoặc DID ( quay số vào trực tiếp) đã gọi"
 
-#: Cel.class.php:181 ucp/Cel.class.php:133 ucp/Cel.class.php:136
+#: Cel.class.php:185 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "Tệp không tồn tại"
 
@@ -246,7 +246,7 @@ msgstr "Từ"
 msgid "Inherit"
 msgstr "Kế thừa"
 
-#: Cel.class.php:185
+#: Cel.class.php:189
 msgid "Invalid Command"
 msgstr ""
 
@@ -332,7 +332,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: Cel.class.php:341
+#: Cel.class.php:348
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "Mô đun CEL yêu cầu một phiên bản Asterisk 12.0 hoặc cao hơn."
 
@@ -356,7 +356,7 @@ msgstr "Đến"
 msgid "UniqueID"
 msgstr ""
 
-#: Cel.class.php:301
+#: Cel.class.php:305
 msgid "User Primary Extension"
 msgstr "Máy nhánh chính của người dùng"
 
