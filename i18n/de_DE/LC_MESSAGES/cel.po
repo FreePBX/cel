@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 14:57-0400\n"
-"PO-Revision-Date: 2018-07-27 15:00+0000\n"
+"PO-Revision-Date: 2018-10-18 21:21+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cel/de/>\n"
 "Language: de_DE\n"
@@ -63,7 +63,7 @@ msgstr "CEL Berichtsmodul"
 
 #: views/page.cel_view.php:22
 msgid "CEL Reports"
-msgstr ""
+msgstr "AEP-Berichte"
 
 #: views/page.cel_view.php:33
 msgid "Call Detail"
@@ -76,12 +76,12 @@ msgstr "Anrufereignisprotokollierung"
 
 #: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:29
 msgid "Call Events"
-msgstr ""
+msgstr "Anrufereignisse"
 
 #: ucp/Cel.class.php:45
 #, php-format
 msgid "Call Events for %s"
-msgstr ""
+msgstr "Anrufereignisse für %s"
 
 #: ucp/views/widget.php:25 views/page.cel_view.php:205
 msgid "Caller"
@@ -97,11 +97,11 @@ msgstr "Anrufer-ID eines Anrufteilnehmers"
 
 #: views/page.cel_view.php:58
 msgid "Channel Name"
-msgstr ""
+msgstr "Name des Kanals"
 
 #: ucp/views/eventModal.php:21
 msgid "Channle Name"
-msgstr ""
+msgstr "Name des Kanals"
 
 #: install.php:83
 #, php-format
@@ -114,7 +114,7 @@ msgstr "Auf Kontext-Index prüfen ..."
 
 #: ucp/views/eventModal.php:18 views/page.cel_view.php:55
 msgid "Cid num"
-msgstr ""
+msgstr "CID Nr"
 
 #: views/page.cel_view.php:63 ucp/assets/js/global.js:31
 msgid "Close"
@@ -126,7 +126,7 @@ msgstr "Konferenz"
 
 #: ucp/views/eventModal.php:20 views/page.cel_view.php:57
 msgid "Context"
-msgstr ""
+msgstr "Kontext"
 
 #: ucp/views/widget.php:31
 msgid "Controls"
@@ -138,6 +138,10 @@ msgid ""
 "use the default values provided by FreePBX. Name of database used for where "
 "the cel is stored. asteriskcdrdb is default."
 msgstr ""
+"Setzen Sie dies NICHT, wenn Sie nicht wissen, was Sie tun. Wird nur "
+"verwendet, wenn Sie nicht die Standardwerte von FreePBX verwenden. Name der "
+"Datenbank in der <i>cel</i> abgelegt ist. Standardmäßig ist dies "
+"<i>asteriskdb</i>."
 
 #: cel.i18n.php:24
 msgid ""
@@ -164,15 +168,15 @@ msgstr "Datumsbereich von Anrufen im Format mm/tt/jjjj"
 
 #: views/page.cel_view.php:140
 msgid "Destination"
-msgstr ""
+msgstr "Ziel"
 
 #: views/page.cel_view.php:187
 msgid "Detailed Report"
-msgstr ""
+msgstr "Detaillierter Bericht"
 
 #: views/page.cel_view.php:209
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: ucp/views/widget.php:26 views/page.cel_view.php:206
 msgid "Dialed"
@@ -204,11 +208,11 @@ msgstr "CEL-Berichterstattung aktivieren"
 
 #: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
-msgstr ""
+msgstr "Fehler beim Abruf des Formulars"
 
 #: ucp/views/eventModal.php:15 views/page.cel_view.php:52
 msgid "Event Type"
-msgstr ""
+msgstr "Ereignistyp"
 
 #: ucp/views/eventModal.php:19 views/page.cel_view.php:56
 msgid "Extension"
@@ -224,11 +228,11 @@ msgstr "Datei existiert nicht"
 
 #: views/page.cel_view.php:128
 msgid "Filter by Source"
-msgstr ""
+msgstr "Nach Quelle filtern"
 
 #: views/page.cel_view.php:152
 msgid "Filter by destination"
-msgstr ""
+msgstr "Nach Ziel filtern"
 
 #: ucp/Cel.class.php:204 ucp/Cel.class.php:215
 msgid "Forbidden"
@@ -240,15 +244,15 @@ msgstr "Von"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "Übernehmen"
+msgstr "Erben"
 
 #: Cel.class.php:110
 msgid "Invalid Command"
-msgstr ""
+msgstr "Ungültiger Befehl"
 
 #: ucp/views/eventModal.php:17 views/page.cel_view.php:54
 msgid "LinkedID"
-msgstr ""
+msgstr "VerknüpfteID"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -264,7 +268,7 @@ msgstr "OK"
 
 #: views/page.cel_view.php:208
 msgid "Play"
-msgstr ""
+msgstr "Abspielen"
 
 #: ucp/views/widget.php:29
 msgid "Playback"
@@ -276,15 +280,15 @@ msgstr "Warteschlange"
 
 #: views/page.cel_view.php:184
 msgid "Refresh"
-msgstr ""
+msgstr "Aktualisieren"
 
 #: cel.i18n.php:18
 msgid "Remote CEL DB Name"
-msgstr ""
+msgstr "Name der entfernten AEP-DB"
 
 #: cel.i18n.php:22
 msgid "Remote CEL DB Table"
-msgstr "Fern-CEL-DB-Tabelle"
+msgstr "Entfernte AEP-DB-Tabelle"
 
 #: install.php:112
 msgid "Removed"
@@ -292,7 +296,7 @@ msgstr "Entfernt"
 
 #: install.php:105
 msgid "Removing outdated fields (this might take a long time)"
-msgstr ""
+msgstr "Entferne veraltete Felder (das könnte eine Weile dauern)"
 
 #: cel.i18n.php:6
 msgid "Reports"
@@ -304,7 +308,7 @@ msgstr "Suche"
 
 #: views/page.cel_view.php:104
 msgid "Select the date range for the report"
-msgstr ""
+msgstr "Wählen Sie eine Zeitspanne für den Bericht"
 
 #: cel.i18n.php:16
 msgid ""
@@ -323,7 +327,7 @@ msgstr ""
 
 #: views/page.cel_view.php:116
 msgid "Source"
-msgstr ""
+msgstr "Quelle"
 
 #: Cel.class.php:266
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
@@ -347,7 +351,7 @@ msgstr "bis"
 
 #: ucp/views/eventModal.php:16 views/page.cel_view.php:53
 msgid "UniqueID"
-msgstr ""
+msgstr "EinmaligeID"
 
 #: Cel.class.php:226
 msgid "User Primary Extension"
@@ -388,15 +392,15 @@ msgstr ""
 
 #: install.php:77
 msgid "already exists"
-msgstr "besteht bereits"
+msgstr "bereits vorhanden"
 
 #: install.php:99
 msgid "already indexed"
-msgstr ""
+msgstr "bereits indexiert"
 
 #: install.php:88
 msgid "already removed"
-msgstr ""
+msgstr "bereits entfernt"
 
 #: install.php:72
 msgid "checking for extra field.."
@@ -404,11 +408,11 @@ msgstr "Auf zusätzliches Feld prüfen .."
 
 #: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
-msgstr ""
+msgstr "gefunden"
 
 #: install.php:75
 msgid "not found"
-msgstr ""
+msgstr "nicht gefunden"
 
 #~ msgid "Detail"
 #~ msgstr "Detail"
