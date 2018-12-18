@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>14.0.2.8</version>
+		<version>14.0.2.9</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+		*14.0.2.9* FREEPBX-18632 
 		*14.0.2.8* Fix playback and downloads
 		*14.0.2.7* FREEPBX-10883 FREEPBX-11014  CEL within UCP - PHP Fatal error 
 		*14.0.2.6* FREEPBX-16337 CDRDBHOST not following AMPDBHOST when empty 
