@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.6</version>
+	<version>15.0.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.7* Fixing FREEPBX-18783 Undefined index issue 
 		*15.0.6* FREEPBX-18632 
 		*15.0.5* New Backup and Restore for 15 Legacy 
 		*15.0.4* Packaging of ver 15.0.4

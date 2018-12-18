@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-17 19:10-0500\n"
+"POT-Creation-Date: 2018-12-18 21:10+0530\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -74,8 +74,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:314 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
-#: /dev/shm/freepbx/cel/cel.i18n.php:10 page.cel.php:10
+#: Cel.class.php:318 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 msgid "Extension or DID dialed"
 msgstr ""
 
-#: Cel.class.php:185 ucp/Cel.class.php:133 ucp/Cel.class.php:136
+#: Cel.class.php:189 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "文件不存在"
 
@@ -243,7 +243,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "继承"
 
-#: Cel.class.php:189
+#: Cel.class.php:193
 msgid "Invalid Command"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: Cel.class.php:348
+#: Cel.class.php:352
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr ""
 
@@ -347,7 +347,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: Cel.class.php:305
+#: Cel.class.php:309
 msgid "User Primary Extension"
 msgstr ""
 
@@ -395,7 +395,7 @@ msgstr ""
 msgid "checking for extra field.."
 msgstr ""
 
-#: install.php:86 /dev/shm/freepbx/cel/install.php:97
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
 msgstr ""
 

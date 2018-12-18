@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-17 19:10-0500\n"
+"POT-Creation-Date: 2018-12-18 21:10+0530\n"
 "PO-Revision-Date: 2017-03-27 13:40+0200\n"
 "Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -74,8 +74,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr "Detalhes da Chamada"
 
-#: Cel.class.php:314 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
-#: /dev/shm/freepbx/cel/cel.i18n.php:10 page.cel.php:10
+#: Cel.class.php:318 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Registro de Eventos de Chamadas"
 
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Extension or DID dialed"
 msgstr "Ramal ou DID discado"
 
-#: Cel.class.php:185 ucp/Cel.class.php:133 ucp/Cel.class.php:136
+#: Cel.class.php:189 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "Arquivo não existe"
 
@@ -247,7 +247,7 @@ msgstr "De"
 msgid "Inherit"
 msgstr "Herdar"
 
-#: Cel.class.php:189
+#: Cel.class.php:193
 msgid "Invalid Command"
 msgstr ""
 
@@ -334,7 +334,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: Cel.class.php:348
+#: Cel.class.php:352
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "O módulo CEL requer que a versão do Asterisk seja 12.0 ou superior."
 
@@ -358,7 +358,7 @@ msgstr "Para"
 msgid "UniqueID"
 msgstr ""
 
-#: Cel.class.php:305
+#: Cel.class.php:309
 msgid "User Primary Extension"
 msgstr "Ramal Principal do Usuário"
 
@@ -412,7 +412,7 @@ msgstr ""
 msgid "checking for extra field.."
 msgstr "verificando por campo extra.."
 
-#: install.php:86 /dev/shm/freepbx/cel/install.php:97
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
 msgstr ""
 
