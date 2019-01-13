@@ -259,7 +259,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$usegmt = ($this->FreePBX->Config->get('CDRUSEGMT') !== true)?'no':'yes';
 
 		$conf['cel_odbc.conf']['cel'] = array(
-			'connection=asteriskcdrdb'.
+			'connection=asteriskcdrdb',
 			'loguniqueid=yes',
 			'table=cel',
 			'usegmtime='. $usegmt,
