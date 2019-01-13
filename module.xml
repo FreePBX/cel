@@ -2,11 +2,12 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>14.0.2.10</version>
+		<version>14.0.2.11</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<changelog>
+		*14.0.2.11* FREEPBX-18944 take control of cel_odbc.conf, move usegmttime into cel_odbc.con under cel context 
 		*14.0.2.10* Fixing FREEPBX-18783 Undefined index issue 
 		*14.0.2.9* FREEPBX-18632 
 		*14.0.2.8* Fix playback and downloads
