@@ -323,14 +323,22 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function genConfig() {
-		$usegmt = ($this->FreePBX->Config->get('CDRUSEGMT') !== true)?'no':'yes';
 
-		$conf['cel_general_additional.conf'][] = array(
+		$conf['cel_general_additional.conf']['general'] = array(
 			'enable=yes',
 			'apps=confbridge,meetme,mixmonitor,queue,stopmixmonitor,voicemail,voicemailmain',
 			'events=all',
-			'dateformat=%F %T',
+			'dateformat=%F %T'
+		);
+
+		$usegmt = ($this->FreePBX->Config->get('CDRUSEGMT') !== true)?'no':'yes';
+
+		$conf['cel_odbc.conf']['cel'] = array(
+			'connection=asteriskcdrdb',
+			'loguniqueid=yes',
+			'table=cel',
 			'usegmtime='. $usegmt,
+			'#include cel_odbc_custom.conf'
 		);
 
 		return $conf;

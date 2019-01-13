@@ -164,3 +164,8 @@ $set['name'] = 'Remote CEL DB Table';
 $set['description'] = 'DO NOT set this unless you know what you are doing. Only used if you do not use the default values provided by FreePBX. Name of the table in the db where the cel is stored. cel is default.';
 $set['type'] = CONF_TYPE_TEXT;
 $freepbx_conf->define_conf_setting('CELDBTABLENAME',$set,true);
+
+$file = \FreePBX::Config()->get('ASTETCDIR').'/cel_odbc.conf';
+if(file_exists($file) && is_link($file)) {
+	unlink($file);
+}
