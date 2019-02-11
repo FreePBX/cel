@@ -51,6 +51,15 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 	}
 
+	public function getCelDbHandle() {
+		// Simply returns the DB Handle created in __construct
+		return $this->cdrdb;
+	}
+
+	public function getDbTable() {
+		return $this->db_table;
+	}
+
 	public function install() {
 
 	}

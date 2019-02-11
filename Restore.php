@@ -3,39 +3,73 @@ namespace FreePBX\modules\Cel;
 use Symfony\Component\Process\Process;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
-  public function runRestore($jobid){
-    $dump = reset($this->getFiles());
-    $dumpfile = $this->tmpdir . '/files/' . ltrim($dump['pathto'], '/') . '/' . $dump['filename'];
-    $dbhandle = $this->FreePBX->Cdr->getCdrDbHandle();
-    if (file_exists($dumpfile)) {
-        $dbhandle->query('TRUNCATE cdr');
-        $command = sprintf('/usr/bin/gunzip -d %s', $dumpfile);
-        $gunzip = new Process($command);
-        $gunzip->mustRun();
-        $newfilename = substr($dumpfile, 0, -3);
-        $restore = 'mysql asteriskcdrdb -e "LOAD DATA INFILE \''.$newfilename.'\' INTO TABLE cel;"';
-        $sql = new Process($restore);
-        $sql->mustRun();
-        return true;
-    }
-    return false;
-  }
-  public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
-    $data['modname'] = "cel";
-    try {
-        $connection = new \Database('mysql:dbname=asteriskcdrdb;host=localhost', 'root','');
-    } catch(\Exception $e) {
-        return array("status" => false, "message" => $e->getMessage());
-    }
-    $sth = $connection->query("SHOW TABLES");
-    $res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+	public function runRestore($jobid){
+		$files = $this->getFiles();
+		if(empty($files[0])) {
+			return false;
+		}
+		$dump = $files[0];
 
-    foreach($res as $loadedTables){
-        if ($loadedTables['Tables_in_asteriskcdrdb'] == $data['modname']){
-            $truncate = "DROP TABLE asteriskcdrdb.".$data['modname'];
-            $this->FreePBX->Database->query($truncate);
-            $loadedTables = $pdo->query("ALTER TABLE asterisktemp.".$data['modname']." RENAME TO asteriskcdrdb.".$data['modname']);
-        }
-    }
-  }
+		$dumpfile = $this->tmpdir . '/files/' . ltrim($dump->getPathTo(), '/') . '/' . $dump->getFilename();
+		if (!file_exists($dumpfile)) {
+			return;
+		}
+
+		global $amp_conf;
+		$cdrname = $this->FreePBX->Config->get('CELDBNAME') ? $this->FreePBX->Config->get('CELDBNAME') : 'asteriskcdrdb';
+		$tablename = $this->FreePBX->Config->get('CELDBTABLENAME') ? $this->FreePBX->Config->get('CELDBTABLENAME') : 'cel';
+		$cdrhost = $this->FreePBX->Config->get('CDRDBHOST') ? $this->FreePBX->Config->get('CDRDBHOST') : $amp_conf['AMPDBHOST'];
+		$cdruser = $this->FreePBX->Config->get('CDRDBUSER') ? $this->FreePBX->Config->get('CDRDBUSER') : $amp_conf['AMPDBUSER'];
+		$cdrpass = $this->FreePBX->Config->get('CDRDBPASS') ? $this->FreePBX->Config->get('CDRDBPASS') : $amp_conf['AMPDBPASS'];
+		$cdrport = $this->FreePBX->Config->get('CDRDBPORT');
+
+		$command = [];
+		if(!empty($cdrhost)){
+				$command[] = '--host';
+				$command[] = $cdrhost;
+		}
+		if(!empty($cdrport)){
+				$command[] = '--port';
+				$command[] = $cdrport;
+		}
+		if(!empty($cdruser)){
+				$command[] = '--user';
+				$command[] = $cdruser;
+		}
+		if(!empty($cdrpass)){
+				$command[] = '-p'.$cdrpass;
+		}
+
+		$dbhandle = $this->FreePBX->Cel->getCelDbHandle();
+		$dbhandle->query("TRUNCATE $tablename");
+		$restore = fpbx_which('mysql').' '.implode(" ", $command).' '.$cdrname.' < '.$dumpfile;
+		$sql = new Process($restore);
+		$sql->mustRun();
+		return true;
+	}
+	public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
+		global $amp_conf;
+		$cdrname = $this->FreePBX->Config->get('CELDBNAME') ? $this->FreePBX->Config->get('CELDBNAME') : 'asteriskcdrdb';
+		$tablename = $this->FreePBX->Config->get('CELDBTABLENAME') ? $this->FreePBX->Config->get('CELDBTABLENAME') : 'cel';
+		$cdrhost = $this->FreePBX->Config->get('CDRDBHOST') ? $this->FreePBX->Config->get('CDRDBHOST') : $amp_conf['AMPDBHOST'];
+		$cdruser = $this->FreePBX->Config->get('CDRDBUSER') ? $this->FreePBX->Config->get('CDRDBUSER') : $amp_conf['AMPDBUSER'];
+		$cdrpass = $this->FreePBX->Config->get('CDRDBPASS') ? $this->FreePBX->Config->get('CDRDBPASS') : $amp_conf['AMPDBPASS'];
+		$cdrport = $this->FreePBX->Config->get('CDRDBPORT');
+
+		try {
+				$connection = new \Database('mysql:dbname='.$cdrname.';host='.$cdrhost, $cdruser,$cdrpass);
+		} catch(\Exception $e) {
+				return array("status" => false, "message" => $e->getMessage());
+		}
+		$sth = $connection->query("SHOW TABLES");
+		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+
+		foreach($res as $loadedTables){
+				if ($loadedTables['Tables_in_asteriskcdrdb'] == $tablename){
+						$truncate = "DROP TABLE asteriskcdrdb.".$tablename;
+						$this->FreePBX->Database->query($truncate);
+						$loadedTables = $pdo->query("ALTER TABLE asterisktemp.".$tablename." RENAME TO asteriskcdrdb.".$tablename);
+				}
+		}
+	}
 }
