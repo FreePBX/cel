@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-13 14:56-0500\n"
-"PO-Revision-Date: 2017-03-27 13:40+0200\n"
+"PO-Revision-Date: 2019-02-26 13:41-0300\n"
 "Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
 "freepbx/cel/pt_BR/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ucp/assets/js/global.js:47
 #, perl-format
@@ -297,7 +297,7 @@ msgstr ""
 
 #: cel.i18n.php:6
 msgid "Reports"
-msgstr "Ralatórios"
+msgstr "Relatórios"
 
 #: views/search.php:16
 msgid "Search"
