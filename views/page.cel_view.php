@@ -34,8 +34,6 @@ foreach ($applications as $key => $value) {
 								</div>
 								<div class="modal-body">
 									<table id="cel-detail-grid"
-									data-cookie="true"
-									data-cookie-id-table="report"
 									data-show-columns="true"
 									data-show-toggle="true"
 									data-toggle="table"
@@ -192,7 +190,6 @@ foreach ($applications as $key => $value) {
 				data-sort-order="desc"
 				data-url="ajax.php?module=cel&command=report"
 				data-toolbar="#toolbar-detail"
-				data-search="true"
 				data-toggle="table"
 				data-pagination="true"
 				data-side-pagination="server"
