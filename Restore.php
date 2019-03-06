@@ -4,6 +4,9 @@ use Symfony\Component\Process\Process;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
 	public function runRestore($jobid){
+		$configs = $this->getConfigs();
+		$this->importAdvancedSettings($configs['settings']);
+
 		$files = $this->getFiles();
 		if(empty($files[0])) {
 			return false;

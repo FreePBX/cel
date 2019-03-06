@@ -51,5 +51,8 @@ class Backup Extends Base\BackupBase{
 		$fileObj = new \SplFileInfo($tmpdir . '/cel.sql');
 		$this->addSplFile($fileObj);
 		$this->addDirectories([$fileObj->getPath()]);
+		$this->addConfigs([
+			'settings' => $this->dumpAdvancedSettings()
+		]);
 	}
 }

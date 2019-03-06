@@ -2,19 +2,19 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.9</version>
+	<version>15.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*15.0.9* backup and restore 
-		*15.0.8* FREEPBX-18944 take control of cel_odbc.conf, move usegmttime into cel_odbc.con under cel context 
-		*15.0.7* Fixing FREEPBX-18783 Undefined index issue 
-		*15.0.6* FREEPBX-18632 
-		*15.0.5* New Backup and Restore for 15 Legacy 
+		*15.0.9* backup and restore
+		*15.0.8* FREEPBX-18944 take control of cel_odbc.conf, move usegmttime into cel_odbc.con under cel context
+		*15.0.7* Fixing FREEPBX-18783 Undefined index issue
+		*15.0.6* FREEPBX-18632
+		*15.0.5* New Backup and Restore for 15 Legacy
 		*15.0.4* Packaging of ver 15.0.4
-		*15.0.3* FREEPBX-16337 CDRDBHOST not following AMPDBHOST when empty 
-		*15.0.2* FREEPBX-15626 On clicking search button redirects to the home page. 
+		*15.0.3* FREEPBX-16337 CDRDBHOST not following AMPDBHOST when empty
+		*15.0.2* FREEPBX-15626 On clicking search button redirects to the home page.
 		*15.0.1* Branch from 14.0.2.2
 	</changelog>
 	<hooks>
