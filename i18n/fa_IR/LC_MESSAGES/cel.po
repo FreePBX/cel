@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 15:10-0400\n"
+"POT-Creation-Date: 2019-03-07 09:03+0530\n"
 "PO-Revision-Date: 2016-03-16 23:20+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -49,11 +49,11 @@ msgstr "اجازه به کاربر برای دانلود ضبط شده در پن
 msgid "Allowed CEL"
 msgstr "گزارش تماس مجاز"
 
-#: views/page.cel_view.php:163 views/search.php:106
+#: views/page.cel_view.php:161
 msgid "Application"
 msgstr "برنامه ها"
 
-#: views/page.cel_view.php:177 views/search.php:120
+#: views/page.cel_view.php:175
 msgid "Application executed by a call participant"
 msgstr "درخواست اجرا شده با شرکت تماس گیرنده"
 
@@ -78,19 +78,11 @@ msgstr "لاگ تماس ها"
 msgid "Call Event Logs"
 msgstr "گزارشات تماس"
 
-#: ucp/views/table.php:26 views/page.cel_view.php:205
+#: ucp/views/table.php:26 views/page.cel_view.php:202
 msgid "Caller"
 msgstr "تماس گیرنده"
 
-#: views/search.php:58
-msgid "Caller ID"
-msgstr "شناسه تماس گیرنده"
-
-#: views/search.php:70
-msgid "Caller ID of a call participant"
-msgstr "شناسه تماس گیرنده یک شریک تماس"
-
-#: views/page.cel_view.php:58
+#: views/page.cel_view.php:56
 msgid "Channel Name"
 msgstr ""
 
@@ -107,19 +99,19 @@ msgstr "بررسی فیلد %s برای حذف.."
 msgid "Checking for context index.."
 msgstr "بررسی برای فهرست چهارچوب.."
 
-#: ucp/views/table.php:67 views/page.cel_view.php:55
+#: ucp/views/table.php:67 views/page.cel_view.php:53
 msgid "Cid num"
 msgstr ""
 
-#: ucp/views/table.php:75 views/page.cel_view.php:63
+#: ucp/views/table.php:75 views/page.cel_view.php:61
 msgid "Close"
 msgstr "بستن"
 
-#: views/page.cel_view.php:9 views/search.php:4
+#: views/page.cel_view.php:9
 msgid "Conference"
 msgstr "کنفرانس"
 
-#: ucp/views/table.php:69 views/page.cel_view.php:57
+#: ucp/views/table.php:69 views/page.cel_view.php:55
 msgid "Context"
 msgstr ""
 
@@ -143,43 +135,35 @@ msgstr ""
 "اگر اطلاع کافی ندارید انتخاب نکنید. اگر از مقادیر پیشفرض FreePBX استفاده "
 "نمیکنید انتخاب کنید."
 
-#: ucp/views/table.php:25 views/page.cel_view.php:204
+#: ucp/views/table.php:25 views/page.cel_view.php:201
 msgid "Date"
 msgstr "تاریخ"
 
-#: views/page.cel_view.php:76 views/search.php:27
+#: views/page.cel_view.php:74
 msgid "Date Range"
 msgstr "محدوده تاریخ"
 
-#: views/search.php:46
-msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr "محدوده تاریخ تماس ها در فرمت روز/ماه/سال"
-
-#: views/page.cel_view.php:140
+#: views/page.cel_view.php:138
 msgid "Destination"
 msgstr ""
 
-#: views/page.cel_view.php:187
+#: views/page.cel_view.php:185
 msgid "Detailed Report"
 msgstr ""
 
-#: views/page.cel_view.php:209
+#: views/page.cel_view.php:206
 msgid "Details"
 msgstr ""
 
-#: ucp/views/table.php:27 views/page.cel_view.php:206
+#: ucp/views/table.php:27 views/page.cel_view.php:203
 msgid "Dialed"
 msgstr "تماس های گرفته شده"
-
-#: views/search.php:82
-msgid "Dialed Number"
-msgstr "تعداد تماس های گرفته شده"
 
 #: ucp/assets/js/global.js:53
 msgid "Download"
 msgstr "دانلود"
 
-#: ucp/views/table.php:28 views/page.cel_view.php:207
+#: ucp/views/table.php:28 views/page.cel_view.php:204
 msgid "Duration"
 msgstr "مدت"
 
@@ -195,27 +179,23 @@ msgstr "فعال کردن CEL   (گزارش رخدادهای تماس) در پن
 msgid "Enable CEL Reporting"
 msgstr "فعال سازی گزارش کانال"
 
-#: ucp/views/table.php:64 views/page.cel_view.php:52
+#: ucp/views/table.php:64 views/page.cel_view.php:50
 msgid "Event Type"
 msgstr ""
 
-#: ucp/views/table.php:68 views/page.cel_view.php:56
+#: ucp/views/table.php:68 views/page.cel_view.php:54
 msgid "Extension"
 msgstr ""
-
-#: views/search.php:94
-msgid "Extension or DID dialed"
-msgstr "داخلی تماس گرفته شده"
 
 #: Cel.class.php:106 ucp/Cel.class.php:113 ucp/Cel.class.php:116
 msgid "File does not exist"
 msgstr "فایل موجود نیست"
 
-#: views/page.cel_view.php:128
+#: views/page.cel_view.php:126
 msgid "Filter by Source"
 msgstr ""
 
-#: views/page.cel_view.php:152
+#: views/page.cel_view.php:150
 msgid "Filter by destination"
 msgstr ""
 
@@ -223,7 +203,7 @@ msgstr ""
 msgid "Forbidden"
 msgstr "غیر مجاز"
 
-#: views/page.cel_view.php:80 views/page.cel_view.php:84 views/search.php:33
+#: views/page.cel_view.php:78 views/page.cel_view.php:82
 msgid "From"
 msgstr "از"
 
@@ -235,7 +215,7 @@ msgstr "ارث بری"
 msgid "Invalid Command"
 msgstr ""
 
-#: ucp/views/table.php:66 views/page.cel_view.php:54
+#: ucp/views/table.php:66 views/page.cel_view.php:52
 msgid "LinkedID"
 msgstr ""
 
@@ -255,7 +235,7 @@ msgstr "یافت نشد"
 msgid "OK"
 msgstr "تایید"
 
-#: views/page.cel_view.php:208
+#: views/page.cel_view.php:205
 msgid "Play"
 msgstr ""
 
@@ -263,11 +243,11 @@ msgstr ""
 msgid "Playback"
 msgstr "اجرای مجدد"
 
-#: views/page.cel_view.php:10 views/search.php:5
+#: views/page.cel_view.php:10
 msgid "Queue"
 msgstr "صف"
 
-#: views/page.cel_view.php:184
+#: views/page.cel_view.php:182
 msgid "Refresh"
 msgstr ""
 
@@ -291,11 +271,7 @@ msgstr ""
 msgid "Reports"
 msgstr "گزارشات"
 
-#: views/search.php:16
-msgid "Search"
-msgstr "جستجو"
-
-#: views/page.cel_view.php:104
+#: views/page.cel_view.php:102
 msgid "Select the date range for the report"
 msgstr ""
 
@@ -308,7 +284,7 @@ msgid ""
 "Distro level."
 msgstr "این گزینه ماژول CEL را فعال میکند برای ایجاد گزارش از تماس ها."
 
-#: views/page.cel_view.php:116
+#: views/page.cel_view.php:114
 msgid "Source"
 msgstr ""
 
@@ -324,15 +300,15 @@ msgstr ""
 "داخلی های فعال و مشخصی وجود دارد که به این کاربر در پنل کاربری ویرایش شده و "
 "نمایش داده میشوند"
 
-#: ucp/views/table.php:63 views/page.cel_view.php:51
+#: ucp/views/table.php:63 views/page.cel_view.php:49
 msgid "Time"
 msgstr "ساعت"
 
-#: views/page.cel_view.php:89 views/page.cel_view.php:93 views/search.php:36
+#: views/page.cel_view.php:87 views/page.cel_view.php:91
 msgid "To"
 msgstr "به"
 
-#: ucp/views/table.php:65 views/page.cel_view.php:53
+#: ucp/views/table.php:65 views/page.cel_view.php:51
 msgid "UniqueID"
 msgstr ""
 
@@ -340,11 +316,11 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: views/page.cel_view.php:11 views/search.php:6
+#: views/page.cel_view.php:11
 msgid "Voicemail"
 msgstr "ایمیل صوتی"
 
-#: views/page.cel_view.php:12 views/search.php:7
+#: views/page.cel_view.php:12
 msgid "Voicemail Main"
 msgstr "ایمیل صوتی اصلی"
 
@@ -394,6 +370,24 @@ msgstr ""
 #: install.php:75
 msgid "not found"
 msgstr ""
+
+#~ msgid "Caller ID"
+#~ msgstr "شناسه تماس گیرنده"
+
+#~ msgid "Caller ID of a call participant"
+#~ msgstr "شناسه تماس گیرنده یک شریک تماس"
+
+#~ msgid "Date range of calls in the format of mm/dd/yyyy"
+#~ msgstr "محدوده تاریخ تماس ها در فرمت روز/ماه/سال"
+
+#~ msgid "Dialed Number"
+#~ msgstr "تعداد تماس های گرفته شده"
+
+#~ msgid "Extension or DID dialed"
+#~ msgstr "داخلی تماس گرفته شده"
+
+#~ msgid "Search"
+#~ msgstr "جستجو"
 
 #~ msgid "Detail"
 #~ msgstr "جزییات"
