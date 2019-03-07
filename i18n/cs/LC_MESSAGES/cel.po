@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 14:56-0500\n"
+"POT-Creation-Date: 2019-03-07 09:05+0530\n"
 "PO-Revision-Date: 2018-08-29 14:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cel/cs/>\n"
@@ -49,11 +49,11 @@ msgstr "Umožnit uživatelům stahovat nahrávky v UCP"
 msgid "Allowed CEL"
 msgstr "Povolené CEL"
 
-#: views/page.cel_view.php:163 views/search.php:106
+#: views/page.cel_view.php:161
 msgid "Application"
 msgstr "Aplikace"
 
-#: views/page.cel_view.php:177 views/search.php:120
+#: views/page.cel_view.php:175
 msgid "Application executed by a call participant"
 msgstr "Aplikace spuštěná účastníkem hovoru"
 
@@ -69,8 +69,8 @@ msgstr "CEL reporty"
 msgid "Call Detail"
 msgstr "Detaily hovoru"
 
-#: Cel.class.php:243 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
-#: /dev/shm/freepbx/cel/cel.i18n.php:10 page.cel.php:10
+#: Cel.class.php:243 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Protokol hovoru"
 
@@ -83,19 +83,11 @@ msgstr "Události hovoru"
 msgid "Call Events for %s"
 msgstr "Události hovoru pro %s"
 
-#: ucp/views/widget.php:25 views/page.cel_view.php:205
+#: ucp/views/widget.php:25 views/page.cel_view.php:202
 msgid "Caller"
 msgstr "Volající"
 
-#: views/search.php:58
-msgid "Caller ID"
-msgstr "ID volajícího"
-
-#: views/search.php:70
-msgid "Caller ID of a call participant"
-msgstr "ID volajícího účastníka hovoru"
-
-#: views/page.cel_view.php:58
+#: views/page.cel_view.php:56
 msgid "Channel Name"
 msgstr "Název kanálu"
 
@@ -112,20 +104,20 @@ msgstr "Kontrola pro odstranění pole %s.."
 msgid "Checking for context index.."
 msgstr "Kontrola indexu kontextu .."
 
-#: ucp/views/eventModal.php:18 views/page.cel_view.php:55
+#: ucp/views/eventModal.php:18 views/page.cel_view.php:53
 #, fuzzy
 msgid "Cid num"
 msgstr "Cid num"
 
-#: views/page.cel_view.php:63 ucp/assets/js/global.js:31
+#: views/page.cel_view.php:61 ucp/assets/js/global.js:31
 msgid "Close"
 msgstr "Zavřít"
 
-#: views/page.cel_view.php:9 views/search.php:4
+#: views/page.cel_view.php:9
 msgid "Conference"
 msgstr "Konference"
 
-#: ucp/views/eventModal.php:20 views/page.cel_view.php:57
+#: ucp/views/eventModal.php:20 views/page.cel_view.php:55
 msgid "Context"
 msgstr "Kontext"
 
@@ -153,43 +145,35 @@ msgstr ""
 "případě, že nepoužíváte standardní hodnoty poskytované FreePBX. Název "
 "tabulky v databázi kde je CEL uložena. Výchozí je cel."
 
-#: ucp/views/widget.php:24 views/page.cel_view.php:204
+#: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "Datum"
 
-#: views/page.cel_view.php:76 views/search.php:27
+#: views/page.cel_view.php:74
 msgid "Date Range"
 msgstr "Časové období"
 
-#: views/search.php:46
-msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr "Časové období hovorů ve formátu mm/dd/rrrr"
-
-#: views/page.cel_view.php:140
+#: views/page.cel_view.php:138
 msgid "Destination"
 msgstr "Cíl"
 
-#: views/page.cel_view.php:187
+#: views/page.cel_view.php:185
 msgid "Detailed Report"
 msgstr "Detailní zpráva"
 
-#: views/page.cel_view.php:209
+#: views/page.cel_view.php:206
 msgid "Details"
 msgstr "Detaily"
 
-#: ucp/views/widget.php:26 views/page.cel_view.php:206
+#: ucp/views/widget.php:26 views/page.cel_view.php:203
 msgid "Dialed"
 msgstr "Volané"
-
-#: views/search.php:82
-msgid "Dialed Number"
-msgstr "Volané číslo"
 
 #: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr "Stáhnout"
 
-#: ucp/views/widget.php:27 views/page.cel_view.php:207
+#: ucp/views/widget.php:27 views/page.cel_view.php:204
 msgid "Duration"
 msgstr "Doba trvání"
 
@@ -209,27 +193,23 @@ msgstr "Povolit CEL reporty"
 msgid "Error getting form"
 msgstr "Chyba při získávání formuláře"
 
-#: ucp/views/eventModal.php:15 views/page.cel_view.php:52
+#: ucp/views/eventModal.php:15 views/page.cel_view.php:50
 msgid "Event Type"
 msgstr "Typ události"
 
-#: ucp/views/eventModal.php:19 views/page.cel_view.php:56
+#: ucp/views/eventModal.php:19 views/page.cel_view.php:54
 msgid "Extension"
 msgstr "Pobočka"
-
-#: views/search.php:94
-msgid "Extension or DID dialed"
-msgstr "Volána pobočka nebo DID"
 
 #: Cel.class.php:114 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "Soubor neexistuje"
 
-#: views/page.cel_view.php:128
+#: views/page.cel_view.php:126
 msgid "Filter by Source"
 msgstr "Filtrování podle zdroje"
 
-#: views/page.cel_view.php:152
+#: views/page.cel_view.php:150
 msgid "Filter by destination"
 msgstr "Filtrování podle cíle"
 
@@ -237,7 +217,7 @@ msgstr "Filtrování podle cíle"
 msgid "Forbidden"
 msgstr "Zakázáno"
 
-#: views/page.cel_view.php:80 views/page.cel_view.php:84 views/search.php:33
+#: views/page.cel_view.php:78 views/page.cel_view.php:82
 msgid "From"
 msgstr "Od"
 
@@ -249,7 +229,7 @@ msgstr "Zdědit"
 msgid "Invalid Command"
 msgstr "Neplatný příkaz"
 
-#: ucp/views/eventModal.php:17 views/page.cel_view.php:54
+#: ucp/views/eventModal.php:17 views/page.cel_view.php:52
 #, fuzzy
 msgid "LinkedID"
 msgstr "LinkedID"
@@ -266,7 +246,7 @@ msgstr "Nenalezeno"
 msgid "OK"
 msgstr "OK"
 
-#: views/page.cel_view.php:208
+#: views/page.cel_view.php:205
 msgid "Play"
 msgstr "Přehrát"
 
@@ -274,11 +254,11 @@ msgstr "Přehrát"
 msgid "Playback"
 msgstr "Přehrávání"
 
-#: views/page.cel_view.php:10 views/search.php:5
+#: views/page.cel_view.php:10
 msgid "Queue"
 msgstr "Fronta"
 
-#: views/page.cel_view.php:184
+#: views/page.cel_view.php:182
 msgid "Refresh"
 msgstr "Obnovit"
 
@@ -302,11 +282,7 @@ msgstr "Odstranění zastaralých polí (může to trvat dlouho)"
 msgid "Reports"
 msgstr "Reporty"
 
-#: views/search.php:16
-msgid "Search"
-msgstr "Hledat"
-
-#: views/page.cel_view.php:104
+#: views/page.cel_view.php:102
 msgid "Select the date range for the report"
 msgstr "Vyberte časové období pro report"
 
@@ -323,7 +299,7 @@ msgstr ""
 "vykazování v Asterisku a přidružené databázi ODBC a konfiguraci CEL musí být "
 "provedena mimo FreePBX buď uživatelem, nebo na úrovni Distro."
 
-#: views/page.cel_view.php:116
+#: views/page.cel_view.php:114
 msgid "Source"
 msgstr "Zdroj"
 
@@ -339,15 +315,15 @@ msgstr ""
 "Jedná se o přiřazené a aktivní pobočky, která se pro uživatele zobrazí pro "
 "ovládání a úpravu v UCP"
 
-#: ucp/views/eventModal.php:14 views/page.cel_view.php:51
+#: ucp/views/eventModal.php:14 views/page.cel_view.php:49
 msgid "Time"
 msgstr "Čas"
 
-#: views/page.cel_view.php:89 views/page.cel_view.php:93 views/search.php:36
+#: views/page.cel_view.php:87 views/page.cel_view.php:91
 msgid "To"
 msgstr "Na"
 
-#: ucp/views/eventModal.php:16 views/page.cel_view.php:53
+#: ucp/views/eventModal.php:16 views/page.cel_view.php:51
 msgid "UniqueID"
 msgstr "Unikátní ID"
 
@@ -355,11 +331,11 @@ msgstr "Unikátní ID"
 msgid "User Primary Extension"
 msgstr "Primární pobočka uživatele"
 
-#: views/page.cel_view.php:11 views/search.php:6
+#: views/page.cel_view.php:11
 msgid "Voicemail"
 msgstr "Hlasová schránka"
 
-#: views/page.cel_view.php:12 views/search.php:7
+#: views/page.cel_view.php:12
 msgid "Voicemail Main"
 msgstr "Hlavní hlasová schránka"
 
@@ -404,10 +380,28 @@ msgstr "již odstraněn"
 msgid "checking for extra field.."
 msgstr "hledání dalšího pole.."
 
-#: install.php:86 /dev/shm/freepbx/cel/install.php:97
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
 msgstr "nalezeno"
 
 #: install.php:75
 msgid "not found"
 msgstr "nenalezeno"
+
+#~ msgid "Caller ID"
+#~ msgstr "ID volajícího"
+
+#~ msgid "Caller ID of a call participant"
+#~ msgstr "ID volajícího účastníka hovoru"
+
+#~ msgid "Date range of calls in the format of mm/dd/yyyy"
+#~ msgstr "Časové období hovorů ve formátu mm/dd/rrrr"
+
+#~ msgid "Dialed Number"
+#~ msgstr "Volané číslo"
+
+#~ msgid "Extension or DID dialed"
+#~ msgstr "Volána pobočka nebo DID"
+
+#~ msgid "Search"
+#~ msgstr "Hledat"

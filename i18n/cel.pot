@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 14:56-0500\n"
+"POT-Creation-Date: 2019-03-07 09:05+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,13 +47,11 @@ msgstr ""
 msgid "Allowed CEL"
 msgstr ""
 
-#: views/page.cel_view.php:163
-#: views/search.php:106
+#: views/page.cel_view.php:161
 msgid "Application"
 msgstr ""
 
-#: views/page.cel_view.php:177
-#: views/search.php:120
+#: views/page.cel_view.php:175
 msgid "Application executed by a call participant"
 msgstr ""
 
@@ -69,8 +67,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:243 /dev/shm/freepbx/cel/cel.i18n.php:4
-#: cel.i18n.php:8 /dev/shm/freepbx/cel/cel.i18n.php:10
+#: Cel.class.php:243 /usr/src/freepbx/cel/cel.i18n.php:4
+#: cel.i18n.php:8 /usr/src/freepbx/cel/cel.i18n.php:10
 #: page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
@@ -87,19 +85,11 @@ msgid "Call Events for %s"
 msgstr ""
 
 #: ucp/views/widget.php:25
-#: views/page.cel_view.php:205
+#: views/page.cel_view.php:202
 msgid "Caller"
 msgstr ""
 
-#: views/search.php:58
-msgid "Caller ID"
-msgstr ""
-
-#: views/search.php:70
-msgid "Caller ID of a call participant"
-msgstr ""
-
-#: views/page.cel_view.php:58
+#: views/page.cel_view.php:56
 msgid "Channel Name"
 msgstr ""
 
@@ -117,22 +107,21 @@ msgid "Checking for context index.."
 msgstr ""
 
 #: ucp/views/eventModal.php:18
-#: views/page.cel_view.php:55
+#: views/page.cel_view.php:53
 msgid "Cid num"
 msgstr ""
 
-#: views/page.cel_view.php:63
+#: views/page.cel_view.php:61
 #: ucp/assets/js/global.js:31
 msgid "Close"
 msgstr ""
 
 #: views/page.cel_view.php:9
-#: views/search.php:4
 msgid "Conference"
 msgstr ""
 
 #: ucp/views/eventModal.php:20
-#: views/page.cel_view.php:57
+#: views/page.cel_view.php:55
 msgid "Context"
 msgstr ""
 
@@ -155,38 +144,29 @@ msgid ""
 msgstr ""
 
 #: ucp/views/widget.php:24
-#: views/page.cel_view.php:204
+#: views/page.cel_view.php:201
 msgid "Date"
 msgstr ""
 
-#: views/page.cel_view.php:76
-#: views/search.php:27
+#: views/page.cel_view.php:74
 msgid "Date Range"
 msgstr ""
 
-#: views/search.php:46
-msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
-
-#: views/page.cel_view.php:140
+#: views/page.cel_view.php:138
 msgid "Destination"
 msgstr ""
 
-#: views/page.cel_view.php:187
+#: views/page.cel_view.php:185
 msgid "Detailed Report"
 msgstr ""
 
-#: views/page.cel_view.php:209
+#: views/page.cel_view.php:206
 msgid "Details"
 msgstr ""
 
 #: ucp/views/widget.php:26
-#: views/page.cel_view.php:206
+#: views/page.cel_view.php:203
 msgid "Dialed"
-msgstr ""
-
-#: views/search.php:82
-msgid "Dialed Number"
 msgstr ""
 
 #: ucp/assets/js/global.js:58
@@ -194,7 +174,7 @@ msgid "Download"
 msgstr ""
 
 #: ucp/views/widget.php:27
-#: views/page.cel_view.php:207
+#: views/page.cel_view.php:204
 msgid "Duration"
 msgstr ""
 
@@ -216,17 +196,13 @@ msgid "Error getting form"
 msgstr ""
 
 #: ucp/views/eventModal.php:15
-#: views/page.cel_view.php:52
+#: views/page.cel_view.php:50
 msgid "Event Type"
 msgstr ""
 
 #: ucp/views/eventModal.php:19
-#: views/page.cel_view.php:56
+#: views/page.cel_view.php:54
 msgid "Extension"
-msgstr ""
-
-#: views/search.php:94
-msgid "Extension or DID dialed"
 msgstr ""
 
 #: Cel.class.php:114
@@ -235,11 +211,11 @@ msgstr ""
 msgid "File does not exist"
 msgstr ""
 
-#: views/page.cel_view.php:128
+#: views/page.cel_view.php:126
 msgid "Filter by Source"
 msgstr ""
 
-#: views/page.cel_view.php:152
+#: views/page.cel_view.php:150
 msgid "Filter by destination"
 msgstr ""
 
@@ -248,9 +224,8 @@ msgstr ""
 msgid "Forbidden"
 msgstr ""
 
-#: views/page.cel_view.php:80
-#: views/page.cel_view.php:84
-#: views/search.php:33
+#: views/page.cel_view.php:78
+#: views/page.cel_view.php:82
 msgid "From"
 msgstr ""
 
@@ -265,7 +240,7 @@ msgid "Invalid Command"
 msgstr ""
 
 #: ucp/views/eventModal.php:17
-#: views/page.cel_view.php:54
+#: views/page.cel_view.php:52
 msgid "LinkedID"
 msgstr ""
 
@@ -283,7 +258,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: views/page.cel_view.php:208
+#: views/page.cel_view.php:205
 msgid "Play"
 msgstr ""
 
@@ -292,11 +267,10 @@ msgid "Playback"
 msgstr ""
 
 #: views/page.cel_view.php:10
-#: views/search.php:5
 msgid "Queue"
 msgstr ""
 
-#: views/page.cel_view.php:184
+#: views/page.cel_view.php:182
 msgid "Refresh"
 msgstr ""
 
@@ -320,11 +294,7 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
-#: views/search.php:16
-msgid "Search"
-msgstr ""
-
-#: views/page.cel_view.php:104
+#: views/page.cel_view.php:102
 msgid "Select the date range for the report"
 msgstr ""
 
@@ -337,7 +307,7 @@ msgid ""
 "Distro level."
 msgstr ""
 
-#: views/page.cel_view.php:116
+#: views/page.cel_view.php:114
 msgid "Source"
 msgstr ""
 
@@ -352,18 +322,17 @@ msgid ""
 msgstr ""
 
 #: ucp/views/eventModal.php:14
-#: views/page.cel_view.php:51
+#: views/page.cel_view.php:49
 msgid "Time"
 msgstr ""
 
-#: views/page.cel_view.php:89
-#: views/page.cel_view.php:93
-#: views/search.php:36
+#: views/page.cel_view.php:87
+#: views/page.cel_view.php:91
 msgid "To"
 msgstr ""
 
 #: ucp/views/eventModal.php:16
-#: views/page.cel_view.php:53
+#: views/page.cel_view.php:51
 msgid "UniqueID"
 msgstr ""
 
@@ -372,12 +341,10 @@ msgid "User Primary Extension"
 msgstr ""
 
 #: views/page.cel_view.php:11
-#: views/search.php:6
 msgid "Voicemail"
 msgstr ""
 
 #: views/page.cel_view.php:12
-#: views/search.php:7
 msgid "Voicemail Main"
 msgstr ""
 
@@ -419,7 +386,7 @@ msgstr ""
 msgid "checking for extra field.."
 msgstr ""
 
-#: install.php:86 /dev/shm/freepbx/cel/install.php:97
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
 msgstr ""
 

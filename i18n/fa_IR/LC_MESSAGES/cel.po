@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 14:56-0500\n"
+"POT-Creation-Date: 2019-03-07 09:05+0530\n"
 "PO-Revision-Date: 2019-01-25 19:41+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/cel/fa/>\n"
@@ -49,11 +49,11 @@ msgstr "اجازه به کاربر برای دانلود ضبط شده در پن
 msgid "Allowed CEL"
 msgstr "گزارش تماس مجاز"
 
-#: views/page.cel_view.php:163 views/search.php:106
+#: views/page.cel_view.php:161
 msgid "Application"
 msgstr "برنامه ها"
 
-#: views/page.cel_view.php:177 views/search.php:120
+#: views/page.cel_view.php:175
 msgid "Application executed by a call participant"
 msgstr "درخواست اجرا شده با شرکت تماس گیرنده"
 
@@ -69,8 +69,8 @@ msgstr "گزارش های CEL"
 msgid "Call Detail"
 msgstr "جزییات تماس"
 
-#: Cel.class.php:243 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
-#: /dev/shm/freepbx/cel/cel.i18n.php:10 page.cel.php:10
+#: Cel.class.php:243 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "لاگ تماس ها"
 
@@ -83,19 +83,11 @@ msgstr "رویداد های تماس"
 msgid "Call Events for %s"
 msgstr "رویداد های تماس برای %s1"
 
-#: ucp/views/widget.php:25 views/page.cel_view.php:205
+#: ucp/views/widget.php:25 views/page.cel_view.php:202
 msgid "Caller"
 msgstr "تماس گیرنده"
 
-#: views/search.php:58
-msgid "Caller ID"
-msgstr "شناسه تماس گیرنده"
-
-#: views/search.php:70
-msgid "Caller ID of a call participant"
-msgstr "شناسه تماس گیرنده یک شریک تماس"
-
-#: views/page.cel_view.php:58
+#: views/page.cel_view.php:56
 msgid "Channel Name"
 msgstr "نام کانال"
 
@@ -112,19 +104,19 @@ msgstr "بررسی فیلد %s برای حذف.."
 msgid "Checking for context index.."
 msgstr "بررسی برای فهرست چهارچوب.."
 
-#: ucp/views/eventModal.php:18 views/page.cel_view.php:55
+#: ucp/views/eventModal.php:18 views/page.cel_view.php:53
 msgid "Cid num"
 msgstr "شماره Cid"
 
-#: views/page.cel_view.php:63 ucp/assets/js/global.js:31
+#: views/page.cel_view.php:61 ucp/assets/js/global.js:31
 msgid "Close"
 msgstr "بستن"
 
-#: views/page.cel_view.php:9 views/search.php:4
+#: views/page.cel_view.php:9
 msgid "Conference"
 msgstr "کنفرانس"
 
-#: ucp/views/eventModal.php:20 views/page.cel_view.php:57
+#: ucp/views/eventModal.php:20 views/page.cel_view.php:55
 msgid "Context"
 msgstr "متن"
 
@@ -152,43 +144,35 @@ msgstr ""
 "اگر اطلاع کافی ندارید انتخاب نکنید. اگر از مقادیر پیشفرض FreePBX استفاده "
 "نمیکنید انتخاب کنید."
 
-#: ucp/views/widget.php:24 views/page.cel_view.php:204
+#: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "تاریخ"
 
-#: views/page.cel_view.php:76 views/search.php:27
+#: views/page.cel_view.php:74
 msgid "Date Range"
 msgstr "محدوده تاریخ"
 
-#: views/search.php:46
-msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr "محدوده تاریخ تماس ها در فرمت روز/ماه/سال"
-
-#: views/page.cel_view.php:140
+#: views/page.cel_view.php:138
 msgid "Destination"
 msgstr "مقصد"
 
-#: views/page.cel_view.php:187
+#: views/page.cel_view.php:185
 msgid "Detailed Report"
 msgstr "جزییات گزارش"
 
-#: views/page.cel_view.php:209
+#: views/page.cel_view.php:206
 msgid "Details"
 msgstr "جزییات"
 
-#: ucp/views/widget.php:26 views/page.cel_view.php:206
+#: ucp/views/widget.php:26 views/page.cel_view.php:203
 msgid "Dialed"
 msgstr "تماس های گرفته شده"
-
-#: views/search.php:82
-msgid "Dialed Number"
-msgstr "تعداد تماس های گرفته شده"
 
 #: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr "دانلود"
 
-#: ucp/views/widget.php:27 views/page.cel_view.php:207
+#: ucp/views/widget.php:27 views/page.cel_view.php:204
 msgid "Duration"
 msgstr "مدت"
 
@@ -208,27 +192,23 @@ msgstr "فعال سازی گزارش کانال"
 msgid "Error getting form"
 msgstr "خطا در گرفتن فرم"
 
-#: ucp/views/eventModal.php:15 views/page.cel_view.php:52
+#: ucp/views/eventModal.php:15 views/page.cel_view.php:50
 msgid "Event Type"
 msgstr "نوع رویداد"
 
-#: ucp/views/eventModal.php:19 views/page.cel_view.php:56
+#: ucp/views/eventModal.php:19 views/page.cel_view.php:54
 msgid "Extension"
 msgstr "مقصد"
-
-#: views/search.php:94
-msgid "Extension or DID dialed"
-msgstr "داخلی تماس گرفته شده"
 
 #: Cel.class.php:114 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "فایل موجود نیست"
 
-#: views/page.cel_view.php:128
+#: views/page.cel_view.php:126
 msgid "Filter by Source"
 msgstr "فیلتر بر اساس منبع"
 
-#: views/page.cel_view.php:152
+#: views/page.cel_view.php:150
 msgid "Filter by destination"
 msgstr "فیلتر بر اساس مقصد"
 
@@ -236,7 +216,7 @@ msgstr "فیلتر بر اساس مقصد"
 msgid "Forbidden"
 msgstr "غیر مجاز"
 
-#: views/page.cel_view.php:80 views/page.cel_view.php:84 views/search.php:33
+#: views/page.cel_view.php:78 views/page.cel_view.php:82
 msgid "From"
 msgstr "از"
 
@@ -248,7 +228,7 @@ msgstr "ارث بری"
 msgid "Invalid Command"
 msgstr "دستور نامعتبر"
 
-#: ucp/views/eventModal.php:17 views/page.cel_view.php:54
+#: ucp/views/eventModal.php:17 views/page.cel_view.php:52
 msgid "LinkedID"
 msgstr "linkedID"
 
@@ -264,7 +244,7 @@ msgstr "یافت نشد"
 msgid "OK"
 msgstr "تایید"
 
-#: views/page.cel_view.php:208
+#: views/page.cel_view.php:205
 msgid "Play"
 msgstr "پخش"
 
@@ -272,11 +252,11 @@ msgstr "پخش"
 msgid "Playback"
 msgstr "اجرای مجدد"
 
-#: views/page.cel_view.php:10 views/search.php:5
+#: views/page.cel_view.php:10
 msgid "Queue"
 msgstr "صف"
 
-#: views/page.cel_view.php:184
+#: views/page.cel_view.php:182
 msgid "Refresh"
 msgstr "تازه کردن"
 
@@ -300,11 +280,7 @@ msgstr "حذف فیلدهای قدیمی (ممکن است طول بکشد)"
 msgid "Reports"
 msgstr "گزارشات"
 
-#: views/search.php:16
-msgid "Search"
-msgstr "جستجو"
-
-#: views/page.cel_view.php:104
+#: views/page.cel_view.php:102
 msgid "Select the date range for the report"
 msgstr "محدوده تاریخ برای گزارش را انتخاب کنید"
 
@@ -317,7 +293,7 @@ msgid ""
 "Distro level."
 msgstr "این گزینه ماژول CEL را فعال میکند برای ایجاد گزارش از تماس ها."
 
-#: views/page.cel_view.php:116
+#: views/page.cel_view.php:114
 msgid "Source"
 msgstr "منبع"
 
@@ -333,15 +309,15 @@ msgstr ""
 "داخلی های فعال و مشخصی وجود دارد که به این کاربر در پنل کاربری ویرایش شده و "
 "نمایش داده میشوند"
 
-#: ucp/views/eventModal.php:14 views/page.cel_view.php:51
+#: ucp/views/eventModal.php:14 views/page.cel_view.php:49
 msgid "Time"
 msgstr "ساعت"
 
-#: views/page.cel_view.php:89 views/page.cel_view.php:93 views/search.php:36
+#: views/page.cel_view.php:87 views/page.cel_view.php:91
 msgid "To"
 msgstr "به"
 
-#: ucp/views/eventModal.php:16 views/page.cel_view.php:53
+#: ucp/views/eventModal.php:16 views/page.cel_view.php:51
 msgid "UniqueID"
 msgstr "uniqueID"
 
@@ -349,11 +325,11 @@ msgstr "uniqueID"
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: views/page.cel_view.php:11 views/search.php:6
+#: views/page.cel_view.php:11
 msgid "Voicemail"
 msgstr "ایمیل صوتی"
 
-#: views/page.cel_view.php:12 views/search.php:7
+#: views/page.cel_view.php:12
 msgid "Voicemail Main"
 msgstr "ایمیل صوتی اصلی"
 
@@ -396,13 +372,31 @@ msgstr "در حال حاضر حذف شده است"
 msgid "checking for extra field.."
 msgstr "بررسی فیلد خارجی.."
 
-#: install.php:86 /dev/shm/freepbx/cel/install.php:97
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
 msgstr "یافتن"
 
 #: install.php:75
 msgid "not found"
 msgstr "یافت نشد"
+
+#~ msgid "Caller ID"
+#~ msgstr "شناسه تماس گیرنده"
+
+#~ msgid "Caller ID of a call participant"
+#~ msgstr "شناسه تماس گیرنده یک شریک تماس"
+
+#~ msgid "Date range of calls in the format of mm/dd/yyyy"
+#~ msgstr "محدوده تاریخ تماس ها در فرمت روز/ماه/سال"
+
+#~ msgid "Dialed Number"
+#~ msgstr "تعداد تماس های گرفته شده"
+
+#~ msgid "Extension or DID dialed"
+#~ msgstr "داخلی تماس گرفته شده"
+
+#~ msgid "Search"
+#~ msgstr "جستجو"
 
 #~ msgid "Detail"
 #~ msgstr "جزییات"
