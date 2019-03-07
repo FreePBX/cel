@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-13 14:56-0500\n"
-"PO-Revision-Date: 2016-03-16 23:20+0300\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: fa\n"
+"PO-Revision-Date: 2019-01-25 19:41+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/cel/fa/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: ucp/assets/js/global.js:47
 #, perl-format
@@ -63,7 +63,7 @@ msgstr "ماژول گزارشگیری کانال"
 
 #: views/page.cel_view.php:22
 msgid "CEL Reports"
-msgstr ""
+msgstr "گزارش های CEL"
 
 #: views/page.cel_view.php:33
 msgid "Call Detail"
@@ -76,12 +76,12 @@ msgstr "لاگ تماس ها"
 
 #: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:29
 msgid "Call Events"
-msgstr ""
+msgstr "رویداد های تماس"
 
 #: ucp/Cel.class.php:45
 #, php-format
 msgid "Call Events for %s"
-msgstr ""
+msgstr "رویداد های تماس برای %s1"
 
 #: ucp/views/widget.php:25 views/page.cel_view.php:205
 msgid "Caller"
@@ -97,11 +97,11 @@ msgstr "شناسه تماس گیرنده یک شریک تماس"
 
 #: views/page.cel_view.php:58
 msgid "Channel Name"
-msgstr ""
+msgstr "نام کانال"
 
 #: ucp/views/eventModal.php:21
 msgid "Channle Name"
-msgstr ""
+msgstr "نام کانال"
 
 #: install.php:83
 #, php-format
@@ -114,7 +114,7 @@ msgstr "بررسی برای فهرست چهارچوب.."
 
 #: ucp/views/eventModal.php:18 views/page.cel_view.php:55
 msgid "Cid num"
-msgstr ""
+msgstr "شماره Cid"
 
 #: views/page.cel_view.php:63 ucp/assets/js/global.js:31
 msgid "Close"
@@ -126,7 +126,7 @@ msgstr "کنفرانس"
 
 #: ucp/views/eventModal.php:20 views/page.cel_view.php:57
 msgid "Context"
-msgstr ""
+msgstr "متن"
 
 #: ucp/views/widget.php:31
 msgid "Controls"
@@ -138,6 +138,10 @@ msgid ""
 "use the default values provided by FreePBX. Name of database used for where "
 "the cel is stored. asteriskcdrdb is default."
 msgstr ""
+"این کار را انجام ندهید مگر اینکه شما می دانید که چه کاری انجام می دهید. فقط "
+"استفاده می شود اگر شما از مقادیر پیش فرض توسط FreePBX استفاده نمی کنید. نام "
+"پایگاه داده مورد استفاده برای جایی که cel ذخیره می شود. asteriskcdrdb به طور "
+"پیش فرض است."
 
 #: cel.i18n.php:24
 msgid ""
@@ -162,15 +166,15 @@ msgstr "محدوده تاریخ تماس ها در فرمت روز/ماه/سال
 
 #: views/page.cel_view.php:140
 msgid "Destination"
-msgstr ""
+msgstr "مقصد"
 
 #: views/page.cel_view.php:187
 msgid "Detailed Report"
-msgstr ""
+msgstr "جزییات گزارش"
 
 #: views/page.cel_view.php:209
 msgid "Details"
-msgstr ""
+msgstr "جزییات"
 
 #: ucp/views/widget.php:26 views/page.cel_view.php:206
 msgid "Dialed"
@@ -190,7 +194,7 @@ msgstr "مدت"
 
 #: install.php:110
 msgid "ERROR failed to update database"
-msgstr ""
+msgstr "خطا در به روز رسانی دیتابیس"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
@@ -202,15 +206,15 @@ msgstr "فعال سازی گزارش کانال"
 
 #: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
-msgstr ""
+msgstr "خطا در گرفتن فرم"
 
 #: ucp/views/eventModal.php:15 views/page.cel_view.php:52
 msgid "Event Type"
-msgstr ""
+msgstr "نوع رویداد"
 
 #: ucp/views/eventModal.php:19 views/page.cel_view.php:56
 msgid "Extension"
-msgstr ""
+msgstr "مقصد"
 
 #: views/search.php:94
 msgid "Extension or DID dialed"
@@ -222,11 +226,11 @@ msgstr "فایل موجود نیست"
 
 #: views/page.cel_view.php:128
 msgid "Filter by Source"
-msgstr ""
+msgstr "فیلتر بر اساس منبع"
 
 #: views/page.cel_view.php:152
 msgid "Filter by destination"
-msgstr ""
+msgstr "فیلتر بر اساس مقصد"
 
 #: ucp/Cel.class.php:204 ucp/Cel.class.php:215
 msgid "Forbidden"
@@ -242,11 +246,11 @@ msgstr "ارث بری"
 
 #: Cel.class.php:118
 msgid "Invalid Command"
-msgstr ""
+msgstr "دستور نامعتبر"
 
 #: ucp/views/eventModal.php:17 views/page.cel_view.php:54
 msgid "LinkedID"
-msgstr ""
+msgstr "linkedID"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -262,7 +266,7 @@ msgstr "تایید"
 
 #: views/page.cel_view.php:208
 msgid "Play"
-msgstr ""
+msgstr "پخش"
 
 #: ucp/views/widget.php:29
 msgid "Playback"
@@ -274,11 +278,11 @@ msgstr "صف"
 
 #: views/page.cel_view.php:184
 msgid "Refresh"
-msgstr ""
+msgstr "تازه کردن"
 
 #: cel.i18n.php:18
 msgid "Remote CEL DB Name"
-msgstr ""
+msgstr "نام Remote CEL DB"
 
 #: cel.i18n.php:22
 msgid "Remote CEL DB Table"
@@ -290,7 +294,7 @@ msgstr "حذف شده"
 
 #: install.php:105
 msgid "Removing outdated fields (this might take a long time)"
-msgstr ""
+msgstr "حذف فیلدهای قدیمی (ممکن است طول بکشد)"
 
 #: cel.i18n.php:6
 msgid "Reports"
@@ -302,7 +306,7 @@ msgstr "جستجو"
 
 #: views/page.cel_view.php:104
 msgid "Select the date range for the report"
-msgstr ""
+msgstr "محدوده تاریخ برای گزارش را انتخاب کنید"
 
 #: cel.i18n.php:16
 msgid ""
@@ -315,7 +319,7 @@ msgstr "این گزینه ماژول CEL را فعال میکند برای ای�
 
 #: views/page.cel_view.php:116
 msgid "Source"
-msgstr ""
+msgstr "منبع"
 
 #: Cel.class.php:285
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
@@ -339,7 +343,7 @@ msgstr "به"
 
 #: ucp/views/eventModal.php:16 views/page.cel_view.php:53
 msgid "UniqueID"
-msgstr ""
+msgstr "uniqueID"
 
 #: Cel.class.php:234
 msgid "User Primary Extension"
@@ -382,11 +386,11 @@ msgstr "در حال حاضر وجود دارد"
 
 #: install.php:99
 msgid "already indexed"
-msgstr ""
+msgstr "در حال حاضر نمایه شده است"
 
 #: install.php:88
 msgid "already removed"
-msgstr ""
+msgstr "در حال حاضر حذف شده است"
 
 #: install.php:72
 msgid "checking for extra field.."
@@ -394,11 +398,11 @@ msgstr "بررسی فیلد خارجی.."
 
 #: install.php:86 /dev/shm/freepbx/cel/install.php:97
 msgid "found"
-msgstr ""
+msgstr "یافتن"
 
 #: install.php:75
 msgid "not found"
-msgstr ""
+msgstr "یافت نشد"
 
 #~ msgid "Detail"
 #~ msgstr "جزییات"
