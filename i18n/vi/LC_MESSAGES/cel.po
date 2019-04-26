@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 13:25-0500\n"
+"POT-Creation-Date: 2019-03-07 09:07+0530\n"
 "PO-Revision-Date: 2017-06-22 10:39+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -50,11 +50,11 @@ msgstr "Cho phép người dùng tải xuống các ghi âm trong UCP"
 msgid "Allowed CEL"
 msgstr "CEL ( Nhật ký sự kiện cuộc gọi) được cho phép"
 
-#: views/page.cel_view.php:163 views/search.php:106
+#: views/page.cel_view.php:161
 msgid "Application"
 msgstr "Ứng dụng"
 
-#: views/page.cel_view.php:177 views/search.php:120
+#: views/page.cel_view.php:175
 msgid "Application executed by a call participant"
 msgstr "Ứng dụng được thực hiện bởi một người tham gia cuộc gọi"
 
@@ -88,19 +88,11 @@ msgstr ""
 msgid "Call Events for %s"
 msgstr ""
 
-#: ucp/views/widget.php:25 views/page.cel_view.php:205
+#: ucp/views/widget.php:25 views/page.cel_view.php:202
 msgid "Caller"
 msgstr "Người gọi"
 
-#: views/search.php:58
-msgid "Caller ID"
-msgstr "Định danh người gọi đến"
-
-#: views/search.php:70
-msgid "Caller ID of a call participant"
-msgstr "Caller ID của một người tham gia cuộc gọi"
-
-#: views/page.cel_view.php:58
+#: views/page.cel_view.php:56
 msgid "Channel Name"
 msgstr ""
 
@@ -117,19 +109,19 @@ msgstr "Đang kiểm tra %s trường để xóa.."
 msgid "Checking for context index.."
 msgstr "Đang kiểm tra chỉ mục ngữ cảnh..."
 
-#: ucp/views/eventModal.php:18 views/page.cel_view.php:55
+#: ucp/views/eventModal.php:18 views/page.cel_view.php:53
 msgid "Cid num"
 msgstr ""
 
-#: views/page.cel_view.php:63 ucp/assets/js/global.js:31
+#: views/page.cel_view.php:61 ucp/assets/js/global.js:31
 msgid "Close"
 msgstr "Đóng"
 
-#: views/page.cel_view.php:9 views/search.php:4
+#: views/page.cel_view.php:9
 msgid "Conference"
 msgstr "Hội nghị"
 
-#: ucp/views/eventModal.php:20 views/page.cel_view.php:57
+#: ucp/views/eventModal.php:20 views/page.cel_view.php:55
 msgid "Context"
 msgstr ""
 
@@ -154,43 +146,35 @@ msgstr ""
 "dụng nếu bạn không sử dụng giá trị mặc định do FreePBX cung cấp. Tên của "
 "bảng trong db nơi cel ( Nhật ký sự kiện cuộc gọi) được lưu trữ. Cel mặc định."
 
-#: ucp/views/widget.php:24 views/page.cel_view.php:204
+#: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "Ngày"
 
-#: views/page.cel_view.php:76 views/search.php:27
+#: views/page.cel_view.php:74
 msgid "Date Range"
 msgstr "Khoảng thời gian"
 
-#: views/search.php:46
-msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr "Khoảng thời gian của các cuộc gọi là định dạng mm/dd/yyyy"
-
-#: views/page.cel_view.php:140
+#: views/page.cel_view.php:138
 msgid "Destination"
 msgstr ""
 
-#: views/page.cel_view.php:187
+#: views/page.cel_view.php:185
 msgid "Detailed Report"
 msgstr ""
 
-#: views/page.cel_view.php:209
+#: views/page.cel_view.php:206
 msgid "Details"
 msgstr ""
 
-#: ucp/views/widget.php:26 views/page.cel_view.php:206
+#: ucp/views/widget.php:26 views/page.cel_view.php:203
 msgid "Dialed"
 msgstr "Đã gọi"
-
-#: views/search.php:82
-msgid "Dialed Number"
-msgstr "Số đã gọi"
 
 #: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr "Tải xuống"
 
-#: ucp/views/widget.php:27 views/page.cel_view.php:207
+#: ucp/views/widget.php:27 views/page.cel_view.php:204
 msgid "Duration"
 msgstr "Khoảng thời gian"
 
@@ -210,27 +194,23 @@ msgstr "Bật báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
 msgid "Error getting form"
 msgstr ""
 
-#: ucp/views/eventModal.php:15 views/page.cel_view.php:52
+#: ucp/views/eventModal.php:15 views/page.cel_view.php:50
 msgid "Event Type"
 msgstr ""
 
-#: ucp/views/eventModal.php:19 views/page.cel_view.php:56
+#: ucp/views/eventModal.php:19 views/page.cel_view.php:54
 msgid "Extension"
 msgstr ""
-
-#: views/search.php:94
-msgid "Extension or DID dialed"
-msgstr "Máy nhánh hoặc DID ( quay số vào trực tiếp) đã gọi"
 
 #: Cel.class.php:198 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "Tệp không tồn tại"
 
-#: views/page.cel_view.php:128
+#: views/page.cel_view.php:126
 msgid "Filter by Source"
 msgstr ""
 
-#: views/page.cel_view.php:152
+#: views/page.cel_view.php:150
 msgid "Filter by destination"
 msgstr ""
 
@@ -238,7 +218,7 @@ msgstr ""
 msgid "Forbidden"
 msgstr "Bị cấm"
 
-#: views/page.cel_view.php:80 views/page.cel_view.php:84 views/search.php:33
+#: views/page.cel_view.php:78 views/page.cel_view.php:82
 msgid "From"
 msgstr "Từ"
 
@@ -250,7 +230,7 @@ msgstr "Kế thừa"
 msgid "Invalid Command"
 msgstr ""
 
-#: ucp/views/eventModal.php:17 views/page.cel_view.php:54
+#: ucp/views/eventModal.php:17 views/page.cel_view.php:52
 msgid "LinkedID"
 msgstr ""
 
@@ -267,7 +247,7 @@ msgstr "Không tìm thấy"
 msgid "OK"
 msgstr "OK"
 
-#: views/page.cel_view.php:208
+#: views/page.cel_view.php:205
 msgid "Play"
 msgstr ""
 
@@ -275,11 +255,11 @@ msgstr ""
 msgid "Playback"
 msgstr "Phát lại"
 
-#: views/page.cel_view.php:10 views/search.php:5
+#: views/page.cel_view.php:10
 msgid "Queue"
 msgstr "Hàng đợi"
 
-#: views/page.cel_view.php:184
+#: views/page.cel_view.php:182
 msgid "Refresh"
 msgstr ""
 
@@ -307,11 +287,7 @@ msgstr "Các báo cáo"
 msgid "Restore Advanced Settings"
 msgstr ""
 
-#: views/search.php:16
-msgid "Search"
-msgstr "Tìm kiếm"
-
-#: views/page.cel_view.php:104
+#: views/page.cel_view.php:102
 msgid "Select the date range for the report"
 msgstr ""
 
@@ -328,7 +304,7 @@ msgstr ""
 "Asterisk và cơ sở dữ liệu ODBC và cấu hình CEL  phải được thực hiện bên "
 "ngoài FreePBX bở người dùng hoặc tại mức Distro."
 
-#: views/page.cel_view.php:116
+#: views/page.cel_view.php:114
 msgid "Source"
 msgstr ""
 
@@ -344,15 +320,15 @@ msgstr ""
 "Có những máy nhánh được chỉ định và hoạt động sẽ hiển thị cho người dùng này "
 "điều khiển và hiệu chỉnh trong UCP"
 
-#: ucp/views/eventModal.php:14 views/page.cel_view.php:51
+#: ucp/views/eventModal.php:14 views/page.cel_view.php:49
 msgid "Time"
 msgstr "Thời gian"
 
-#: views/page.cel_view.php:89 views/page.cel_view.php:93 views/search.php:36
+#: views/page.cel_view.php:87 views/page.cel_view.php:91
 msgid "To"
 msgstr "Đến"
 
-#: ucp/views/eventModal.php:16 views/page.cel_view.php:53
+#: ucp/views/eventModal.php:16 views/page.cel_view.php:51
 msgid "UniqueID"
 msgstr ""
 
@@ -360,11 +336,11 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr "Máy nhánh chính của người dùng"
 
-#: views/page.cel_view.php:11 views/search.php:6
+#: views/page.cel_view.php:11
 msgid "Voicemail"
 msgstr "Thư thoại"
 
-#: views/page.cel_view.php:12 views/search.php:7
+#: views/page.cel_view.php:12
 msgid "Voicemail Main"
 msgstr "Thư thoại chính"
 
@@ -417,6 +393,24 @@ msgstr ""
 #: install.php:75
 msgid "not found"
 msgstr ""
+
+#~ msgid "Caller ID"
+#~ msgstr "Định danh người gọi đến"
+
+#~ msgid "Caller ID of a call participant"
+#~ msgstr "Caller ID của một người tham gia cuộc gọi"
+
+#~ msgid "Date range of calls in the format of mm/dd/yyyy"
+#~ msgstr "Khoảng thời gian của các cuộc gọi là định dạng mm/dd/yyyy"
+
+#~ msgid "Dialed Number"
+#~ msgstr "Số đã gọi"
+
+#~ msgid "Extension or DID dialed"
+#~ msgstr "Máy nhánh hoặc DID ( quay số vào trực tiếp) đã gọi"
+
+#~ msgid "Search"
+#~ msgstr "Tìm kiếm"
 
 #~ msgid "Detail"
 #~ msgstr "Chi tiết"

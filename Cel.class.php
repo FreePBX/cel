@@ -321,7 +321,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			'dateformat=%F %T'
 		);
 
-		$usegmt = ($this->FreePBX->Config->get('CDRUSEGMT') !== true)?'no':'yes';
+		$usegmt = ($this->FreePBX->Config->get('CDRUSEGMT') != true)?'no':'yes';
 
 		$conf['cel_odbc.conf']['cel'] = array(
 			'connection=asteriskcdrdb',

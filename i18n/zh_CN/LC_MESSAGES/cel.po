@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 13:25-0500\n"
+"POT-Creation-Date: 2019-03-07 09:07+0530\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -50,11 +50,11 @@ msgstr "支持用户通过UCP下载录音"
 msgid "Allowed CEL"
 msgstr ""
 
-#: views/page.cel_view.php:163 views/search.php:106
+#: views/page.cel_view.php:161
 msgid "Application"
 msgstr ""
 
-#: views/page.cel_view.php:177 views/search.php:120
+#: views/page.cel_view.php:175
 msgid "Application executed by a call participant"
 msgstr ""
 
@@ -88,19 +88,11 @@ msgstr ""
 msgid "Call Events for %s"
 msgstr ""
 
-#: ucp/views/widget.php:25 views/page.cel_view.php:205
+#: ucp/views/widget.php:25 views/page.cel_view.php:202
 msgid "Caller"
 msgstr ""
 
-#: views/search.php:58
-msgid "Caller ID"
-msgstr ""
-
-#: views/search.php:70
-msgid "Caller ID of a call participant"
-msgstr ""
-
-#: views/page.cel_view.php:58
+#: views/page.cel_view.php:56
 msgid "Channel Name"
 msgstr ""
 
@@ -117,19 +109,19 @@ msgstr ""
 msgid "Checking for context index.."
 msgstr ""
 
-#: ucp/views/eventModal.php:18 views/page.cel_view.php:55
+#: ucp/views/eventModal.php:18 views/page.cel_view.php:53
 msgid "Cid num"
 msgstr ""
 
-#: views/page.cel_view.php:63 ucp/assets/js/global.js:31
+#: views/page.cel_view.php:61 ucp/assets/js/global.js:31
 msgid "Close"
 msgstr "关闭"
 
-#: views/page.cel_view.php:9 views/search.php:4
+#: views/page.cel_view.php:9
 msgid "Conference"
 msgstr "会议"
 
-#: ucp/views/eventModal.php:20 views/page.cel_view.php:57
+#: ucp/views/eventModal.php:20 views/page.cel_view.php:55
 msgid "Context"
 msgstr ""
 
@@ -151,43 +143,35 @@ msgid ""
 "where the cel is stored. cel is default."
 msgstr ""
 
-#: ucp/views/widget.php:24 views/page.cel_view.php:204
+#: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "日期"
 
-#: views/page.cel_view.php:76 views/search.php:27
+#: views/page.cel_view.php:74
 msgid "Date Range"
 msgstr ""
 
-#: views/search.php:46
-msgid "Date range of calls in the format of mm/dd/yyyy"
-msgstr ""
-
-#: views/page.cel_view.php:140
+#: views/page.cel_view.php:138
 msgid "Destination"
 msgstr ""
 
-#: views/page.cel_view.php:187
+#: views/page.cel_view.php:185
 msgid "Detailed Report"
 msgstr ""
 
-#: views/page.cel_view.php:209
+#: views/page.cel_view.php:206
 msgid "Details"
 msgstr ""
 
-#: ucp/views/widget.php:26 views/page.cel_view.php:206
+#: ucp/views/widget.php:26 views/page.cel_view.php:203
 msgid "Dialed"
-msgstr ""
-
-#: views/search.php:82
-msgid "Dialed Number"
 msgstr ""
 
 #: ucp/assets/js/global.js:58
 msgid "Download"
 msgstr "下载"
 
-#: ucp/views/widget.php:27 views/page.cel_view.php:207
+#: ucp/views/widget.php:27 views/page.cel_view.php:204
 msgid "Duration"
 msgstr ""
 
@@ -207,27 +191,23 @@ msgstr ""
 msgid "Error getting form"
 msgstr ""
 
-#: ucp/views/eventModal.php:15 views/page.cel_view.php:52
+#: ucp/views/eventModal.php:15 views/page.cel_view.php:50
 msgid "Event Type"
 msgstr ""
 
-#: ucp/views/eventModal.php:19 views/page.cel_view.php:56
+#: ucp/views/eventModal.php:19 views/page.cel_view.php:54
 msgid "Extension"
-msgstr ""
-
-#: views/search.php:94
-msgid "Extension or DID dialed"
 msgstr ""
 
 #: Cel.class.php:198 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
 msgstr "文件不存在"
 
-#: views/page.cel_view.php:128
+#: views/page.cel_view.php:126
 msgid "Filter by Source"
 msgstr ""
 
-#: views/page.cel_view.php:152
+#: views/page.cel_view.php:150
 msgid "Filter by destination"
 msgstr ""
 
@@ -235,7 +215,7 @@ msgstr ""
 msgid "Forbidden"
 msgstr "禁止"
 
-#: views/page.cel_view.php:80 views/page.cel_view.php:84 views/search.php:33
+#: views/page.cel_view.php:78 views/page.cel_view.php:82
 msgid "From"
 msgstr ""
 
@@ -247,7 +227,7 @@ msgstr "继承"
 msgid "Invalid Command"
 msgstr ""
 
-#: ucp/views/eventModal.php:17 views/page.cel_view.php:54
+#: ucp/views/eventModal.php:17 views/page.cel_view.php:52
 msgid "LinkedID"
 msgstr ""
 
@@ -264,7 +244,7 @@ msgstr "没有发现"
 msgid "OK"
 msgstr "正常"
 
-#: views/page.cel_view.php:208
+#: views/page.cel_view.php:205
 msgid "Play"
 msgstr ""
 
@@ -272,11 +252,11 @@ msgstr ""
 msgid "Playback"
 msgstr "回放"
 
-#: views/page.cel_view.php:10 views/search.php:5
+#: views/page.cel_view.php:10
 msgid "Queue"
 msgstr ""
 
-#: views/page.cel_view.php:184
+#: views/page.cel_view.php:182
 msgid "Refresh"
 msgstr ""
 
@@ -304,11 +284,7 @@ msgstr "报表"
 msgid "Restore Advanced Settings"
 msgstr ""
 
-#: views/search.php:16
-msgid "Search"
-msgstr "查询"
-
-#: views/page.cel_view.php:104
+#: views/page.cel_view.php:102
 msgid "Select the date range for the report"
 msgstr ""
 
@@ -321,7 +297,7 @@ msgid ""
 "Distro level."
 msgstr ""
 
-#: views/page.cel_view.php:116
+#: views/page.cel_view.php:114
 msgid "Source"
 msgstr ""
 
@@ -335,15 +311,15 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
-#: ucp/views/eventModal.php:14 views/page.cel_view.php:51
+#: ucp/views/eventModal.php:14 views/page.cel_view.php:49
 msgid "Time"
 msgstr ""
 
-#: views/page.cel_view.php:89 views/page.cel_view.php:93 views/search.php:36
+#: views/page.cel_view.php:87 views/page.cel_view.php:91
 msgid "To"
 msgstr ""
 
-#: ucp/views/eventModal.php:16 views/page.cel_view.php:53
+#: ucp/views/eventModal.php:16 views/page.cel_view.php:51
 msgid "UniqueID"
 msgstr ""
 
@@ -351,11 +327,11 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr ""
 
-#: views/page.cel_view.php:11 views/search.php:6
+#: views/page.cel_view.php:11
 msgid "Voicemail"
 msgstr "语音邮件"
 
-#: views/page.cel_view.php:12 views/search.php:7
+#: views/page.cel_view.php:12
 msgid "Voicemail Main"
 msgstr ""
 
@@ -402,6 +378,9 @@ msgstr ""
 #: install.php:75
 msgid "not found"
 msgstr ""
+
+#~ msgid "Search"
+#~ msgstr "查询"
 
 #~ msgid "Reset"
 #~ msgstr "重置"
