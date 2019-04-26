@@ -54,5 +54,7 @@ class Backup Extends Base\BackupBase{
 		$this->addConfigs([
 			'settings' => $this->dumpAdvancedSettings()
 		]);
+
+		$this->addGarbage($tmpdir);
 	}
 }

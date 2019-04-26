@@ -128,25 +128,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 
 	}
 
-	public function backupSettingsDisplay($module,$id = ''){
-		if($module == 'Cel'){
-			$settings = $this->getAll($id);
-			return load_view(__DIR__.'/views/backupSettings.php',$settings);
-		}
-		return false;
-	}
-	public function backupSettingsProcess($id,$settings=[]){
-		foreach ($settings as $key => $value) {
-			$allowed = ['cel_dump_days','cel_advancedsettings'];
-			if(in_array($key, $allowed)){
-				$this->setConfig($key,$value,$id);
-			}
-		}
-	}
-	public function backupSettingsGet($id){
-		$this->getAll($id);
-	}
-
 	public function ucpDelGroup($id,$display,$data) {
 	}
 
