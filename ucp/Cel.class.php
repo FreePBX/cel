@@ -102,7 +102,7 @@ class Cel extends Modules{
 	* @param string $settings The Settings being passed through $_POST or $_PUT
 	* @return bool True if pass
 	*/
-	function ajaxRequest($command, $settings) {
+	function ajaxRequest($command, &$settings) {
 		switch($command) {
 			case "grid":
 			case 'gethtml5':
