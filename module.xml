@@ -2,12 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.15.1</version>
+	<version>15.0.15.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*15.0.15.1* Reverting FREEPBX-20216 
+		*15.0.15.2* FREEPBX-20216 
 		*15.0.15* FREEPBX-20216 
 		*15.0.14* FREEPBX-18676 Configuration File Link removed(http://freepbx.org/configuration_files) 
 		*15.0.13* FREEPBX-19882
