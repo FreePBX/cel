@@ -3,7 +3,7 @@ namespace FreePBX\modules\Cel;
 use Symfony\Component\Process\Process;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
-	public function runRestore($jobid){
+	public function runRestore(){
 		$configs = $this->getConfigs();
 		$this->importAdvancedSettings($configs['settings']);
 
