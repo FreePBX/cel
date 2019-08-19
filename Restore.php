@@ -50,7 +50,7 @@ class Restore Extends Base\RestoreBase{
 		$sql->mustRun();
 		return true;
 	}
-	public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
+	public function processLegacy($pdo, $data, $tables, $unknownTables){
 		global $amp_conf;
 		$cdrname = $this->FreePBX->Config->get('CELDBNAME') ? $this->FreePBX->Config->get('CELDBNAME') : 'asteriskcdrdb';
 		$tablename = $this->FreePBX->Config->get('CELDBTABLENAME') ? $this->FreePBX->Config->get('CELDBTABLENAME') : 'cel';
