@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.15.3</version>
+	<version>15.0.15.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.15.4* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.15.3* Fixed FREEPBX-20444: removed $tmpfiledir from processLegacy() 
 		*15.0.15.2* FREEPBX-20216 
 		*15.0.15* FREEPBX-20216 
