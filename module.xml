@@ -2,29 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.15.6</version>
+	<version>16.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*15.0.15.6* FREEI-1045 Latest "cel" module for FreePBX 15 shows tampered file
-		*15.0.15.5* FREEPBX-20556 XSS in page.cel_view.php 
-		*15.0.15.4* Related to FREEPBX-20414: removed $jobid from runRestore() 
-		*15.0.15.3* Fixed FREEPBX-20444: removed $tmpfiledir from processLegacy() 
-		*15.0.15.2* FREEPBX-20216 
-		*15.0.15* FREEPBX-20216 
-		*15.0.14* FREEPBX-18676 Configuration File Link removed(http://freepbx.org/configuration_files) 
-		*15.0.13* FREEPBX-19882
-		*15.0.12* FREEPBX-19854 Fixing comparison operator for CDRUSEGMT
-		*15.0.9* backup and restore
-		*15.0.8* FREEPBX-18944 take control of cel_odbc.conf, move usegmttime into cel_odbc.con under cel context
-		*15.0.7* Fixing FREEPBX-18783 Undefined index issue
-		*15.0.6* FREEPBX-18632
-		*15.0.5* New Backup and Restore for 15 Legacy
-		*15.0.4* Packaging of ver 15.0.4
-		*15.0.3* FREEPBX-16337 CDRDBHOST not following AMPDBHOST when empty
-		*15.0.2* FREEPBX-15626 On clicking search button redirects to the home page.
-		*15.0.1* Branch from 14.0.2.2
+		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
 	<hooks>
 		<ucp class="Ucp">
@@ -48,6 +31,6 @@
 			<version>14.0.1alpha12</version>
 	</depends>
 	<supported>
-			<version>15.0</version>
+			<version>16.0</version>
 	</supported>
 </module>
