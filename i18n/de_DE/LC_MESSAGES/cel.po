@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-24 14:30+0530\n"
+"POT-Creation-Date: 2020-03-12 20:54+0530\n"
 "PO-Revision-Date: 2017-12-18 17:27+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/cel/de_DE/"
@@ -74,8 +74,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr "Anrufdetail"
 
-#: Cel.class.php:308 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
-#: /dev/shm/freepbx/cel/cel.i18n.php:10 page.cel.php:10
+#: Cel.class.php:308 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
+#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Anrufereignisprotokollierung"
 
@@ -389,7 +389,7 @@ msgstr ""
 msgid "checking for extra field.."
 msgstr "Auf zusätzliches Feld prüfen .."
 
-#: install.php:86 /dev/shm/freepbx/cel/install.php:97
+#: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
 msgstr ""
 
