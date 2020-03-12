@@ -43,7 +43,7 @@
 			Call Event Logging
 	</description>
 	<menuitems>
-			<cel beta="yes" needsenginedb="yes">Call Event Logging</cel>
+			<cel needsenginedb="yes">Call Event Logging</cel>
 	</menuitems>
 	<depends>
 			<version>14.0.1alpha12</version>
