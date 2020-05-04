@@ -376,7 +376,11 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 			$sql .= "AND exten LIKE '".$destination."'";
 		}
 		if(!empty($application)) {
-			$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like '" .$application."' ";
+			if($application == 'conference') {
+				$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like 'ConfBridge' OR appname like 'MeetMe' ";
+			}else {
+				$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like '" .$application."' ";
+			}
 		}
 		if(!empty($sort)){
 			switch($sort) {
