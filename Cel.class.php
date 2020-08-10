@@ -354,32 +354,42 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function cel_getreport($request,$ext = null) {
-		extract($request);
 
+		$dateto = !empty($request['dateto']) ? filter_var($request['dateto'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
+		$datefrom= !empty($request['datefrom']) ? filter_var($request['datefrom'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
+		$source = !empty($request['source']) ? filter_var($request['source'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
+		$ext = !empty($request['ext']) ? filter_var($request['ext'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : $ext;
+		$destination = !empty($request['destination']) ? filter_var($request['destination'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
+		$application = !empty($request['application']) ? filter_var($request['application'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
+		$sort = !empty($request['sort']) ? filter_var($request['sort'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : 'eventtime';
+		$order = !empty($request['order']) ? filter_var($request['order'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : 'DESC';
+		$limit = !empty($request['limit']) ? filter_var($request['limit'], FILTER_SANITIZE_NUMBER_INT) : 100;
+		$offset = !empty($request['offset']) ? filter_var($request['offset'], FILTER_SANITIZE_NUMBER_INT) : 0;
+		
 		$sql = "SELECT SQL_CALC_FOUND_ROWS DISTINCT cel.linkedid FROM cel WHERE 1";
 		//$sql = "SELECT DISTINCT cel.linkedid FROM cel WHERE 1";
 		$vars = array();
 		if(!empty($dateto)){
-			$sql .=" AND eventtime <= '".$dateto." 23:59:59'";
+			$sql .=" AND eventtime <= ':dateto 23:59:59'";
 		}
 		if(!empty($datefrom)){
-			$sql .= " AND eventtime >= '".$datefrom." 00:00:00'";
+			$sql .= " AND eventtime >= ':datefrom 00:00:00'";
 		}
 		if(!empty($source)){
-			$sql .=" AND (cid_num LIKE '".$source."' OR cid_name LIKE '".$source."')";
+			$sql .=" AND (cid_num LIKE ':source' OR cid_name LIKE ':source')";
 		}
 		// this is for UCP
 		if(!empty($ext)){
-			$sql .=" AND (cid_num LIKE '".$ext."' OR cid_name LIKE '".$ext."')";
+			$sql .=" AND (cid_num LIKE :ext OR cid_name LIKE ':ext')";
 		}
 		if(!empty($destination)){
-			$sql .= "AND exten LIKE '".$destination."'";
+			$sql .= "AND exten LIKE ':destination'";
 		}
 		if(!empty($application)) {
 			if($application == 'conference') {
 				$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like 'ConfBridge' OR appname like 'MeetMe' ";
 			}else {
-				$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like '" .$application."' ";
+				$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like ':application' ";
 			}
 		}
 		if(!empty($sort)){
@@ -415,6 +425,26 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$sql .= " LIMIT $offset,$limit";
 
 		$sth = $this->cdrdb->prepare($sql);
+
+		if(!empty($dateto)){
+			$sth->bindParam(":dateto", $dateto, \PDO::PARAM_STR);
+		}
+		if(!empty($datefrom)){
+			$sth->bindParam(":datefrom", $datefrom, \PDO::PARAM_STR);
+		}
+		if(!empty($source)){
+			$sth->bindParam(":source", $source, \PDO::PARAM_STR);
+		}
+		if(!empty($ext)){
+			$sth->bindParam(":ext", $ext, \PDO::PARAM_STR);
+		}
+		if(!empty($destination)){
+			$sth->bindParam(":destination", $destination, \PDO::PARAM_STR);
+		}
+		if(!empty($application) && $application != 'conference') {
+			$sth->bindParam(":application", $application, \PDO::PARAM_STR);
+		}
+
 		$sth->execute();
 		$records = $sth->fetchAll(\PDO::FETCH_COLUMN);
 
