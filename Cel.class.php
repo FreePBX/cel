@@ -285,23 +285,25 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$sql = "SELECT DISTINCT cel.linkedid FROM cel WHERE 1";
 		$vars = array();
 		if(!empty($dateto)){
-			$sql .=" AND eventtime <= ':dateto 23:59:59'";
+			$dateto = $dateto. ' 23:59:59';
+			$sql .=" AND eventtime <= :dateto";
 		}
 		if(!empty($datefrom)){
-			$sql .= " AND eventtime >= ':datefrom 00:00:00'";
+			$datefrom = $datefrom." 00:00:00";
+			$sql .= " AND eventtime >= :datefrom";
 		}
 		if(!empty($source)){
-			$sql .=" AND (cid_num LIKE ':source' OR cid_name LIKE ':source')";
+			$sql .=" AND (cid_num LIKE :source OR cid_name LIKE :source)";
 		}
 		// this is for UCP
 		if(!empty($ext)){
-			$sql .=" AND (cid_num LIKE :ext OR cid_name LIKE ':ext')";
+			$sql .=" AND (cid_num LIKE :ext OR cid_name LIKE :ext)";
 		}
 		if(!empty($destination)){
-			$sql .= "AND exten LIKE ':destination'";
+			$sql .= " AND exten LIKE :destination";
 		}
 		if(!empty($application)) {
-			$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like ':application' ";
+			$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like :application ";
 		}
 
 		if(!empty($sort)){
@@ -360,9 +362,8 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		// i think we should limit the members(unqiueid) based on page navigation
 		$limitedid = array_slice($records,$offset,$limit);
 		$members = implode("','",$limitedid);
-		$sql = "SELECT cel.linkedid, cel.*, UNIX_TIMESTAMP(cel.eventtime) as eventunixtime FROM cel WHERE linkedid IN (:members)";
+		$sql = "SELECT cel.linkedid, cel.*, UNIX_TIMESTAMP(cel.eventtime) as eventunixtime FROM cel WHERE linkedid IN ('".$members."')";
 		$sth = $this->cdrdb->prepare($sql);
-		$sth->bindParam(":members", $members, \PDO::PARAM_STR);
 		$sth->execute();
 		//Grouped by linked id
 		$rows = $sth->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_ASSOC);
