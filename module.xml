@@ -2,12 +2,13 @@
 		<rawname>cel</rawname>
 		<repo>standard</repo>
 		<name>Call Event Logging</name>
-		<version>13.0.26.12</version>
+		<version>13.0.26.13</version>
 		<publisher>Sangoma Technologies Corporation</publisher>
 		<license>GPLv3+</license>
 		<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 		<more-info>https://wiki.freepbx.org/display/FPG/Call+Event+Logging</more-info>
 		<changelog>
+		*13.0.26.13* Packaging of ver 13.0.26.13
 		*13.0.26.12* Packaging of ver 13.0.26.12
 		*13.0.26.11* FREEI-1762 
 		*13.0.26.10* FREEPBX-20556 XSS in page.cel_view.php 
