@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-12 20:54+0530\n"
+"POT-Creation-Date: 2020-08-20 04:20+0000\n"
 "PO-Revision-Date: 2017-03-27 13:40+0200\n"
 "Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -74,8 +74,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr "Detalhes da Chamada"
 
-#: Cel.class.php:308 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:8
-#: /usr/src/freepbx/cel/cel.i18n.php:10 page.cel.php:10
+#: Cel.class.php:308 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:10
+#: /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Registro de Eventos de Chamadas"
 
@@ -313,6 +313,13 @@ msgstr ""
 #: Cel.class.php:350
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "O módulo CEL requer que a versão do Asterisk seja 12.0 ou superior."
+
+#: cel.i18n.php:8
+msgid ""
+"The Call Event Logging module allows you to see all inbound and outbound "
+"calls for your user and listen to any call recordings that are associated "
+"with that call."
+msgstr ""
 
 #: views/ucp_config.php:54
 msgid ""
