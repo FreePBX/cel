@@ -21,9 +21,8 @@
 		</ucp>
 	</hooks>
 	<category>Reports</category>
-	<description>
-			Call Event Logging
-	</description>
+	<description>The Call Event Logging module allows you to see all inbound and outbound calls for your user and listen to any call recordings that are associated with that call.</description>
+	<more-info>https://wiki.freepbx.org/display/FPG/Call+Event+Logging</more-info>
 	<menuitems>
 			<cel beta="yes" needsenginedb="yes">Call Event Logging</cel>
 	</menuitems>
