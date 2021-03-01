@@ -358,7 +358,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$dateto = !empty($request['dateto']) ? filter_var($request['dateto'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
 		$datefrom= !empty($request['datefrom']) ? filter_var($request['datefrom'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
 		$source = !empty($request['source']) ? filter_var($request['source'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
-		$ext = !empty($request['ext']) ? filter_var($request['ext'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : $ext;
+		$ext = !empty($request['extension']) ? filter_var($request['extension'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : $ext;
 		$destination = !empty($request['destination']) ? filter_var($request['destination'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
 		$application = !empty($request['application']) ? filter_var($request['application'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : '';
 		$sort = !empty($request['sort']) ? filter_var($request['sort'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : 'eventtime';

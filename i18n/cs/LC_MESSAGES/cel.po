@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 04:20+0000\n"
+"POT-Creation-Date: 2021-03-01 05:00+0000\n"
 "PO-Revision-Date: 2018-08-29 14:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cel/cs/>\n"
@@ -73,8 +73,8 @@ msgstr "CEL reporty"
 msgid "Call Detail"
 msgstr "Detaily hovoru"
 
-#: Cel.class.php:308 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:10
-#: /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:308 /dev/shm/freepbx/cel/cel.i18n.php:4 cel.i18n.php:10
+#: /dev/shm/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Protokol hovoru"
 
@@ -397,7 +397,7 @@ msgstr "již odstraněn"
 msgid "checking for extra field.."
 msgstr "hledání dalšího pole.."
 
-#: install.php:86 /usr/src/freepbx/cel/install.php:97
+#: install.php:86 /dev/shm/freepbx/cel/install.php:97
 msgid "found"
 msgstr "nalezeno"
 
