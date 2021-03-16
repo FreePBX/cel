@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>16.0.2</version>
+	<version>16.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*16.0.3* Packaging of ver 16.0.3
 		*16.0.2* FREEPBX-22064 CEl showing default user data in UCP 
 		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
