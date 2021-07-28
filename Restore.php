@@ -47,6 +47,7 @@ class Restore Extends Base\RestoreBase{
 		$dbhandle->query("TRUNCATE $tablename");
 		$restore = fpbx_which('mysql').' '.implode(" ", $command).' '.$cdrname.' < '.$dumpfile;
 		$sql = new Process($restore);
+		$sql->setTimeout(3600);
 		$sql->mustRun();
 		return true;
 	}
