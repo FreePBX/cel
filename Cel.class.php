@@ -514,7 +514,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				if($row['eventtype']=='CHAN_START' && $row['uniqueid'] == $row['linkedid'] ){
 					$mainrow['eventtime'] = $row['eventtime'];
 					$mainrow['timestamp'] = $row['eventunixtime'];
-					$mainrow['cid_num'] = $row['cid_num'];
+					$mainrow['cid_num'] = ($row['cid_name'] != "")?$row['cid_name']:$row['cid_num'];
 					$mainrow['exten'] = $row['exten'];
 					$mainrow['channame'] = $row['channame'];
 					$mainrow['uniqueid'] = $row['uniqueid'];
