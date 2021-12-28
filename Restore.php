@@ -1,6 +1,7 @@
 <?php
 namespace FreePBX\modules\Cel;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
 	public function runRestore(){
@@ -46,9 +47,15 @@ class Restore Extends Base\RestoreBase{
 		$dbhandle = $this->FreePBX->Cel->getCelDbHandle();
 		$dbhandle->query("TRUNCATE $tablename");
 		$restore = fpbx_which('mysql').' '.implode(" ", $command).' '.$cdrname.' < '.$dumpfile;
-		$sql = new Process($restore);
-		$sql->setTimeout(3600);
-		$sql->mustRun();
+		$process = new Process($restore);
+		try {
+			$process->setTimeout(3600);
+			$process->disableOutput();
+			$process->mustRun();
+		} catch (ProcessFailedException $e) {
+			$this->log("CEL table Restore Error ".$e->getMessage(),'ERROR');
+			return false;
+		}
 		return true;
 	}
 	public function processLegacy($pdo, $data, $tables, $unknownTables){
