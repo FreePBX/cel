@@ -1,6 +1,7 @@
 <?php
 namespace FreePBX\modules\Cel;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use FreePBX\modules\Backup as Base;
 use Symfony\Component\Filesystem\Filesystem;
 class Backup Extends Base\BackupBase{
@@ -46,8 +47,14 @@ class Backup Extends Base\BackupBase{
 		$command[] = $tmpdir.'/cel.sql';
 		$command = implode(" ", $command);
 		$process= new Process($command);
-		$process->disableOutput();
-		$process->mustRun();
+		try {
+			$process->setTimeout(3600);
+			$process->disableOutput();
+			$process->mustRun();
+		} catch (ProcessFailedException $e) {
+			$this->log("CEL table Backup Error ".$e->getMessage(),'ERROR');
+			return;
+		}
 		$fileObj = new \SplFileInfo($tmpdir . '/cel.sql');
 		$this->addSplFile($fileObj);
 		$this->addDirectories([$fileObj->getPath()]);
