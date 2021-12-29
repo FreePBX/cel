@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.15.14</version>
+	<version>15.0.15.15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.15.15* FREEI-4147 Backup status 'Failure' without reason 
 		*15.0.15.14* FREEPBX-22696 Failure to restore cel data 
 		*15.0.15.13* FEEI-3448 CEL widget 
 		*15.0.15.12* FREEPBX-22064 CEl showing default user data in UCP 
