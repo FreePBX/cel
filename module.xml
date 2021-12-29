@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>16.0.5</version>
+	<version>16.0.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*16.0.6* FREEI-4147 Backup status 'Failure' without reason 
 		*16.0.5* FREEPBX-22696 Failure to restore cel data 
 		*16.0.4* FEEI-3448 CEL widget 
 		*16.0.3* Packaging of ver 16.0.3
