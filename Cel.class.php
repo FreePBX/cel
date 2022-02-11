@@ -533,4 +533,36 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		}
 		return true;
 	}
+	
+	public function getAllRecords($page = 1, $orderby = 'date', $order = 'desc', $search = '', $limit = 100)
+	{
+		$start = ($limit * ($page - 1));
+		$end = $limit;
+		switch ($orderby) {
+			case 'eventtype':
+				$orderby = 'eventtype';
+				break;
+			case 'cid_name':
+				$orderby = 'cid_name';
+				break;
+			case 'channame':
+				$orderby = 'channame';
+				break;
+			default:
+				$orderby = 'timestamp';
+				break;
+		}
+		$order = ($order == 'desc') ? 'desc' : 'asc';
+		if (!empty($search)) {
+			$sql = "SELECT *, UNIX_TIMESTAMP(eventtime) As timestamp FROM " . $this->db_table . " WHERE (cid_name LIKE :search OR channame LIKE :search OR eventtype LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':search' => '%' . $search . '%'));
+		} else {
+			$sql = "SELECT *, UNIX_TIMESTAMP(eventtime) As timestamp FROM " . $this->db_table . " ORDER by $orderby $order LIMIT $start,$end";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute();
+		}
+		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
+		return $calls;
+	}
 }
