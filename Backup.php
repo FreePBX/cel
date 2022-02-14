@@ -35,6 +35,16 @@ class Backup Extends Base\BackupBase{
 		if(!empty($cdrpass)){
 				$command[] = '-p'.$cdrpass;
 		}
+		
+		$backupDetails = $this->FreePBX->Backup->getAll($id);
+
+		if (isset($backupDetails['celStartDate']) && isset($backupDetails['celEndDate'])) {
+			$startDate = $backupDetails['celStartDate'];
+			$endDate = $backupDetails['celEndDate'];
+			$query = 'eventtime between "' . $startDate . '" and "' . $endDate . '"';
+			$command[] = "--where='" . $query . "'";
+		}
+		
 		$command[] = $cdrname;
 		$command[] = '--opt';
 		$command[] = '--compact';
