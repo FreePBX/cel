@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.15.15</version>
+	<version>15.0.15.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.15.16* FREEI-3533 Added function to get oldest to newest recordings and take backup of cel table for particular duration 
 		*15.0.15.15* FREEI-4147 Backup status 'Failure' without reason 
 		*15.0.15.14* FREEPBX-22696 Failure to restore cel data 
 		*15.0.15.13* FEEI-3448 CEL widget 
