@@ -68,8 +68,8 @@ foreach ($applications as $key => $value) {
 					<div class="element-container">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="drwrap"><?php echo _("Date Range") ?></label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="drwrap"></i>
@@ -108,8 +108,8 @@ foreach ($applications as $key => $value) {
 					<div class="element-container">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="source"><?php echo _("Source") ?></label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="source"></i>
@@ -132,8 +132,8 @@ foreach ($applications as $key => $value) {
 					<div class="element-container">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="destination"><?php echo _("Destination") ?></label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="destination"></i>
@@ -155,8 +155,8 @@ foreach ($applications as $key => $value) {
 					<div class="element-container">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="application"><?php echo _("Application") ?></label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="application"></i>
