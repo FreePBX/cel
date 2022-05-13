@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-09 09:11+0000\n"
+"POT-Creation-Date: 2022-05-13 10:42+0000\n"
 "PO-Revision-Date: 2018-08-29 14:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cel/cs/>\n"
@@ -69,7 +69,7 @@ msgstr "CEL reportingový modul"
 msgid "CEL Reports"
 msgstr "CEL reporty"
 
-#: views/page.cel_view.php:33
+#: views/page.cel_view.php:32
 msgid "Call Detail"
 msgstr "Detaily hovoru"
 

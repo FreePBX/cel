@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-09 09:11+0000\n"
+"POT-Creation-Date: 2022-05-13 10:42+0000\n"
 "PO-Revision-Date: 2017-03-27 13:40+0200\n"
 "Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -70,7 +70,7 @@ msgstr "Módulo de Relatório CEL"
 msgid "CEL Reports"
 msgstr ""
 
-#: views/page.cel_view.php:33
+#: views/page.cel_view.php:32
 msgid "Call Detail"
 msgstr "Detalhes da Chamada"
 
