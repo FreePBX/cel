@@ -1,8 +1,8 @@
 
 <!--Dump Range-->
 <div class="element-container">
-	<div class="row">
-		<div class="form-group">
+	<div class="">
+		<div class="row form-group">
 			<div class="col-md-6">
 				<label class="control-label" for="cel_dump_days"><?php echo _("Backup Days") ?></label>
 			</div>
@@ -16,8 +16,8 @@
 
 <!--Restore Advanced Settings-->
 <div class="element-container">
-	<div class="row">
-		<div class="form-group">
+	<div class="">
+		<div class="row form-group">
 			<div class="col-md-6">
 				<label class="control-label" for="cel_advancedsettings"><?php echo _("Restore Advanced Settings") ?></label>
 			</div>

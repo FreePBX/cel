@@ -1,8 +1,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="cel_enable"><?php echo _("Allow CEL")?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="cel_enable"></i>
@@ -32,8 +32,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="ucp_cel"><?php echo _("Allowed CEL")?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ucp_cel"></i>
@@ -58,8 +58,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="cel_download"><?php echo _("Allow CEL Downloads")?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="cel_download"></i>
@@ -89,8 +89,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="cel_playback"><?php echo _("Allow CEL Playback")?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="cel_playback"></i>
