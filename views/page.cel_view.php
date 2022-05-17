@@ -26,7 +26,7 @@ foreach ($applications as $key => $value) {
 				<div class="fpbx-container">
 
 					<div class="modal fade" id="callpreview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						<div class="modal-dialog" role="document">
+						<div class="modal-dialog modal-lg" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
 									<h4 class="modal-title mr-auto" id="myModalLabel"><?php echo _("Call Detail")?></h4>
