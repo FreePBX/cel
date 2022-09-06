@@ -638,7 +638,6 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		return true;
 	}
 
-	
 	public function getAllRecords($page = 1, $orderby = 'date', $order = 'desc', $search = '', $limit = 100)
 	{
 		$start = ($limit * ($page - 1));
