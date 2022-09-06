@@ -46,7 +46,11 @@ class Restore Extends Base\RestoreBase{
 
 		$dbhandle = $this->FreePBX->Cel->getCelDbHandle();
 		$dbhandle->query("TRUNCATE $tablename");
-		$restore = fpbx_which('mysql').' '.implode(" ", $command).' '.$cdrname.' < '.$dumpfile;
+		if(strpos($dumpfile, '.gz') !== false) {
+			$restore = 'gunzip < '.$dumpfile.' | '.fpbx_which('mysql').' '.implode(" ", $command).' '.$cdrname;
+		} else {
+			$restore = fpbx_which('mysql').' '.implode(" ", $command).' '.$cdrname.' < '.$dumpfile;
+		}
 		$process = new Process($restore);
 		try {
 			$process->setTimeout(3600);
