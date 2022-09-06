@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>16.0.12</version>
+	<version>16.0.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*16.0.13* FREEPBX-23657 cel module compressed backup and restore 
 		*16.0.12* Reverting Bootstrap and dependent libs fixes 
 		*16.0.8* FREEI-4793 
 		*16.0.7* FREEI-3533 Added function to get oldest to newest recordings and take backup of cel table for particular duration 
