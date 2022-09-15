@@ -669,4 +669,24 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		return $calls;
 	}
+
+	public function cleanupData()
+	{
+		$logRetentionInDays = $this->FreePBX->Config()->get('CELDATARETENTION');
+		$logRetentionInSeconds = date('Y-m-d H:i:s',time() - ((int)$logRetentionInDays * 86400));
+		$db = \FreePBX::Cdr()->getCdrDbHandle();
+		$cdrDatabase = $this->FreePBX->Config()->get('CDRDBNAME');
+		if (empty($cdrDatabase)) {
+			$cdrDatabase = 'asteriskcdrdb';
+		}
+		$queuelogtable = $this->FreePBX->Config()->get('CELDBTABLENAME');
+		if(empty($queuelogtable)){
+			$queuelogtable = 'cel';
+		}
+		if($logRetentionInSeconds && $logRetentionInDays) {
+			$qry = "DELETE FROM `" . $cdrDatabase . "`.`".$queuelogtable."` WHERE `eventtime` < :logRetention";
+			$stmt = $db->prepare($qry);
+			$stmt->execute(array(':logRetention' => $logRetentionInSeconds));
+		}
+	}
 }

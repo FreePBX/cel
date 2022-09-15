@@ -165,7 +165,24 @@ $set['description'] = 'DO NOT set this unless you know what you are doing. Only 
 $set['type'] = CONF_TYPE_TEXT;
 $freepbx_conf->define_conf_setting('CELDBTABLENAME',$set,true);
 
+unset($set);
+$set['value'] = 0;
+$set['defaultval'] = 0;
+$set['readonly'] = 1;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'cel';
+$set['category'] = 'CEL Report Module';
+$set['emptyok'] = 1;
+$set['sortorder'] = 12;
+$set['name'] = 'CEL Data Retention';
+$set['description'] = 'Amount of days to retain CEL data. Setting this to 0 will not delete any records';
+$set['type'] = CONF_TYPE_INT;
+$freepbx_conf->define_conf_setting('CELDATARETENTION',$set,true);
+
 $file = \FreePBX::Config()->get('ASTETCDIR').'/cel_odbc.conf';
 if(file_exists($file) && is_link($file)) {
 	unlink($file);
 }
+
+\FreePBX::Job()->addClass('cel', 'cellogretention', 'FreePBX\modules\Cel\Job', '1 0 * * *');
