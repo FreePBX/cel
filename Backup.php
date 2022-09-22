@@ -53,8 +53,8 @@ class Backup Extends Base\BackupBase{
 		$command[] = '--skip-lock-tables';
 		$command[] = '--skip-triggers';
 		$command[] = '--no-create-info';
-		$command[] = '>';
-		$command[] = $tmpdir.'/cel.sql';
+		$command[] = '| gzip -9 >';
+		$command[] = $tmpdir.'/cel.sql.gz';
 		$command = implode(" ", $command);
 		$process= new Process($command);
 		try {
@@ -65,7 +65,7 @@ class Backup Extends Base\BackupBase{
 			$this->log("CEL table Backup Error ".$e->getMessage(),'ERROR');
 			return;
 		}
-		$fileObj = new \SplFileInfo($tmpdir . '/cel.sql');
+		$fileObj = new \SplFileInfo($tmpdir . '/cel.sql.gz');
 		$this->addSplFile($fileObj);
 		$this->addDirectories([$fileObj->getPath()]);
 		$this->addConfigs([
