@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-14 05:36+0000\n"
-"PO-Revision-Date: 2016-01-14 23:00+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
-"es_ES/>\n"
+"PO-Revision-Date: 2023-01-09 13:21+0000\n"
+"Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/es/>"
+"\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: ucp/assets/js/global.js:47
 #, perl-format
@@ -64,7 +64,7 @@ msgstr "Modulo Reporte CEL"
 
 #: views/page.cel_view.php:22
 msgid "CEL Reports"
-msgstr ""
+msgstr "Reportes CEL"
 
 #: views/page.cel_view.php:33
 msgid "Call Detail"
@@ -77,12 +77,12 @@ msgstr "Call Event Logging (CEL)"
 
 #: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:29
 msgid "Call Events"
-msgstr ""
+msgstr "Eventos de Llamadas"
 
 #: ucp/Cel.class.php:45
 #, php-format
 msgid "Call Events for %s"
-msgstr ""
+msgstr "Eventos de Llamadas para %s"
 
 #: ucp/views/widget.php:25 views/page.cel_view.php:202
 msgid "Caller"
@@ -90,11 +90,11 @@ msgstr "Llamante"
 
 #: views/page.cel_view.php:56
 msgid "Channel Name"
-msgstr ""
+msgstr "Nombre del Canal"
 
 #: ucp/views/eventModal.php:21
 msgid "Channle Name"
-msgstr ""
+msgstr "Nombre del Canal"
 
 #: install.php:83
 #, php-format
@@ -107,7 +107,7 @@ msgstr "Chequeando por Indice de Contexto.."
 
 #: ucp/views/eventModal.php:18 views/page.cel_view.php:53
 msgid "Cid num"
-msgstr ""
+msgstr "Número CID"
 
 #: views/page.cel_view.php:61 ucp/assets/js/global.js:31
 msgid "Close"
@@ -119,7 +119,7 @@ msgstr "Conferencia"
 
 #: ucp/views/eventModal.php:20 views/page.cel_view.php:55
 msgid "Context"
-msgstr ""
+msgstr "Contexto"
 
 #: ucp/views/widget.php:31
 msgid "Controls"
@@ -131,6 +131,9 @@ msgid ""
 "use the default values provided by FreePBX. Name of database used for where "
 "the cel is stored. asteriskcdrdb is default."
 msgstr ""
+"NO configure esto a menos que sepa lo que está haciendo. Solo se usa si no "
+"usa los valores predeterminados provistos por FreePBX. Nombre de la base de "
+"datos utilizada para almacenar la CEL. asteriskcdrdb es el valor por defecto."
 
 #: cel.i18n.php:24
 msgid ""
@@ -152,15 +155,15 @@ msgstr "Rango de Fecha"
 
 #: views/page.cel_view.php:138
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 #: views/page.cel_view.php:185
 msgid "Detailed Report"
-msgstr ""
+msgstr "Reporte Detallado"
 
 #: views/page.cel_view.php:206
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 #: ucp/views/widget.php:26 views/page.cel_view.php:203
 msgid "Dialed"
@@ -176,7 +179,7 @@ msgstr "Duración"
 
 #: install.php:110
 msgid "ERROR failed to update database"
-msgstr ""
+msgstr "ERROR la actualización de la base de datos falló"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
@@ -188,15 +191,15 @@ msgstr "Habilitar Reporte CEL"
 
 #: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
-msgstr ""
+msgstr "Error al obtener el formulario"
 
 #: ucp/views/eventModal.php:15 views/page.cel_view.php:50
 msgid "Event Type"
-msgstr ""
+msgstr "Tipo de Evento"
 
 #: ucp/views/eventModal.php:19 views/page.cel_view.php:54
 msgid "Extension"
-msgstr ""
+msgstr "Extensión"
 
 #: Cel.class.php:114 ucp/Cel.class.php:133 ucp/Cel.class.php:136
 msgid "File does not exist"
@@ -204,11 +207,11 @@ msgstr "Fichero no existe"
 
 #: views/page.cel_view.php:126
 msgid "Filter by Source"
-msgstr ""
+msgstr "Filtrar por Origen"
 
 #: views/page.cel_view.php:150
 msgid "Filter by destination"
-msgstr ""
+msgstr "Filtrar por destino"
 
 #: ucp/Cel.class.php:204 ucp/Cel.class.php:215
 msgid "Forbidden"
@@ -224,11 +227,11 @@ msgstr "heredado"
 
 #: Cel.class.php:118
 msgid "Invalid Command"
-msgstr ""
+msgstr "Comando inválido"
 
 #: ucp/views/eventModal.php:17 views/page.cel_view.php:52
 msgid "LinkedID"
-msgstr ""
+msgstr "ID enlazado"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -256,11 +259,11 @@ msgstr "Cola"
 
 #: views/page.cel_view.php:182
 msgid "Refresh"
-msgstr ""
+msgstr "Refrescar"
 
 #: cel.i18n.php:18
 msgid "Remote CEL DB Name"
-msgstr ""
+msgstr "Nombre de la BD CEL remota"
 
 #: cel.i18n.php:22
 msgid "Remote CEL DB Table"
@@ -272,7 +275,7 @@ msgstr "Removido"
 
 #: install.php:105
 msgid "Removing outdated fields (this might take a long time)"
-msgstr ""
+msgstr "Eliminar campos obsoletos (esto puede tomar algo de tiempo)"
 
 #: cel.i18n.php:6
 msgid "Reports"
@@ -280,7 +283,7 @@ msgstr "Reportes"
 
 #: views/page.cel_view.php:102
 msgid "Select the date range for the report"
-msgstr ""
+msgstr "Seleccione el rango de fechas para el reporte"
 
 #: cel.i18n.php:16
 msgid ""
@@ -298,7 +301,7 @@ msgstr ""
 
 #: views/page.cel_view.php:114
 msgid "Source"
-msgstr ""
+msgstr "Origen"
 
 #: Cel.class.php:285
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
@@ -310,6 +313,9 @@ msgid ""
 "calls for your user and listen to any call recordings that are associated "
 "with that call."
 msgstr ""
+"El módulo de Registro de Evento de Llamada le permite ver todas las llamadas "
+"entrantes y salientes de su usuario y escuchar cualquier grabación que este "
+"asociada con dicha llamada."
 
 #: views/ucp_config.php:54
 msgid ""
@@ -329,7 +335,7 @@ msgstr "A"
 
 #: ucp/views/eventModal.php:16 views/page.cel_view.php:51
 msgid "UniqueID"
-msgstr ""
+msgstr "ID Único"
 
 #: Cel.class.php:234
 msgid "User Primary Extension"
@@ -378,7 +384,7 @@ msgstr "Ya indexado"
 
 #: install.php:88
 msgid "already removed"
-msgstr ""
+msgstr "Ya eliminado"
 
 #: install.php:72
 msgid "checking for extra field.."
@@ -386,11 +392,11 @@ msgstr "chequeando por campo extra.."
 
 #: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
-msgstr ""
+msgstr "encontrado"
 
 #: install.php:75
 msgid "not found"
-msgstr ""
+msgstr "no encontrado"
 
 #~ msgid "Caller ID"
 #~ msgstr "ID de llamada"
