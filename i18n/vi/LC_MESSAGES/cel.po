@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-09 09:11+0000\n"
+"POT-Creation-Date: 2023-03-30 11:37+0000\n"
 "PO-Revision-Date: 2017-06-22 10:39+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -308,7 +308,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: Cel.class.php:385
+#: Cel.class.php:386
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "Mô đun CEL yêu cầu một phiên bản Asterisk 12.0 hoặc cao hơn."
 
