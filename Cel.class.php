@@ -348,9 +348,10 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function genConfig() {
+		$celenable = ($this->FreePBX->Config->get('CEL_ENABLED') != true)?'no':'yes';
 
 		$conf['cel_general_additional.conf']['general'] = array(
-			'enable=yes',
+			'enable='.$celenable,
 			'apps=confbridge,meetme,mixmonitor,queue,stopmixmonitor,voicemail,voicemailmain',
 			'events=all',
 			'dateformat=%F %T'
