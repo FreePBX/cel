@@ -79,7 +79,7 @@ foreach ($applications as $key => $value) {
 											<table>
 												<tr>
 													<td>
-														<input type="date" max="<?php echo date('Y-m-d')?>" class="form-control" id="datefrom" name="datefrom" value="<?php echo !empty($_REQUEST['datefrom']) ? htmlentities($_REQUEST['datefrom']) : date('Y-m-d')?>" placeholder="<?php echo _('From')?>">
+														<input type="date" max="<?php echo date('Y-m-d')?>" class="" id="datefrom" name="datefrom" value="<?php echo !empty($_REQUEST['datefrom']) ? htmlentities($_REQUEST['datefrom']) : date('Y-m-d')?>" placeholder="<?php echo _('From')?>">
 
 													</td>
 												</tr>
@@ -88,7 +88,7 @@ foreach ($applications as $key => $value) {
 											<table>
 												<tr>
 													<td>
-														<input type="date" max="<?php echo date('Y-m-d')?>" class="form-control" id="dateto" name="dateto" value="<?php echo !empty($_REQUEST['dateto']) ? htmlentities($_REQUEST['dateto']) : date('Y-m-d')?>" placeholder="<?php echo _('To')?>">
+														<input type="date" max="<?php echo date('Y-m-d')?>" class="" id="dateto" name="dateto" value="<?php echo !empty($_REQUEST['dateto']) ? htmlentities($_REQUEST['dateto']) : date('Y-m-d')?>" placeholder="<?php echo _('To')?>">
 													</td>
 												</tr>
 											</table>
