@@ -66,7 +66,7 @@
 					</div>
 					<div class="col-md-9">
 						<span class="radioset">
-							<input type="radio" class="ucp-cel" name="cel_download" id="cel_download_yes" value="yes" <?php echo ($download) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cel" name="cel_download" id="cel_download_yes" value="yes" <?php echo ($download) ? 'checked' : ''?> <?php $enable??=''; echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<label for="cel_download_yes"><?php echo _('Yes')?></label>
 							<input type="radio" class="ucp-cel" name="cel_download" id="cel_download_no" value="no" <?php echo (!is_null($download) && !$download) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<label for="cel_download_no"><?php echo _('No')?></label>

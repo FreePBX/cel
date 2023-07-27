@@ -1,5 +1,5 @@
 <div class="col-md-12">
-	<script>var extension = "<?php echo $_REQUEST['sub']?>";</script>
+	<script>var extension = "<?php echo $_REQUEST['sub']??''?>";</script>
 	<?php if(!empty($message)) { ?>
 		<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 	<?php } ?>
@@ -35,4 +35,4 @@
 </div>
 <div class="modal fade" id="callpreview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 </div>
-<script><?php echo $script?></script>
+<script><?php $script??=''; echo $script?></script>
