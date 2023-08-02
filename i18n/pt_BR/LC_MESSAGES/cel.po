@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-13 10:42+0000\n"
+"POT-Creation-Date: 2023-08-02 11:21+0000\n"
 "PO-Revision-Date: 2017-03-27 13:40+0200\n"
 "Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -79,11 +79,11 @@ msgstr "Detalhes da Chamada"
 msgid "Call Event Logging"
 msgstr "Registro de Eventos de Chamadas"
 
-#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:29
+#: ucp/Cel.class.php:63 ucp/Cel.class.php:94 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr ""
 
-#: ucp/Cel.class.php:45
+#: ucp/Cel.class.php:50
 #, php-format
 msgid "Call Events for %s"
 msgstr ""
@@ -203,7 +203,7 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#: Cel.class.php:214 ucp/Cel.class.php:133 ucp/Cel.class.php:136
+#: Cel.class.php:214 ucp/Cel.class.php:138 ucp/Cel.class.php:141
 msgid "File does not exist"
 msgstr "Arquivo não existe"
 
@@ -215,7 +215,7 @@ msgstr ""
 msgid "Filter by destination"
 msgstr ""
 
-#: ucp/Cel.class.php:204 ucp/Cel.class.php:215
+#: ucp/Cel.class.php:209 ucp/Cel.class.php:220
 msgid "Forbidden"
 msgstr "Proibido"
 
@@ -240,7 +240,7 @@ msgstr ""
 msgid "No"
 msgstr "Não"
 
-#: ucp/Cel.class.php:209
+#: ucp/Cel.class.php:214
 msgid "Not Found"
 msgstr "Não Encontrado"
 
@@ -310,7 +310,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: Cel.class.php:385
+#: Cel.class.php:386
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "O módulo CEL requer que a versão do Asterisk seja 12.0 ou superior."
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-13 10:42+0000\n"
+"POT-Creation-Date: 2023-08-02 11:21+0000\n"
 "PO-Revision-Date: 2016-03-16 23:20+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -78,11 +78,11 @@ msgstr "جزییات تماس"
 msgid "Call Event Logging"
 msgstr "لاگ تماس ها"
 
-#: ucp/Cel.class.php:58 ucp/Cel.class.php:89 ucp/assets/js/global.js:29
+#: ucp/Cel.class.php:63 ucp/Cel.class.php:94 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr ""
 
-#: ucp/Cel.class.php:45
+#: ucp/Cel.class.php:50
 #, php-format
 msgid "Call Events for %s"
 msgstr ""
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#: Cel.class.php:214 ucp/Cel.class.php:133 ucp/Cel.class.php:136
+#: Cel.class.php:214 ucp/Cel.class.php:138 ucp/Cel.class.php:141
 msgid "File does not exist"
 msgstr "فایل موجود نیست"
 
@@ -212,7 +212,7 @@ msgstr ""
 msgid "Filter by destination"
 msgstr ""
 
-#: ucp/Cel.class.php:204 ucp/Cel.class.php:215
+#: ucp/Cel.class.php:209 ucp/Cel.class.php:220
 msgid "Forbidden"
 msgstr "غیر مجاز"
 
@@ -237,7 +237,7 @@ msgstr ""
 msgid "No"
 msgstr "خیر"
 
-#: ucp/Cel.class.php:209
+#: ucp/Cel.class.php:214
 msgid "Not Found"
 msgstr "یافت نشد"
 
@@ -302,7 +302,7 @@ msgstr "این گزینه ماژول CEL را فعال میکند برای ای�
 msgid "Source"
 msgstr ""
 
-#: Cel.class.php:385
+#: Cel.class.php:386
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "ماژول CEL نیاز به استریسک نسخه 12.0 یا بالاتر دارد."
 
