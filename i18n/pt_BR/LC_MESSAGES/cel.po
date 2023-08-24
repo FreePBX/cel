@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-30 11:37+0000\n"
+"POT-Creation-Date: 2023-08-24 13:17+0000\n"
 "PO-Revision-Date: 2017-03-27 13:40+0200\n"
 "Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -203,7 +203,7 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#: Cel.class.php:214 ucp/Cel.class.php:133 ucp/Cel.class.php:136
+#: Cel.class.php:214 ucp/Cel.class.php:141 ucp/Cel.class.php:144
 msgid "File does not exist"
 msgstr "Arquivo não existe"
 
@@ -215,7 +215,7 @@ msgstr ""
 msgid "Filter by destination"
 msgstr ""
 
-#: ucp/Cel.class.php:204 ucp/Cel.class.php:215
+#: ucp/Cel.class.php:212 ucp/Cel.class.php:223
 msgid "Forbidden"
 msgstr "Proibido"
 
@@ -240,7 +240,7 @@ msgstr ""
 msgid "No"
 msgstr "Não"
 
-#: ucp/Cel.class.php:209
+#: ucp/Cel.class.php:217
 msgid "Not Found"
 msgstr "Não Encontrado"
 
