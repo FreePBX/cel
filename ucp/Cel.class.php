@@ -103,6 +103,14 @@ class Cel extends Modules{
 	* @return bool True if pass
 	*/
 	function ajaxRequest($command, $settings) {
+		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'], 'Cel', 'enable');
+		if (!$enabled) {
+			return false;
+		}
+		$assigned = $this->UCP->getCombinedSettingByID($this->user['id'], 'Cel', 'assigned');
+		if (!in_array($_REQUEST['extension'],$assigned)) {
+			return false;
+		}
 		switch($command) {
 			case "grid":
 			case 'gethtml5':
