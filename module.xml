@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.15.19</version>
+	<version>15.0.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.16*    FREEI-334 
 		*15.0.15.19* Packaging of ver 15.0.15.19
 		*15.0.15.18* Packaging of ver 15.0.15.18
 		*15.0.15.17* FREEPBX-23657 cel module compressed backup and restore 

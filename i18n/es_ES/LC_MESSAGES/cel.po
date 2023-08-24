@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-06 10:15+0000\n"
+"POT-Creation-Date: 2023-08-24 13:16+0000\n"
 "PO-Revision-Date: 2016-01-14 23:00+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -202,7 +202,7 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#: Cel.class.php:214 ucp/Cel.class.php:133 ucp/Cel.class.php:136
+#: Cel.class.php:214 ucp/Cel.class.php:141 ucp/Cel.class.php:144
 msgid "File does not exist"
 msgstr "Fichero no existe"
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Filter by destination"
 msgstr ""
 
-#: ucp/Cel.class.php:204 ucp/Cel.class.php:215
+#: ucp/Cel.class.php:212 ucp/Cel.class.php:223
 msgid "Forbidden"
 msgstr "Prohibido"
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "No"
 msgstr "No"
 
-#: ucp/Cel.class.php:209
+#: ucp/Cel.class.php:217
 msgid "Not Found"
 msgstr "No Encontrado"
 
