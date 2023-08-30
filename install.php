@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "`.`" . $db_cel_table_name . "` (
   `context` varchar(80) NOT NULL,
   `channame` varchar(80) NOT NULL,
   `appname` varchar(80) NOT NULL,
-  `appdata` varchar(255) NOT NULL,
+  `appdata` varchar(1024) NOT NULL,
   `amaflags` int(11) NOT NULL,
   `accountcode` varchar(20) NOT NULL,
   `uniqueid` varchar(32) NOT NULL,
