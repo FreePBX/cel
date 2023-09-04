@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>15.0.16</version>
+	<version>15.0.17</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.17* Packaging of ver 15.0.17
 		*15.0.16*    FREEI-334 
 		*15.0.15.19* Packaging of ver 15.0.15.19
 		*15.0.15.18* Packaging of ver 15.0.15.18
