@@ -9,7 +9,7 @@
 namespace UCP\Modules;
 
 use \UCP\Modules as Modules;
-
+#[\AllowDynamicProperties]
 class Cel extends Modules {
 	protected $module = 'Cel';
 	private $limit = 15;
