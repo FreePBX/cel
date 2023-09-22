@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "`.`" . $db_cel_table_name . "` (
   `accountcode` varchar(20) NOT NULL,
   `uniqueid` varchar(32) NOT NULL,
   `linkedid` varchar(32) NOT NULL,
-  `peer` varchar(80) NOT NULL,
+  `peer` varchar(255) NOT NULL,
   `userdeftype` varchar(255) NOT NULL,
   `extra` varchar(512) NOT NULL,
   PRIMARY KEY  (`id`),
