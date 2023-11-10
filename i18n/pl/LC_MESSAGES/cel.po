@@ -10,123 +10,126 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-14 05:36+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-11-11 13:01+0000\n"
+"Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
+"Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cel/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: ucp/assets/js/global.js:47
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s sekund"
 
 #: views/ucp_config.php:7
 msgid "Allow CEL"
-msgstr ""
+msgstr "Zezwól na logowanie zdarzeń połączenia"
 
 #: views/ucp_config.php:64
 msgid "Allow CEL Downloads"
-msgstr ""
+msgstr "Zezwól na pobieranie logów zdarzeń połączenia"
 
 #: views/ucp_config.php:95
 msgid "Allow CEL Playback"
-msgstr ""
+msgstr "Zezwól na odtwarzanie zdarzeń połączenia"
 
 #: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "Zezwól temu użytkownikowi na odtwarzanie nagrań w UCP"
 
 #: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "Zezwól użytkownikom na odtwarzanie nagrań w UCP"
 
 #: views/ucp_config.php:38
 msgid "Allowed CEL"
-msgstr ""
+msgstr "Zezwolono na logowanie zdarzeń połączenia"
 
 #: views/page.cel_view.php:161
 msgid "Application"
-msgstr ""
+msgstr "Aplikacja"
 
 #: views/page.cel_view.php:175
 msgid "Application executed by a call participant"
-msgstr ""
+msgstr "Aplikacja uruchomiona przez uczestnika połączenia"
 
 #: cel.i18n.php:14
 msgid "CEL Report Module"
-msgstr ""
+msgstr "Moduł raportowania logowanie zdarzeń połączenia"
 
 #: views/page.cel_view.php:22
 msgid "CEL Reports"
-msgstr ""
+msgstr "Raporty logowanie zdarzeń połączenia"
 
 #: views/page.cel_view.php:33
 msgid "Call Detail"
-msgstr ""
+msgstr "Szczegóły połączenia"
 
 #: Cel.class.php:243 /usr/src/freepbx/cel/cel.i18n.php:4
 #: cel.i18n.php:10 /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
-msgstr ""
+msgstr "Logowanie zdarzeń połączenia"
 
 #: ucp/Cel.class.php:58
 #: ucp/Cel.class.php:89
 #: ucp/assets/js/global.js:29
 msgid "Call Events"
-msgstr ""
+msgstr "Zdarzenia połączenia"
 
 #: ucp/Cel.class.php:45
 #, php-format
 msgid "Call Events for %s"
-msgstr ""
+msgstr "Zdarzenia połączenia %s"
 
 #: ucp/views/widget.php:25
 #: views/page.cel_view.php:202
 msgid "Caller"
-msgstr ""
+msgstr "Dzwoniący"
 
 #: views/page.cel_view.php:56
 msgid "Channel Name"
-msgstr ""
+msgstr "Nazwa kanału"
 
 #: ucp/views/eventModal.php:21
 msgid "Channle Name"
-msgstr ""
+msgstr "Nazwa kanału"
 
 #: install.php:83
 #, php-format
 msgid "Checking for %s field to remove.."
-msgstr ""
+msgstr "Sprawdzam pole %s aby usunąć..."
 
 #: install.php:92
 msgid "Checking for context index.."
-msgstr ""
+msgstr "Sprawdzanie indeksu kontekstu..."
 
 #: ucp/views/eventModal.php:18
 #: views/page.cel_view.php:53
 msgid "Cid num"
-msgstr ""
+msgstr "CID num"
 
 #: views/page.cel_view.php:61
 #: ucp/assets/js/global.js:31
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: views/page.cel_view.php:9
 msgid "Conference"
-msgstr ""
+msgstr "Konferencja"
 
 #: ucp/views/eventModal.php:20
 #: views/page.cel_view.php:55
 msgid "Context"
-msgstr ""
+msgstr "Kontekst"
 
 #: ucp/views/widget.php:31
 msgid "Controls"
-msgstr ""
+msgstr "Sterowanie"
 
 #: cel.i18n.php:20
 msgid ""
@@ -134,6 +137,10 @@ msgid ""
 "use the default values provided by FreePBX. Name of database used for where "
 "the cel is stored. asteriskcdrdb is default."
 msgstr ""
+"NIE ZMIENIAJ TEGO, chyba, że wiesz co robisz. Wykorzystywane wyłącznie, gdy "
+"nie używasz domyślnych ustawień FreePBX. Nazwij bazę danych, w której "
+"przechowywane są dzienniki wydarzeń telefonicznych. Doyślna wartość to "
+"asteriskcdrdb"
 
 #: cel.i18n.php:24
 msgid ""
@@ -145,41 +152,41 @@ msgstr ""
 #: ucp/views/widget.php:24
 #: views/page.cel_view.php:201
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: views/page.cel_view.php:74
 msgid "Date Range"
-msgstr ""
+msgstr "Zakres dat"
 
 #: views/page.cel_view.php:138
 msgid "Destination"
-msgstr ""
+msgstr "Cel"
 
 #: views/page.cel_view.php:185
 msgid "Detailed Report"
-msgstr ""
+msgstr "Raport szczegółowy"
 
 #: views/page.cel_view.php:206
 msgid "Details"
-msgstr ""
+msgstr "Szczegóły"
 
 #: ucp/views/widget.php:26
 #: views/page.cel_view.php:203
 msgid "Dialed"
-msgstr ""
+msgstr "Wybrano"
 
 #: ucp/assets/js/global.js:58
 msgid "Download"
-msgstr ""
+msgstr "Pobieranie"
 
 #: ucp/views/widget.php:27
 #: views/page.cel_view.php:204
 msgid "Duration"
-msgstr ""
+msgstr "Czas trwania"
 
 #: install.php:110
 msgid "ERROR failed to update database"
-msgstr ""
+msgstr "BŁĄD nie udało się zaktualizować bazy danych"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
@@ -208,7 +215,7 @@ msgstr ""
 #: ucp/Cel.class.php:133
 #: ucp/Cel.class.php:136
 msgid "File does not exist"
-msgstr ""
+msgstr "Plik nie istnieje"
 
 #: views/page.cel_view.php:126
 msgid "Filter by Source"
