@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-14 05:36+0000\n"
-"PO-Revision-Date: 2023-11-19 14:15+0000\n"
+"PO-Revision-Date: 2023-11-20 15:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cel/pl/>\n"
 "Language: pl\n"
@@ -140,7 +140,7 @@ msgstr ""
 "NIE ZMIENIAJ TEGO, chyba, że wiesz co robisz. Wykorzystywane wyłącznie, gdy "
 "nie używasz domyślnych ustawień FreePBX. Nazwij bazę danych, w której "
 "przechowywane są dzienniki wydarzeń telefonicznych. Doyślna wartość to "
-"asteriskcdrdb"
+"asteriskcdrdb."
 
 #: cel.i18n.php:24
 msgid ""
@@ -421,7 +421,7 @@ msgstr "sprawdzanie dodatkowego pola.."
 
 #: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
-msgstr "znalezione"
+msgstr "znaleziono"
 
 #: install.php:75
 msgid "not found"
