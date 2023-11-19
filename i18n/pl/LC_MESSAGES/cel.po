@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-14 05:36+0000\n"
-"PO-Revision-Date: 2023-11-14 09:01+0000\n"
+"PO-Revision-Date: 2023-11-19 14:15+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cel/pl/>\n"
 "Language: pl\n"
@@ -194,26 +194,26 @@ msgstr "BŁĄD nie udało się zaktualizować bazy danych"
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
-msgstr ""
+msgstr "Włącz CEL (Call Event Logging) w UCP dla tego użytkownika"
 
 #: cel.i18n.php:12
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "Włącz raportowanie CEL"
 
 #: ucp/assets/js/global.js:38
 #: ucp/assets/js/global.js:42
 msgid "Error getting form"
-msgstr ""
+msgstr "Błąd pobierania formularza"
 
 #: ucp/views/eventModal.php:15
 #: views/page.cel_view.php:50
 msgid "Event Type"
-msgstr ""
+msgstr "Typ zdarzenia"
 
 #: ucp/views/eventModal.php:19
 #: views/page.cel_view.php:54
 msgid "Extension"
-msgstr ""
+msgstr "Numer wewnętrzny"
 
 #: Cel.class.php:114
 #: ucp/Cel.class.php:133
@@ -223,27 +223,27 @@ msgstr "Plik nie istnieje"
 
 #: views/page.cel_view.php:126
 msgid "Filter by Source"
-msgstr ""
+msgstr "Filtruj według źródła"
 
 #: views/page.cel_view.php:150
 msgid "Filter by destination"
-msgstr ""
+msgstr "Filtruj według miejsca docelowego"
 
 #: ucp/Cel.class.php:204
 #: ucp/Cel.class.php:215
 msgid "Forbidden"
-msgstr ""
+msgstr "Zabroniony"
 
 #: views/page.cel_view.php:78
 #: views/page.cel_view.php:82
 msgid "From"
-msgstr ""
+msgstr "Od"
 
 #: views/ucp_config.php:18
 #: views/ucp_config.php:75
 #: views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Dziedzicz"
 
 #: Cel.class.php:118
 msgid "Invalid Command"
@@ -266,47 +266,47 @@ msgstr "Nie znaleziono"
 
 #: install.php:67
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: views/page.cel_view.php:205
 msgid "Play"
-msgstr ""
+msgstr "Odtwórz"
 
 #: ucp/views/widget.php:29
 msgid "Playback"
-msgstr ""
+msgstr "Odtwórz"
 
 #: views/page.cel_view.php:10
 msgid "Queue"
-msgstr ""
+msgstr "Kolejka"
 
 #: views/page.cel_view.php:182
 msgid "Refresh"
-msgstr ""
+msgstr "Odśwież"
 
 #: cel.i18n.php:18
 msgid "Remote CEL DB Name"
-msgstr ""
+msgstr "Nazwa zdalnej bazy danych CEL"
 
 #: cel.i18n.php:22
 msgid "Remote CEL DB Table"
-msgstr ""
+msgstr "Zdalna tabela CEL DB"
 
 #: install.php:112
 msgid "Removed"
-msgstr ""
+msgstr "Usunięte"
 
 #: install.php:105
 msgid "Removing outdated fields (this might take a long time)"
-msgstr ""
+msgstr "Usuwanie nieaktualnych pól (może to zająć dużo czasu)"
 
 #: cel.i18n.php:6
 msgid "Reports"
-msgstr ""
+msgstr "Raporty"
 
 #: views/page.cel_view.php:102
 msgid "Select the date range for the report"
-msgstr ""
+msgstr "Wybierz zakres dat dla raportu"
 
 #: cel.i18n.php:16
 msgid ""
@@ -316,14 +316,19 @@ msgid ""
 "configuration must be done outside of FreePBX either by the user or at the "
 "Distro level."
 msgstr ""
+"Ustawienie tej wartości na true umożliwi modułowi CEL tworzenie raportów "
+"połączeń na podstawie danych CEL. Chociaż moduł CEL zapewnia, że dostępna "
+"jest tabela CEL, funkcja raportowania w Asterisk i powiązanej bazie danych "
+"ODBC oraz konfiguracja CEL musi być wykonana poza FreePBX przez użytkownika "
+"lub na poziomie dystrybucji."
 
 #: views/page.cel_view.php:114
 msgid "Source"
-msgstr ""
+msgstr "Źródło"
 
 #: Cel.class.php:285
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
-msgstr ""
+msgstr "Moduł CEL wymaga Asterisk w wersji 12.0 lub nowszej."
 
 #: cel.i18n.php:8
 msgid ""
@@ -331,45 +336,50 @@ msgid ""
 "calls for your user and listen to any call recordings that are associated "
 "with that call."
 msgstr ""
+"Moduł rejestrowania zdarzeń połączeń umożliwia wyświetlanie wszystkich "
+"połączeń przychodzących i wychodzących dla użytkownika oraz odsłuchiwanie "
+"wszelkich nagrań rozmów skojarzonych z tym połączeniem."
 
 #: views/ucp_config.php:54
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Są to przypisane i aktywne numery wewnętrzne, które będą widoczne na koncie "
+"tego użytkownika do kontroli i edycji w UCP"
 
 #: ucp/views/eventModal.php:14
 #: views/page.cel_view.php:49
 msgid "Time"
-msgstr ""
+msgstr "Czas"
 
 #: views/page.cel_view.php:87
 #: views/page.cel_view.php:91
 msgid "To"
-msgstr ""
+msgstr "Do"
 
 #: ucp/views/eventModal.php:16
 #: views/page.cel_view.php:51
 msgid "UniqueID"
-msgstr ""
+msgstr "UnikalneID"
 
 #: Cel.class.php:234
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Główny numer wewnętrzny użytkownika"
 
 #: views/page.cel_view.php:11
 msgid "Voicemail"
-msgstr ""
+msgstr "Poczta głosowa"
 
 #: views/page.cel_view.php:12
 msgid "Voicemail Main"
-msgstr ""
+msgstr "Główna poczta głosowa"
 
 #: views/ucp_config.php:13
 #: views/ucp_config.php:70
 #: views/ucp_config.php:101
 msgid "Yes"
-msgstr ""
+msgstr "Tak"
 
 #: assets/js/cel.js:58
 #: ucp/assets/js/global.js:103
@@ -380,33 +390,39 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Brakuje Ci obsługi odtwarzania w tej przeglądarce. Aby w pełni obsługiwać "
+"odtwarzanie w przeglądarce HTML5, będziesz musiał zainstalować programy, "
+"które nie mogą być dystrybuowane z FreePBX. Jeśli chcesz zainstalować pliki "
+"binarne potrzebne do tych konwersji, kliknij <a href='%s'>tutaj</a>"
 
 #: page.cel.php:12
 msgid ""
 "You may search by any or all of the fields below. The more fields you fill "
 "in the more refined the report."
 msgstr ""
+"Możesz wyszukiwać według dowolnego lub wszystkich poniższych pól. Im więcej "
+"pól wypełnisz, tym bardziej szczegółowy będzie raport."
 
 #: install.php:77
 msgid "already exists"
-msgstr ""
+msgstr "już istnieje"
 
 #: install.php:99
 msgid "already indexed"
-msgstr ""
+msgstr "już zindeksowane"
 
 #: install.php:88
 msgid "already removed"
-msgstr ""
+msgstr "już usunięte"
 
 #: install.php:72
 msgid "checking for extra field.."
-msgstr ""
+msgstr "sprawdzanie dodatkowego pola.."
 
 #: install.php:86 /usr/src/freepbx/cel/install.php:97
 msgid "found"
-msgstr ""
+msgstr "znalezione"
 
 #: install.php:75
 msgid "not found"
-msgstr ""
+msgstr "nie znaleziono"
