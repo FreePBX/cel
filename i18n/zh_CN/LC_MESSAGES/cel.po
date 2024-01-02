@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 10:40+0000\n"
+"POT-Creation-Date: 2024-01-01 23:22-0500\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -62,6 +62,10 @@ msgstr ""
 msgid "Backup Days"
 msgstr ""
 
+#: cel.i18n.php:14
+msgid "CEL Report Module"
+msgstr ""
+
 #: views/page.cel_view.php:22
 msgid "CEL Reports"
 msgstr ""
@@ -70,7 +74,8 @@ msgstr ""
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:343 /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:343 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:10
+#: /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
 
@@ -124,6 +129,20 @@ msgstr ""
 msgid "Controls"
 msgstr "控制"
 
+#: cel.i18n.php:20
+msgid ""
+"DO NOT set this unless you know what you are doing. Only used if you do not "
+"use the default values provided by FreePBX. Name of database used for where "
+"the cel is stored. asteriskcdrdb is default."
+msgstr ""
+
+#: cel.i18n.php:24
+msgid ""
+"DO NOT set this unless you know what you are doing. Only used if you do not "
+"use the default values provided by FreePBX. Name of the table in the db "
+"where the cel is stored. cel is default."
+msgstr ""
+
 #: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "日期"
@@ -162,6 +181,10 @@ msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
+msgstr ""
+
+#: cel.i18n.php:12
+msgid "Enable CEL Reporting"
 msgstr ""
 
 #: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
@@ -237,6 +260,14 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
+#: cel.i18n.php:18
+msgid "Remote CEL DB Name"
+msgstr ""
+
+#: cel.i18n.php:22
+msgid "Remote CEL DB Table"
+msgstr ""
+
 #: install.php:112
 msgid "Removed"
 msgstr ""
@@ -244,6 +275,10 @@ msgstr ""
 #: install.php:105
 msgid "Removing outdated fields (this might take a long time)"
 msgstr ""
+
+#: cel.i18n.php:6
+msgid "Reports"
+msgstr "报表"
 
 #: views/backupSettings.php:22
 msgid "Restore Advanced Settings"
@@ -253,12 +288,28 @@ msgstr ""
 msgid "Select the date range for the report"
 msgstr ""
 
+#: cel.i18n.php:16
+msgid ""
+"Setting this true will enable the CEL module to create call reports from CEL "
+"data. Although the CEL module will assure there is a CEL table available, "
+"the reporting functionality in Asterisk and associated ODBC database and CEL "
+"configuration must be done outside of FreePBX either by the user or at the "
+"Distro level."
+msgstr ""
+
 #: views/page.cel_view.php:114
 msgid "Source"
 msgstr ""
 
 #: Cel.class.php:386
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
+msgstr ""
+
+#: cel.i18n.php:8
+msgid ""
+"The Call Event Logging module allows you to see all inbound and outbound "
+"calls for your user and listen to any call recordings that are associated "
+"with that call."
 msgstr ""
 
 #: views/ucp_config.php:54
@@ -334,9 +385,6 @@ msgstr ""
 #: install.php:75
 msgid "not found"
 msgstr ""
-
-#~ msgid "Reports"
-#~ msgstr "报表"
 
 #~ msgid "Search"
 #~ msgstr "查询"
