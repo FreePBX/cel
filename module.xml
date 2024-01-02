@@ -2,13 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>17.0.2.2</version>
+	<version>17.0.2.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*17.0.2.2* Packaging of ver 17.0.2.2
-		*17.0.2.1 Packaging of ver 17.0.2.1
+		*17.0.2.3* Packaging of ver 17.0.2.3
 		*17.0.2* Packaging of ver 17.0.2
 		*17.0.1alpha* 17.0.1 alpha release
 	</changelog>
@@ -27,10 +26,10 @@
 	<description>The Call Event Logging module allows you to see all inbound and outbound calls for your user and listen to any call recordings that are associated with that call.</description>
 	<more-info>https://wiki.freepbx.org/display/FPG/Call+Event+Logging</more-info>
 	<menuitems>
-			<cel beta="yes" needsenginedb="yes">Call Event Logging</cel>
+			<cel needsenginedb="yes">Call Event Logging</cel>
 	</menuitems>
 	<depends>
-			<version>14.0.1alpha12</version>
+			<version>17.0.1a</version>
 	</depends>
 	<supported>
 			<version>17.0</version>
