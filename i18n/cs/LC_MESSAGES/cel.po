@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-01 23:22-0500\n"
+"POT-Creation-Date: 2024-01-08 04:52-0500\n"
 "PO-Revision-Date: 2018-08-29 14:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cel/cs/>\n"
@@ -205,7 +205,7 @@ msgstr "Typ události"
 msgid "Extension"
 msgstr "Pobočka"
 
-#: Cel.class.php:214 ucp/Cel.class.php:138 ucp/Cel.class.php:141
+#: Cel.class.php:214 ucp/Cel.class.php:146 ucp/Cel.class.php:149
 msgid "File does not exist"
 msgstr "Soubor neexistuje"
 
@@ -217,7 +217,7 @@ msgstr "Filtrování podle zdroje"
 msgid "Filter by destination"
 msgstr "Filtrování podle cíle"
 
-#: ucp/Cel.class.php:209 ucp/Cel.class.php:220
+#: ucp/Cel.class.php:217 ucp/Cel.class.php:228
 msgid "Forbidden"
 msgstr "Zakázáno"
 
@@ -243,7 +243,7 @@ msgstr "LinkedID"
 msgid "No"
 msgstr "Ne"
 
-#: ucp/Cel.class.php:214
+#: ucp/Cel.class.php:222
 msgid "Not Found"
 msgstr "Nenalezeno"
 
