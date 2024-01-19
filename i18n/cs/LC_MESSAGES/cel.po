@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-08 04:52-0500\n"
+"POT-Creation-Date: 2024-01-18 22:51-0500\n"
 "PO-Revision-Date: 2018-08-29 14:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cel/cs/>\n"
@@ -99,12 +99,12 @@ msgstr "Název kanálu"
 msgid "Channle Name"
 msgstr "Název kanálu"
 
-#: install.php:83
+#: install.php:85
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "Kontrola pro odstranění pole %s.."
 
-#: install.php:92
+#: install.php:94
 msgid "Checking for context index.."
 msgstr "Kontrola indexu kontextu .."
 
@@ -181,7 +181,7 @@ msgstr "Stáhnout"
 msgid "Duration"
 msgstr "Doba trvání"
 
-#: install.php:110
+#: install.php:112
 msgid "ERROR failed to update database"
 msgstr "CHYBA aktualizace databáze se nezdařila"
 
@@ -275,11 +275,11 @@ msgstr "Vzdálené jméno CEL DB"
 msgid "Remote CEL DB Table"
 msgstr "Vzdálená tabulka CEL DB"
 
-#: install.php:112
+#: install.php:114
 msgid "Removed"
 msgstr "Odebráno"
 
-#: install.php:105
+#: install.php:107
 msgid "Removing outdated fields (this might take a long time)"
 msgstr "Odstranění zastaralých polí (může to trvat dlouho)"
 
@@ -381,27 +381,27 @@ msgstr ""
 "Můžete vyhledat některá nebo všechna níže uvedená pole. Čím více políček "
 "vyplníte, tím více zpřesníte report."
 
-#: install.php:77
+#: install.php:79
 msgid "already exists"
 msgstr "již existuje"
 
-#: install.php:99
+#: install.php:101
 msgid "already indexed"
 msgstr "již indexován"
 
-#: install.php:88
+#: install.php:90
 msgid "already removed"
 msgstr "již odstraněn"
 
-#: install.php:72
+#: install.php:74
 msgid "checking for extra field.."
 msgstr "hledání dalšího pole.."
 
-#: install.php:86 /usr/src/freepbx/cel/install.php:97
+#: install.php:88 /usr/src/freepbx/cel/install.php:99
 msgid "found"
 msgstr "nalezeno"
 
-#: install.php:75
+#: install.php:77
 msgid "not found"
 msgstr "nenalezeno"
 

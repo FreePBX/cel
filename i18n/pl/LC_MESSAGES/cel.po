@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-08 04:52-0500\n"
+"POT-Creation-Date: 2024-01-18 22:51-0500\n"
 "PO-Revision-Date: 2023-11-20 15:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cel/pl/>\n"
@@ -100,12 +100,12 @@ msgstr "Nazwa kanału"
 msgid "Channle Name"
 msgstr "Nazwa kanału"
 
-#: install.php:83
+#: install.php:85
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "Sprawdzam pole %s aby usunąć..."
 
-#: install.php:92
+#: install.php:94
 msgid "Checking for context index.."
 msgstr "Sprawdzanie indeksu kontekstu..."
 
@@ -183,7 +183,7 @@ msgstr "Pobieranie"
 msgid "Duration"
 msgstr "Czas trwania"
 
-#: install.php:110
+#: install.php:112
 msgid "ERROR failed to update database"
 msgstr "BŁĄD nie udało się zaktualizować bazy danych"
 
@@ -276,11 +276,11 @@ msgstr "Nazwa zdalnej bazy danych CEL"
 msgid "Remote CEL DB Table"
 msgstr "Zdalna tabela CEL DB"
 
-#: install.php:112
+#: install.php:114
 msgid "Removed"
 msgstr "Usunięte"
 
-#: install.php:105
+#: install.php:107
 msgid "Removing outdated fields (this might take a long time)"
 msgstr "Usuwanie nieaktualnych pól (może to zająć dużo czasu)"
 
@@ -386,26 +386,26 @@ msgstr ""
 "Możesz wyszukiwać według dowolnego lub wszystkich poniższych pól. Im więcej "
 "pól wypełnisz, tym bardziej szczegółowy będzie raport."
 
-#: install.php:77
+#: install.php:79
 msgid "already exists"
 msgstr "już istnieje"
 
-#: install.php:99
+#: install.php:101
 msgid "already indexed"
 msgstr "już zindeksowane"
 
-#: install.php:88
+#: install.php:90
 msgid "already removed"
 msgstr "już usunięte"
 
-#: install.php:72
+#: install.php:74
 msgid "checking for extra field.."
 msgstr "sprawdzanie dodatkowego pola.."
 
-#: install.php:86 /usr/src/freepbx/cel/install.php:97
+#: install.php:88 /usr/src/freepbx/cel/install.php:99
 msgid "found"
 msgstr "znaleziono"
 
-#: install.php:75
+#: install.php:77
 msgid "not found"
 msgstr "nie znaleziono"

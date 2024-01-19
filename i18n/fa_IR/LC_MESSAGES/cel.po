@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-08 04:52-0500\n"
+"POT-Creation-Date: 2024-01-18 22:51-0500\n"
 "PO-Revision-Date: 2016-03-16 23:20+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -99,12 +99,12 @@ msgstr ""
 msgid "Channle Name"
 msgstr ""
 
-#: install.php:83
+#: install.php:85
 #, php-format
 msgid "Checking for %s field to remove.."
 msgstr "بررسی فیلد %s برای حذف.."
 
-#: install.php:92
+#: install.php:94
 msgid "Checking for context index.."
 msgstr "بررسی برای فهرست چهارچوب.."
 
@@ -176,7 +176,7 @@ msgstr "دانلود"
 msgid "Duration"
 msgstr "مدت"
 
-#: install.php:110
+#: install.php:112
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -269,11 +269,11 @@ msgstr ""
 msgid "Remote CEL DB Table"
 msgstr "جدول دیتابیس راه دور CEL"
 
-#: install.php:112
+#: install.php:114
 msgid "Removed"
 msgstr "حذف شده"
 
-#: install.php:105
+#: install.php:107
 msgid "Removing outdated fields (this might take a long time)"
 msgstr ""
 
@@ -369,27 +369,27 @@ msgid ""
 "in the more refined the report."
 msgstr "شما با یک یا تمام فیلدهای زیر میتوانید جستجو کنید."
 
-#: install.php:77
+#: install.php:79
 msgid "already exists"
 msgstr "در حال حاضر وجود دارد"
 
-#: install.php:99
+#: install.php:101
 msgid "already indexed"
 msgstr ""
 
-#: install.php:88
+#: install.php:90
 msgid "already removed"
 msgstr ""
 
-#: install.php:72
+#: install.php:74
 msgid "checking for extra field.."
 msgstr "بررسی فیلد خارجی.."
 
-#: install.php:86 /usr/src/freepbx/cel/install.php:97
+#: install.php:88 /usr/src/freepbx/cel/install.php:99
 msgid "found"
 msgstr ""
 
-#: install.php:75
+#: install.php:77
 msgid "not found"
 msgstr ""
 
