@@ -68,7 +68,9 @@ if(DB::IsError($check)) {
 }
 
 $alterclauses = array();
-
+// alter appdata coulmn
+$appadta ='ALTER TABLE cel MODIFY COLUMN appdata VARCHAR(1024);';
+$alterclauses[] = $appadta;
 outn(_("checking for extra field.."));
 if (!$dbcdr->getAll('SHOW COLUMNS FROM `' . $db_cel_name . '`.`' . $db_cel_table_name . '` WHERE FIELD = "extra"')) {
 	$alterclauses[] = "CHANGE `eventextra` `extra` varchar(512)";
