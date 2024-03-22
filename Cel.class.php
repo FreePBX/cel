@@ -517,10 +517,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					$mainrow['cid_num'] = $row['cid_num'];
 					$mainrow['exten'] = $row['exten'];
 					$mainrow['channame'] = $row['channame'];
-					$mainrow['uniqueid'] = $row['uniqueid'];
 					$mainrow['parsedapp'] = $this->parseApplication($row['appname'], $row['extra']);
-					//remove . from uniqueid
-					$mainrow['id'] = str_replace(".",'_',$row['uniqueid']);
 					$start = $row['eventunixtime'];
 				}
 				//lets calcurate the duration of the call LINKEDID_END
@@ -532,6 +529,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					if ($row['appname'] == 'MixMonitor') {
 						$args = explode(',', $row['appdata']);
 						if ($args[0]) {
+							$mainrow['uniqueid'] = $row['uniqueid'];
+							//remove . from uniqueid
+							$mainrow['id'] = str_replace(".",'_',$row['uniqueid']);
 							$dates = explode('/',$args[0]);
 							$mainrow['year'] = $dates[0];
 							$mainrow['month'] = $dates[1];
