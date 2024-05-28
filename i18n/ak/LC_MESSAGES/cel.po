@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 22:51-0500\n"
+"POT-Creation-Date: 2024-05-28 09:59-0400\n"
 "PO-Revision-Date: 2015-03-09 17:34-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -59,6 +59,10 @@ msgstr ""
 msgid "Backup Days"
 msgstr ""
 
+#: ucp/Cel.class.php:81
+msgid "CEL (Call Event Logging) is not enabled for this user."
+msgstr ""
+
 #: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr ""
@@ -76,11 +80,11 @@ msgstr ""
 msgid "Call Event Logging"
 msgstr ""
 
-#: ucp/Cel.class.php:63 ucp/Cel.class.php:94 ucp/assets/js/global.js:29
+#: ucp/Cel.class.php:33 ucp/Cel.class.php:128 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr ""
 
-#: ucp/Cel.class.php:50
+#: ucp/Cel.class.php:58
 #, php-format
 msgid "Call Events for %s"
 msgstr ""
@@ -196,7 +200,7 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#: Cel.class.php:214 ucp/Cel.class.php:146 ucp/Cel.class.php:149
+#: Cel.class.php:214 ucp/Cel.class.php:180 ucp/Cel.class.php:183
 msgid "File does not exist"
 msgstr ""
 
@@ -208,7 +212,7 @@ msgstr ""
 msgid "Filter by destination"
 msgstr ""
 
-#: ucp/Cel.class.php:217 ucp/Cel.class.php:228
+#: ucp/Cel.class.php:251 ucp/Cel.class.php:262
 msgid "Forbidden"
 msgstr ""
 
@@ -233,7 +237,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ucp/Cel.class.php:222
+#: ucp/Cel.class.php:256
 msgid "Not Found"
 msgstr ""
 
@@ -309,10 +313,22 @@ msgid ""
 "with that call."
 msgstr ""
 
+#: ucp/Cel.class.php:91
+msgid "The given extension is empty."
+msgstr ""
+
+#: ucp/Cel.class.php:86
+msgid "There are no assigned extensions."
+msgstr ""
+
 #: views/ucp_config.php:54
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
+msgstr ""
+
+#: ucp/Cel.class.php:95
+msgid "This extension is not assigned to this user."
 msgstr ""
 
 #: ucp/views/eventModal.php:14 views/page.cel_view.php:49

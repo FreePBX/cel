@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 22:51-0500\n"
+"POT-Creation-Date: 2024-05-28 09:59-0400\n"
 "PO-Revision-Date: 2023-11-20 15:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cel/pl/>\n"
@@ -62,6 +62,10 @@ msgstr "Aplikacja uruchomiona przez uczestnika połączenia"
 msgid "Backup Days"
 msgstr ""
 
+#: ucp/Cel.class.php:81
+msgid "CEL (Call Event Logging) is not enabled for this user."
+msgstr ""
+
 #: cel.i18n.php:14
 msgid "CEL Report Module"
 msgstr "Moduł raportowania logowanie zdarzeń połączenia"
@@ -79,11 +83,11 @@ msgstr "Szczegóły połączenia"
 msgid "Call Event Logging"
 msgstr "Logowanie zdarzeń połączenia"
 
-#: ucp/Cel.class.php:63 ucp/Cel.class.php:94 ucp/assets/js/global.js:29
+#: ucp/Cel.class.php:33 ucp/Cel.class.php:128 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr "Zdarzenia połączenia"
 
-#: ucp/Cel.class.php:50
+#: ucp/Cel.class.php:58
 #, php-format
 msgid "Call Events for %s"
 msgstr "Zdarzenia połączenia %s"
@@ -207,7 +211,7 @@ msgstr "Typ zdarzenia"
 msgid "Extension"
 msgstr "Numer wewnętrzny"
 
-#: Cel.class.php:214 ucp/Cel.class.php:146 ucp/Cel.class.php:149
+#: Cel.class.php:214 ucp/Cel.class.php:180 ucp/Cel.class.php:183
 msgid "File does not exist"
 msgstr "Plik nie istnieje"
 
@@ -219,7 +223,7 @@ msgstr "Filtruj według źródła"
 msgid "Filter by destination"
 msgstr "Filtruj według miejsca docelowego"
 
-#: ucp/Cel.class.php:217 ucp/Cel.class.php:228
+#: ucp/Cel.class.php:251 ucp/Cel.class.php:262
 msgid "Forbidden"
 msgstr "Zabroniony"
 
@@ -244,7 +248,7 @@ msgstr "Linked Id"
 msgid "No"
 msgstr "Nie"
 
-#: ucp/Cel.class.php:222
+#: ucp/Cel.class.php:256
 msgid "Not Found"
 msgstr "Nie znaleziono"
 
@@ -328,6 +332,14 @@ msgstr ""
 "połączeń przychodzących i wychodzących dla użytkownika oraz odsłuchiwanie "
 "wszelkich nagrań rozmów skojarzonych z tym połączeniem."
 
+#: ucp/Cel.class.php:91
+msgid "The given extension is empty."
+msgstr ""
+
+#: ucp/Cel.class.php:86
+msgid "There are no assigned extensions."
+msgstr ""
+
 #: views/ucp_config.php:54
 msgid ""
 "These are the assigned and active extensions which will show up for this "
@@ -335,6 +347,10 @@ msgid ""
 msgstr ""
 "Są to przypisane i aktywne numery wewnętrzne, które będą widoczne na koncie "
 "tego użytkownika do kontroli i edycji w UCP"
+
+#: ucp/Cel.class.php:95
+msgid "This extension is not assigned to this user."
+msgstr ""
 
 #: ucp/views/eventModal.php:14 views/page.cel_view.php:49
 msgid "Time"
