@@ -66,12 +66,12 @@
 					</div>
 					<div class="col-md-9">
 						<span class="radioset">
-							<input type="radio" class="ucp-cel" name="cel_download" id="cel_download_yes" value="yes" <?php echo ($download) ? 'checked' : ''?> <?php $enable??=''; echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cel" name="cel_download" id="cel_download_yes" value="yes" <?php echo ($download) ? 'checked' : ''?> <?php echo (!is_null($enabled) && !$enabled) ? "disabled" : ""?>>
 							<label for="cel_download_yes"><?php echo _('Yes')?></label>
-							<input type="radio" class="ucp-cel" name="cel_download" id="cel_download_no" value="no" <?php echo (!is_null($download) && !$download) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cel" name="cel_download" id="cel_download_no" value="no" <?php echo (!is_null($download) && !$download) ? 'checked' : ''?> <?php echo (!is_null($enabled) && !$enabled) ? "disabled" : ""?>>
 							<label for="cel_download_no"><?php echo _('No')?></label>
 							<?php if($mode == "user") {?>
-								<input type="radio" class="ucp-cel" id="cel_download_inherit" name="cel_download" value='inherit' <?php echo is_null($download) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+								<input type="radio" class="ucp-cel" id="cel_download_inherit" name="cel_download" value='inherit' <?php echo is_null($download) ? 'checked' : ''?> <?php echo (!is_null($enabled) && !$enabled) ? "disabled" : ""?>>
 								<label for="cel_download_inherit"><?php echo _('Inherit')?></label>
 							<?php } ?>
 						</span>
@@ -97,12 +97,12 @@
 					</div>
 					<div class="col-md-9">
 						<span class="radioset">
-							<input type="radio" class="ucp-cel" name="cel_playback" id="cel_playback_yes" value="yes" <?php echo ($playback) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cel" name="cel_playback" id="cel_playback_yes" value="yes" <?php echo ($playback) ? 'checked' : ''?> <?php echo (!is_null($enabled) && !$enabled) ? "disabled" : ""?>>
 							<label for="cel_playback_yes"><?php echo _('Yes')?></label>
-							<input type="radio" class="ucp-cel" name="cel_playback" id="cel_playback_no" value="no" <?php echo (!is_null($playback) && !$playback) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cel" name="cel_playback" id="cel_playback_no" value="no" <?php echo (!is_null($playback) && !$playback) ? 'checked' : ''?> <?php echo (!is_null($enabled) && !$enabled) ? "disabled" : ""?>>
 							<label for="cel_playback_no"><?php echo _('No')?></label>
 							<?php if($mode == "user") {?>
-								<input type="radio" class="ucp-cel" id="cel_playback_inherit" name="cel_playback" value='inherit' <?php echo is_null($playback) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+								<input type="radio" class="ucp-cel" id="cel_playback_inherit" name="cel_playback" value='inherit' <?php echo is_null($playback) ? 'checked' : ''?> <?php echo (!is_null($enabled) && !$enabled) ? "disabled" : ""?>>
 								<label for="cel_playback_inherit"><?php echo _('Inherit')?></label>
 							<?php } ?>
 						</span>
