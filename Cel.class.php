@@ -407,27 +407,27 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$vars = array();
 		if(!empty($dateto)){
 			$dateto = $dateto. ' 23:59:59';
-			$sql .=" AND eventtime <= :dateto";
+			$sql .=" AND cel.eventtime <= :dateto";
 		}
 		if(!empty($datefrom)){
 			$datefrom = $datefrom." 00:00:00";
-			$sql .= " AND eventtime >= :datefrom";
+			$sql .= " AND cel.eventtime >= :datefrom";
 		}
 		if(!empty($source)){
-			$sql .=" AND (cid_num LIKE :source OR cid_name LIKE :source)";
+			$sql .=" AND (cel.cid_num LIKE :source OR cel.cid_name LIKE :source)";
 		}
 		// this is for UCP
 		if(!empty($ext)){
-			$sql .=" AND (cid_num LIKE :ext OR cid_name LIKE :ext)";
+			$sql .=" AND (cel.cid_num LIKE :ext OR cel.cid_name LIKE :ext)";
 		}
 		if(!empty($destination)){
-			$sql .= " AND exten LIKE :destination";
+			$sql .= " AND cel.exten LIKE :destination";
 		}
 		if(!empty($application)) {
 			if($application == 'conference') {
-				$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like 'ConfBridge' OR appname like 'MeetMe' ";
+				$sql .= " AND (cel.eventtype = 'APP_START' OR cel.eventtype = 'APP_END') AND cel.appname like 'ConfBridge' OR cel.appname like 'MeetMe' ";
 			}else {
-				$sql .= " AND (eventtype = 'APP_START' OR eventtype = 'APP_END') AND appname like :application ";
+				$sql .= " AND (cel.eventtype = 'APP_START' OR cel.eventtype = 'APP_END') AND cel.appname like :application ";
 			}
 		}
 		if(!empty($sort)){
@@ -440,9 +440,9 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					$sort = 'eventtime';
 				break;
 			}
-			$sql .= " ORDER by $sort";
+			$sql .= " ORDER by cel.$sort";
 		} else {
-			$sql .= " ORDER by eventtime";
+			$sql .= " ORDER by cel.eventtime";
 		}
 		if(!empty($order)){
 			switch($order) {
@@ -498,7 +498,7 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$totalRows = $sth->fetchAll(\PDO::FETCH_COLUMN);
 
 		$members = implode("','",$records);
-		$sql = "SELECT cel.linkedid, cel.*, UNIX_TIMESTAMP(cel.eventtime) as eventunixtime FROM cel WHERE linkedid IN ('".$members."')";
+		$sql = "SELECT cel.linkedid, cel.*, UNIX_TIMESTAMP(cel.eventtime) as eventunixtime FROM cel WHERE cel.linkedid IN ('".$members."')";
 		$sth = $this->cdrdb->prepare($sql);
 		$sth->execute();
 		//Grouped by linked id
