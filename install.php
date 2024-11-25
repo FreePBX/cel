@@ -165,6 +165,20 @@ $set['description'] = 'DO NOT set this unless you know what you are doing. Only 
 $set['type'] = CONF_TYPE_TEXT;
 $freepbx_conf->define_conf_setting('CELDBTABLENAME',$set,true);
 
+$set['category'] = 'CEL Report Module';
+$set['name'] = _('Transient CEL');
+$set['description'] = _("If this option set to no, than call log app may not work properly with Sangoma P & D series phones and Desktop phones.");
+$set['value'] = 0;
+$set['defaultval'] =& $set['value'];
+$set['hidden'] = 0;
+$set['emptyok'] = 0;
+$set['readonly'] = 1;
+$set['level'] = 0;
+$set['options'] = '';
+$set['module'] = 'cel';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('TRANSIENTCEL',$set,true);
+
 $file = \FreePBX::Config()->get('ASTETCDIR').'/cel_odbc.conf';
 if(file_exists($file) && is_link($file)) {
 	unlink($file);

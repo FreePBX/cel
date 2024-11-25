@@ -9,7 +9,14 @@ class Restore Extends Base\RestoreBase{
 		$tablename = $this->FreePBX->Config->get('CELDBTABLENAME') ? $this->FreePBX->Config->get('CELDBTABLENAME') : 'cel';
 		$dbhandle = $this->FreePBX->Cel->getCelDbHandle();
 		$dbhandle->query("TRUNCATE $tablename");
-		return $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
+		if($this->FreePBX->Config()->get('TRANSIENTCEL')){
+			$this->FreePBX->Cdr->removeCelTrigger();
+			$dumpres = $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
+			$this->FreePBX->Cdr->createCelTrigger();
+		} else {
+			$dumpres = $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
+		}
+		return $dumpres;
 	}
 	public function processLegacy($pdo, $data, $tables, $unknownTables){
 		global $amp_conf;
