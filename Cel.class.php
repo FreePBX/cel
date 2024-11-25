@@ -669,4 +669,124 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		return $calls;
 	}
+
+	public function setupCELTriggerProcess() {
+		try {
+			$query = "SHOW TABLES LIKE 'transient_cel'";
+			$res = $this->cdrdb->prepare($query);
+			$res->execute();
+			$result = $res->fetch(\PDO::FETCH_ASSOC);
+			if (empty($result)) {
+				$query = "CREATE TABLE IF NOT EXISTS transient_cel ENGINE=MyISAM SELECT * FROM cel LIMIT 0;";
+				$res = $this->cdrdb->prepare($query);
+				try {
+					$res->execute();
+				} catch (\Exception $e) {}
+				// Add Indexes
+				$squery = "ALTER TABLE `transient_cel` ADD INDEX `context` (`context`), ADD INDEX `uniqueid` (`uniqueid`), ADD INDEX `linkedid` (`linkedid`)";
+				$sres = $this->cdrdb->prepare($squery);
+				try {
+					$sres->execute();
+				} catch (\Exception $e) {}
+			}
+			$this->createCelTrigger();
+			$this->addcronEntryForCEL();
+		} catch (\Exception $e) {
+			dbug($e->getMessage());
+		}
+		$this->setConfig('setupCELTrigger',true);
+	}
+
+	public function createCelTrigger() {
+		$query = "SHOW TRIGGERS WHERE `Trigger` = 'celTrigger'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (empty($result)) {
+			$sql = "CREATE TRIGGER `celTrigger` AFTER INSERT ON `cel`
+				FOR EACH ROW
+				BEGIN
+					INSERT INTO transient_cel(id, eventtype, eventtime, cid_name, cid_num, cid_ani, cid_rdnis, cid_dnid, exten, context, channame, appname, appdata, amaflags, accountcode, uniqueid, linkedid, peer, userdeftype, extra) values (new.id, new.eventtype, new.eventtime, new.cid_name, new.cid_num, new.cid_ani,new. cid_rdnis, new.cid_dnid, new.exten, new.context, new.channame, new.appname, new.appdata, new.amaflags, new.accountcode, new.uniqueid, new.linkedid, new.peer, new.userdeftype, new.extra);
+				END";
+			$res = $this->cdrdb->prepare($sql);
+			try {
+				$res->execute();
+			} catch (\Exception $e) {}
+		}
+	}
+
+	private function addcronEntryForCEL() {
+		$this->FreePBX->Job()->addClass('cel', 'cleanTransientCELData', 'FreePBX\modules\Cel\Job', '@daily');
+	}
+
+	public function removeCELTriggerSetup() {
+		$this->removeCelTrigger();
+		$this->dropTransientCELTable();
+		$this->removecronEntry();
+	}
+
+	public function removeCelTrigger() {
+		$query = "SHOW TRIGGERS WHERE `Trigger` = 'celTrigger'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($result)) {
+			$query = "drop trigger celTrigger";
+			$res = $this->cdrdb->prepare($query);
+			$res->execute();
+		}
+	}
+
+	private function dropTransientCELTable() {
+		$query = "SHOW TABLES LIKE 'transient_cel'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($result)) {
+			$squery = "DROP table transient_cel";
+			$sres = $this->cdrdb->prepare($squery);
+			try {
+				$sres->execute();
+			} catch (\Exception $e) { }
+		}
+	}
+
+	private function removecronEntry() {
+		$this->FreePBX->Job->remove('cel', 'cleanTransientCELData');
+	}
+
+	public function cleanTransientCELData($date) {
+		$table_name = 'transient_cel';
+		$col = 'eventtime';
+		$query = "SHOW TABLES LIKE 'transient_cel'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($result)) {
+			$sql = "DELETE FROM " . $table_name . " WHERE " . $col . " < :date;";
+			$res = $this->cdrdb->prepare($sql);
+			$res->execute(array(':date' => $date . "%"));
+
+			$query = "OPTIMIZE TABLE transient_cel";
+			$res = $this->cdrdb->prepare($query);
+			$res->execute();
+		}
+	}
+
+	public function doDialplanHook(&$ext, $engine, $priority)
+	{
+		$transientcel = $this->FreePBX->Config()->get('TRANSIENTCEL');
+		$setupCELTrigger = $this->getConfig('setupCELTrigger');
+		if ($transientcel) {
+			if(!$setupCELTrigger) {
+				$this->createCelTrigger();
+			}
+		} else {
+			if($setupCELTrigger) {
+				$this->removeCelTrigger();
+				$this->removecronEntry();
+				$this->setConfig('setupCELTrigger',false);
+			}
+		}
+	}
 }
