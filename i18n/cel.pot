@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-26 08:00-0400\n"
+"POT-Creation-Date: 2025-03-26 22:21-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -226,8 +226,8 @@ msgstr ""
 msgid "Filter by destination"
 msgstr ""
 
-#: ucp/Cel.class.php:251
-#: ucp/Cel.class.php:262
+#: ucp/Cel.class.php:252
+#: ucp/Cel.class.php:263
 msgid "Forbidden"
 msgstr ""
 
@@ -258,7 +258,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ucp/Cel.class.php:256
+#: ucp/Cel.class.php:257
 msgid "Not Found"
 msgstr ""
 

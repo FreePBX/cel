@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 09:59-0400\n"
+"POT-Creation-Date: 2025-03-26 22:21-0400\n"
 "PO-Revision-Date: 2023-11-20 15:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cel/pl/>\n"
@@ -223,7 +223,7 @@ msgstr "Filtruj według źródła"
 msgid "Filter by destination"
 msgstr "Filtruj według miejsca docelowego"
 
-#: ucp/Cel.class.php:251 ucp/Cel.class.php:262
+#: ucp/Cel.class.php:252 ucp/Cel.class.php:263
 msgid "Forbidden"
 msgstr "Zabroniony"
 
@@ -248,7 +248,7 @@ msgstr "Linked Id"
 msgid "No"
 msgstr "Nie"
 
-#: ucp/Cel.class.php:256
+#: ucp/Cel.class.php:257
 msgid "Not Found"
 msgstr "Nie znaleziono"
 

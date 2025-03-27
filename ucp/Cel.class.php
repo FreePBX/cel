@@ -205,6 +205,7 @@ class Cel extends Modules {
 				);
 				break;
 			case "eventmodal":
+				$displayvars = [];
 				$return = $this->load_view(__DIR__ . '/views/eventModal.php', $displayvars);
 				break;
 			default:
