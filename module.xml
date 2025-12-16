@@ -2,11 +2,12 @@
 	<rawname>cel</rawname>
 	<repo>standard</repo>
 	<name>Call Event Logging</name>
-	<version>17.0.2.12</version>
+	<version>17.0.2.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*17.0.2.13* FREEI-2509: Fix Whoops undefined array key error 
 		*17.0.2.12* bump 
 		*17.0.2.11* #issues-691 CEL: After Backup/Restore Special Characters aren't displayed correctly 
 		*17.0.2.8* bump 
