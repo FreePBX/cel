@@ -515,9 +515,10 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 				if($row['eventtype']=='CHAN_START' && $row['uniqueid'] == $row['linkedid'] ){
 					$mainrow['eventtime'] = $row['eventtime'];
 					$mainrow['timestamp'] = $row['eventunixtime'];
-					$mainrow['cid_num'] = $row['cid_num'];
-					$mainrow['exten'] = $row['exten'];
-					$mainrow['channame'] = $row['channame'];
+					//encode the each fields to avoid XSS attacks - FREEI-3079
+					$mainrow['cid_num'] = htmlspecialchars($row['cid_num'],ENT_QUOTES, 'UTF-8');
+					$mainrow['exten'] = htmlspecialchars($row['exten'],ENT_QUOTES, 'UTF-8');
+					$mainrow['channame'] = htmlspecialchars($row['channame'],ENT_QUOTES, 'UTF-8');
 					$mainrow['parsedapp'] = $this->parseApplication($row['appname'], $row['extra']);
 					$start = $row['eventunixtime'];
 				}
@@ -559,6 +560,12 @@ class Cel extends \FreePBX_Helpers implements \BMO {
 					}
 				}
 					$row['timestamp'] = $row['eventunixtime'];
+					//encode the each fields to avoid XSS attacks - FREEI-3079
+					$row['cid_num'] = htmlspecialchars($row['cid_num'], ENT_QUOTES, 'UTF-8');
+					$row['cid_name'] = htmlspecialchars($row['cid_name'], ENT_QUOTES, 'UTF-8');
+					$row['exten'] = htmlspecialchars($row['exten'], ENT_QUOTES, 'UTF-8');
+					$row['context'] = htmlspecialchars($row['context'], ENT_QUOTES, 'UTF-8');
+					$row['channame'] = htmlspecialchars($row['channame'], ENT_QUOTES, 'UTF-8');
 					$more[] = $row;
 			}
 			$mainrow['moreinfo'] = $more;
