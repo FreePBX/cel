@@ -50,10 +50,10 @@ foreach ($applications as $key => $value) {
 										<th data-field="eventtype" data-sortable="true" ><?php echo _("Event Type")?></th>
 										<th data-field="uniqueid" data-sortable="true" ><?php echo _("UniqueID")?></th>
 										<th data-field="linkedid" data-sortable="true" ><?php echo _("LinkedID")?></th>
-										<th data-field="cid_num" data-sortable="true" ><?php echo _("Cid num")?></th>
-										<th data-field="exten" data-sortable="true" ><?php echo _("Extension")?></th>
-										<th data-field="context" data-sortable="true" ><?php echo _("Context")?></th>
-										<th data-field="channame" data-sortable="true"><?php echo _("Channel Name")?></th>
+										<th data-field="cid_num" data-sortable="true" data-escape="true" ><?php echo _("Cid num")?></th>
+										<th data-field="exten" data-sortable="true" data-escape="true"><?php echo _("Extension")?></th>
+										<th data-field="context" data-sortable="true" data-escape="true" ><?php echo _("Context")?></th>
+										<th data-field="channame" data-sortable="true" data-escape="true"><?php echo _("Channel Name")?></th>
 									</thead>
 								</table>
 							</div>
@@ -199,8 +199,8 @@ foreach ($applications as $key => $value) {
 				<thead>
 					<tr class="call">
 						<th data-field="eventtime" data-sortable="true" data-formatter="dateFormatter"><?php echo _("Date")?></th>
-						<th data-field="cid_num" data-sortable="true"><?php echo _("Caller")?></th>
-						<th data-field="exten" data-sortable="true"><?php echo _("Dialed")?></th>
+						<th data-field="cid_num" data-sortable="true" data-escape="true"><?php echo _("Caller")?></th>
+						<th data-field="exten" data-sortable="true" data-escape="true"><?php echo _("Dialed")?></th>
 						<th data-field="duration" ><?php echo _("Duration")?></th>
 						<th data-field="file" data-formatter="playFormatter" class="col-sm-4"><?php echo _("Play") ?></th>
 						<th data-field="moreinfo" data-formatter="format"><?php echo _("Details")?></th>
