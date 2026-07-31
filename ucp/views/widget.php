@@ -22,8 +22,8 @@
 		<thead>
 			<tr class="cdr-header">
 				<th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cel.formatDate"><?php echo _("Date")?></th>
-				<th data-field="cid_num"><?php echo _("Caller")?></th>
-				<th data-field="exten"><?php echo _("Dialed")?></th>
+				<th data-field="cid_num" data-escape="true"><?php echo _("Caller")?></th>
+				<th data-field="exten" data-escape="true"><?php echo _("Dialed")?></th>
 				<th data-field="duration" data-formatter="UCP.Modules.Cel.formatDuration"><?php echo _("Duration")?></th>
 				<?php if($showPlayback) {?>
 					<th data-field="file" data-formatter="UCP.Modules.Cel.formatPlayback"><?php echo _("Playback")?></th>
