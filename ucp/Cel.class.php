@@ -9,16 +9,20 @@
 namespace UCP\Modules;
 
 use \UCP\Modules as Modules;
-#[\AllowDynamicProperties]
+
 class Cel extends Modules {
 	protected $module = 'Cel';
-	private $limit = 15;
-	private $break = 5;
+	private int $limit = 15;
+	private int $break = 5;
 	private $user = null;
 	private $userId = false;
+	protected $Modules = null;
+	protected $cel = null;
+	protected $UCP = null;
 
 	public function __construct($Modules) {
 		$this->Modules = $Modules;
+		$this->UCP = $this->Modules->UCP;
 		$this->cel = $this->UCP->FreePBX->Cel;
 		$this->user = $this->UCP->User->getUser();
 		$this->userId = $this->user ? $this->user["id"] : false;
@@ -100,7 +104,6 @@ class Cel extends Modules {
 	}
 
 	public function getStaticSettings() {
-		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
 		return array(
 			"showPlayback" => $this->_checkPlayback() ? "1" : "0",
 			"showDownload" => $this->_checkDownload() ? "1" : "0",
@@ -304,7 +307,7 @@ class Cel extends Modules {
 			$dl = $this->UCP->getCombinedSettingByID($this->userId, 'Cel', 'playback');
 			return is_null($dl) ? true : $dl;
 		} elseif (is_null($extension)) {
-			return $this->UCP->getCombinedSettingByID($this->userId, 'Cel', 'playback');;
+			return $this->UCP->getCombinedSettingByID($this->userId, 'Cel', 'playback');
 		}
 		return false;
 	}
