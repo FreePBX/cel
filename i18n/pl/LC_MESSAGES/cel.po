@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-26 22:21-0400\n"
+"POT-Creation-Date: 2026-09-22 06:53-0400\n"
 "PO-Revision-Date: 2023-11-20 15:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cel/pl/>\n"
@@ -62,13 +62,9 @@ msgstr "Aplikacja uruchomiona przez uczestnika połączenia"
 msgid "Backup Days"
 msgstr ""
 
-#: ucp/Cel.class.php:81
+#: ucp/Cel.class.php:85
 msgid "CEL (Call Event Logging) is not enabled for this user."
 msgstr ""
-
-#: cel.i18n.php:14
-msgid "CEL Report Module"
-msgstr "Moduł raportowania logowanie zdarzeń połączenia"
 
 #: views/page.cel_view.php:22
 msgid "CEL Reports"
@@ -78,16 +74,15 @@ msgstr "Raporty logowanie zdarzeń połączenia"
 msgid "Call Detail"
 msgstr "Szczegóły połączenia"
 
-#: Cel.class.php:343 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:10
-#: /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:343 /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Logowanie zdarzeń połączenia"
 
-#: ucp/Cel.class.php:33 ucp/Cel.class.php:128 ucp/assets/js/global.js:29
+#: ucp/Cel.class.php:37 ucp/Cel.class.php:131 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr "Zdarzenia połączenia"
 
-#: ucp/Cel.class.php:58
+#: ucp/Cel.class.php:62
 #, php-format
 msgid "Call Events for %s"
 msgstr "Zdarzenia połączenia %s"
@@ -133,28 +128,6 @@ msgstr "Kontekst"
 msgid "Controls"
 msgstr "Sterowanie"
 
-#: cel.i18n.php:20
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of database used for where "
-"the cel is stored. asteriskcdrdb is default."
-msgstr ""
-"NIE ZMIENIAJ TEGO, chyba, że wiesz co robisz. Wykorzystywane wyłącznie, gdy "
-"nie używasz domyślnych ustawień FreePBX. Nazwij bazę danych, w której "
-"przechowywane są dzienniki wydarzeń telefonicznych. Doyślna wartość to "
-"asteriskcdrdb."
-
-#: cel.i18n.php:24
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of the table in the db "
-"where the cel is stored. cel is default."
-msgstr ""
-"NIE KONFIGURUJ tego ustawienia, chyba, że wiesz co robisz. Ustawienie jest "
-"wykorzystywane jeżeli nie chcesz korzystać z wartości domyślnych FreePBX. "
-"Nazwa tabeli w bazie danych, gdzie przechowywane są dane CEL. cel to nazwa "
-"domyślna."
-
 #: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "Data"
@@ -195,10 +168,6 @@ msgstr "BŁĄD nie udało się zaktualizować bazy danych"
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr "Włącz CEL (Call Event Logging) w UCP dla tego użytkownika"
 
-#: cel.i18n.php:12
-msgid "Enable CEL Reporting"
-msgstr "Włącz raportowanie CEL"
-
 #: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
 msgstr "Błąd pobierania formularza"
@@ -211,7 +180,7 @@ msgstr "Typ zdarzenia"
 msgid "Extension"
 msgstr "Numer wewnętrzny"
 
-#: Cel.class.php:214 ucp/Cel.class.php:180 ucp/Cel.class.php:183
+#: Cel.class.php:214 ucp/Cel.class.php:183 ucp/Cel.class.php:186
 msgid "File does not exist"
 msgstr "Plik nie istnieje"
 
@@ -223,7 +192,7 @@ msgstr "Filtruj według źródła"
 msgid "Filter by destination"
 msgstr "Filtruj według miejsca docelowego"
 
-#: ucp/Cel.class.php:252 ucp/Cel.class.php:263
+#: ucp/Cel.class.php:255 ucp/Cel.class.php:266
 msgid "Forbidden"
 msgstr "Zabroniony"
 
@@ -248,7 +217,7 @@ msgstr "Linked Id"
 msgid "No"
 msgstr "Nie"
 
-#: ucp/Cel.class.php:257
+#: ucp/Cel.class.php:260
 msgid "Not Found"
 msgstr "Nie znaleziono"
 
@@ -272,14 +241,6 @@ msgstr "Kolejka"
 msgid "Refresh"
 msgstr "Odśwież"
 
-#: cel.i18n.php:18
-msgid "Remote CEL DB Name"
-msgstr "Nazwa zdalnej bazy danych CEL"
-
-#: cel.i18n.php:22
-msgid "Remote CEL DB Table"
-msgstr "Zdalna tabela CEL DB"
-
 #: install.php:114
 msgid "Removed"
 msgstr "Usunięte"
@@ -287,10 +248,6 @@ msgstr "Usunięte"
 #: install.php:107
 msgid "Removing outdated fields (this might take a long time)"
 msgstr "Usuwanie nieaktualnych pól (może to zająć dużo czasu)"
-
-#: cel.i18n.php:6
-msgid "Reports"
-msgstr "Raporty"
 
 #: views/backupSettings.php:22
 msgid "Restore Advanced Settings"
@@ -300,20 +257,6 @@ msgstr ""
 msgid "Select the date range for the report"
 msgstr "Wybierz zakres dat dla raportu"
 
-#: cel.i18n.php:16
-msgid ""
-"Setting this true will enable the CEL module to create call reports from CEL "
-"data. Although the CEL module will assure there is a CEL table available, "
-"the reporting functionality in Asterisk and associated ODBC database and CEL "
-"configuration must be done outside of FreePBX either by the user or at the "
-"Distro level."
-msgstr ""
-"Ustawienie tej wartości na true umożliwi modułowi CEL tworzenie raportów "
-"połączeń na podstawie danych CEL. Chociaż moduł CEL zapewnia, że dostępna "
-"jest tabela CEL, funkcja raportowania w Asterisk i powiązanej bazie danych "
-"ODBC oraz konfiguracja CEL musi być wykonana poza FreePBX przez użytkownika "
-"lub na poziomie dystrybucji."
-
 #: views/page.cel_view.php:114
 msgid "Source"
 msgstr "Źródło"
@@ -322,21 +265,11 @@ msgstr "Źródło"
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "Moduł CEL wymaga Asterisk w wersji 12.0 lub nowszej."
 
-#: cel.i18n.php:8
-msgid ""
-"The Call Event Logging module allows you to see all inbound and outbound "
-"calls for your user and listen to any call recordings that are associated "
-"with that call."
-msgstr ""
-"Moduł rejestrowania zdarzeń połączeń umożliwia wyświetlanie wszystkich "
-"połączeń przychodzących i wychodzących dla użytkownika oraz odsłuchiwanie "
-"wszelkich nagrań rozmów skojarzonych z tym połączeniem."
-
-#: ucp/Cel.class.php:91
+#: ucp/Cel.class.php:95
 msgid "The given extension is empty."
 msgstr ""
 
-#: ucp/Cel.class.php:86
+#: ucp/Cel.class.php:90
 msgid "There are no assigned extensions."
 msgstr ""
 
@@ -348,7 +281,7 @@ msgstr ""
 "Są to przypisane i aktywne numery wewnętrzne, które będą widoczne na koncie "
 "tego użytkownika do kontroli i edycji w UCP"
 
-#: ucp/Cel.class.php:95
+#: ucp/Cel.class.php:99
 msgid "This extension is not assigned to this user."
 msgstr ""
 
@@ -425,3 +358,60 @@ msgstr "znaleziono"
 #: install.php:77
 msgid "not found"
 msgstr "nie znaleziono"
+
+#~ msgid "CEL Report Module"
+#~ msgstr "Moduł raportowania logowanie zdarzeń połączenia"
+
+#~ msgid ""
+#~ "DO NOT set this unless you know what you are doing. Only used if you do "
+#~ "not use the default values provided by FreePBX. Name of database used for "
+#~ "where the cel is stored. asteriskcdrdb is default."
+#~ msgstr ""
+#~ "NIE ZMIENIAJ TEGO, chyba, że wiesz co robisz. Wykorzystywane wyłącznie, "
+#~ "gdy nie używasz domyślnych ustawień FreePBX. Nazwij bazę danych, w której "
+#~ "przechowywane są dzienniki wydarzeń telefonicznych. Doyślna wartość to "
+#~ "asteriskcdrdb."
+
+#~ msgid ""
+#~ "DO NOT set this unless you know what you are doing. Only used if you do "
+#~ "not use the default values provided by FreePBX. Name of the table in the "
+#~ "db where the cel is stored. cel is default."
+#~ msgstr ""
+#~ "NIE KONFIGURUJ tego ustawienia, chyba, że wiesz co robisz. Ustawienie "
+#~ "jest wykorzystywane jeżeli nie chcesz korzystać z wartości domyślnych "
+#~ "FreePBX. Nazwa tabeli w bazie danych, gdzie przechowywane są dane CEL. "
+#~ "cel to nazwa domyślna."
+
+#~ msgid "Enable CEL Reporting"
+#~ msgstr "Włącz raportowanie CEL"
+
+#~ msgid "Remote CEL DB Name"
+#~ msgstr "Nazwa zdalnej bazy danych CEL"
+
+#~ msgid "Remote CEL DB Table"
+#~ msgstr "Zdalna tabela CEL DB"
+
+#~ msgid "Reports"
+#~ msgstr "Raporty"
+
+#~ msgid ""
+#~ "Setting this true will enable the CEL module to create call reports from "
+#~ "CEL data. Although the CEL module will assure there is a CEL table "
+#~ "available, the reporting functionality in Asterisk and associated ODBC "
+#~ "database and CEL configuration must be done outside of FreePBX either by "
+#~ "the user or at the Distro level."
+#~ msgstr ""
+#~ "Ustawienie tej wartości na true umożliwi modułowi CEL tworzenie raportów "
+#~ "połączeń na podstawie danych CEL. Chociaż moduł CEL zapewnia, że dostępna "
+#~ "jest tabela CEL, funkcja raportowania w Asterisk i powiązanej bazie "
+#~ "danych ODBC oraz konfiguracja CEL musi być wykonana poza FreePBX przez "
+#~ "użytkownika lub na poziomie dystrybucji."
+
+#~ msgid ""
+#~ "The Call Event Logging module allows you to see all inbound and outbound "
+#~ "calls for your user and listen to any call recordings that are associated "
+#~ "with that call."
+#~ msgstr ""
+#~ "Moduł rejestrowania zdarzeń połączeń umożliwia wyświetlanie wszystkich "
+#~ "połączeń przychodzących i wychodzących dla użytkownika oraz odsłuchiwanie "
+#~ "wszelkich nagrań rozmów skojarzonych z tym połączeniem."

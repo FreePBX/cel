@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-26 22:21-0400\n"
+"POT-Creation-Date: 2026-09-22 06:53-0400\n"
 "PO-Revision-Date: 2015-11-23 13:56+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -62,12 +62,8 @@ msgstr ""
 msgid "Backup Days"
 msgstr ""
 
-#: ucp/Cel.class.php:81
+#: ucp/Cel.class.php:85
 msgid "CEL (Call Event Logging) is not enabled for this user."
-msgstr ""
-
-#: cel.i18n.php:14
-msgid "CEL Report Module"
 msgstr ""
 
 #: views/page.cel_view.php:22
@@ -78,16 +74,15 @@ msgstr ""
 msgid "Call Detail"
 msgstr ""
 
-#: Cel.class.php:343 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:10
-#: /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:343 /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr ""
 
-#: ucp/Cel.class.php:33 ucp/Cel.class.php:128 ucp/assets/js/global.js:29
+#: ucp/Cel.class.php:37 ucp/Cel.class.php:131 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr ""
 
-#: ucp/Cel.class.php:58
+#: ucp/Cel.class.php:62
 #, php-format
 msgid "Call Events for %s"
 msgstr ""
@@ -133,20 +128,6 @@ msgstr ""
 msgid "Controls"
 msgstr "控制"
 
-#: cel.i18n.php:20
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of database used for where "
-"the cel is stored. asteriskcdrdb is default."
-msgstr ""
-
-#: cel.i18n.php:24
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of the table in the db "
-"where the cel is stored. cel is default."
-msgstr ""
-
 #: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "日期"
@@ -187,10 +168,6 @@ msgstr ""
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr ""
 
-#: cel.i18n.php:12
-msgid "Enable CEL Reporting"
-msgstr ""
-
 #: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
 msgstr ""
@@ -203,7 +180,7 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#: Cel.class.php:214 ucp/Cel.class.php:180 ucp/Cel.class.php:183
+#: Cel.class.php:214 ucp/Cel.class.php:183 ucp/Cel.class.php:186
 msgid "File does not exist"
 msgstr "文件不存在"
 
@@ -215,7 +192,7 @@ msgstr ""
 msgid "Filter by destination"
 msgstr ""
 
-#: ucp/Cel.class.php:252 ucp/Cel.class.php:263
+#: ucp/Cel.class.php:255 ucp/Cel.class.php:266
 msgid "Forbidden"
 msgstr "禁止"
 
@@ -240,7 +217,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ucp/Cel.class.php:257
+#: ucp/Cel.class.php:260
 msgid "Not Found"
 msgstr "没有发现"
 
@@ -264,14 +241,6 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: cel.i18n.php:18
-msgid "Remote CEL DB Name"
-msgstr ""
-
-#: cel.i18n.php:22
-msgid "Remote CEL DB Table"
-msgstr ""
-
 #: install.php:114
 msgid "Removed"
 msgstr ""
@@ -280,25 +249,12 @@ msgstr ""
 msgid "Removing outdated fields (this might take a long time)"
 msgstr ""
 
-#: cel.i18n.php:6
-msgid "Reports"
-msgstr "报表"
-
 #: views/backupSettings.php:22
 msgid "Restore Advanced Settings"
 msgstr ""
 
 #: views/page.cel_view.php:102
 msgid "Select the date range for the report"
-msgstr ""
-
-#: cel.i18n.php:16
-msgid ""
-"Setting this true will enable the CEL module to create call reports from CEL "
-"data. Although the CEL module will assure there is a CEL table available, "
-"the reporting functionality in Asterisk and associated ODBC database and CEL "
-"configuration must be done outside of FreePBX either by the user or at the "
-"Distro level."
 msgstr ""
 
 #: views/page.cel_view.php:114
@@ -309,18 +265,11 @@ msgstr ""
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr ""
 
-#: cel.i18n.php:8
-msgid ""
-"The Call Event Logging module allows you to see all inbound and outbound "
-"calls for your user and listen to any call recordings that are associated "
-"with that call."
-msgstr ""
-
-#: ucp/Cel.class.php:91
+#: ucp/Cel.class.php:95
 msgid "The given extension is empty."
 msgstr ""
 
-#: ucp/Cel.class.php:86
+#: ucp/Cel.class.php:90
 msgid "There are no assigned extensions."
 msgstr ""
 
@@ -330,7 +279,7 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
-#: ucp/Cel.class.php:95
+#: ucp/Cel.class.php:99
 msgid "This extension is not assigned to this user."
 msgstr ""
 
@@ -401,6 +350,9 @@ msgstr ""
 #: install.php:77
 msgid "not found"
 msgstr ""
+
+#~ msgid "Reports"
+#~ msgstr "报表"
 
 #~ msgid "Search"
 #~ msgstr "查询"

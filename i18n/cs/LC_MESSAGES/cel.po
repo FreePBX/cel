@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-26 22:21-0400\n"
+"POT-Creation-Date: 2026-09-22 06:53-0400\n"
 "PO-Revision-Date: 2018-08-29 14:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cel/cs/>\n"
@@ -61,13 +61,9 @@ msgstr "Aplikace spuštěná účastníkem hovoru"
 msgid "Backup Days"
 msgstr ""
 
-#: ucp/Cel.class.php:81
+#: ucp/Cel.class.php:85
 msgid "CEL (Call Event Logging) is not enabled for this user."
 msgstr ""
-
-#: cel.i18n.php:14
-msgid "CEL Report Module"
-msgstr "CEL reportingový modul"
 
 #: views/page.cel_view.php:22
 msgid "CEL Reports"
@@ -77,16 +73,15 @@ msgstr "CEL reporty"
 msgid "Call Detail"
 msgstr "Detaily hovoru"
 
-#: Cel.class.php:343 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:10
-#: /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:343 /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Protokol hovoru"
 
-#: ucp/Cel.class.php:33 ucp/Cel.class.php:128 ucp/assets/js/global.js:29
+#: ucp/Cel.class.php:37 ucp/Cel.class.php:131 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr "Události hovoru"
 
-#: ucp/Cel.class.php:58
+#: ucp/Cel.class.php:62
 #, php-format
 msgid "Call Events for %s"
 msgstr "Události hovoru pro %s"
@@ -133,26 +128,6 @@ msgstr "Kontext"
 msgid "Controls"
 msgstr "Ovládací prvky"
 
-#: cel.i18n.php:20
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of database used for where "
-"the cel is stored. asteriskcdrdb is default."
-msgstr ""
-"Toto NENASTAVUJTE, pokud si nejste jisti, co děláte. Využívá se pouze v "
-"případě, že nepoužíváte standardní hodnoty poskytované FreePBX. Název "
-"databáze použitá pro CEL je uložena. Výchozí je asteriskcdrdb."
-
-#: cel.i18n.php:24
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of the table in the db "
-"where the cel is stored. cel is default."
-msgstr ""
-"Toto NENASTAVUJTE, pokud si nejste jisti, co děláte. Využívá se pouze v "
-"případě, že nepoužíváte standardní hodnoty poskytované FreePBX. Název "
-"tabulky v databázi kde je CEL uložena. Výchozí je cel."
-
 #: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "Datum"
@@ -193,10 +168,6 @@ msgstr "CHYBA aktualizace databáze se nezdařila"
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr "Pro tohoto uživatele povolit CEL (Call Event Logging) v UCP"
 
-#: cel.i18n.php:12
-msgid "Enable CEL Reporting"
-msgstr "Povolit CEL reporty"
-
 #: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
 msgstr "Chyba při získávání formuláře"
@@ -209,7 +180,7 @@ msgstr "Typ události"
 msgid "Extension"
 msgstr "Pobočka"
 
-#: Cel.class.php:214 ucp/Cel.class.php:180 ucp/Cel.class.php:183
+#: Cel.class.php:214 ucp/Cel.class.php:183 ucp/Cel.class.php:186
 msgid "File does not exist"
 msgstr "Soubor neexistuje"
 
@@ -221,7 +192,7 @@ msgstr "Filtrování podle zdroje"
 msgid "Filter by destination"
 msgstr "Filtrování podle cíle"
 
-#: ucp/Cel.class.php:252 ucp/Cel.class.php:263
+#: ucp/Cel.class.php:255 ucp/Cel.class.php:266
 msgid "Forbidden"
 msgstr "Zakázáno"
 
@@ -247,7 +218,7 @@ msgstr "LinkedID"
 msgid "No"
 msgstr "Ne"
 
-#: ucp/Cel.class.php:257
+#: ucp/Cel.class.php:260
 msgid "Not Found"
 msgstr "Nenalezeno"
 
@@ -271,14 +242,6 @@ msgstr "Fronta"
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: cel.i18n.php:18
-msgid "Remote CEL DB Name"
-msgstr "Vzdálené jméno CEL DB"
-
-#: cel.i18n.php:22
-msgid "Remote CEL DB Table"
-msgstr "Vzdálená tabulka CEL DB"
-
 #: install.php:114
 msgid "Removed"
 msgstr "Odebráno"
@@ -286,10 +249,6 @@ msgstr "Odebráno"
 #: install.php:107
 msgid "Removing outdated fields (this might take a long time)"
 msgstr "Odstranění zastaralých polí (může to trvat dlouho)"
-
-#: cel.i18n.php:6
-msgid "Reports"
-msgstr "Reporty"
 
 #: views/backupSettings.php:22
 msgid "Restore Advanced Settings"
@@ -299,19 +258,6 @@ msgstr ""
 msgid "Select the date range for the report"
 msgstr "Vyberte časové období pro report"
 
-#: cel.i18n.php:16
-msgid ""
-"Setting this true will enable the CEL module to create call reports from CEL "
-"data. Although the CEL module will assure there is a CEL table available, "
-"the reporting functionality in Asterisk and associated ODBC database and CEL "
-"configuration must be done outside of FreePBX either by the user or at the "
-"Distro level."
-msgstr ""
-"Nastavením této hodnoty umožníte modulu CEL vytvářet zprávy o volání z dat "
-"CEL. I když modul CEL zajistí, že je k dispozici tabulka CEL, funkčnost "
-"vykazování v Asterisku a přidružené databázi ODBC a konfiguraci CEL musí být "
-"provedena mimo FreePBX buď uživatelem, nebo na úrovni Distro."
-
 #: views/page.cel_view.php:114
 msgid "Source"
 msgstr "Zdroj"
@@ -320,18 +266,11 @@ msgstr "Zdroj"
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "CEL modul vyžaduje verzi Asterisku 12.0 nebo vyšší."
 
-#: cel.i18n.php:8
-msgid ""
-"The Call Event Logging module allows you to see all inbound and outbound "
-"calls for your user and listen to any call recordings that are associated "
-"with that call."
-msgstr ""
-
-#: ucp/Cel.class.php:91
+#: ucp/Cel.class.php:95
 msgid "The given extension is empty."
 msgstr ""
 
-#: ucp/Cel.class.php:86
+#: ucp/Cel.class.php:90
 msgid "There are no assigned extensions."
 msgstr ""
 
@@ -343,7 +282,7 @@ msgstr ""
 "Jedná se o přiřazené a aktivní pobočky, která se pro uživatele zobrazí pro "
 "ovládání a úpravu v UCP"
 
-#: ucp/Cel.class.php:95
+#: ucp/Cel.class.php:99
 msgid "This extension is not assigned to this user."
 msgstr ""
 
@@ -420,6 +359,51 @@ msgstr "nalezeno"
 #: install.php:77
 msgid "not found"
 msgstr "nenalezeno"
+
+#~ msgid "CEL Report Module"
+#~ msgstr "CEL reportingový modul"
+
+#~ msgid ""
+#~ "DO NOT set this unless you know what you are doing. Only used if you do "
+#~ "not use the default values provided by FreePBX. Name of database used for "
+#~ "where the cel is stored. asteriskcdrdb is default."
+#~ msgstr ""
+#~ "Toto NENASTAVUJTE, pokud si nejste jisti, co děláte. Využívá se pouze v "
+#~ "případě, že nepoužíváte standardní hodnoty poskytované FreePBX. Název "
+#~ "databáze použitá pro CEL je uložena. Výchozí je asteriskcdrdb."
+
+#~ msgid ""
+#~ "DO NOT set this unless you know what you are doing. Only used if you do "
+#~ "not use the default values provided by FreePBX. Name of the table in the "
+#~ "db where the cel is stored. cel is default."
+#~ msgstr ""
+#~ "Toto NENASTAVUJTE, pokud si nejste jisti, co děláte. Využívá se pouze v "
+#~ "případě, že nepoužíváte standardní hodnoty poskytované FreePBX. Název "
+#~ "tabulky v databázi kde je CEL uložena. Výchozí je cel."
+
+#~ msgid "Enable CEL Reporting"
+#~ msgstr "Povolit CEL reporty"
+
+#~ msgid "Remote CEL DB Name"
+#~ msgstr "Vzdálené jméno CEL DB"
+
+#~ msgid "Remote CEL DB Table"
+#~ msgstr "Vzdálená tabulka CEL DB"
+
+#~ msgid "Reports"
+#~ msgstr "Reporty"
+
+#~ msgid ""
+#~ "Setting this true will enable the CEL module to create call reports from "
+#~ "CEL data. Although the CEL module will assure there is a CEL table "
+#~ "available, the reporting functionality in Asterisk and associated ODBC "
+#~ "database and CEL configuration must be done outside of FreePBX either by "
+#~ "the user or at the Distro level."
+#~ msgstr ""
+#~ "Nastavením této hodnoty umožníte modulu CEL vytvářet zprávy o volání z "
+#~ "dat CEL. I když modul CEL zajistí, že je k dispozici tabulka CEL, "
+#~ "funkčnost vykazování v Asterisku a přidružené databázi ODBC a konfiguraci "
+#~ "CEL musí být provedena mimo FreePBX buď uživatelem, nebo na úrovni Distro."
 
 #~ msgid "Caller ID"
 #~ msgstr "ID volajícího"

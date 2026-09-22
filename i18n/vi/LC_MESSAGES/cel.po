@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-26 22:21-0400\n"
+"POT-Creation-Date: 2026-09-22 06:53-0400\n"
 "PO-Revision-Date: 2017-06-22 10:39+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cel/"
@@ -62,13 +62,9 @@ msgstr "Ứng dụng được thực hiện bởi một người tham gia cuộc
 msgid "Backup Days"
 msgstr ""
 
-#: ucp/Cel.class.php:81
+#: ucp/Cel.class.php:85
 msgid "CEL (Call Event Logging) is not enabled for this user."
 msgstr ""
-
-#: cel.i18n.php:14
-msgid "CEL Report Module"
-msgstr "Mô đun báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
 
 #: views/page.cel_view.php:22
 msgid "CEL Reports"
@@ -78,16 +74,15 @@ msgstr ""
 msgid "Call Detail"
 msgstr "Chi tiết cuộc gọi"
 
-#: Cel.class.php:343 /usr/src/freepbx/cel/cel.i18n.php:4 cel.i18n.php:10
-#: /usr/src/freepbx/cel/page.cel.php:10
+#: Cel.class.php:343 /usr/src/freepbx/cel/page.cel.php:10
 msgid "Call Event Logging"
 msgstr "Nhật ký sự kiện cuộc gọi"
 
-#: ucp/Cel.class.php:33 ucp/Cel.class.php:128 ucp/assets/js/global.js:29
+#: ucp/Cel.class.php:37 ucp/Cel.class.php:131 ucp/assets/js/global.js:29
 msgid "Call Events"
 msgstr ""
 
-#: ucp/Cel.class.php:58
+#: ucp/Cel.class.php:62
 #, php-format
 msgid "Call Events for %s"
 msgstr ""
@@ -133,23 +128,6 @@ msgstr ""
 msgid "Controls"
 msgstr "Điều khiển"
 
-#: cel.i18n.php:20
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of database used for where "
-"the cel is stored. asteriskcdrdb is default."
-msgstr ""
-
-#: cel.i18n.php:24
-msgid ""
-"DO NOT set this unless you know what you are doing. Only used if you do not "
-"use the default values provided by FreePBX. Name of the table in the db "
-"where the cel is stored. cel is default."
-msgstr ""
-"KHÔNG ĐƯỢC cài đặt như thế trừ khi bạn biết bạn đang làm cái gì. Chỉ được sử "
-"dụng nếu bạn không sử dụng giá trị mặc định do FreePBX cung cấp. Tên của "
-"bảng trong db nơi cel ( Nhật ký sự kiện cuộc gọi) được lưu trữ. Cel mặc định."
-
 #: ucp/views/widget.php:24 views/page.cel_view.php:201
 msgid "Date"
 msgstr "Ngày"
@@ -190,10 +168,6 @@ msgstr ""
 msgid "Enable CEL (Call Event Logging) in UCP for this user"
 msgstr "Bật CEL ( Nhật ký sự kiện cuộc gọi) trong UCP cho người dùng"
 
-#: cel.i18n.php:12
-msgid "Enable CEL Reporting"
-msgstr "Bật báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
-
 #: ucp/assets/js/global.js:38 ucp/assets/js/global.js:42
 msgid "Error getting form"
 msgstr ""
@@ -206,7 +180,7 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#: Cel.class.php:214 ucp/Cel.class.php:180 ucp/Cel.class.php:183
+#: Cel.class.php:214 ucp/Cel.class.php:183 ucp/Cel.class.php:186
 msgid "File does not exist"
 msgstr "Tệp không tồn tại"
 
@@ -218,7 +192,7 @@ msgstr ""
 msgid "Filter by destination"
 msgstr ""
 
-#: ucp/Cel.class.php:252 ucp/Cel.class.php:263
+#: ucp/Cel.class.php:255 ucp/Cel.class.php:266
 msgid "Forbidden"
 msgstr "Bị cấm"
 
@@ -243,7 +217,7 @@ msgstr ""
 msgid "No"
 msgstr "Không"
 
-#: ucp/Cel.class.php:257
+#: ucp/Cel.class.php:260
 msgid "Not Found"
 msgstr "Không tìm thấy"
 
@@ -267,14 +241,6 @@ msgstr "Hàng đợi"
 msgid "Refresh"
 msgstr ""
 
-#: cel.i18n.php:18
-msgid "Remote CEL DB Name"
-msgstr ""
-
-#: cel.i18n.php:22
-msgid "Remote CEL DB Table"
-msgstr "Bảng dữ liệu CEL từ xa"
-
 #: install.php:114
 msgid "Removed"
 msgstr "Đã xóa"
@@ -282,10 +248,6 @@ msgstr "Đã xóa"
 #: install.php:107
 msgid "Removing outdated fields (this might take a long time)"
 msgstr ""
-
-#: cel.i18n.php:6
-msgid "Reports"
-msgstr "Các báo cáo"
 
 #: views/backupSettings.php:22
 msgid "Restore Advanced Settings"
@@ -295,19 +257,6 @@ msgstr ""
 msgid "Select the date range for the report"
 msgstr ""
 
-#: cel.i18n.php:16
-msgid ""
-"Setting this true will enable the CEL module to create call reports from CEL "
-"data. Although the CEL module will assure there is a CEL table available, "
-"the reporting functionality in Asterisk and associated ODBC database and CEL "
-"configuration must be done outside of FreePBX either by the user or at the "
-"Distro level."
-msgstr ""
-"Cài đặt về True sẽ bật mô đun CEL để tạo báo cáo cuộc gọi từ dữ liệu CEL. Dù "
-"mô đun CEL sẽ đảm bảo có mộ bảng CEL sẵn có, tính nắng báo cáo trong "
-"Asterisk và cơ sở dữ liệu ODBC và cấu hình CEL  phải được thực hiện bên "
-"ngoài FreePBX bở người dùng hoặc tại mức Distro."
-
 #: views/page.cel_view.php:114
 msgid "Source"
 msgstr ""
@@ -316,18 +265,11 @@ msgstr ""
 msgid "The CEL module requires an Asterisk version of 12.0 or higher."
 msgstr "Mô đun CEL yêu cầu một phiên bản Asterisk 12.0 hoặc cao hơn."
 
-#: cel.i18n.php:8
-msgid ""
-"The Call Event Logging module allows you to see all inbound and outbound "
-"calls for your user and listen to any call recordings that are associated "
-"with that call."
-msgstr ""
-
-#: ucp/Cel.class.php:91
+#: ucp/Cel.class.php:95
 msgid "The given extension is empty."
 msgstr ""
 
-#: ucp/Cel.class.php:86
+#: ucp/Cel.class.php:90
 msgid "There are no assigned extensions."
 msgstr ""
 
@@ -339,7 +281,7 @@ msgstr ""
 "Có những máy nhánh được chỉ định và hoạt động sẽ hiển thị cho người dùng này "
 "điều khiển và hiệu chỉnh trong UCP"
 
-#: ucp/Cel.class.php:95
+#: ucp/Cel.class.php:99
 msgid "This extension is not assigned to this user."
 msgstr ""
 
@@ -416,6 +358,40 @@ msgstr ""
 #: install.php:77
 msgid "not found"
 msgstr ""
+
+#~ msgid "CEL Report Module"
+#~ msgstr "Mô đun báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
+
+#~ msgid ""
+#~ "DO NOT set this unless you know what you are doing. Only used if you do "
+#~ "not use the default values provided by FreePBX. Name of the table in the "
+#~ "db where the cel is stored. cel is default."
+#~ msgstr ""
+#~ "KHÔNG ĐƯỢC cài đặt như thế trừ khi bạn biết bạn đang làm cái gì. Chỉ được "
+#~ "sử dụng nếu bạn không sử dụng giá trị mặc định do FreePBX cung cấp. Tên "
+#~ "của bảng trong db nơi cel ( Nhật ký sự kiện cuộc gọi) được lưu trữ. Cel "
+#~ "mặc định."
+
+#~ msgid "Enable CEL Reporting"
+#~ msgstr "Bật báo cáo CEL ( Nhật ký sự kiện cuộc gọi)"
+
+#~ msgid "Remote CEL DB Table"
+#~ msgstr "Bảng dữ liệu CEL từ xa"
+
+#~ msgid "Reports"
+#~ msgstr "Các báo cáo"
+
+#~ msgid ""
+#~ "Setting this true will enable the CEL module to create call reports from "
+#~ "CEL data. Although the CEL module will assure there is a CEL table "
+#~ "available, the reporting functionality in Asterisk and associated ODBC "
+#~ "database and CEL configuration must be done outside of FreePBX either by "
+#~ "the user or at the Distro level."
+#~ msgstr ""
+#~ "Cài đặt về True sẽ bật mô đun CEL để tạo báo cáo cuộc gọi từ dữ liệu CEL. "
+#~ "Dù mô đun CEL sẽ đảm bảo có mộ bảng CEL sẵn có, tính nắng báo cáo trong "
+#~ "Asterisk và cơ sở dữ liệu ODBC và cấu hình CEL  phải được thực hiện bên "
+#~ "ngoài FreePBX bở người dùng hoặc tại mức Distro."
 
 #~ msgid "Caller ID"
 #~ msgstr "Định danh người gọi đến"
